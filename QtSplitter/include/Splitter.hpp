@@ -1,14 +1,20 @@
 #pragma once
 
-#include "Global.hpp"
+#ifdef QTSPLITTER_LIBRARY
+    #define QTSPLITTER_EXPORT Q_DECL_EXPORT
+#else
+    #define QTSPLITTER_EXPORT Q_DECL_IMPORT
+#endif
 
-#include "Expander.hpp"
-#include "Overlay.hpp"
-#include "SplitterDecorator.hpp"
-#include "SplitterHandle.hpp"
-#include "SplitterWidgetDecorator.hpp"
+#include "QtSplitter/Global.hpp"
 
-class Splitter : public QSplitter
+#include "QtSplitter/Expander.hpp"
+#include "QtSplitter/Overlay.hpp"
+#include "QtSplitter/SplitterDecorator.hpp"
+#include "QtSplitter/SplitterHandle.hpp"
+#include "QtSplitter/SplitterWidgetDecorator.hpp"
+
+class QTSPLITTER_EXPORT Splitter : public QSplitter
 {
     Q_OBJECT
 public:
