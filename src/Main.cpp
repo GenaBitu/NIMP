@@ -15,12 +15,8 @@ int main(int argc, char** argv)
     WINDOW->setWindowTitle("NIMP");
     WINDOW->setWindowIcon(QIcon(":/icons/app_icon"));
 
-    QLabel* Label1{new QLabel{"NIMPaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"}};
-    QLabel* Label2{new QLabel{"NIMP2bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"}};
-    SPLITTER->addWidget(Label1);
-    SPLITTER->addWidget(Label2);
-
-    //WINDOW->setStyleSheet("QSplitter::handle{background: black;}");
+    SPLITTER->addWidget(new QLabel{"NIMP2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"});
+    SPLITTER->addWidget(new QLabel{"NIMP2bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"});
 
     WINDOW->show();
 
