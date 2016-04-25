@@ -1,13 +1,13 @@
 #include "include/Main.hpp"
 
 QMainWindow* WINDOW{};
-Splitter* SPLITTER{};
+BlendSplitter* SPLITTER{};
 
 int main(int argc, char** argv)
 {
     new QApplication{argc, argv};
     WINDOW = new QMainWindow{};
-    SPLITTER = new Splitter{};
+    SPLITTER = new BlendSplitter{};
 
     WINDOW->setCentralWidget(SPLITTER);
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QMainWindow>
-#include <Splitter.hpp>
+#include <BlendSplitter.hpp>
 
 extern QMainWindow* WINDOW;
-extern Splitter* SPLITTER;
+extern BlendSplitter* SPLITTER;
