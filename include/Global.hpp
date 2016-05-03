@@ -2,6 +2,8 @@
 
 #include <QApplication>
 #include <QMainWindow>
+#include <QLabel>
+
 #include <BlendSplitter.hpp>
 
 extern QMainWindow* WINDOW;
