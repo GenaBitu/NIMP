@@ -22,11 +22,16 @@ DEPENDPATH += BlendSplitter/include
 
 LIBS += -L$$PWD/BlendSplitter/lib -lBlendSplitter
 
-SOURCES += src/Main.cpp \
+SOURCES += \
+    src/Main.cpp \
+    src/Canvas.cpp \
+    src/Image.cpp
 
 HEADERS  += \
-    include/Global.hpp \
     include/Main.hpp \
+    include/Canvas.hpp \
+    include/Global.hpp \
+    include/Image.hpp
 
 RESOURCES += \
     images.qrc

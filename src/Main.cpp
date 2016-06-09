@@ -1,19 +1,34 @@
 #include "include/Main.hpp"
 
-QMainWindow* WINDOW{};
+QOpenGLWindow* WINDOW{};
 BlendSplitter* SPLITTER{};
+Canvas* CANVAS{};
+QOpenGLContext* CONTEXT{};
 
 int main(int argc, char** argv)
 {
+    QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     new QApplication{argc, argv};
-    WINDOW = new QMainWindow{};
+    WINDOW = new QOpenGLWindow{};
     SPLITTER = new BlendSplitter{};
+    CANVAS = new Canvas{};
+    CONTEXT = new QOpenGLContext{};
 
-    WINDOW->setCentralWidget(SPLITTER);
+    //WINDOW->setCentralWidget(SPLITTER);
 
     WINDOW->resize(860, 640);
-    WINDOW->setWindowTitle("NIMP");
-    WINDOW->setWindowIcon(QIcon(":/icons/app_icon"));
+    //WINDOW->setWindowTitle("NIMP");
+    //WINDOW->setWindowIcon(QIcon(":/icons/app_icon"));
+    WINDOW->create();
+
+    CONTEXT->create();
+    CANVAS->makeCurrent();
+    CANVAS->doneCurrent();
+
+    QSurfaceFormat format;
+    format.setVersion(3, 0);
+    format.setProfile(QSurfaceFormat::CoreProfile);
+    QSurfaceFormat::setDefaultFormat(format);
 
     WidgetRegistry::getRegistry()->addItem();
     WidgetRegistry::getRegistry()->addItem("Type1", []()->QWidget* {return new QLabel{"Type 1 Label"};}, [](SwitchingBar* bar, QWidget*)->void {
@@ -27,12 +42,17 @@ int main(int argc, char** argv)
         bar->addWidget(lab);
     });
     WidgetRegistry::getRegistry()->addItem(new RegistryItem{"Type2", []()->QWidget* {return new QLabel{"Type 2 Label"};}});
+    WidgetRegistry::getRegistry()->addItem("Canvas", []()->QWidget*{return CANVAS;});
+    WidgetRegistry::getRegistry()->setDefault(3);
 
     /*SPLITTER->addWidget(new QLabel{"NIMP2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"});
     SPLITTER->addWidget(new QLabel{"NIMP2bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"});*/
     SPLITTER->addWidget();
 
+
     WINDOW->show();
+    Image* img{new Image{}};
+    img->loadBMP("neco.bmp");
 
     return qApp->exec();
 }
