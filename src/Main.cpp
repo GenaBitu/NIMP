@@ -3,7 +3,7 @@
 QOpenGLWindow* WINDOW{};
 BlendSplitter* SPLITTER{};
 Canvas* CANVAS{};
-QOpenGLContext* CONTEXT{};
+QOpenGLContext* MYCONTEXT{};
 
 int main(int argc, char** argv)
 {
@@ -12,7 +12,7 @@ int main(int argc, char** argv)
     WINDOW = new QOpenGLWindow{};
     SPLITTER = new BlendSplitter{};
     CANVAS = new Canvas{};
-    CONTEXT = new QOpenGLContext{};
+    MYCONTEXT = new QOpenGLContext{};
 
     //WINDOW->setCentralWidget(SPLITTER);
 
@@ -21,7 +21,7 @@ int main(int argc, char** argv)
     //WINDOW->setWindowIcon(QIcon(":/icons/app_icon"));
     WINDOW->create();
 
-    CONTEXT->create();
+    MYCONTEXT->create();
     CANVAS->makeCurrent();
     CANVAS->doneCurrent();
 

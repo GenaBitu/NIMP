@@ -18,4 +18,4 @@ class Canvas;
 extern QOpenGLWindow* WINDOW;
 extern BlendSplitter* SPLITTER;
 extern Canvas* CANVAS;
-extern QOpenGLContext* CONTEXT;
+extern QOpenGLContext* MYCONTEXT;
