@@ -2,20 +2,19 @@
 
 #include <fstream> // DEBUG
 
-
 #include <QApplication>
-#include <QOpenGLWindow>
+#include <QMainWindow>
 #include <QDebug> // DEBUG
 #include <QSurface> // DEBUG
 #include <QLabel>
 #include <QOpenGLWidget>
-#include <QOpenGLFunctions_3_0>
+#include <QOpenGLFunctions_2_0>
 
 #include <BlendSplitter.hpp>
 
-class Canvas;
+//class Canvas;
 
-extern QOpenGLWindow* WINDOW;
+extern QMainWindow* WINDOW;
 extern BlendSplitter* SPLITTER;
-extern Canvas* CANVAS;
-extern QOpenGLContext* MYCONTEXT;
+//extern Canvas* CANVAS;
+//extern QOpenGLContext* MYCONTEXT;

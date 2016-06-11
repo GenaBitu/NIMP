@@ -6,14 +6,14 @@ using namespace std;
 
 Image::Image() : ID{}
 {
-    qDebug() << "CHck1" << endl;
+    /*qDebug() << "CHck1" << endl;
     //CANVAS->initializeGL();
     CANVAS->context()->makeCurrent(WINDOW);
     qDebug() << CANVAS->context() << endl;
     glBindFramebuffer(GL_DRAW_FRAMEBUFFER, CANVAS->defaultFramebufferObject());
     qDebug() << "CHck1.5" << endl;
     glGenTextures(1, &ID);
-    qDebug() << "CHck2" << endl;
+    qDebug() << "CHck2" << endl;*/
 }
 
 Image::Image(const Image &other) : Image{}
@@ -107,9 +107,8 @@ void Image::loadBMP(std::string fileName)
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, header.width, header.height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    //glGenerateMipmap(GL_TEXTURE_2D);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     delete[] data;
     file.close();
 }

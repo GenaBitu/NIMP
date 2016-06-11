@@ -25,7 +25,7 @@ typedef struct {
 
 #pragma pack(pop)
 
-class Image : public QOpenGLFunctions_3_0
+class Image : public QOpenGLFunctions_2_0
 {
 public:
     GLuint ID;

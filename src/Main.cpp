@@ -1,29 +1,28 @@
 #include "include/Main.hpp"
 
-QOpenGLWindow* WINDOW{};
+QMainWindow* WINDOW{};
 BlendSplitter* SPLITTER{};
-Canvas* CANVAS{};
-QOpenGLContext* MYCONTEXT{};
+//Canvas* CANVAS{};
+//QOpenGLContext* MYCONTEXT{};
 
 int main(int argc, char** argv)
 {
     QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
     new QApplication{argc, argv};
-    WINDOW = new QOpenGLWindow{};
+    WINDOW = new QMainWindow{};
     SPLITTER = new BlendSplitter{};
-    CANVAS = new Canvas{};
-    MYCONTEXT = new QOpenGLContext{};
+    //CANVAS = new Canvas{};
+    //MYCONTEXT = new QOpenGLContext{};
 
-    //WINDOW->setCentralWidget(SPLITTER);
+    WINDOW->setCentralWidget(SPLITTER);
 
     WINDOW->resize(860, 640);
-    //WINDOW->setWindowTitle("NIMP");
-    //WINDOW->setWindowIcon(QIcon(":/icons/app_icon"));
-    WINDOW->create();
+    WINDOW->setWindowTitle("NIMP");
+    WINDOW->setWindowIcon(QIcon(":/icons/app_icon"));
 
-    MYCONTEXT->create();
-    CANVAS->makeCurrent();
-    CANVAS->doneCurrent();
+    //MYCONTEXT->create();
+    //CANVAS->makeCurrent();
+    //CANVAS->doneCurrent();
 
     QSurfaceFormat format;
     format.setVersion(3, 0);
@@ -42,8 +41,8 @@ int main(int argc, char** argv)
         bar->addWidget(lab);
     });
     WidgetRegistry::getRegistry()->addItem(new RegistryItem{"Type2", []()->QWidget* {return new QLabel{"Type 2 Label"};}});
-    WidgetRegistry::getRegistry()->addItem("Canvas", []()->QWidget*{return CANVAS;});
-    WidgetRegistry::getRegistry()->setDefault(3);
+    //WidgetRegistry::getRegistry()->addItem("Canvas", []()->QWidget*{return CANVAS;});
+    //WidgetRegistry::getRegistry()->setDefault(3);
 
     /*SPLITTER->addWidget(new QLabel{"NIMP2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"});
     SPLITTER->addWidget(new QLabel{"NIMP2bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"});*/
@@ -51,8 +50,8 @@ int main(int argc, char** argv)
 
 
     WINDOW->show();
-    Image* img{new Image{}};
-    img->loadBMP("neco.bmp");
+    //Image* img{new Image{}};
+    //img->loadBMP("neco.bmp");
 
     return qApp->exec();
 }

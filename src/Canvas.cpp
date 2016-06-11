@@ -2,5 +2,5 @@
 
 Canvas::Canvas()
 {
-    initializeGL();
+
 }
