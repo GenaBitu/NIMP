@@ -5,16 +5,14 @@
 #include <QApplication>
 #include <QMainWindow>
 #include <QDebug> // DEBUG
-#include <QSurface> // DEBUG
 #include <QLabel>
 #include <QOpenGLWidget>
-#include <QOpenGLFunctions_2_0>
+#include <QOpenGLFunctions>
 
 #include <BlendSplitter.hpp>
 
-//class Canvas;
+class Canvas; // DEBUG
 
 extern QMainWindow* WINDOW;
 extern BlendSplitter* SPLITTER;
-//extern Canvas* CANVAS;
-//extern QOpenGLContext* MYCONTEXT;
+extern Canvas* CANVAS; // DEBUG

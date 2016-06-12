@@ -1,27 +1,21 @@
-#include "include/Image.hpp"
+#include "include/Texture.hpp"
 
 #include "include/Canvas.hpp"
 
 using namespace std;
 
-Image::Image() : ID{}
+Texture::Texture() : ID{}
 {
-    /*qDebug() << "CHck1" << endl;
-    //CANVAS->initializeGL();
-    CANVAS->context()->makeCurrent(WINDOW);
-    qDebug() << CANVAS->context() << endl;
-    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, CANVAS->defaultFramebufferObject());
-    qDebug() << "CHck1.5" << endl;
+    initializeOpenGLFunctions();
     glGenTextures(1, &ID);
-    qDebug() << "CHck2" << endl;*/
 }
 
-Image::Image(const Image &other) : Image{}
+Texture::Texture(const Texture &other) : Texture{}
 {
     *this = other;
 }
 
-Image& Image::operator=(const Image& other)
+Texture& Texture::operator=(const Texture& other)
 {
     GLint maxLevel{}, wrapS{}, wrapT{}, magFilter{}, minFilter{};
     glBindTexture(GL_TEXTURE_2D, other.ID);
@@ -57,7 +51,7 @@ Image& Image::operator=(const Image& other)
     return *this;
 }
 
-void Image::loadBMP(std::string fileName)
+void Texture::loadBMP(std::string fileName)
 {
     glBindTexture(GL_TEXTURE_2D, ID);
     ifstream file{fileName, ifstream::binary};

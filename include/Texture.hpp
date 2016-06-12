@@ -25,12 +25,12 @@ typedef struct {
 
 #pragma pack(pop)
 
-class Image : public QOpenGLFunctions_2_0
+class Texture : public QOpenGLFunctions
 {
 public:
     GLuint ID;
-    Image();
-    Image(const Image& other);
-    Image& operator=(const Image& other);
+    Texture();
+    Texture(const Texture& other);
+    Texture& operator=(const Texture& other);
     void loadBMP(std::string fileName);
 };

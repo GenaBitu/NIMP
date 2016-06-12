@@ -2,8 +2,13 @@
 
 #include "Global.hpp"
 
-class Canvas : public QOpenGLWidget
+class Texture;
+
+class Canvas : public QOpenGLWidget, protected QOpenGLFunctions
 {
 public:
     Canvas();
+protected:
+    Texture* image;
+    void initializeGL();
 };

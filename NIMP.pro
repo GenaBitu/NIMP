@@ -23,13 +23,13 @@ LIBS += -L$$PWD/BlendSplitter/lib -lBlendSplitter
 SOURCES += \
     src/Main.cpp \
     src/Canvas.cpp \
-    src/Image.cpp
+    src/Texture.cpp
 
 HEADERS  += \
     include/Main.hpp \
     include/Canvas.hpp \
     include/Global.hpp \
-    include/Image.hpp
+    include/Texture.hpp
 
 RESOURCES += \
     images.qrc

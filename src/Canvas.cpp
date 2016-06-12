@@ -1,6 +1,11 @@
 #include "include/Canvas.hpp"
 
-Canvas::Canvas()
-{
+#include "include/Texture.hpp"
 
+Canvas::Canvas() : image{} {}
+
+void Canvas::initializeGL()
+{
+    initializeOpenGLFunctions();
+    image = new Texture{};
 }

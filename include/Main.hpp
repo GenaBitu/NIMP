@@ -3,4 +3,4 @@
 #include "Global.hpp"
 
 #include "Canvas.hpp"
-#include "Image.hpp"
+#include "Texture.hpp"
