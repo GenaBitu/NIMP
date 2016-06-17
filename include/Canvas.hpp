@@ -11,4 +11,6 @@ public:
 protected:
     Texture* image;
     void initializeGL();
+    void paintGL();
+    void resizeGL(int w, int h);
 };
