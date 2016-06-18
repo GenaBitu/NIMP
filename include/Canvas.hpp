@@ -9,6 +9,7 @@ class Canvas : public QOpenGLWidget, protected QOpenGLFunctions
 public:
     Canvas();
 protected:
+    GLint width, height;
     Texture* image;
     void initializeGL();
     void paintGL();

@@ -20,6 +20,10 @@ DEPENDPATH += BlendSplitter/include
 
 LIBS += -L$$PWD/BlendSplitter/lib -lBlendSplitter
 
+resource_files.path = $$OUT_PWD
+resource_files.files = $$PWD/resources/tex2D.bmp
+INSTALLS += resource_files
+
 SOURCES += \
     src/Main.cpp \
     src/Canvas.cpp \
