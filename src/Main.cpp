@@ -2,7 +2,6 @@
 
 QMainWindow* WINDOW{};
 BlendSplitter* SPLITTER{};
-Canvas* CANVAS{}; // DEBUG
 
 int main(int argc, char** argv)
 {
@@ -14,7 +13,6 @@ int main(int argc, char** argv)
     new QApplication{argc, argv};
     WINDOW = new QMainWindow{};
     SPLITTER = new BlendSplitter{};
-    CANVAS = new Canvas{}; // DEBUG
 
     WINDOW->setCentralWidget(SPLITTER);
     WINDOW->resize(860, 640);
@@ -33,7 +31,7 @@ int main(int argc, char** argv)
         bar->addWidget(lab);
     });
     WidgetRegistry::getRegistry()->addItem(new RegistryItem{"Type2", []()->QWidget* {return new QLabel{"Type 2 Label"};}});
-    WidgetRegistry::getRegistry()->addItem("Canvas", []()->QWidget*{return CANVAS;});
+    WidgetRegistry::getRegistry()->addItem("Canvas", []()->QWidget*{return new Canvas{};});
     WidgetRegistry::getRegistry()->setDefault(3);
 
     /*SPLITTER->addWidget(new QLabel{"NIMP2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"});

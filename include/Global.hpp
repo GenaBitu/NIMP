@@ -11,8 +11,5 @@
 
 #include <BlendSplitter.hpp>
 
-class Canvas; // DEBUG
-
 extern QMainWindow* WINDOW;
 extern BlendSplitter* SPLITTER;
-extern Canvas* CANVAS; // DEBUG
