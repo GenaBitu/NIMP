@@ -21,7 +21,7 @@ void Canvas::paintGL()
     glLoadIdentity();
     glBindTexture(GL_TEXTURE_2D, image->ID);
     glBegin(GL_QUADS);
-        glColor3f(1.0f, 1.0f, 1.0f);
+        glColor3ub(255, 255, 255);
         glTexCoord2f(0.0f, 1.0f);
         glVertex2f(50.0f, 50.0f);
         glTexCoord2f(1.0f, 1.0f);
@@ -33,13 +33,13 @@ void Canvas::paintGL()
     glEnd();
     glBindTexture(GL_TEXTURE_2D, 0);
     glBegin(GL_QUADS);
-        glColor3f(1.0f, 0.0f, 0.0f);
+        glColor3ub(255, 0, 0);
         glVertex2f(0.0f, 0.0f);
-        glColor3f(0.0f, 1.0f, 0.0f);
+        glColor3ub(0, 255, 0);
         glVertex2f(40.0f, 10.0f);
-        glColor3f(0.0f, 0.0f, 1.0f);
+        glColor3ub(0, 0, 255);
         glVertex2f(100.0f, 100.0f);
-        glColor3f(1.0f, 1.0f, 0.0f);
+        glColor3ub(255, 255, 0);
         glVertex2f(10.0f, 70.0f);
     glEnd();
 }
