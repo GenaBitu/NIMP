@@ -2,6 +2,8 @@
 
 #include <fstream> // DEBUG
 
+#include <glm/common.hpp>
+
 #include <QApplication>
 #include <QMainWindow>
 #include <QDebug> // DEBUG
