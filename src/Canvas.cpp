@@ -2,7 +2,7 @@
 
 #include "include/Texture.hpp"
 
-Canvas::Canvas() : width{}, height{}, IMGwidth{512}, IMGheight{512}, image{} {
+Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, image{} {
 }
 
 void Canvas::initializeGL()
@@ -43,6 +43,7 @@ void Canvas::paintGL()
         glColor3ub(255, 255, 0);
         glVertex2f(10.0f, 70.0f);
     glEnd();
+    renderGrid((width - IMGwidth) / 2, (height - IMGheight) / 2, (width + IMGwidth) / 2, (height + IMGheight) / 2);
 }
 
 void Canvas::resizeGL(int w, int h)
@@ -87,4 +88,24 @@ void Canvas::renderBGCheckerboard(GLint xMin, GLint yMin, GLint xMax, GLint yMax
         glVertex2i(xMax - 1, yMax - 1);
         glVertex2i(xMax - 1, yMin + 1);
     glEnd();*/
+}
+
+void Canvas::renderGrid(GLint xMin, GLint yMin, GLint xMax, GLint yMax)
+{
+    GLint gridSize{45};
+    glColor3ub(0, 0, 0);
+    for(GLint i{1}; i < 1 + ((xMax - xMin - 1) / gridSize); i++)
+    {
+        glBegin(GL_LINES);
+            glVertex2i(xMin + i * gridSize, yMin);
+            glVertex2i(xMin + i * gridSize, yMax);
+        glEnd();
+    }
+    for(GLint i{1}; i < 1 + ((yMax - yMin - 1) / gridSize); i++)
+    {
+        glBegin(GL_LINES);
+            glVertex2i(xMin, yMin + i * gridSize);
+            glVertex2i(xMax, yMin + i * gridSize);
+        glEnd();
+    }
 }
