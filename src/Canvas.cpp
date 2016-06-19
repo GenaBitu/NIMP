@@ -22,13 +22,13 @@ void Canvas::paintGL()
     glBindTexture(GL_TEXTURE_2D, image->ID);
     glBegin(GL_QUADS);
         glColor3f(1.0f, 1.0f, 1.0f);
-        glTexCoord2f(0.0f, 0.0f);
-        glVertex2f(50.0f, 50.0f);
-        glTexCoord2f(1.0f, 0.0f);
-        glVertex2f(width - 50.0f, 50.0f);
-        glTexCoord2f(1.0f, 1.0f);
-        glVertex2f(width - 50.0f, height - 50.0f);
         glTexCoord2f(0.0f, 1.0f);
+        glVertex2f(50.0f, 50.0f);
+        glTexCoord2f(1.0f, 1.0f);
+        glVertex2f(width - 50.0f, 50.0f);
+        glTexCoord2f(1.0f, 0.0f);
+        glVertex2f(width - 50.0f, height - 50.0f);
+        glTexCoord2f(0.0f, 0.0f);
         glVertex2f(50.0f, height - 50.0f);
     glEnd();
     glBindTexture(GL_TEXTURE_2D, 0);
@@ -51,7 +51,7 @@ void Canvas::resizeGL(int w, int h)
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glTranslatef(-1, -1, 0);
-    glScalef(2.0f / width, 2.0f / height, 1);
+    glTranslatef(-1, 1, 0);
+    glScalef(2.0f / width, -2.0f / height, 1);
     glMatrixMode(GL_MODELVIEW);
 }
