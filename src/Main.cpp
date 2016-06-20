@@ -32,7 +32,8 @@ int main(int argc, char** argv)
     });
     WidgetRegistry::getRegistry()->addItem(new RegistryItem{"Type2", []()->QWidget* {return new QLabel{"Type 2 Label"};}});
     WidgetRegistry::getRegistry()->addItem("Canvas", []()->QWidget*{return new Canvas{};});
-    WidgetRegistry::getRegistry()->setDefault(3);
+    WidgetRegistry::getRegistry()->addItem("Node Editor", []()->QWidget*{return new NodeEditor{};});
+    WidgetRegistry::getRegistry()->setDefault(4);
 
     /*SPLITTER->addWidget(new QLabel{"NIMP2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"});
     SPLITTER->addWidget(new QLabel{"NIMP2bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"});*/
