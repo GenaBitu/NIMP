@@ -92,20 +92,22 @@ void Canvas::renderBGCheckerboard(GLint xMin, GLint yMin, GLint xMax, GLint yMax
 
 void Canvas::renderGrid(GLint xMin, GLint yMin, GLint xMax, GLint yMax)
 {
-    GLint gridSize{45};
+    GLint gridSize{45}, xOffset{-95}, yOffset{70};
+    xOffset = xOffset % gridSize;
+    yOffset = yOffset % gridSize;
     glColor3ub(0, 0, 0);
-    for(GLint i{1}; i < 1 + ((xMax - xMin - 1) / gridSize); i++)
+    for(GLint i{1}; i < 1 + ((xMax - xMin - xOffset - 1) / gridSize); i++)
     {
         glBegin(GL_LINES);
-            glVertex2i(xMin + i * gridSize, yMin);
-            glVertex2i(xMin + i * gridSize, yMax);
+            glVertex2i(xMin + xOffset + i * gridSize, yMin);
+            glVertex2i(xMin + xOffset + i * gridSize, yMax);
         glEnd();
     }
-    for(GLint i{1}; i < 1 + ((yMax - yMin - 1) / gridSize); i++)
+    for(GLint i{1}; i < 1 + ((yMax - yMin - yOffset - 1) / gridSize); i++)
     {
         glBegin(GL_LINES);
-            glVertex2i(xMin, yMin + i * gridSize);
-            glVertex2i(xMax, yMin + i * gridSize);
+            glVertex2i(xMin, yMin + yOffset + i * gridSize);
+            glVertex2i(xMax, yMin + yOffset + i * gridSize);
         glEnd();
     }
 }
