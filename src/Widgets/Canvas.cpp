@@ -1,4 +1,4 @@
-#include "include/Canvas.hpp"
+#include "include/Widgets/Canvas.hpp"
 
 #include "include/Texture.hpp"
 

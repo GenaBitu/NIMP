@@ -1,6 +1,6 @@
 #include "include/Texture.hpp"
 
-#include "include/Canvas.hpp"
+#include "include/Widgets/Canvas.hpp"
 
 using namespace std;
 

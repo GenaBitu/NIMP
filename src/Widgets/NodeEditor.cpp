@@ -1,4 +1,4 @@
-#include "include/NodeEditor.hpp"
+#include "include/Widgets/NodeEditor.hpp"
 
 NodeEditor::NodeEditor() {}
 

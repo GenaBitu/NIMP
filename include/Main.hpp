@@ -2,9 +2,9 @@
 
 #include "Global.hpp"
 
-#include "Canvas.hpp"
-#include "Node.hpp"
-#include "NodeEditor.hpp"
-#include "NodeInput.hpp"
-#include "NodeOutput.hpp"
 #include "Texture.hpp"
+#include "NodeSystem/Node.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
+#include "Widgets/Canvas.hpp"
+#include "Widgets/NodeEditor.hpp"

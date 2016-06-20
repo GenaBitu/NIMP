@@ -26,22 +26,22 @@ INSTALLS += resource_files
 
 SOURCES += \
     src/Main.cpp \
-    src/Canvas.cpp \
-    src/Node.cpp \
-    src/NodeEditor.cpp \
-    src/NodeInput.cpp \
-    src/NodeOutput.cpp \
-    src/Texture.cpp
+    src/Texture.cpp \
+    src/NodeSystem/Node.cpp \
+    src/NodeSystem/NodeInput.cpp \
+    src/NodeSystem/NodeOutput.cpp \
+    src/Widgets/Canvas.cpp \
+    src/Widgets/NodeEditor.cpp
 
 HEADERS  += \
     include/Main.hpp \
-    include/Canvas.hpp \
     include/Global.hpp \
-    include/Node.hpp \
-    include/NodeEditor.hpp \
-    include/NodeInput.hpp \
-    include/NodeOutput.hpp \
-    include/Texture.hpp
+    include/Texture.hpp \
+    include/NodeSystem/Node.hpp \
+    include/NodeSystem/NodeInput.hpp \
+    include/NodeSystem/NodeOutput.hpp \
+    include/Widgets/Canvas.hpp \
+    include/Widgets/NodeEditor.hpp
 
 RESOURCES += \
     images.qrc
