@@ -27,14 +27,20 @@ INSTALLS += resource_files
 SOURCES += \
     src/Main.cpp \
     src/Canvas.cpp \
+    src/Node.cpp \
     src/NodeEditor.cpp \
+    src/NodeInput.cpp \
+    src/NodeOutput.cpp \
     src/Texture.cpp
 
 HEADERS  += \
     include/Main.hpp \
     include/Canvas.hpp \
     include/Global.hpp \
+    include/Node.hpp \
     include/NodeEditor.hpp \
+    include/NodeInput.hpp \
+    include/NodeOutput.hpp \
     include/Texture.hpp
 
 RESOURCES += \
