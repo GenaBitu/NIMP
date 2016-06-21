@@ -1,6 +1,6 @@
 #include "include/NodeSystem/NodeOutput.hpp"
 
-NodeOutput::NodeOutput()
+NodeOutput::NodeOutput(Node* parent) : parent{parent}, connection{}
 {
 
 }

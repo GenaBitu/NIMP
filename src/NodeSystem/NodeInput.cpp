@@ -1,6 +1,6 @@
 #include "include/NodeSystem/NodeInput.hpp"
 
-NodeInput::NodeInput()
+NodeInput::NodeInput(Node* parent) : parent{parent}, connections{}
 {
 
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <fstream> // DEBUG
+#include <functional>
 
 #include <glm/common.hpp>
 

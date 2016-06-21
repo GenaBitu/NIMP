@@ -2,12 +2,15 @@
 
 #include "../Global.hpp"
 
+class Node;
 class NodeOutput;
 
 class NodeInput
 {
 public:
-    NodeInput();
+    NodeInput() = delete;
+    NodeInput(Node* parent);
 protected:
+    Node* parent;
     std::vector<NodeOutput*> connections;
 };

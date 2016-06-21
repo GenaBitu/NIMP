@@ -28,6 +28,7 @@ SOURCES += \
     src/Main.cpp \
     src/Texture.cpp \
     src/NodeSystem/Node.cpp \
+    src/NodeSystem/NodeData.cpp \
     src/NodeSystem/NodeInput.cpp \
     src/NodeSystem/NodeOutput.cpp \
     src/Widgets/Canvas.cpp \
@@ -38,6 +39,7 @@ HEADERS  += \
     include/Global.hpp \
     include/Texture.hpp \
     include/NodeSystem/Node.hpp \
+    include/NodeSystem/NodeData.hpp \
     include/NodeSystem/NodeInput.hpp \
     include/NodeSystem/NodeOutput.hpp \
     include/Widgets/Canvas.hpp \
