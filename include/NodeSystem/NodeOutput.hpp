@@ -3,6 +3,7 @@
 #include "../Global.hpp"
 
 class Node;
+class NodeData;
 class NodeInput;
 
 class NodeOutput
@@ -10,7 +11,9 @@ class NodeOutput
 public:
     NodeOutput() = delete;
     NodeOutput(Node* parent);
+    virtual NodeData* getData() = 0;
+    virtual ~NodeOutput();
 protected:
     Node* parent;
-    NodeInput* connection;
+    std::vector<NodeInput*> connections;
 };

@@ -4,6 +4,7 @@
 
 class NodeData
 {
-public:
+protected:
     NodeData();
+    virtual ~NodeData();
 };
