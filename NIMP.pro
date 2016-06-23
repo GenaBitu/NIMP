@@ -30,10 +30,13 @@ SOURCES += \
     src/NodeSystem/Node.cpp \
     src/NodeSystem/NodeData.cpp \
     src/NodeSystem/NodeDataInt.cpp \
+    src/NodeSystem/NodeDataMonochrome.cpp \
     src/NodeSystem/NodeInput.cpp \
     src/NodeSystem/NodeInputInt.cpp \
+    src/NodeSystem/NodeInputMonochrome.cpp \
     src/NodeSystem/NodeOutput.cpp \
     src/NodeSystem/NodeOutputInt.cpp \
+    src/NodeSystem/NodeOutputMonochrome.cpp \
     src/Widgets/Canvas.cpp \
     src/Widgets/NodeEditor.cpp
 
@@ -44,10 +47,13 @@ HEADERS  += \
     include/NodeSystem/Node.hpp \
     include/NodeSystem/NodeData.hpp \
     include/NodeSystem/NodeDataInt.hpp \
+    include/NodeSystem/NodeDataMonochrome.hpp \
     include/NodeSystem/NodeInput.hpp \
     include/NodeSystem/NodeInputInt.hpp \
+    include/NodeSystem/NodeInputMonochrome.hpp \
     include/NodeSystem/NodeOutput.hpp \
     include/NodeSystem/NodeOutputInt.hpp \
+    include/NodeSystem/NodeOutputMonochrome.hpp \
     include/Widgets/Canvas.hpp \
     include/Widgets/NodeEditor.hpp
 

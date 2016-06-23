@@ -1,6 +1,3 @@
 #include "include/NodeSystem/Node.hpp"
 
-Node::Node()
-{
-
-}
+Node::Node() {}

@@ -12,5 +12,5 @@ public:
     Node();
     std::vector<NodeInput*> inputs;
     std::vector<NodeOutput*> outputs;
-    std::vector<std::function<NodeData*(const std::vector<NodeInput*>* const)>> relations;
+    std::vector<std::function<NodeData*(const std::vector<NodeInput*>* const)> > relations;
 };

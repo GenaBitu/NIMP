@@ -2,17 +2,14 @@
 
 #include "include/NodeSystem/NodeOutputInt.hpp"
 
-NodeInputInt::NodeInputInt(Node* parent) : NodeInput{parent}
-{
-
-}
+NodeInputInt::NodeInputInt(Node* parent) : NodeInput{parent} {}
 
 NodeDataInt* NodeInputInt::getData()
 {
-    NodeOutputInt* intConnection{dynamic_cast<NodeOutputInt*>(connection)};
-    if(intConnection != nullptr)
+    NodeOutputInt* rawConnection{dynamic_cast<NodeOutputInt*>(connection)};
+    if(rawConnection != nullptr)
     {
-        return intConnection->getData();
+        return rawConnection->getData();
     }
     // TODO: DIE HORRIBLY IN FLAMES
     return nullptr;
