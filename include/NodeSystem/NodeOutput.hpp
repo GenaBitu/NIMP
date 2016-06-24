@@ -8,12 +8,13 @@ class NodeInput;
 
 class NodeOutput
 {
-public:
+protected:
+    friend NodeInput;
     NodeOutput() = delete;
     NodeOutput(Node* parent);
-    virtual NodeData* getData() = 0;
+    virtual NodeData* getData();
     virtual ~NodeOutput();
-protected:
+private:
     Node* parent;
     std::vector<NodeInput*> connections;
 };

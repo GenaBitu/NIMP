@@ -8,12 +8,12 @@ class NodeOutput;
 
 class NodeInput
 {
-public:
+protected:
     NodeInput() = delete;
     NodeInput(Node* parent);
-    virtual NodeData* getData() = 0;
+    virtual NodeData* getData();
     virtual ~NodeInput();
-protected:
+private:
     Node* parent;
     NodeOutput* connection;
 };

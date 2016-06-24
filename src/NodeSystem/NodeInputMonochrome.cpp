@@ -1,15 +1,13 @@
 #include "include/NodeSystem/NodeInputMonochrome.hpp"
 
-#include "include/NodeSystem/NodeOutputMonochrome.hpp"
-
 NodeInputMonochrome::NodeInputMonochrome(Node* parent) : NodeInput(parent) {}
 
 NodeDataMonochrome* NodeInputMonochrome::getData()
 {
-    NodeOutputMonochrome* rawConnection{dynamic_cast<NodeOutputMonochrome*>(connection)};
-    if(rawConnection != nullptr)
+    NodeDataMonochrome* monochromeData{dynamic_cast<NodeDataMonochrome*>(NodeInput::getData())};
+    if(monochromeData != nullptr)
     {
-        return rawConnection->getData();
+        return monochromeData;
     }
     // TODO: DIE HORRIBLY IN FLAMES
     return nullptr;
