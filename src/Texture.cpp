@@ -60,7 +60,7 @@ void Texture::loadBMP(std::string fileName)
         qCritical() << "File " << fileName.c_str() <<" could not be opened." << endl;
         return;
     }
-    BMP_HEADER header;
+    BMP_HEADER_T header;
     file.read(reinterpret_cast<char*>(&header), sizeof(header));
     if(!file.good())
     {

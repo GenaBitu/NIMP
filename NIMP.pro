@@ -28,6 +28,7 @@ HEADERS  += \
     include/Main.hpp \
     include/Global.hpp \
     include/Texture.hpp \
+    include/Nodes/BMPinput.hpp \
     include/Nodes/CanvasNode.hpp \
     include/NodeSystem/Node.hpp \
     include/NodeSystem/NodeData.hpp \
@@ -45,6 +46,7 @@ HEADERS  += \
 SOURCES += \
     src/Main.cpp \
     src/Texture.cpp \
+    src/Nodes/BMPinput.cpp \
     src/Nodes/CanvasNode.cpp \
     src/NodeSystem/Node.cpp \
     src/NodeSystem/NodeData.cpp \

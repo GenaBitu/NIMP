@@ -1,6 +1,8 @@
 #pragma once
 
-#include "Global.hpp"
+#include "../Global.hpp"
+
+#include "include/NodeSystem/Node.hpp"
 
 #pragma pack(push)
 #pragma pack(1)
@@ -21,17 +23,16 @@ typedef struct {
     uint32_t vRes;
     uint32_t colorsUsed;
     uint32_t colorsImportant;
-} BMP_HEADER_T;
+} BMP_HEADER;
 
 #pragma pack(pop)
 
-class Texture : public QOpenGLFunctions
+class NodeDataMonochrome;
+
+class BMPinput : public Node
 {
 public:
-    GLuint ID;
-    Texture();
-    Texture(const Texture& other);
-    Texture& operator=(const Texture& other);
-    void loadBMP(std::string fileName);
-    void loadByteArray(int width, int height, std::vector<std::vector<ubyte> > data);
+    BMPinput();
+private:
+    NodeDataMonochrome* loadBMP(const std::vector<NodeInput*>* const);
 };

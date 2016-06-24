@@ -10,5 +10,5 @@ public:
     int width, height;
     std::vector<std::vector<ubyte> > data;
     NodeDataMonochrome() = delete;
-    NodeDataMonochrome(std::vector<std::vector<ubyte> > data);
+    NodeDataMonochrome(int width, int height, std::vector<std::vector<ubyte> > data);
 };
