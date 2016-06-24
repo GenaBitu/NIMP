@@ -1,5 +1,6 @@
 #include "include/Main.hpp"
 
+CanvasNode* CNVS;
 QMainWindow* WINDOW{};
 BlendSplitter* SPLITTER{};
 
@@ -11,6 +12,9 @@ int main(int argc, char** argv)
     QSurfaceFormat::setDefaultFormat(format);
 
     new QApplication{argc, argv};
+    CNVS = new CanvasNode{};
+    BMPinput* input{new BMPinput{}};
+    Node::connect(input, 0, CNVS, 0);
     WINDOW = new QMainWindow{};
     SPLITTER = new BlendSplitter{};
 

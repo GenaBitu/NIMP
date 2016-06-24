@@ -1,6 +1,7 @@
 #include "include/Widgets/Canvas.hpp"
 
 #include "include/Texture.hpp"
+#include "include/Nodes/CanvasNode.hpp"
 
 Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, image{} {
 }
@@ -9,8 +10,9 @@ void Canvas::initializeGL()
 {
     initializeOpenGLFunctions();
     glEnable(GL_TEXTURE_2D);
-    image = new Texture{};
-    image->loadBMP("tex2D.bmp");
+    image = CNVS->getTexture();
+    //image = new Texture{};
+    //image->loadBMP("tex2D.bmp");
     QColor bg{QWidget::palette().color(QPalette::Background)};
     glClearColor(bg.redF(), bg.greenF(), bg.blueF(), 1.0f);
 }

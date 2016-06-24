@@ -15,6 +15,7 @@ protected:
     NodeInput(Node* parent);
     virtual ~NodeInput();
 private:
+    friend Node;
     const Node* parent;
     NodeOutput* connection;
 };
