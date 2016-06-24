@@ -3,6 +3,7 @@
 #include "Global.hpp"
 
 #include "Texture.hpp"
+#include "Nodes/CanvasNode.hpp"
 #include "NodeSystem/Node.hpp"
 #include "NodeSystem/NodeData.hpp"
 #include "NodeSystem/NodeDataInt.hpp"

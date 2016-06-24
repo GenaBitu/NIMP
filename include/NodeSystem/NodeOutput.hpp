@@ -15,6 +15,6 @@ protected:
     virtual NodeData* getData();
     virtual ~NodeOutput();
 private:
-    Node* parent;
+    const Node* parent;
     std::vector<NodeInput*> connections;
 };

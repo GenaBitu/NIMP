@@ -24,26 +24,11 @@ resource_files.path = $$OUT_PWD
 resource_files.files = $$PWD/resources/tex2D.bmp
 INSTALLS += resource_files
 
-SOURCES += \
-    src/Main.cpp \
-    src/Texture.cpp \
-    src/NodeSystem/Node.cpp \
-    src/NodeSystem/NodeData.cpp \
-    src/NodeSystem/NodeDataInt.cpp \
-    src/NodeSystem/NodeDataMonochrome.cpp \
-    src/NodeSystem/NodeInput.cpp \
-    src/NodeSystem/NodeInputInt.cpp \
-    src/NodeSystem/NodeInputMonochrome.cpp \
-    src/NodeSystem/NodeOutput.cpp \
-    src/NodeSystem/NodeOutputInt.cpp \
-    src/NodeSystem/NodeOutputMonochrome.cpp \
-    src/Widgets/Canvas.cpp \
-    src/Widgets/NodeEditor.cpp
-
 HEADERS  += \
     include/Main.hpp \
     include/Global.hpp \
     include/Texture.hpp \
+    include/Nodes/CanvasNode.hpp \
     include/NodeSystem/Node.hpp \
     include/NodeSystem/NodeData.hpp \
     include/NodeSystem/NodeDataInt.hpp \
@@ -56,6 +41,23 @@ HEADERS  += \
     include/NodeSystem/NodeOutputMonochrome.hpp \
     include/Widgets/Canvas.hpp \
     include/Widgets/NodeEditor.hpp
+
+SOURCES += \
+    src/Main.cpp \
+    src/Texture.cpp \
+    src/Nodes/CanvasNode.cpp \
+    src/NodeSystem/Node.cpp \
+    src/NodeSystem/NodeData.cpp \
+    src/NodeSystem/NodeDataInt.cpp \
+    src/NodeSystem/NodeDataMonochrome.cpp \
+    src/NodeSystem/NodeInput.cpp \
+    src/NodeSystem/NodeInputInt.cpp \
+    src/NodeSystem/NodeInputMonochrome.cpp \
+    src/NodeSystem/NodeOutput.cpp \
+    src/NodeSystem/NodeOutputInt.cpp \
+    src/NodeSystem/NodeOutputMonochrome.cpp \
+    src/Widgets/Canvas.cpp \
+    src/Widgets/NodeEditor.cpp
 
 RESOURCES += \
     images.qrc

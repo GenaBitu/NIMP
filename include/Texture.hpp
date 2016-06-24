@@ -33,4 +33,5 @@ public:
     Texture(const Texture& other);
     Texture& operator=(const Texture& other);
     void loadBMP(std::string fileName);
+    void loadByteArray(int width, int height, std::vector<std::vector<ubyte> > data);
 };

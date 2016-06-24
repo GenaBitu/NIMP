@@ -8,12 +8,13 @@ class NodeOutput;
 
 class NodeInput
 {
+public:
+    virtual NodeData* getData();
 protected:
     NodeInput() = delete;
     NodeInput(Node* parent);
-    virtual NodeData* getData();
     virtual ~NodeInput();
 private:
-    Node* parent;
+    const Node* parent;
     NodeOutput* connection;
 };

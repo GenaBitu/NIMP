@@ -14,5 +14,7 @@
 
 #include <BlendSplitter.hpp>
 
+typedef unsigned char ubyte;
+
 extern QMainWindow* WINDOW;
 extern BlendSplitter* SPLITTER;
