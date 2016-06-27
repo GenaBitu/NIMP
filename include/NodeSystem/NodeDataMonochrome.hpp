@@ -4,11 +4,18 @@
 
 #include "NodeData.hpp"
 
+class RowSelector;
+
 class NodeDataMonochrome : public NodeData
 {
 public:
     int width, height;
-    std::vector<std::vector<ubyte> > data;
     NodeDataMonochrome() = delete;
-    NodeDataMonochrome(int width, int height, std::vector<std::vector<ubyte> > data);
+    NodeDataMonochrome(int width, int height, ubyte* data);
+    RowSelector operator[](int index);
+    ubyte* data();
+    ~NodeDataMonochrome();
+protected:
+    friend RowSelector;
+    ubyte* rawData;
 };

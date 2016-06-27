@@ -15,5 +15,6 @@
 #include "NodeSystem/NodeOutput.hpp"
 #include "NodeSystem/NodeOutputInt.hpp"
 #include "NodeSystem/NodeOutputMonochrome.hpp"
+#include "NodeSystem/RowSelector.hpp"
 #include "Widgets/Canvas.hpp"
 #include "Widgets/NodeEditor.hpp"

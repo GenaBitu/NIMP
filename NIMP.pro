@@ -41,7 +41,8 @@ HEADERS  += \
     include/NodeSystem/NodeOutputInt.hpp \
     include/NodeSystem/NodeOutputMonochrome.hpp \
     include/Widgets/Canvas.hpp \
-    include/Widgets/NodeEditor.hpp
+    include/Widgets/NodeEditor.hpp \
+    include/NodeSystem/RowSelector.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -59,7 +60,8 @@ SOURCES += \
     src/NodeSystem/NodeOutputInt.cpp \
     src/NodeSystem/NodeOutputMonochrome.cpp \
     src/Widgets/Canvas.cpp \
-    src/Widgets/NodeEditor.cpp
+    src/Widgets/NodeEditor.cpp \
+    src/NodeSystem/RowSelector.cpp
 
 RESOURCES += \
     images.qrc

@@ -55,18 +55,14 @@ NodeDataMonochrome* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
     char* rawData{new char[header.imageSize]};
     file.seekg(header.dataOffset);
     file.read(rawData, header.imageSize);
-    std::vector<std::vector<ubyte> > data;
-    for(unsigned int i{0}; i < header.height; i++)
+    ubyte* data{new ubyte[header.width * header.height]};
+    for(unsigned int i{0}; i < header.width * header.height; i++)
     {
-        std::vector<ubyte> row;
-        for(unsigned int j{0}; j < header.width; j++)
-        {
-            row.push_back(rawData[3 * (i * header.height + j)]);
-        }
-        data.push_back(row);
+        data[i] = (rawData[3 * i] + rawData[3 * i + 1] + rawData[3 * i + 2]) / 3;
     }
     NodeDataMonochrome* output{new NodeDataMonochrome{header.width, header.height, data}};
     delete[] rawData;
+    delete[] data;
     file.close();
     return output;
 }

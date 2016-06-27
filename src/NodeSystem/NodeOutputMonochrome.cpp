@@ -10,5 +10,6 @@ NodeDataMonochrome* NodeOutputMonochrome::getData()
         return monochromeData;
     }
     // TODO: DIE HORRIBLY IN FLAMES
+qDebug() << "Die_out" << endl;
     return nullptr;
 }

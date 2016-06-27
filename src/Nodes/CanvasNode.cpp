@@ -14,7 +14,8 @@ Texture* CanvasNode::getTexture()
     if(data != nullptr)
     {
         Texture* output{new Texture{}};
-        output->loadByteArray(data->width, data->height, data->data);
+        output->loadByteArray(data->width, data->height, data->data());
+        return output;
     }
     // TODO: DIE HORRIBLY IN FLAMES
     return nullptr;

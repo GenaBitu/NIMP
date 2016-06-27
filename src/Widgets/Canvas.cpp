@@ -22,7 +22,7 @@ void Canvas::paintGL()
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
     renderBGCheckerboard((width - IMGwidth) / 2, (height - IMGheight) / 2, (width + IMGwidth) / 2, (height + IMGheight) / 2);
-    /*glBindTexture(GL_TEXTURE_2D, image->ID);
+    glBindTexture(GL_TEXTURE_2D, image->ID);
     glBegin(GL_QUADS);
         glColor3ub(255, 255, 255);
         glTexCoord2f(0.0f, 1.0f);
@@ -34,7 +34,7 @@ void Canvas::paintGL()
         glTexCoord2f(0.0f, 0.0f);
         glVertex2f(50.0f, height - 50.0f);
     glEnd();
-    glBindTexture(GL_TEXTURE_2D, 0);*/
+    glBindTexture(GL_TEXTURE_2D, 0);
     glBegin(GL_QUADS);
         glColor3ub(255, 0, 0);
         glVertex2f(0.0f, 0.0f);

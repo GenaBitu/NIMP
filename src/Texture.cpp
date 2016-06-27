@@ -107,13 +107,20 @@ void Texture::loadBMP(std::string fileName)
     file.close();
 }
 
-void Texture::loadByteArray(int width, int height, std::vector<std::vector<ubyte> > data)
+void Texture::loadByteArray(int width, int height, ubyte* data)
 {
-    ubyte rawData[height][width];
-    for(int i{0}; i < height; i++)
-    {
-        std::copy(data[i].begin(), data[i]. end(), rawData[i]);
-    }
     glBindTexture(GL_TEXTURE_2D, ID);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RED, GL_UNSIGNED_BYTE, rawData);
+    ubyte* newData{new ubyte[3 * width * height]};
+    for(int i{0}; i < width * height; i++)
+    {
+        newData[3 * i] = data[i];
+        newData[3 * i + 1] = data[i];
+        newData[3 * i + 2] = data[i];
+    }
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, newData);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    delete[] newData;
 }
