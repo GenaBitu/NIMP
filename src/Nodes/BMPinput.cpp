@@ -1,15 +1,15 @@
 #include "include/Nodes/BMPinput.hpp"
 
-#include "include/NodeSystem/NodeOutputMonochrome.hpp"
+#include "include/NodeSystem/NodeOutputImage.hpp"
 #include "include/NodeSystem/RowSelector.hpp"
 
 BMPinput::BMPinput()
 {
-    outputs.push_back(new NodeOutputMonochrome{this});
+    outputs.push_back(new NodeOutputImage{this});
     relations.push_back(std::bind(&BMPinput::loadBMP, this, std::placeholders::_1));
 }
 
-NodeDataMonochrome* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
+NodeDataImage* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
 {
     std::string fileName{"tex2D.bmp"};
     std::ifstream file{fileName, std::ifstream::binary};
@@ -56,12 +56,15 @@ NodeDataMonochrome* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
     char* rawData{new char[header.imageSize]};
     file.seekg(header.dataOffset);
     file.read(rawData, header.imageSize);
-    NodeDataMonochrome* output{new NodeDataMonochrome{static_cast<int>(header.width), static_cast<int>(header.height)}};
+    NodeDataImage* output{new NodeDataImage{static_cast<int>(header.width), static_cast<int>(header.height)}};
     for(unsigned int i{0}; i < header.height; i++)
     {
         for(unsigned int j{0}; j < header.width; j++)
         {
-            (*output)[i][j].v = (rawData[3 * (i * header.height + j)] + rawData[3 * (i * header.height + j) + 1] + rawData[3 * (i * header.height + j) + 2]) / 3;
+            int offset{i * header.height + j};
+            (*output)[i][j].r = rawData[3 * offset + 2];
+            (*output)[i][j].g = rawData[3 * offset + 1];
+            (*output)[i][j].b = rawData[3 * offset];
             (*output)[i][j].a = 255;
         }
     }

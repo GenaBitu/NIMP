@@ -27,12 +27,12 @@ typedef struct {
 
 #pragma pack(pop)
 
-class NodeDataMonochrome;
+class NodeDataImage;
 
 class BMPinput : public Node
 {
 public:
     BMPinput();
 private:
-    NodeDataMonochrome* loadBMP(const std::vector<NodeInput*>* const);
+    NodeDataImage* loadBMP(const std::vector<NodeInput*>* const);
 };
