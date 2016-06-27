@@ -43,6 +43,7 @@ HEADERS  += \
     include/Widgets/Canvas.hpp \
     include/Widgets/NodeEditor.hpp \
     include/NodeSystem/RowSelector.hpp
+    src/NodeSystem/RowSelector.tpp
 
 SOURCES += \
     src/Main.cpp \
@@ -61,7 +62,6 @@ SOURCES += \
     src/NodeSystem/NodeOutputMonochrome.cpp \
     src/Widgets/Canvas.cpp \
     src/Widgets/NodeEditor.cpp \
-    src/NodeSystem/RowSelector.cpp
 
 RESOURCES += \
     images.qrc

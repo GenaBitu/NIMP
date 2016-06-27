@@ -8,6 +8,11 @@ Texture::Texture() : ID{}
 {
     initializeOpenGLFunctions();
     glGenTextures(1, &ID);
+    glBindTexture(GL_TEXTURE_2D, ID);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 }
 
 Texture::Texture(const Texture &other) : Texture{}
@@ -99,10 +104,6 @@ void Texture::loadBMP(std::string fileName)
     file.seekg(header.dataOffset);
     file.read(data, header.imageSize);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, header.width, header.height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     delete[] data;
     file.close();
 }
@@ -110,17 +111,5 @@ void Texture::loadBMP(std::string fileName)
 void Texture::loadByteArray(int width, int height, ubyte* data)
 {
     glBindTexture(GL_TEXTURE_2D, ID);
-    ubyte* newData{new ubyte[3 * width * height]};
-    for(int i{0}; i < width * height; i++)
-    {
-        newData[3 * i] = data[i];
-        newData[3 * i + 1] = data[i];
-        newData[3 * i + 2] = data[i];
-    }
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_LUMINANCE, GL_UNSIGNED_BYTE, data);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    delete[] newData;
 }

@@ -2,14 +2,15 @@
 
 #include "../Global.hpp"
 
-class NodeDataMonochrome;
-
+template<class T, class U>
 class RowSelector
 {
 private:
-    friend class NodeDataMonochrome;
-    NodeDataMonochrome* nodeData;
+    friend T;
+    T* nodeData;
     int row, width;
-    RowSelector(NodeDataMonochrome* nodeData, int row, int width);
-    ubyte& operator[](int index);
+    RowSelector(T* nodeData, int row, int width);
+    U& operator[](int index);
 };
+
+#include "../../src/NodeSystem/RowSelector.tpp"

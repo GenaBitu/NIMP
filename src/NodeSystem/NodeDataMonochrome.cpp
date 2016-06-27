@@ -10,9 +10,9 @@ NodeDataMonochrome::NodeDataMonochrome(int width, int height, ubyte* data) : wid
     }
 }
 
-RowSelector NodeDataMonochrome::operator[](int index)
+RowSelector<NodeDataMonochrome, ubyte> NodeDataMonochrome::operator[](int index)
 {
-    return RowSelector{this, index, width};
+    return RowSelector<NodeDataMonochrome, ubyte>{this, index, width};
 }
 
 ubyte* NodeDataMonochrome::data()
