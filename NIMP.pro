@@ -32,17 +32,20 @@ HEADERS  += \
     include/Nodes/CanvasNode.hpp \
     include/NodeSystem/Node.hpp \
     include/NodeSystem/NodeData.hpp \
+    include/NodeSystem/NodeDataImage.hpp \
     include/NodeSystem/NodeDataInt.hpp \
     include/NodeSystem/NodeDataMonochrome.hpp \
     include/NodeSystem/NodeInput.hpp \
+    include/NodeSystem/NodeInputImage.hpp \
     include/NodeSystem/NodeInputInt.hpp \
     include/NodeSystem/NodeInputMonochrome.hpp \
     include/NodeSystem/NodeOutput.hpp \
+    include/NodeSystem/NodeOutputImage.hpp \
     include/NodeSystem/NodeOutputInt.hpp \
     include/NodeSystem/NodeOutputMonochrome.hpp \
     include/Widgets/Canvas.hpp \
     include/Widgets/NodeEditor.hpp \
-    include/NodeSystem/RowSelector.hpp
+    include/NodeSystem/RowSelector.hpp \
     src/NodeSystem/RowSelector.tpp
 
 SOURCES += \
@@ -52,16 +55,19 @@ SOURCES += \
     src/Nodes/CanvasNode.cpp \
     src/NodeSystem/Node.cpp \
     src/NodeSystem/NodeData.cpp \
+    src/NodeSystem/NodeDataImage.cpp \
     src/NodeSystem/NodeDataInt.cpp \
     src/NodeSystem/NodeDataMonochrome.cpp \
     src/NodeSystem/NodeInput.cpp \
+    src/NodeSystem/NodeInputImage.cpp \
     src/NodeSystem/NodeInputInt.cpp \
     src/NodeSystem/NodeInputMonochrome.cpp \
     src/NodeSystem/NodeOutput.cpp \
+    src/NodeSystem/NodeOutputImage.cpp \
     src/NodeSystem/NodeOutputInt.cpp \
     src/NodeSystem/NodeOutputMonochrome.cpp \
     src/Widgets/Canvas.cpp \
-    src/Widgets/NodeEditor.cpp \
+    src/Widgets/NodeEditor.cpp
 
 RESOURCES += \
     images.qrc
