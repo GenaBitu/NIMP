@@ -14,7 +14,8 @@ Texture* CanvasNode::getTexture()
     if(data != nullptr)
     {
         Texture* output{new Texture{}};
-        output->loadByteArray(data->width, data->height, data->data());
+        glBindTexture(GL_TEXTURE_2D, output->ID);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, data->width, data->height, 0, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, data->rawData());
         return output;
     }
     // TODO: DIE HORRIBLY IN FLAMES

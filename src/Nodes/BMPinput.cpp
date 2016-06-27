@@ -1,6 +1,7 @@
 #include "include/Nodes/BMPinput.hpp"
 
 #include "include/NodeSystem/NodeOutputMonochrome.hpp"
+#include "include/NodeSystem/RowSelector.hpp"
 
 BMPinput::BMPinput()
 {
@@ -55,14 +56,16 @@ NodeDataMonochrome* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
     char* rawData{new char[header.imageSize]};
     file.seekg(header.dataOffset);
     file.read(rawData, header.imageSize);
-    ubyte* data{new ubyte[header.width * header.height]};
-    for(unsigned int i{0}; i < header.width * header.height; i++)
+    NodeDataMonochrome* output{new NodeDataMonochrome{static_cast<int>(header.width), static_cast<int>(header.height)}};
+    for(unsigned int i{0}; i < header.height; i++)
     {
-        data[i] = (rawData[3 * i] + rawData[3 * i + 1] + rawData[3 * i + 2]) / 3;
+        for(unsigned int j{0}; j < header.width; j++)
+        {
+            (*output)[i][j].v = (rawData[3 * (i * header.height + j)] + rawData[3 * (i * header.height + j) + 1] + rawData[3 * (i * header.height + j) + 2]) / 3;
+            (*output)[i][j].a = 255;
+        }
     }
-    NodeDataMonochrome* output{new NodeDataMonochrome{header.width, header.height, data}};
     delete[] rawData;
-    delete[] data;
     file.close();
     return output;
 }

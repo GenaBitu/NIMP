@@ -2,25 +2,19 @@
 
 #include "include/NodeSystem/RowSelector.hpp"
 
-NodeDataMonochrome::NodeDataMonochrome(int width, int height, ubyte* data) : width{width}, height{height}, rawData{new ubyte[width * height]}
+NodeDataMonochrome::NodeDataMonochrome(int width, int height) : width{width}, height{height}, data{new MonochromePixel[width * height]} {}
+
+RowSelector<NodeDataMonochrome, MonochromePixel> NodeDataMonochrome::operator[](int index)
 {
-    for(int i{0}; i < width * height; i++)
-    {
-        rawData[i] = data[i];
-    }
+    return RowSelector<NodeDataMonochrome, MonochromePixel>{this, index, width};
 }
 
-RowSelector<NodeDataMonochrome, ubyte> NodeDataMonochrome::operator[](int index)
+const void* NodeDataMonochrome::rawData()
 {
-    return RowSelector<NodeDataMonochrome, ubyte>{this, index, width};
-}
-
-ubyte* NodeDataMonochrome::data()
-{
-    return rawData;
+    return data;
 }
 
 NodeDataMonochrome::~NodeDataMonochrome()
 {
-    delete[] rawData;
+    delete[] data;
 }
