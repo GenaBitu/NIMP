@@ -21,3 +21,4 @@
 #include "NodeSystem/RowSelector.hpp"
 #include "Widgets/Canvas.hpp"
 #include "Widgets/NodeEditor.hpp"
+#include "Widgets/NodeEditor/NodeContainer.hpp"
