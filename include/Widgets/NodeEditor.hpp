@@ -2,12 +2,9 @@
 
 #include "../Global.hpp"
 
-class NodeEditor : public QOpenGLWidget, protected QOpenGLFunctions
+class NodeEditor : public QWidget
 {
 public:
     NodeEditor();
 protected:
-    void initializeGL();
-    void paintGL();
-    void resizeGL(int w, int h);
 };
