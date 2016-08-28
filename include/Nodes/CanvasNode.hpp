@@ -10,5 +10,6 @@ class CanvasNode : public Node
 {
 public:
     CanvasNode();
+    virtual std::string nodeName();
     Texture* getTexture();
 };

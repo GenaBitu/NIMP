@@ -8,6 +8,11 @@ CanvasNode::CanvasNode()
     inputs.push_back(new NodeInputImage{this});
 }
 
+std::string CanvasNode::nodeName()
+{
+    return "Canvas";
+}
+
 Texture* CanvasNode::getTexture()
 {
     NodeDataImage* data{dynamic_cast<NodeDataImage*>(inputs[0]->getData())};

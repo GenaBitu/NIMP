@@ -3,16 +3,17 @@
 #include "../../Global.hpp"
 
 class Node;
-class NodeOutline;
 
 class NodeContainer : public QWidget
 {
     Q_OBJECT
 public:
     NodeContainer(Node* node);
-    static int padding;
+    static float padding;
+    static float cornerRadius;
+    static float borderWidth;
+    static float headerHeight;
 protected:
     Node* node;
-    NodeOutline* outline;
     virtual void paintEvent(QPaintEvent*);
 };

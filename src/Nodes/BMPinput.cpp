@@ -9,6 +9,11 @@ BMPinput::BMPinput()
     relations.push_back(std::bind(&BMPinput::loadBMP, this, std::placeholders::_1));
 }
 
+std::string BMPinput::nodeName()
+{
+    return "BMP Input";
+}
+
 NodeDataImage* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
 {
     std::string fileName{"tex2D.bmp"};
@@ -61,7 +66,7 @@ NodeDataImage* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
     {
         for(unsigned int j{0}; j < header.width; j++)
         {
-            int offset{i * header.height + j};
+            int offset{static_cast<int>(i * header.height + j)};
             (*output)[i][j].r = rawData[3 * offset + 2];
             (*output)[i][j].g = rawData[3 * offset + 1];
             (*output)[i][j].b = rawData[3 * offset];
