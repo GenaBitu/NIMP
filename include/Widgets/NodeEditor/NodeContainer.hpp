@@ -14,4 +14,5 @@ public:
 protected:
     Node* node;
     NodeOutline* outline;
+    virtual void paintEvent(QPaintEvent*);
 };

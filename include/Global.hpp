@@ -11,6 +11,7 @@
 #include <QLabel>
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
+#include <QPainter>
 
 #include <BlendSplitter.hpp>
 

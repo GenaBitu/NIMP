@@ -1,17 +1,10 @@
-#ifndef NODEOUTLINE_H
-#define NODEOUTLINE_H
+#pragma once
 
-#include <QWidget>
+#include "../../Global.hpp"
 
 class NodeOutline : public QWidget
 {
     Q_OBJECT
 public:
-    explicit NodeOutline(QWidget *parent = 0);
-
-signals:
-
-public slots:
+    NodeOutline(QWidget *parent = 0);
 };
-
-#endif // NODEOUTLINE_H
