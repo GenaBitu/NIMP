@@ -1,6 +1,6 @@
 #include "include/NodeSystem/NodeInputMonochrome.hpp"
 
-NodeInputMonochrome::NodeInputMonochrome(Node* parent) : NodeInput(parent) {}
+NodeInputMonochrome::NodeInputMonochrome(Node* parent, std::string name) : NodeInput(parent, name) {}
 
 NodeDataMonochrome* NodeInputMonochrome::getData()
 {

@@ -1,6 +1,6 @@
 #include "include/NodeSystem/NodeOutputMonochrome.hpp"
 
-NodeOutputMonochrome::NodeOutputMonochrome(Node* parent) : NodeOutput(parent) {}
+NodeOutputMonochrome::NodeOutputMonochrome(Node* parent, std::string name) : NodeOutput(parent, name) {}
 
 NodeDataMonochrome* NodeOutputMonochrome::getData()
 {

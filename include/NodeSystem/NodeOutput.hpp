@@ -2,20 +2,18 @@
 
 #include "../Global.hpp"
 
-class Node;
-class NodeData;
+#include "NodeIO.hpp"
+
 class NodeInput;
 
-class NodeOutput
+class NodeOutput : public NodeIO
 {
 protected:
     friend NodeInput;
-    NodeOutput() = delete;
-    NodeOutput(Node* parent);
+    NodeOutput(Node* parent, std::string name);
     virtual NodeData* getData();
     virtual ~NodeOutput();
 private:
     friend Node;
-    const Node* parent;
     std::vector<NodeInput*> connections;
 };

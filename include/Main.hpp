@@ -22,4 +22,4 @@
 #include "Widgets/Canvas.hpp"
 #include "Widgets/NodeEditor.hpp"
 #include "Widgets/NodeEditor/NodeContainer.hpp"
-#include "Widgets/NodeEditor/NodeOutline.hpp"
+#include "Widgets/NodeEditor/NodeConnectorLeft.hpp"

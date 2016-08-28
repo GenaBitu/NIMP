@@ -8,6 +8,6 @@
 class NodeOutputInt : public NodeOutput
 {
 public:
-    NodeOutputInt(Node* parent);
+    NodeOutputInt(Node* parent, std::string name);
     virtual NodeDataInt* getData();
 };

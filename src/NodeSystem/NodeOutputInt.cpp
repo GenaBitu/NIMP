@@ -1,6 +1,6 @@
 #include "include/NodeSystem/NodeOutputInt.hpp"
 
-NodeOutputInt::NodeOutputInt(Node* parent) : NodeOutput(parent) {}
+NodeOutputInt::NodeOutputInt(Node* parent, std::string name) : NodeOutput(parent, name) {}
 
 NodeDataInt* NodeOutputInt::getData()
 {

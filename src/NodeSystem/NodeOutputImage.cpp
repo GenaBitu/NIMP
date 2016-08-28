@@ -1,6 +1,6 @@
 #include "include/NodeSystem/NodeOutputImage.hpp"
 
-NodeOutputImage::NodeOutputImage(Node* parent) : NodeOutput(parent) {}
+NodeOutputImage::NodeOutputImage(Node* parent, std::string name) : NodeOutput(parent, name) {}
 
 NodeDataImage* NodeOutputImage::getData()
 {

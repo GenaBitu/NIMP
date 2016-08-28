@@ -8,6 +8,6 @@
 class NodeOutputMonochrome : public NodeOutput
 {
 public:
-    NodeOutputMonochrome(Node* parent);
+    NodeOutputMonochrome(Node* parent, std::string name);
     virtual NodeDataMonochrome* getData();
 };

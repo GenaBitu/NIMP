@@ -1,6 +1,6 @@
 #include "include/NodeSystem/NodeInputInt.hpp"
 
-NodeInputInt::NodeInputInt(Node* parent) : NodeInput{parent} {}
+NodeInputInt::NodeInputInt(Node* parent, std::string name) : NodeInput{parent, name} {}
 
 NodeDataInt* NodeInputInt::getData()
 {

@@ -1,6 +1,6 @@
 #include "include/NodeSystem/NodeInputImage.hpp"
 
-NodeInputImage::NodeInputImage(Node* parent) : NodeInput(parent) {}
+NodeInputImage::NodeInputImage(Node* parent, std::string name) : NodeInput(parent, name) {}
 
 NodeDataImage* NodeInputImage::getData()
 {

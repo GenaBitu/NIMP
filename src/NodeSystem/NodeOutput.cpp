@@ -2,7 +2,7 @@
 
 #include "include/NodeSystem/Node.hpp"
 
-NodeOutput::NodeOutput(Node* parent) : parent{parent}, connections{} {}
+NodeOutput::NodeOutput(Node* parent, std::string name) : NodeIO{parent, name}, connections{} {}
 
 NodeData* NodeOutput::getData()
 {

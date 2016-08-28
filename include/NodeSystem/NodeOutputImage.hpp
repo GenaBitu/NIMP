@@ -8,6 +8,6 @@
 class NodeOutputImage : public NodeOutput
 {
 public:
-    NodeOutputImage(Node* parent);
+    NodeOutputImage(Node* parent, std::string name);
     virtual NodeDataImage* getData();
 };

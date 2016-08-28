@@ -48,7 +48,8 @@ HEADERS  += \
     include/NodeSystem/RowSelector.hpp \
     src/NodeSystem/RowSelector.tpp \
     include/Widgets/NodeEditor/NodeContainer.hpp \
-    include/Widgets/NodeEditor/NodeOutline.hpp
+    include/Widgets/NodeEditor/NodeConnectorLeft.hpp \
+    include/NodeSystem/NodeIO.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -71,7 +72,8 @@ SOURCES += \
     src/Widgets/Canvas.cpp \
     src/Widgets/NodeEditor.cpp \
     src/Widgets/NodeEditor/NodeContainer.cpp \
-    src/Widgets/NodeEditor/NodeOutline.cpp
+    src/Widgets/NodeEditor/NodeConnectorLeft.cpp \
+    src/NodeSystem/NodeIO.cpp
 
 RESOURCES += \
     images.qrc

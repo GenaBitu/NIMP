@@ -5,7 +5,7 @@
 
 CanvasNode::CanvasNode()
 {
-    inputs.push_back(new NodeInputImage{this});
+    inputs.push_back(new NodeInputImage{this, "Image"});
 }
 
 std::string CanvasNode::nodeName()

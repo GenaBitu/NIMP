@@ -5,7 +5,7 @@
 
 BMPinput::BMPinput()
 {
-    outputs.push_back(new NodeOutputImage{this});
+    outputs.push_back(new NodeOutputImage{this, "Image"});
     relations.push_back(std::bind(&BMPinput::loadBMP, this, std::placeholders::_1));
 }
 
