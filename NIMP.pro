@@ -14,7 +14,9 @@ CONFIG += c++11
 
 QMAKE_CXXFLAGS += -std=c++11 -Wnon-virtual-dtor -Winit-self -Wredundant-decls -Wcast-align -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Wmain -std=c++11 -Wfatal-errors -Wextra -Wall
 
-INCLUDEPATH += BlendSplitter/include
+INCLUDEPATH += \
+    include \
+    BlendSplitter/include
 
 DEPENDPATH += BlendSplitter/include
 
@@ -32,24 +34,30 @@ HEADERS  += \
     include/Nodes/CanvasNode.hpp \
     include/NodeSystem/Node.hpp \
     include/NodeSystem/NodeData.hpp \
-    include/NodeSystem/NodeDataImage.hpp \
-    include/NodeSystem/NodeDataInt.hpp \
-    include/NodeSystem/NodeDataMonochrome.hpp \
     include/NodeSystem/NodeInput.hpp \
-    include/NodeSystem/NodeInputImage.hpp \
-    include/NodeSystem/NodeInputInt.hpp \
-    include/NodeSystem/NodeInputMonochrome.hpp \
     include/NodeSystem/NodeOutput.hpp \
-    include/NodeSystem/NodeOutputImage.hpp \
-    include/NodeSystem/NodeOutputInt.hpp \
-    include/NodeSystem/NodeOutputMonochrome.hpp \
     include/Widgets/Canvas.hpp \
     include/Widgets/NodeEditor.hpp \
     include/NodeSystem/RowSelector.hpp \
     src/NodeSystem/RowSelector.tpp \
     include/Widgets/NodeEditor/NodeContainer.hpp \
     include/Widgets/NodeEditor/NodeConnectorLeft.hpp \
-    include/NodeSystem/NodeIO.hpp
+    include/NodeSystem/NodeIO.hpp \
+    include/Nodes.hpp \
+    include/NodeSystem.hpp \
+    include/NodeSystem/NodeDataTypes.hpp \
+    include/NodeSystem/NodeDataTypes/NodeDataImage.hpp \
+    include/NodeSystem/NodeDataTypes/NodeDataInt.hpp \
+    include/NodeSystem/NodeDataTypes/NodeDataMonochrome.hpp \
+    include/NodeSystem/NodeInputTypes.hpp \
+    include/NodeSystem/NodeInputTypes/NodeInputImage.hpp \
+    include/NodeSystem/NodeInputTypes/NodeInputInt.hpp \
+    include/NodeSystem/NodeInputTypes/NodeInputMonochrome.hpp \
+    include/NodeSystem/NodeOutputTypes.hpp \
+    include/NodeSystem/NodeOutputTypes/NodeOutputImage.hpp \
+    include/NodeSystem/NodeOutputTypes/NodeOutputInt.hpp \
+    include/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp \
+    include/Widgets.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -58,22 +66,22 @@ SOURCES += \
     src/Nodes/CanvasNode.cpp \
     src/NodeSystem/Node.cpp \
     src/NodeSystem/NodeData.cpp \
-    src/NodeSystem/NodeDataImage.cpp \
-    src/NodeSystem/NodeDataInt.cpp \
-    src/NodeSystem/NodeDataMonochrome.cpp \
     src/NodeSystem/NodeInput.cpp \
-    src/NodeSystem/NodeInputImage.cpp \
-    src/NodeSystem/NodeInputInt.cpp \
-    src/NodeSystem/NodeInputMonochrome.cpp \
     src/NodeSystem/NodeOutput.cpp \
-    src/NodeSystem/NodeOutputImage.cpp \
-    src/NodeSystem/NodeOutputInt.cpp \
-    src/NodeSystem/NodeOutputMonochrome.cpp \
     src/Widgets/Canvas.cpp \
     src/Widgets/NodeEditor.cpp \
     src/Widgets/NodeEditor/NodeContainer.cpp \
     src/Widgets/NodeEditor/NodeConnectorLeft.cpp \
-    src/NodeSystem/NodeIO.cpp
+    src/NodeSystem/NodeIO.cpp \
+    src/NodeSystem/NodeDataTypes/NodeDataImage.cpp \
+    src/NodeSystem/NodeDataTypes/NodeDataInt.cpp \
+    src/NodeSystem/NodeDataTypes/NodeDataMonochrome.cpp \
+    src/NodeSystem/NodeInputTypes/NodeInputImage.cpp \
+    src/NodeSystem/NodeInputTypes/NodeInputInt.cpp \
+    src/NodeSystem/NodeInputTypes/NodeInputMonochrome.cpp \
+    src/NodeSystem/NodeOutputTypes/NodeOutputImage.cpp \
+    src/NodeSystem/NodeOutputTypes/NodeOutputInt.cpp \
+    src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp
 
 RESOURCES += \
     images.qrc

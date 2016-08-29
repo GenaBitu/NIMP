@@ -1,7 +1,7 @@
-#include "include/Nodes/CanvasNode.hpp"
+#include "Nodes/CanvasNode.hpp"
 
-#include "include/Texture.hpp"
-#include "include/NodeSystem/NodeInputImage.hpp"
+#include "Texture.hpp"
+#include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
 
 CanvasNode::CanvasNode()
 {

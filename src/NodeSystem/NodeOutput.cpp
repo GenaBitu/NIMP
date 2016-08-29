@@ -1,6 +1,6 @@
-#include "include/NodeSystem/NodeOutput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
 
-#include "include/NodeSystem/Node.hpp"
+#include "NodeSystem/Node.hpp"
 
 NodeOutput::NodeOutput(Node* parent, std::string name) : NodeIO{parent, name}, connections{} {}
 

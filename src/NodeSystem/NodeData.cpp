@@ -1,4 +1,4 @@
-#include "include/NodeSystem/NodeData.hpp"
+#include "NodeSystem/NodeData.hpp"
 
 NodeData::NodeData() {}
 

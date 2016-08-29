@@ -1,10 +1,10 @@
-#include "include/Widgets/NodeEditor/NodeContainer.hpp"
+#include "Widgets/NodeEditor/NodeContainer.hpp"
 
-#include "include/NodeSystem/Node.hpp"
-#include "include/Widgets/NodeEditor.hpp"
-#include "include/Widgets/NodeEditor/NodeConnectorLeft.hpp"
+#include "NodeSystem/Node.hpp"
+#include "Widgets/NodeEditor.hpp"
+#include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
 
-#include "include/Nodes/CanvasNode.hpp" // DEBUG
+#include "Nodes/CanvasNode.hpp" // DEBUG
 
 float NodeContainer::padding{10};
 float NodeContainer::cornerRadius{10};

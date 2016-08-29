@@ -1,7 +1,7 @@
-#include "include/NodeSystem/Node.hpp"
+#include "NodeSystem/Node.hpp"
 
-#include "include/NodeSystem/NodeInput.hpp"
-#include "include/NodeSystem/NodeOutput.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
 
 Node::Node() {}
 

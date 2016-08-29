@@ -1,7 +1,7 @@
-#include "include/Nodes/BMPinput.hpp"
+#include "Nodes/BMPinput.hpp"
 
-#include "include/NodeSystem/NodeOutputImage.hpp"
-#include "include/NodeSystem/RowSelector.hpp"
+#include "NodeSystem/NodeOutputTypes/NodeOutputImage.hpp"
+#include "NodeSystem/RowSelector.hpp"
 
 BMPinput::BMPinput()
 {

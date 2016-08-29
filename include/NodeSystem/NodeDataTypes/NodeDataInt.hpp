@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
-#include "NodeData.hpp"
+#include "NodeSystem/NodeData.hpp"
 
 class NodeDataInt : public NodeData
 {

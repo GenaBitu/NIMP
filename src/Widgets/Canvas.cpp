@@ -1,7 +1,7 @@
 #include "include/Widgets/Canvas.hpp"
 
 #include "include/Texture.hpp"
-#include "include/Nodes/CanvasNode.hpp"
+#include "Nodes/CanvasNode.hpp"
 
 Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, image{} {
 }

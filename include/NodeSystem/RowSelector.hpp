@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
 template<class T, class U>
 class RowSelector

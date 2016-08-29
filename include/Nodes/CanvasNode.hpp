@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
-#include "include/NodeSystem/Node.hpp"
+#include "NodeSystem/Node.hpp"
 
 class Texture;
 

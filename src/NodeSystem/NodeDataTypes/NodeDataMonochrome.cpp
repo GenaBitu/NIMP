@@ -1,6 +1,6 @@
-#include "include/NodeSystem/NodeDataMonochrome.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataMonochrome.hpp"
 
-#include "include/NodeSystem/RowSelector.hpp"
+#include "NodeSystem/RowSelector.hpp"
 
 NodeDataMonochrome::NodeDataMonochrome(int width, int height) : width{width}, height{height}, data{new MonochromePixel[width * height]} {}
 

@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
-#include "NodeIO.hpp"
+#include "NodeSystem/NodeIO.hpp"
 
 class NodeOutput;
 

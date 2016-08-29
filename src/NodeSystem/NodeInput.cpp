@@ -1,6 +1,6 @@
-#include "include/NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeInput.hpp"
 
-#include "include/NodeSystem/NodeOutput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
 
 NodeInput::NodeInput(Node* parent, std::string name) : NodeIO{parent, name}, connection{} {}
 

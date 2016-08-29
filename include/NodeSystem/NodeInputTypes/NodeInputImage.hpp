@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
-#include "NodeDataImage.hpp"
-#include "NodeInput.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataImage.hpp"
 
 class NodeInputImage : public NodeInput
 {

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
-#include "NodeDataMonochrome.hpp"
-#include "NodeInput.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataMonochrome.hpp"
 
 class NodeInputMonochrome : public NodeInput
 {

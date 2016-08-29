@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
-#include "NodeDataImage.hpp"
-#include "NodeOutput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataImage.hpp"
 
 class NodeOutputImage : public NodeOutput
 {

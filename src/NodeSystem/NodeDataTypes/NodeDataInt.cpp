@@ -1,3 +1,3 @@
-#include "include/NodeSystem/NodeDataInt.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataInt.hpp"
 
 NodeDataInt::NodeDataInt(int data) : data{data} {}

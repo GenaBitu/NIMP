@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
 class NodeData;
 class NodeInput;

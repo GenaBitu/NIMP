@@ -1,9 +1,9 @@
 #pragma once
 
-#include "../Global.hpp"
+#include "Global.hpp"
 
-#include "NodeDataInt.hpp"
-#include "NodeInput.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataInt.hpp"
 
 class NodeInputInt : public NodeInput
 {
