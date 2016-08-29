@@ -1,15 +1,18 @@
 #include "include/Widgets/NodeEditor/NodeContainer.hpp"
 
 #include "include/NodeSystem/Node.hpp"
+#include "include/Widgets/NodeEditor.hpp"
+#include "include/Widgets/NodeEditor/NodeConnectorLeft.hpp"
 
 float NodeContainer::padding{10};
 float NodeContainer::cornerRadius{10};
 float NodeContainer::borderWidth{2};
 float NodeContainer::headerHeight{30};
 
-NodeContainer::NodeContainer(Node* node) : QWidget(), node{node}
+NodeContainer::NodeContainer(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
 {
-
+    resize(400, 200);
+    inputs.push_back(new NodeConnectorLeft{this, 50});
 }
 
 void NodeContainer::paintEvent(QPaintEvent*)

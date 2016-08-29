@@ -4,6 +4,5 @@
 #include "include/Nodes/CanvasNode.hpp"
 
 NodeEditor::NodeEditor() {
-    NodeContainer* nd1{new NodeContainer(CNVS)};
-    nd1->setParent(this);
+    NodeContainer* nd1{new NodeContainer(this, CNVS)};
 }

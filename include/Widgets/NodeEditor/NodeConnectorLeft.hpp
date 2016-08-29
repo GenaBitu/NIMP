@@ -6,5 +6,7 @@ class NodeConnectorLeft : public QWidget
 {
     Q_OBJECT
 public:
-    NodeConnectorLeft(QWidget *parent = 0);
+    NodeConnectorLeft(QWidget* parent, int y);
+protected:
+    virtual void paintEvent(QPaintEvent*);
 };
