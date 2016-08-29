@@ -1,5 +1,7 @@
 #include "include/NodeSystem/RowSelector.hpp"
 
+#include "include/NodeSystem/NodeDataMonochrome.hpp"
+
 template<class T, class U>
 RowSelector<T, U>::RowSelector(T* nodeData, int row, int width) : nodeData{nodeData}, row{row}, width{width} {}
 
