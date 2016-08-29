@@ -4,6 +4,8 @@
 #include "include/Widgets/NodeEditor.hpp"
 #include "include/Widgets/NodeEditor/NodeConnectorLeft.hpp"
 
+#include "include/Nodes/CanvasNode.hpp" // DEBUG
+
 float NodeContainer::padding{10};
 float NodeContainer::cornerRadius{10};
 float NodeContainer::borderWidth{2};
@@ -12,7 +14,7 @@ float NodeContainer::headerHeight{30};
 NodeContainer::NodeContainer(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
 {
     resize(400, 200);
-    inputs.push_back(new NodeConnectorLeft{this, 50});
+    inputs.push_back(new NodeConnectorLeft{this, CNVS->inputs[0], 50});
 }
 
 void NodeContainer::paintEvent(QPaintEvent*)

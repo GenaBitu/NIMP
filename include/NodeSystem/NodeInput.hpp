@@ -6,7 +6,7 @@
 
 class NodeOutput;
 
-class NodeInput : NodeIO
+class NodeInput : public NodeIO
 {
 public:
     virtual NodeData* getData();

@@ -7,11 +7,12 @@ class NodeData;
 
 class NodeIO
 {
+public:
+    std::string name;
 protected:
     NodeIO() = delete;
     NodeIO(Node* parent, std::string name);
     const Node* parent;
-    std::string name;
     virtual NodeData* getData() = 0;
     ~NodeIO();
 };
