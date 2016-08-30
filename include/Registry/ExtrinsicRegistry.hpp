@@ -4,9 +4,9 @@
 
 class GuiSettings;
 
-class ExtrinsicSettings
+class ExtrinsicRegistry
 {
 public:
     GuiSettings* GUI;
-    ExtrinsicSettings();
+    ExtrinsicRegistry();
 };

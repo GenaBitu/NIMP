@@ -60,8 +60,8 @@ HEADERS  += \
     include/Widgets.hpp \
     include/Widgets/NodeEditor/NodeConnectorRight.hpp \
     include/Registry.hpp \
-    include/Registry/ExtrinsicSettings.hpp \
-    include/Registry/GuiSettings.hpp
+    include/Registry/GuiSettings.hpp \
+    include/Registry/ExtrinsicRegistry.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -88,8 +88,8 @@ SOURCES += \
     src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp \
     src/Widgets/NodeEditor/NodeConnectorRight.cpp \
     src/Registry.cpp \
-    src/Registry/ExtrinsicSettings.cpp \
-    src/Registry/GuiSettings.cpp
+    src/Registry/GuiSettings.cpp \
+    src/Registry/ExtrinsicRegistry.cpp
 
 RESOURCES += \
     images.qrc

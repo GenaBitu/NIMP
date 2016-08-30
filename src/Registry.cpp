@@ -2,7 +2,7 @@
 
 Registry* Registry::instance{};
 
-Registry::Registry() : extrinsic{new ExtrinsicSettings{}}
+Registry::Registry() : extrinsic{new ExtrinsicRegistry{}}
 {
 }
 

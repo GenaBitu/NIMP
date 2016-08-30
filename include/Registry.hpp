@@ -4,10 +4,10 @@
 
 class Registry
 {
-    #include "Registry/ExtrinsicSettings.hpp"
+    #include "Registry/ExtrinsicRegistry.hpp"
     #include "Registry/GuiSettings.hpp"
 public:
-    ExtrinsicSettings* extrinsic;
+    ExtrinsicRegistry* extrinsic;
     static Registry* getRegistry();
 private:
     static Registry* instance;
