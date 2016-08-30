@@ -59,7 +59,8 @@ HEADERS  += \
     include/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp \
     include/Widgets.hpp \
     include/Settings.hpp \
-    include/Settings/ExtrinsicSettings.hpp
+    include/Settings/ExtrinsicSettings.hpp \
+    include/Settings/GuiSettings.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -85,7 +86,8 @@ SOURCES += \
     src/NodeSystem/NodeOutputTypes/NodeOutputInt.cpp \
     src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp \
     src/Settings.cpp \
-    src/Settings/ExtrinsicSettings.cpp
+    src/Settings/ExtrinsicSettings.cpp \
+    src/Settings/GuiSettings.cpp
 
 RESOURCES += \
     images.qrc

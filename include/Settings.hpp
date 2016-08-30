@@ -5,6 +5,7 @@
 class Settings
 {
     #include "Settings/ExtrinsicSettings.hpp"
+    #include "Settings/GuiSettings.hpp"
 public:
     ExtrinsicSettings* extrinsic;
     static Settings* getSettings();

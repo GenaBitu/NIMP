@@ -2,9 +2,11 @@
 
 #include "Global.hpp"
 
+class GuiSettings;
+
 class ExtrinsicSettings
 {
 public:
-    std::map<std::string, QColor> palette;
+    GuiSettings* GUI;
     ExtrinsicSettings();
 };

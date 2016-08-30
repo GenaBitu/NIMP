@@ -5,11 +5,6 @@
 
 #include "Nodes/CanvasNode.hpp" // DEBUG
 
-float NodeEditor::NodeContainer::padding{10};
-float NodeEditor::NodeContainer::cornerRadius{10};
-float NodeEditor::NodeContainer::borderWidth{2};
-float NodeEditor::NodeContainer::headerHeight{30};
-
 NodeEditor::NodeContainer::NodeContainer(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
 {
     resize(400, 200);
@@ -22,15 +17,15 @@ void NodeEditor::NodeContainer::paintEvent(QPaintEvent*)
     painter.setRenderHint(QPainter::Antialiasing);
     QPainterPath border{};
     QPainterPath separator{};
-    border.addRoundedRect(QRectF(padding - 0.5, padding - 0.5, width() - 2 * padding, height() - 2 * padding), cornerRadius, cornerRadius);
-    QPen borderPen{Settings::getSettings()->extrinsic->palette["NodeBorder"], borderWidth};
-    QPen separatorPen{Settings::getSettings()->extrinsic->palette["NodeHeaderSeparator"], borderWidth};
-    QPen textPen{Settings::getSettings()->extrinsic->palette["NodeHeaderText"]};
+    border.addRoundedRect(QRectF(Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, width() - 2 * Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"], height() - 2 * Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"]), Settings::getSettings()->extrinsic->GUI->dimensions["NodeCornerRadius"], Settings::getSettings()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
+    QPen borderPen{Settings::getSettings()->extrinsic->GUI->palette["NodeBorder"], Settings::getSettings()->extrinsic->GUI->dimensions["NodeBorderWidth"]};
+    QPen separatorPen{Settings::getSettings()->extrinsic->GUI->palette["NodeHeaderSeparator"], Settings::getSettings()->extrinsic->GUI->dimensions["NodeHeaderSeparatorHeight"]};
+    QPen textPen{Settings::getSettings()->extrinsic->GUI->palette["NodeHeaderText"]};
     painter.setPen(borderPen);
-    painter.fillPath(border, Settings::getSettings()->extrinsic->palette["NodeBackground"]);
+    painter.fillPath(border, Settings::getSettings()->extrinsic->GUI->palette["NodeBackground"]);
     painter.drawPath(border);
     painter.setPen(separatorPen);
-    painter.drawLine(padding + borderWidth, padding + borderWidth + headerHeight, width() - padding - borderWidth - 1, padding + borderWidth + headerHeight);
+    painter.drawLine(Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"] + Settings::getSettings()->extrinsic->GUI->dimensions["NodeBorderWidth"], Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"] + Settings::getSettings()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Settings::getSettings()->extrinsic->GUI->dimensions["NodeHeaderHeight"], width() - Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"] - Settings::getSettings()->extrinsic->GUI->dimensions["NodeBorderWidth"] - 1, Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"] + Settings::getSettings()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Settings::getSettings()->extrinsic->GUI->dimensions["NodeHeaderHeight"]);
     painter.setPen(textPen);
-    painter.drawText(2 * padding, padding + headerHeight - 8, QString::fromStdString(node->nodeName()));
+    painter.drawText(2 * Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"], Settings::getSettings()->extrinsic->GUI->dimensions["NodeMargin"] + Settings::getSettings()->extrinsic->GUI->dimensions["NodeHeaderHeight"] - 8, QString::fromStdString(node->nodeName()));
 }

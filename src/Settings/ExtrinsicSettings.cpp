@@ -1,9 +1,6 @@
 #include "include/Settings.hpp"
 
-Settings::ExtrinsicSettings::ExtrinsicSettings()
+Settings::ExtrinsicSettings::ExtrinsicSettings() : GUI{new GuiSettings{}}
 {
-    palette["NodeBorder"] = Qt::black;
-    palette["NodeBackground"] = Qt::lightGray;
-    palette["NodeHeaderSeparator"] = Qt::darkGray;
-    palette["NodeHeaderText"] = Qt::black;
+
 }
