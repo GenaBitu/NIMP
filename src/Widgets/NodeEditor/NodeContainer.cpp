@@ -3,6 +3,7 @@
 #include "NodeSystem/Node.hpp"
 #include "Widgets/NodeEditor.hpp"
 #include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
+#include "Settings.hpp"
 
 #include "Nodes/CanvasNode.hpp" // DEBUG
 
@@ -24,11 +25,11 @@ void NodeContainer::paintEvent(QPaintEvent*)
     QPainterPath border{};
     QPainterPath separator{};
     border.addRoundedRect(QRectF(padding - 0.5, padding - 0.5, width() - 2 * padding, height() - 2 * padding), cornerRadius, cornerRadius);
-    QPen borderPen{Qt::black, borderWidth};
-    QPen separatorPen{Qt::darkGray, borderWidth};
-    QPen textPen{Qt::black};
+    QPen borderPen{Settings::getSettings()->extrinsic->palette["NodeBorder"], borderWidth};
+    QPen separatorPen{Settings::getSettings()->extrinsic->palette["NodeHeaderSeparator"], borderWidth};
+    QPen textPen{Settings::getSettings()->extrinsic->palette["NodeHeaderText"]};
     painter.setPen(borderPen);
-    painter.fillPath(border, Qt::gray);
+    painter.fillPath(border, Settings::getSettings()->extrinsic->palette["NodeBackground"]);
     painter.drawPath(border);
     painter.setPen(separatorPen);
     painter.drawLine(padding + borderWidth, padding + borderWidth + headerHeight, width() - padding - borderWidth - 1, padding + borderWidth + headerHeight);

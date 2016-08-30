@@ -4,5 +4,7 @@
 
 #include "Nodes.hpp"
 #include "NodeSystem.hpp"
-#include "Texture.hpp"
 #include "Widgets.hpp"
+
+#include "Settings.hpp"
+#include "Texture.hpp"

@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core widgets opengl
+QT += core widgets opengl
 
 TARGET = NIMP
 
@@ -57,7 +57,9 @@ HEADERS  += \
     include/NodeSystem/NodeOutputTypes/NodeOutputImage.hpp \
     include/NodeSystem/NodeOutputTypes/NodeOutputInt.hpp \
     include/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp \
-    include/Widgets.hpp
+    include/Widgets.hpp \
+    include/Settings.hpp \
+    include/Settings/ExtrinsicSettings.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -81,7 +83,9 @@ SOURCES += \
     src/NodeSystem/NodeInputTypes/NodeInputMonochrome.cpp \
     src/NodeSystem/NodeOutputTypes/NodeOutputImage.cpp \
     src/NodeSystem/NodeOutputTypes/NodeOutputInt.cpp \
-    src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp
+    src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp \
+    src/Settings.cpp \
+    src/Settings/ExtrinsicSettings.cpp
 
 RESOURCES += \
     images.qrc
