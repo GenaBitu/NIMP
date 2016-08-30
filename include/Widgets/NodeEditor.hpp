@@ -2,11 +2,14 @@
 
 #include "Global.hpp"
 
-#include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
-#include "Widgets/NodeEditor/NodeContainer.hpp"
+class Node;
+class NodeInput;
+class NodeEditor;
 
 class NodeEditor : public QWidget
 {
+    #include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
+    #include "Widgets/NodeEditor/NodeContainer.hpp"
 public:
     NodeEditor();
 protected:

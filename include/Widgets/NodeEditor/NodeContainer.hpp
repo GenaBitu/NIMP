@@ -2,13 +2,10 @@
 
 #include "Global.hpp"
 
-class NodeEditor;
-class Node;
 class NodeConnectorLeft;
 
 class NodeContainer : public QWidget
 {
-    Q_OBJECT
 public:
     NodeContainer(NodeEditor* parent, Node* node);
     static float padding;

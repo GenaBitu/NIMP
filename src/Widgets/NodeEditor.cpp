@@ -1,6 +1,5 @@
 #include "Widgets/NodeEditor.hpp"
 
-#include "Widgets/NodeEditor/NodeContainer.hpp"
 #include "Nodes/CanvasNode.hpp"
 
 NodeEditor::NodeEditor() {

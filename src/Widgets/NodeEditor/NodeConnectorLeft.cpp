@@ -1,14 +1,14 @@
-#include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
+#include "Widgets/NodeEditor.hpp"
 
 #include "NodeSystem/NodeInput.hpp"
 
-NodeConnectorLeft::NodeConnectorLeft(QWidget* parent, NodeInput* input, int y) : QWidget(parent), input{input}
+NodeEditor::NodeConnectorLeft::NodeConnectorLeft(QWidget* parent, NodeInput* input, int y) : QWidget(parent), input{input}
 {
     resize(200, 20);
     move(0, y);
 }
 
-void NodeConnectorLeft::paintEvent(QPaintEvent*)
+void NodeEditor::NodeConnectorLeft::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);

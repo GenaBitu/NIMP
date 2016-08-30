@@ -1,24 +1,22 @@
-#include "Widgets/NodeEditor/NodeContainer.hpp"
+#include "Widgets/NodeEditor.hpp"
 
 #include "NodeSystem/Node.hpp"
-#include "Widgets/NodeEditor.hpp"
-#include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
 #include "Settings.hpp"
 
 #include "Nodes/CanvasNode.hpp" // DEBUG
 
-float NodeContainer::padding{10};
-float NodeContainer::cornerRadius{10};
-float NodeContainer::borderWidth{2};
-float NodeContainer::headerHeight{30};
+float NodeEditor::NodeContainer::padding{10};
+float NodeEditor::NodeContainer::cornerRadius{10};
+float NodeEditor::NodeContainer::borderWidth{2};
+float NodeEditor::NodeContainer::headerHeight{30};
 
-NodeContainer::NodeContainer(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
+NodeEditor::NodeContainer::NodeContainer(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
 {
     resize(400, 200);
     inputs.push_back(new NodeConnectorLeft{this, CNVS->inputs[0], 50});
 }
 
-void NodeContainer::paintEvent(QPaintEvent*)
+void NodeEditor::NodeContainer::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
