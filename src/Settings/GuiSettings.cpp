@@ -15,4 +15,5 @@ Settings::GuiSettings::GuiSettings() : palette{}, dimensions{}
     dimensions["NodeHeaderHeight"] = 30;
     dimensions["NodeHeaderSeparatorHeight"] = 2;
     dimensions["NodeConnectorDiameter"] = 20;
+    dimensions["NodeConnectorSpacing"] = 10;
 }

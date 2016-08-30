@@ -3,6 +3,7 @@
 #include "Global.hpp"
 
 class NodeConnectorLeft;
+class NodeConnectorRight;
 
 class NodeContainer : public QWidget
 {
@@ -11,5 +12,7 @@ public:
 protected:
     Node* node;
     std::vector<NodeConnectorLeft*> inputs;
+    std::vector<NodeConnectorRight*> outputs;
     virtual void paintEvent(QPaintEvent*);
+    float updateConnections();
 };

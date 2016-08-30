@@ -1,16 +1,17 @@
 #include "Widgets/NodeEditor.hpp"
 
-#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
 #include "Settings.hpp"
 
-NodeEditor::NodeConnectorLeft::NodeConnectorLeft(NodeContainer* parent, NodeInput* input, float y) : QWidget(parent), input{input}
+NodeEditor::NodeConnectorRight::NodeConnectorRight(NodeContainer* parent, NodeOutput* output, float y) : QWidget(parent), output{output}
 {
     resize(parent->width(), Settings::getSettings()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
 }
 
-void NodeEditor::NodeConnectorLeft::paintEvent(QPaintEvent*)
+void NodeEditor::NodeConnectorRight::paintEvent(QPaintEvent*)
 {
+    // TODO: On the RIGHT
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
     QPainterPath border{};
@@ -21,5 +22,5 @@ void NodeEditor::NodeConnectorLeft::paintEvent(QPaintEvent*)
     painter.fillPath(border, Settings::getSettings()->extrinsic->GUI->palette["NodeConnectorBackground"]);
     painter.drawPath(border);
     painter.setPen(textPen);
-    painter.drawText(Settings::getSettings()->extrinsic->GUI->dimensions["NodeConnectorDiameter"] + 5, Settings::getSettings()->extrinsic->GUI->dimensions["NodeConnectorDiameter"] - 4, QString::fromStdString(input->name));
+    painter.drawText(Settings::getSettings()->extrinsic->GUI->dimensions["NodeConnectorDiameter"] + 5, Settings::getSettings()->extrinsic->GUI->dimensions["NodeConnectorDiameter"] - 4, QString::fromStdString(output->name));
 }
