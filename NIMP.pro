@@ -58,10 +58,10 @@ HEADERS  += \
     include/NodeSystem/NodeOutputTypes/NodeOutputInt.hpp \
     include/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp \
     include/Widgets.hpp \
-    include/Settings.hpp \
-    include/Settings/ExtrinsicSettings.hpp \
-    include/Settings/GuiSettings.hpp \
-    include/Widgets/NodeEditor/NodeConnectorRight.hpp
+    include/Widgets/NodeEditor/NodeConnectorRight.hpp \
+    include/Registry.hpp \
+    include/Registry/ExtrinsicSettings.hpp \
+    include/Registry/GuiSettings.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -86,10 +86,10 @@ SOURCES += \
     src/NodeSystem/NodeOutputTypes/NodeOutputImage.cpp \
     src/NodeSystem/NodeOutputTypes/NodeOutputInt.cpp \
     src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp \
-    src/Settings.cpp \
-    src/Settings/ExtrinsicSettings.cpp \
-    src/Settings/GuiSettings.cpp \
-    src/Widgets/NodeEditor/NodeConnectorRight.cpp
+    src/Widgets/NodeEditor/NodeConnectorRight.cpp \
+    src/Registry.cpp \
+    src/Registry/ExtrinsicSettings.cpp \
+    src/Registry/GuiSettings.cpp
 
 RESOURCES += \
     images.qrc

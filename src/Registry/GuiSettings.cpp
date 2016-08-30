@@ -1,6 +1,6 @@
-#include "include/Settings.hpp"
+#include "include/Registry.hpp"
 
-Settings::GuiSettings::GuiSettings() : palette{}, dimensions{}
+Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}
 {
     palette["NodeBorder"] = Qt::black;
     palette["NodeBackground"] = Qt::lightGray;
