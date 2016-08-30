@@ -3,9 +3,9 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "Settings.hpp"
 
-NodeEditor::NodeConnectorLeft::NodeConnectorLeft(QWidget* parent, NodeInput* input, int y) : QWidget(parent), input{input}
+NodeEditor::NodeConnectorLeft::NodeConnectorLeft(NodeContainer* parent, NodeInput* input, int y) : QWidget(parent), input{input}
 {
-    resize(200, Settings::getSettings()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
+    resize(parent->width(), Settings::getSettings()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
 }
 

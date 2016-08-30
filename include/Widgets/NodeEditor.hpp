@@ -4,7 +4,6 @@
 
 class Node;
 class NodeInput;
-class NodeEditor;
 
 class NodeEditor : public QWidget
 {
