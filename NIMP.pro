@@ -40,7 +40,6 @@ HEADERS  += \
     include/Widgets/NodeEditor.hpp \
     include/NodeSystem/RowSelector.hpp \
     src/NodeSystem/RowSelector.tpp \
-    include/Widgets/NodeEditor/NodeContainer.hpp \
     include/Widgets/NodeEditor/NodeConnectorLeft.hpp \
     include/NodeSystem/NodeIO.hpp \
     include/Nodes.hpp \
@@ -62,7 +61,8 @@ HEADERS  += \
     include/Registry.hpp \
     include/Registry/GuiSettings.hpp \
     include/Registry/ExtrinsicRegistry.hpp \
-    include/Registry/IntrinsicRegistry.hpp
+    include/Registry/IntrinsicRegistry.hpp \
+    include/Widgets/NodeEditor/NodeGraphics.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -75,7 +75,6 @@ SOURCES += \
     src/NodeSystem/NodeOutput.cpp \
     src/Widgets/Canvas.cpp \
     src/Widgets/NodeEditor.cpp \
-    src/Widgets/NodeEditor/NodeContainer.cpp \
     src/Widgets/NodeEditor/NodeConnectorLeft.cpp \
     src/NodeSystem/NodeIO.cpp \
     src/NodeSystem/NodeDataTypes/NodeDataImage.cpp \
@@ -91,7 +90,8 @@ SOURCES += \
     src/Registry.cpp \
     src/Registry/GuiSettings.cpp \
     src/Registry/ExtrinsicRegistry.cpp \
-    src/Registry/IntrinsicRegistry.cpp
+    src/Registry/IntrinsicRegistry.cpp \
+    src/Widgets/NodeEditor/NodeGraphics.cpp
 
 RESOURCES += \
     images.qrc

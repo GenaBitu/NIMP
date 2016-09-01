@@ -4,5 +4,5 @@
 #include "Registry.hpp"
 
 NodeEditor::NodeEditor() {
-    NodeContainer* nd1{new NodeContainer(this, Registry::getRegistry()->intrinsic->nodes[0])};
+    NodeGraphics* nd1{new NodeGraphics(this, Registry::getRegistry()->intrinsic->nodes[0])};
 }

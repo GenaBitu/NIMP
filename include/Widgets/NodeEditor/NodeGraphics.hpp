@@ -5,10 +5,10 @@
 class NodeConnectorLeft;
 class NodeConnectorRight;
 
-class NodeContainer : public QWidget
+class NodeGraphics : public QWidget
 {
 public:
-    NodeContainer(NodeEditor* parent, Node* node);
+    NodeGraphics(NodeEditor* parent, Node* node);
 protected:
     Node* node;
     std::vector<NodeConnectorLeft*> inputs;

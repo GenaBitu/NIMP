@@ -10,7 +10,7 @@ class NodeEditor : public QWidget
 {
     #include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
     #include "Widgets/NodeEditor/NodeConnectorRight.hpp"
-    #include "Widgets/NodeEditor/NodeContainer.hpp"
+    #include "Widgets/NodeEditor/NodeGraphics.hpp"
 public:
     NodeEditor();
 protected:

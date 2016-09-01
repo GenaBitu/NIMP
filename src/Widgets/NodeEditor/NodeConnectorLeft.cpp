@@ -3,7 +3,7 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "Registry.hpp"
 
-NodeEditor::NodeConnectorLeft::NodeConnectorLeft(NodeContainer* parent, NodeInput* input, float y) : QWidget(parent), input{input}
+NodeEditor::NodeConnectorLeft::NodeConnectorLeft(NodeGraphics* parent, NodeInput* input, float y) : QWidget(parent), input{input}
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);

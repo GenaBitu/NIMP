@@ -3,13 +3,13 @@
 #include "NodeSystem/Node.hpp"
 #include "Registry.hpp"
 
-NodeEditor::NodeContainer::NodeContainer(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
+NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
 {
     float height{updateConnections()};
     resize(width(), height);
 }
 
-void NodeEditor::NodeContainer::paintEvent(QPaintEvent*)
+void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
@@ -28,7 +28,7 @@ void NodeEditor::NodeContainer::paintEvent(QPaintEvent*)
     painter.drawText(2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] - 8, QString::fromStdString(node->nodeName()));
 }
 
-float NodeEditor::NodeContainer::updateConnections()
+float NodeEditor::NodeGraphics::updateConnections()
 {
     inputs.clear();
     float height{Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"]};
