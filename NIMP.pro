@@ -61,7 +61,8 @@ HEADERS  += \
     include/Widgets/NodeEditor/NodeConnectorRight.hpp \
     include/Registry.hpp \
     include/Registry/GuiSettings.hpp \
-    include/Registry/ExtrinsicRegistry.hpp
+    include/Registry/ExtrinsicRegistry.hpp \
+    include/Registry/IntrinsicRegistry.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -89,7 +90,8 @@ SOURCES += \
     src/Widgets/NodeEditor/NodeConnectorRight.cpp \
     src/Registry.cpp \
     src/Registry/GuiSettings.cpp \
-    src/Registry/ExtrinsicRegistry.cpp
+    src/Registry/ExtrinsicRegistry.cpp \
+    src/Registry/IntrinsicRegistry.cpp
 
 RESOURCES += \
     images.qrc

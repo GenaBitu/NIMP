@@ -1,8 +1,6 @@
 #include "include/Main.hpp"
 
 CanvasNode* CNVS;
-QMainWindow* WINDOW{};
-BlendSplitter* SPLITTER{};
 
 int main(int argc, char** argv)
 {
@@ -15,13 +13,13 @@ int main(int argc, char** argv)
     CNVS = new CanvasNode{};
     BMPinput* input{new BMPinput{}};
     Node::connect(input, 0, CNVS, 0);
-    WINDOW = new QMainWindow{};
-    SPLITTER = new BlendSplitter{};
+    Registry::getRegistry()->extrinsic->window = new QMainWindow{};
+    Registry::getRegistry()->extrinsic->splitter = new BlendSplitter{};
 
-    WINDOW->setCentralWidget(SPLITTER);
-    WINDOW->resize(860, 640);
-    WINDOW->setWindowTitle("NIMP");
-    WINDOW->setWindowIcon(QIcon(":/icons/app_icon"));
+    Registry::getRegistry()->extrinsic->window->setCentralWidget(Registry::getRegistry()->extrinsic->splitter);
+    Registry::getRegistry()->extrinsic->window->resize(860, 640);
+    Registry::getRegistry()->extrinsic->window->setWindowTitle("NIMP");
+    Registry::getRegistry()->extrinsic->window->setWindowIcon(QIcon(":/icons/app_icon"));
 
     WidgetRegistry::getRegistry()->addItem();
     WidgetRegistry::getRegistry()->addItem("Type1", []()->QWidget* {return new QLabel{"Type 1 Label"};}, [](SwitchingBar* bar, QWidget*)->void {
@@ -39,11 +37,9 @@ int main(int argc, char** argv)
     WidgetRegistry::getRegistry()->addItem("Node Editor", []()->QWidget*{return new NodeEditor{};});
     WidgetRegistry::getRegistry()->setDefault(4);
 
-    /*SPLITTER->addWidget(new QLabel{"NIMP2aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"});
-    SPLITTER->addWidget(new QLabel{"NIMP2bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"});*/
-    SPLITTER->addWidget();
+    Registry::getRegistry()->extrinsic->splitter->addWidget();
 
-    WINDOW->show();
+    Registry::getRegistry()->extrinsic->window->show();
 
     return qApp->exec();
 }

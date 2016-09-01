@@ -20,5 +20,3 @@ typedef unsigned char ubyte;
 class CanvasNode;
 
 extern CanvasNode* CNVS;
-extern QMainWindow* WINDOW;
-extern BlendSplitter* SPLITTER;
