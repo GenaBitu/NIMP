@@ -5,5 +5,6 @@
 class IntrinsicRegistry
 {
 public:
+    std::vector<Node*> nodes;
     IntrinsicRegistry();
 };

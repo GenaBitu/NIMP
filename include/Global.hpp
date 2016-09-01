@@ -16,7 +16,3 @@
 #include <BlendSplitter.hpp>
 
 typedef unsigned char ubyte;
-
-class CanvasNode;
-
-extern CanvasNode* CNVS;

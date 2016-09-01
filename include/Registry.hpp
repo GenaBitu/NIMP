@@ -2,6 +2,8 @@
 
 #include "Global.hpp"
 
+class Node;
+
 class Registry
 {
     #include "Registry/ExtrinsicRegistry.hpp"
@@ -9,6 +11,7 @@ class Registry
     #include "Registry/IntrinsicRegistry.hpp"
 public:
     ExtrinsicRegistry* extrinsic;
+    IntrinsicRegistry* intrinsic;
     static Registry* getRegistry();
 private:
     static Registry* instance;
