@@ -2,6 +2,8 @@
 
 #include "Global.hpp"
 
+#include "Widgets/NodeEditor.hpp"
+
 class Node;
 
 class Registry
