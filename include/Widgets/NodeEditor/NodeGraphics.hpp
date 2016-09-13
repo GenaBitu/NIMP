@@ -8,7 +8,7 @@ class NodeConnectorRight;
 class NodeGraphics : public QWidget
 {
 public:
-    NodeGraphics(NodeEditor* parent, Node* node);
+    NodeGraphics(NodeEditor* parent, Node* node, float x, float y);
 protected:
     Node* node;
     std::vector<NodeConnectorLeft*> inputs;

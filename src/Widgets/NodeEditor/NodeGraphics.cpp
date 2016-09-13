@@ -3,10 +3,11 @@
 #include "NodeSystem/Node.hpp"
 #include "Registry.hpp"
 
-NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
+NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node, float x, float y) : QWidget(parent), node{node}
 {
     float height{updateConnections()};
     resize(width(), height);
+    move(x, y);
 }
 
 void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
