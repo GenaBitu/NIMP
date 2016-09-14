@@ -4,6 +4,8 @@
 #include "Registry.hpp"
 
 NodeEditor::NodeEditor() {
-    NodeGraphics* nd1{new NodeGraphics{this, Registry::getRegistry()->intrinsic->nodes[0]}};
-    NodeGraphics* nd2{new NodeGraphics{this, Registry::getRegistry()->intrinsic->nodes[1]}};
+    for(std::vector<Node*>::iterator it{Registry::getRegistry()->intrinsic->nodes.begin()}; it != Registry::getRegistry()->intrinsic->nodes.end(); it++)
+    {
+       new NodeGraphics{this, *it};
+    }
 }
