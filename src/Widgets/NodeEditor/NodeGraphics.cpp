@@ -5,6 +5,7 @@
 
 NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node, float x, float y) : QWidget(parent), node{node}
 {
+    resize(200, height());
     float height{updateConnections()};
     resize(width(), height);
     move(x, y);
