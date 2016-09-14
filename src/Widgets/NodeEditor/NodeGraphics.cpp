@@ -3,12 +3,12 @@
 #include "NodeSystem/Node.hpp"
 #include "Registry.hpp"
 
-NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node, float x, float y) : QWidget(parent), node{node}
+NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
 {
     resize(200, height());
-    float height{updateConnections()};
+    int height{updateConnections()};
     resize(width(), height);
-    move(x, y);
+    //move(x, y);
 }
 
 void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
@@ -30,17 +30,17 @@ void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
     painter.drawText(2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] - 8, QString::fromStdString(node->nodeName()));
 }
 
-float NodeEditor::NodeGraphics::updateConnections()
+int NodeEditor::NodeGraphics::updateConnections()
 {
     inputs.clear();
-    float height{Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"]};
-    for(auto it{node->outputs.begin()}; it != node->outputs.end(); it++)
+    int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
+    for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
     {
         height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
         outputs.push_back(new NodeConnectorRight{this, *it, height});
         height += outputs.back()->height();
     }
-    for(auto it{node->inputs.begin()}; it != node->inputs.end(); it++)
+    for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); it++)
     {
         height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
         inputs.push_back(new NodeConnectorLeft{this, *it, height});

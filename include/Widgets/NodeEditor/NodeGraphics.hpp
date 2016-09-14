@@ -8,11 +8,11 @@ class NodeConnectorRight;
 class NodeGraphics : public QWidget
 {
 public:
-    NodeGraphics(NodeEditor* parent, Node* node, float x, float y);
+    NodeGraphics(NodeEditor* parent, Node* node);
 protected:
     Node* node;
     std::vector<NodeConnectorLeft*> inputs;
     std::vector<NodeConnectorRight*> outputs;
     virtual void paintEvent(QPaintEvent*);
-    float updateConnections();
+    int updateConnections();
 };
