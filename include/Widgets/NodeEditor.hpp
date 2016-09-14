@@ -8,10 +8,10 @@ class NodeOutput;
 
 class NodeEditor : public QWidget
 {
-public:
     #include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
     #include "Widgets/NodeEditor/NodeConnectorRight.hpp"
     #include "Widgets/NodeEditor/NodeGraphics.hpp"
+public:
     NodeEditor();
 protected:
 };
