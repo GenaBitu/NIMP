@@ -3,7 +3,7 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "NodeSystem/NodeOutput.hpp"
 
-Node::Node() {}
+Node::Node(int x, int y) : x{x}, y{y} {}
 
 void Node::connect(Node* from, int numOutput, Node* to, int numInput)
 {

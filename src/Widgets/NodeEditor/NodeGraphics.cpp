@@ -8,7 +8,7 @@ NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : QWidget
     resize(200, height());
     int height{updateConnections()};
     resize(width(), height);
-    //move(x, y);
+    move(node->x, node->y);
 }
 
 void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)

@@ -3,7 +3,7 @@
 #include "NodeSystem/NodeOutputTypes/NodeOutputImage.hpp"
 #include "NodeSystem/RowSelector.hpp"
 
-BMPinput::BMPinput()
+BMPinput::BMPinput(int x, int y) : Node(x, y)
 {
     outputs.push_back(new NodeOutputImage{this, "Image"});
     relations.push_back(std::bind(&BMPinput::loadBMP, this, std::placeholders::_1));

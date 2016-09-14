@@ -3,7 +3,7 @@
 #include "Texture.hpp"
 #include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
 
-CanvasNode::CanvasNode()
+CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 {
     inputs.push_back(new NodeInputImage{this, "Image"});
 }

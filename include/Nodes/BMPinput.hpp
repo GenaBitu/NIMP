@@ -32,7 +32,7 @@ class NodeDataImage;
 class BMPinput : public Node
 {
 public:
-    BMPinput();
+    BMPinput(int x = 0, int y = 0);
     virtual std::string nodeName();
 private:
     NodeDataImage* loadBMP(const std::vector<NodeInput*>* const);
