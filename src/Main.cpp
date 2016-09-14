@@ -16,8 +16,8 @@ int main(int argc, char** argv)
     Registry::getRegistry()->extrinsic->window->setWindowTitle("NIMP");
     Registry::getRegistry()->extrinsic->window->setWindowIcon(QIcon(":/icons/app_icon"));
 
-    CanvasNode* canvas{new CanvasNode{400, 100}};
-    BMPinput* input{new BMPinput{10, 100}};
+    CanvasNode* canvas{new CanvasNode{500, 100}};
+    BMPinput* input{new BMPinput{10, 300}};
     Registry::getRegistry()->intrinsic->nodes.push_back(canvas);
     Registry::getRegistry()->intrinsic->nodes.push_back(input);
     Node::connect(input, 0, canvas, 0);

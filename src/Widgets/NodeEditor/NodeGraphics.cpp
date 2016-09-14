@@ -11,6 +11,14 @@ NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : QWidget
     move(node->x, node->y);
 }
 
+void NodeEditor::NodeGraphics::buildPaths()
+{
+    for(std::vector<NodeConnectorLeft*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
+    {
+        (*it)->buildPath();
+    }
+}
+
 void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};

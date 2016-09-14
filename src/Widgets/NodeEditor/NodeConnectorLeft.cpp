@@ -9,6 +9,24 @@ NodeEditor::NodeConnectorLeft::NodeConnectorLeft(NodeGraphics* parent, NodeInput
     move(0, y);
 }
 
+void NodeEditor::NodeConnectorLeft::buildPath()
+{
+    NodeOutput* nodeOutput{input->connection};
+    NodeConnectorRight* outputConnector;
+    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
+    for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
+    {
+        for(std::vector<NodeConnectorRight*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)
+        {
+            if((*jt)->output == nodeOutput)
+            {
+                outputConnector = *jt;
+            }
+        }
+    }
+    editor->paths.push_back(new NodePath{editor, outputConnector, this});
+}
+
 void NodeEditor::NodeConnectorLeft::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};

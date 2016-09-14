@@ -10,10 +10,8 @@ class NodeInput : public NodeIO
 {
 public:
     virtual NodeData* getData();
+    NodeOutput* connection;
 protected:
     NodeInput(Node* parent, std::string name);
     virtual ~NodeInput();
-private:
-    friend Node;
-    NodeOutput* connection;
 };
