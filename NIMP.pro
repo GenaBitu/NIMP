@@ -63,7 +63,12 @@ HEADERS  += \
     include/Registry/ExtrinsicRegistry.hpp \
     include/Registry/IntrinsicRegistry.hpp \
     include/Widgets/NodeEditor/NodeGraphics.hpp \
-    include/Widgets/NodeEditor/NodePath.hpp
+    include/Widgets/NodeEditor/NodePath.hpp \
+    include/WidgetActions/ActionWidget.hpp \
+    include/WidgetActions.hpp \
+    include/WidgetActions/ActionWidget/ActionState.hpp \
+    include/WidgetActions/ActionWidget/DefaultState.hpp \
+    include/WidgetActions/ActionWidget/SelectedState.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -93,7 +98,11 @@ SOURCES += \
     src/Registry/ExtrinsicRegistry.cpp \
     src/Registry/IntrinsicRegistry.cpp \
     src/Widgets/NodeEditor/NodeGraphics.cpp \
-    src/Widgets/NodeEditor/NodePath.cpp
+    src/Widgets/NodeEditor/NodePath.cpp \
+    src/WidgetActions/ActionWidget.cpp \
+    src/WidgetActions/ActionWidget/ActionState.cpp \
+    src/WidgetActions/ActionWidget/DefaultState.cpp \
+    src/WidgetActions/ActionWidget/SelectedState.cpp
 
 RESOURCES += \
     images.qrc
