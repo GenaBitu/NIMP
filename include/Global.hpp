@@ -1,6 +1,7 @@
 #pragma once
 
 #include <fstream> // DEBUG
+#include <functional>
 
 #include <glm/common.hpp>
 
@@ -10,8 +11,8 @@
 #include <QLabel>
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
+#include <QPainter>
 
 #include <BlendSplitter.hpp>
 
-extern QMainWindow* WINDOW;
-extern BlendSplitter* SPLITTER;
+typedef unsigned char ubyte;

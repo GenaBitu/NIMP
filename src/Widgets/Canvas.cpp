@@ -1,6 +1,8 @@
-#include "include/Canvas.hpp"
+#include "Widgets/Canvas.hpp"
 
-#include "include/Texture.hpp"
+#include "Texture.hpp"
+#include "Nodes/CanvasNode.hpp"
+#include "Registry.hpp"
 
 Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, image{} {
 }
@@ -9,8 +11,10 @@ void Canvas::initializeGL()
 {
     initializeOpenGLFunctions();
     glEnable(GL_TEXTURE_2D);
-    image = new Texture{};
-    image->loadBMP("tex2D.bmp");
+    CanvasNode* canvas{dynamic_cast<CanvasNode*>(Registry::getRegistry()->intrinsic->nodes[0])};
+    image = canvas->getTexture();
+    //image = new Texture{};
+    //image->loadBMP("tex2D.bmp");
     QColor bg{QWidget::palette().color(QPalette::Background)};
     glClearColor(bg.redF(), bg.greenF(), bg.blueF(), 1.0f);
 }
@@ -20,7 +24,7 @@ void Canvas::paintGL()
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
     renderBGCheckerboard((width - IMGwidth) / 2, (height - IMGheight) / 2, (width + IMGwidth) / 2, (height + IMGheight) / 2);
-    /*glBindTexture(GL_TEXTURE_2D, image->ID);
+    glBindTexture(GL_TEXTURE_2D, image->ID);
     glBegin(GL_QUADS);
         glColor3ub(255, 255, 255);
         glTexCoord2f(0.0f, 1.0f);
@@ -32,7 +36,7 @@ void Canvas::paintGL()
         glTexCoord2f(0.0f, 0.0f);
         glVertex2f(50.0f, height - 50.0f);
     glEnd();
-    glBindTexture(GL_TEXTURE_2D, 0);*/
+    glBindTexture(GL_TEXTURE_2D, 0);
     glBegin(GL_QUADS);
         glColor3ub(255, 0, 0);
         glVertex2f(0.0f, 0.0f);
