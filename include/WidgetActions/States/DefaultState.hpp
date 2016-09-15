@@ -7,5 +7,6 @@
 class DefaultState : public ActionState
 {
 public:
-    DefaultState();
+    DefaultState(ActionWidget* widget, const std::map<std::string, std::tuple<std::string, std::string>>& palette);
+    virtual void mousePressEvent(QMouseEvent* event);
 };

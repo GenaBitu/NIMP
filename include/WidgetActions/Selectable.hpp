@@ -6,8 +6,9 @@
 
 class Selectable : public ActionWidget
 {
-public:
-    Selectable();
+protected:
+    Selectable(QWidget* parent = nullptr, const std::map<std::string, std::tuple<std::string, std::string>>& palette = std::map<std::string, std::tuple<std::string, std::string>>());
+    virtual void mousePressEvent(QMouseEvent* event);
 private:
-    virtual void changeState(ActionState* state) = 0;
+    virtual void changeState(ActionState* state);
 };

@@ -2,6 +2,8 @@
 
 #include "Global.hpp"
 
+#include "WidgetActions/Selectable.hpp"
+
 class Node;
 class NodeInput;
 class NodeOutput;

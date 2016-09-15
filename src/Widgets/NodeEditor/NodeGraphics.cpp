@@ -3,7 +3,7 @@
 #include "NodeSystem/Node.hpp"
 #include "Registry.hpp"
 
-NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : QWidget(parent), node{node}
+NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Selectable(parent), node{node}
 {
     resize(200, height());
     int height{updateConnections()};

@@ -12,6 +12,7 @@
 #include <QOpenGLWidget>
 #include <QOpenGLFunctions>
 #include <QPainter>
+#include <QMouseEvent>
 
 #include <BlendSplitter.hpp>
 
