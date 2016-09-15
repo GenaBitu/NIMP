@@ -2,6 +2,8 @@
 
 #include "Global.hpp"
 
+class ActionWidget;
+
 class ActionState
 {
 public:

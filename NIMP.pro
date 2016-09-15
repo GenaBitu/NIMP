@@ -66,9 +66,11 @@ HEADERS  += \
     include/Widgets/NodeEditor/NodePath.hpp \
     include/WidgetActions/ActionWidget.hpp \
     include/WidgetActions.hpp \
-    include/WidgetActions/ActionWidget/ActionState.hpp \
-    include/WidgetActions/ActionWidget/DefaultState.hpp \
-    include/WidgetActions/ActionWidget/SelectedState.hpp
+    include/WidgetActions/States/ActionState.hpp \
+    include/WidgetActions/States/DefaultState.hpp \
+    include/WidgetActions/States/SelectedState.hpp \
+    include/WidgetActions/Selectable.hpp \
+    include/WidgetActions/States.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -100,9 +102,10 @@ SOURCES += \
     src/Widgets/NodeEditor/NodeGraphics.cpp \
     src/Widgets/NodeEditor/NodePath.cpp \
     src/WidgetActions/ActionWidget.cpp \
-    src/WidgetActions/ActionWidget/ActionState.cpp \
-    src/WidgetActions/ActionWidget/DefaultState.cpp \
-    src/WidgetActions/ActionWidget/SelectedState.cpp
+    src/WidgetActions/States/ActionState.cpp \
+    src/WidgetActions/States/DefaultState.cpp \
+    src/WidgetActions/States/SelectedState.cpp \
+    src/WidgetActions/Selectable.cpp
 
 RESOURCES += \
     images.qrc

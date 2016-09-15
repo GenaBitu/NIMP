@@ -2,6 +2,8 @@
 
 #include "Global.hpp"
 
+#include "WidgetActions/States/ActionState.hpp"
+
 class DefaultState : public ActionState
 {
 public:
