@@ -2,7 +2,9 @@
 
 #include "Registry.hpp"
 
-SelectedState::SelectedState(ActionWidget* widget, std::map<std::string, std::tuple<std::string, std::string>>* palette) : ActionState{widget, palette} {}
+SelectedState::SelectedState(ActionWidget* widget) : ActionState{widget} {}
+
+SelectedState::SelectedState(ActionState* other) : ActionState{other} {}
 
 QColor SelectedState::getColour(std::string colour)
 {

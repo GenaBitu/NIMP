@@ -3,7 +3,8 @@
 #include "Nodes/CanvasNode.hpp"
 #include "Registry.hpp"
 
-NodeEditor::NodeEditor() {
+NodeEditor::NodeEditor() : ActionWidgetContainer{}
+{
     for(std::vector<Node*>::iterator it{Registry::getRegistry()->intrinsic->nodes.begin()}; it != Registry::getRegistry()->intrinsic->nodes.end(); it++)
     {
        nodes.push_back(new NodeGraphics{this, *it});

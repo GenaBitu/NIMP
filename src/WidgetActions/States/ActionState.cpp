@@ -1,6 +1,8 @@
 #include "WidgetActions/States/ActionState.hpp"
 
-ActionState::ActionState(ActionWidget* widget, std::map<std::string, std::tuple<std::string, std::string>>* palette) : palette{palette}, widget{widget} {}
+ActionState::ActionState(ActionWidget* widget) : palette{new std::map<std::string, std::tuple<std::string, std::string>>{}}, widget{widget} {}
+
+ActionState::ActionState(ActionState *other) : palette{other->palette}, widget{other->widget} {}
 
 void ActionState::mousePressEvent(QMouseEvent*) {}
 

@@ -2,31 +2,38 @@
 
 #include "WidgetActions/States/DefaultState.hpp"
 #include "WidgetActions/States/SelectedState.hpp"
+#include "WidgetActions/ActionWidgetContainer.hpp"
 
-Selectable::Selectable(QWidget* parent) : ActionWidget(parent) {}
+Selectable::Selectable(ActionWidgetContainer* parent) : ActionWidget(parent) {}
 
 void Selectable::mousePressEvent(QMouseEvent* event)
 {
     state->mousePressEvent(event);
 }
 
-void Selectable::changeState(ActionState* state)
+void Selectable::changeState(States state)
 {
-    DefaultState* defState{dynamic_cast<DefaultState*>(state)};
-    if(defState != nullptr)
+    ActionState* oldState{this->state};
+    ActionWidgetContainer* container{dynamic_cast<ActionWidgetContainer*>(parentWidget())};
+    if(container == nullptr)
     {
-        delete this->state;
-        this->state = defState;
-        update();
-        return;
+        //TODO: DIE HORRIBLY IN FLAMES
     }
-    SelectedState* selState{dynamic_cast<SelectedState*>(state)};
-    if(selState != nullptr)
+    switch(state)
     {
-        delete this->state;
-        this->state = selState;
+    case States::DEFAULT:
+        this->state = new DefaultState{oldState};
         update();
-        return;
+        delete oldState;
+        break;
+    case States::SELECTED:
+        this->state = new SelectedState{oldState};
+        update();
+        delete oldState;
+        container->select(this);
+        break;
+    default:
+        break;
     }
     return;
 }

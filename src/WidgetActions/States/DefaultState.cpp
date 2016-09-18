@@ -4,7 +4,9 @@
 #include "WidgetActions/ActionWidget.hpp"
 #include "WidgetActions/States/SelectedState.hpp"
 
-DefaultState::DefaultState(ActionWidget* widget, std::map<std::string, std::tuple<std::string, std::string>>* palette) : ActionState{widget, palette} {}
+DefaultState::DefaultState(ActionWidget* widget) : ActionState{widget} {}
+
+DefaultState::DefaultState(ActionState *other) : ActionState{other} {}
 
 QColor DefaultState::getColour(std::string colour)
 {
@@ -15,6 +17,6 @@ void DefaultState::mousePressEvent(QMouseEvent* event)
 {
     if(event->button() == Qt::LeftButton)
     {
-        widget->changeState(new SelectedState{widget, palette});
+        widget->changeState(ActionWidget::States::SELECTED);
     }
 }

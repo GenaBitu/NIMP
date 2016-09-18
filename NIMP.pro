@@ -70,7 +70,8 @@ HEADERS  += \
     include/WidgetActions/States/DefaultState.hpp \
     include/WidgetActions/States/SelectedState.hpp \
     include/WidgetActions/Selectable.hpp \
-    include/WidgetActions/States.hpp
+    include/WidgetActions/States.hpp \
+    include/WidgetActions/ActionWidgetContainer.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -105,7 +106,8 @@ SOURCES += \
     src/WidgetActions/States/ActionState.cpp \
     src/WidgetActions/States/DefaultState.cpp \
     src/WidgetActions/States/SelectedState.cpp \
-    src/WidgetActions/Selectable.cpp
+    src/WidgetActions/Selectable.cpp \
+    src/WidgetActions/ActionWidgetContainer.cpp
 
 RESOURCES += \
     images.qrc

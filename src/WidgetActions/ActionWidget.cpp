@@ -1,5 +1,6 @@
 #include "WidgetActions/ActionWidget.hpp"
 
 #include "WidgetActions/States/DefaultState.hpp"
+#include "WidgetActions/ActionWidgetContainer.hpp"
 
-ActionWidget::ActionWidget(QWidget* parent) : QWidget(parent), state{new DefaultState{this}} {}
+ActionWidget::ActionWidget(ActionWidgetContainer* parent) : QWidget(parent), state{new DefaultState{this}} {}

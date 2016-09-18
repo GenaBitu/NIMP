@@ -8,7 +8,8 @@ class ActionState
 {
 public:
     std::map<std::string, std::tuple<std::string, std::string>>* palette;
-    ActionState(ActionWidget* widget, std::map<std::string, std::tuple<std::string, std::string>>* palette = new std::map<std::string, std::tuple<std::string, std::string>>{});
+    ActionState(ActionWidget* widget);
+    ActionState(ActionState* other);
     virtual QColor getColour(std::string colour) = 0;
     virtual void mousePressEvent(QMouseEvent*);
     virtual void mouseMoveEvent(QMouseEvent*);
