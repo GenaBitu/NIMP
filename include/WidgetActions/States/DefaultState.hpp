@@ -7,6 +7,7 @@
 class DefaultState : public ActionState
 {
 public:
-    DefaultState(ActionWidget* widget, const std::map<std::string, std::tuple<std::string, std::string>>& palette);
+    DefaultState(ActionWidget* widget, std::map<std::string, std::tuple<std::string, std::string>>* palette = new std::map<std::string, std::tuple<std::string, std::string>>{});
+    virtual QColor getColour(std::string colour);
     virtual void mousePressEvent(QMouseEvent* event);
 };

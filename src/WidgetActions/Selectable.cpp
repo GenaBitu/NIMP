@@ -3,7 +3,7 @@
 #include "WidgetActions/States/DefaultState.hpp"
 #include "WidgetActions/States/SelectedState.hpp"
 
-Selectable::Selectable(QWidget* parent, const std::map<std::string, std::tuple<std::string,std::string>>& palette) : ActionWidget(parent, palette) {}
+Selectable::Selectable(QWidget* parent) : ActionWidget(parent) {}
 
 void Selectable::mousePressEvent(QMouseEvent* event)
 {
@@ -17,6 +17,7 @@ void Selectable::changeState(ActionState* state)
     {
         delete this->state;
         this->state = defState;
+        update();
         return;
     }
     SelectedState* selState{dynamic_cast<SelectedState*>(state)};
@@ -24,6 +25,7 @@ void Selectable::changeState(ActionState* state)
     {
         delete this->state;
         this->state = selState;
+        update();
         return;
     }
     return;

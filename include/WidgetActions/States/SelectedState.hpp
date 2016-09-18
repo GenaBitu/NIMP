@@ -7,5 +7,6 @@
 class SelectedState : public ActionState
 {
 public:
-    SelectedState(ActionWidget* widget, const std::map<std::string, std::tuple<std::string, std::string>>& palette);
+    SelectedState(ActionWidget* widget, std::map<std::string, std::tuple<std::string, std::string>>* palette = new std::map<std::string, std::tuple<std::string, std::string>>{});
+    virtual QColor getColour(std::string colour);
 };

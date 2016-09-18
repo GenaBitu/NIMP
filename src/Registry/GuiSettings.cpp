@@ -3,6 +3,7 @@
 Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}
 {
     palette["NodeBorder"] = Qt::black;
+    palette["NodeBorderActive"] = Qt::yellow;
     palette["NodeBackground"] = Qt::lightGray;
     palette["NodeHeaderSeparator"] = Qt::darkGray;
     palette["NodeHeaderText"] = Qt::black;

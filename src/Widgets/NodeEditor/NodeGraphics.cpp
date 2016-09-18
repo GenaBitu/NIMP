@@ -2,6 +2,7 @@
 
 #include "NodeSystem/Node.hpp"
 #include "Registry.hpp"
+#include "WidgetActions/States/ActionState.hpp"
 
 NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Selectable(parent), node{node}
 {
@@ -9,6 +10,7 @@ NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Selecta
     int height{updateConnections()};
     resize(width(), height);
     move(node->x, node->y);
+    (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
 }
 
 void NodeEditor::NodeGraphics::buildPaths()
@@ -26,7 +28,7 @@ void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
     QPainterPath border{};
     QPainterPath separator{};
     border.addRoundedRect(QRectF(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, width() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], height() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"]), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
-    QPen borderPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeBorder"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"]};
+    QPen borderPen{state->getColour("border"), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"]};
     QPen separatorPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeHeaderSeparator"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderSeparatorHeight"]};
     QPen textPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeHeaderText"]};
     painter.setPen(borderPen);
