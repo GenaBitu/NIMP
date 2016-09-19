@@ -5,7 +5,7 @@
 class NodeConnectorLeft;
 class NodeConnectorRight;
 
-class NodeGraphics : public Selectable
+class NodeGraphics : public Draggable
 {
 public:
     NodeGraphics(NodeEditor* parent, Node* node);
@@ -15,6 +15,7 @@ protected:
     Node* node;
     std::vector<NodeConnectorLeft*> inputs;
     std::vector<NodeConnectorRight*> outputs;
+    virtual void mouseReleaseEvent(QMouseEvent* event);
     virtual void paintEvent(QPaintEvent*);
     int updateConnections();
 };

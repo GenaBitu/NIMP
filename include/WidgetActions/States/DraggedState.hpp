@@ -4,12 +4,12 @@
 
 #include "WidgetActions/States/ActionState.hpp"
 
-class SelectedState : public ActionState
+class DraggedState : public ActionState
 {
 public:
-    SelectedState(ActionWidget* widget);
-    SelectedState(ActionState* other);
+    DraggedState(ActionWidget* widget);
+    DraggedState(ActionState* other);
     virtual QColor getColour(std::string colour);
-    virtual void mousePressEvent(QMouseEvent* event);
     virtual void mouseMoveEvent(QMouseEvent* event);
+    virtual void mouseReleaseEvent(QMouseEvent* event);
 };

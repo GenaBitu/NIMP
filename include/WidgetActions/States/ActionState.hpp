@@ -20,4 +20,5 @@ public:
 protected:
     ActionWidget* widget;
     QRegion* mask;
+    QPoint* origin;
 };

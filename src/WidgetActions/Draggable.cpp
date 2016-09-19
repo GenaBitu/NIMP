@@ -1,17 +1,28 @@
-#include "WidgetActions/Selectable.hpp"
+#include "WidgetActions/Draggable.hpp"
 
 #include "WidgetActions/States/DefaultState.hpp"
+#include "WidgetActions/States/DraggedState.hpp"
 #include "WidgetActions/States/SelectedState.hpp"
 #include "WidgetActions/ActionWidgetContainer.hpp"
 
-Selectable::Selectable(ActionWidgetContainer* parent) : ActionWidget(parent) {}
+Draggable::Draggable(ActionWidgetContainer* parent) : ActionWidget{parent} {}
 
-void Selectable::mousePressEvent(QMouseEvent* event)
+void Draggable::mousePressEvent(QMouseEvent* event)
 {
     state->mousePressEvent(event);
 }
 
-void Selectable::changeState(States state)
+void Draggable::mouseMoveEvent(QMouseEvent* event)
+{
+    state->mouseMoveEvent(event);
+}
+
+void Draggable::mouseReleaseEvent(QMouseEvent* event)
+{
+    state->mouseReleaseEvent(event);
+}
+
+void Draggable::changeState(States state)
 {
     ActionState* oldState{this->state};
     ActionWidgetContainer* container{dynamic_cast<ActionWidgetContainer*>(parentWidget())};
@@ -33,6 +44,11 @@ void Selectable::changeState(States state)
         container->select(this);
         break;
     case States::DRAGGED:
+        this->state = new DraggedState{oldState};
+        update();
+        delete oldState;
+        container->select(this);
+        break;
     default:
         break;
     }

@@ -6,7 +6,7 @@ ActionWidgetContainer::ActionWidgetContainer(QWidget* parent) : QWidget{parent},
 
 void ActionWidgetContainer::select(ActionWidget* widget)
 {
-    if(selected != nullptr)
+    if(selected != nullptr and selected != widget)
     {
         selected->changeState(ActionWidget::States::DEFAULT);
     }

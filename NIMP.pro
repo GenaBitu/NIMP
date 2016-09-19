@@ -24,6 +24,7 @@ LIBS += -L$$PWD/BlendSplitter/lib -lBlendSplitter
 
 resource_files.path = $$OUT_PWD
 resource_files.files = $$PWD/resources/tex2D.bmp
+
 INSTALLS += resource_files
 
 HEADERS  += \
@@ -71,7 +72,9 @@ HEADERS  += \
     include/WidgetActions/States/SelectedState.hpp \
     include/WidgetActions/Selectable.hpp \
     include/WidgetActions/States.hpp \
-    include/WidgetActions/ActionWidgetContainer.hpp
+    include/WidgetActions/ActionWidgetContainer.hpp \
+    include/WidgetActions/States/DraggedState.hpp \
+    include/WidgetActions/Draggable.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -107,7 +110,9 @@ SOURCES += \
     src/WidgetActions/States/DefaultState.cpp \
     src/WidgetActions/States/SelectedState.cpp \
     src/WidgetActions/Selectable.cpp \
-    src/WidgetActions/ActionWidgetContainer.cpp
+    src/WidgetActions/ActionWidgetContainer.cpp \
+    src/WidgetActions/States/DraggedState.cpp \
+    src/WidgetActions/Draggable.cpp
 
 RESOURCES += \
     images.qrc

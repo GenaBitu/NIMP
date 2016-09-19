@@ -2,7 +2,7 @@
 
 #include "Global.hpp"
 
-#include "WidgetActions/Selectable.hpp"
+#include "WidgetActions/Draggable.hpp"
 #include "WidgetActions/ActionWidgetContainer.hpp"
 
 class Node;

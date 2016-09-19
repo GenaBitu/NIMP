@@ -4,7 +4,7 @@
 #include "Registry.hpp"
 #include "WidgetActions/States/ActionState.hpp"
 
-NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Selectable(parent), node{node}
+NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), node{node}
 {
     resize(200, height());
     int newHeight{updateConnections()};
@@ -22,6 +22,13 @@ void NodeEditor::NodeGraphics::buildPaths()
     {
         (*it)->buildPath();
     }
+}
+
+void NodeEditor::NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
+{
+    Draggable::mouseReleaseEvent(event);
+    node->x = x();
+    node->y = y();
 }
 
 void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)

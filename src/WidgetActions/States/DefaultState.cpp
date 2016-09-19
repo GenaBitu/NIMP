@@ -18,6 +18,8 @@ void DefaultState::mousePressEvent(QMouseEvent* event)
     if((mask->isEmpty() or mask->contains(event->pos())) and (event->button() == Qt::LeftButton))
     {
         event->accept();
+        *origin = event->globalPos() - widget->pos();
+        widget->raise();
         widget->changeState(ActionWidget::States::SELECTED);
     }
     else
