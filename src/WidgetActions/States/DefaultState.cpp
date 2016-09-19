@@ -15,8 +15,13 @@ QColor DefaultState::getColour(std::string colour)
 
 void DefaultState::mousePressEvent(QMouseEvent* event)
 {
-    if(event->button() == Qt::LeftButton)
+    if((mask->isEmpty() or mask->contains(event->pos())) and (event->button() == Qt::LeftButton))
     {
+        event->accept();
         widget->changeState(ActionWidget::States::SELECTED);
+    }
+    else
+    {
+        event->ignore();
     }
 }

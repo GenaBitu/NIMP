@@ -7,10 +7,13 @@
 NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Selectable(parent), node{node}
 {
     resize(200, height());
-    int height{updateConnections()};
-    resize(width(), height);
+    int newHeight{updateConnections()};
+    resize(width(), newHeight);
     move(node->x, node->y);
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
+    QPainterPath border{};
+    border.addRoundedRect(QRectF(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 1.5, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 1.5, width() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + 2, height() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + 2), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
+    state->changeMask(&border);
 }
 
 void NodeEditor::NodeGraphics::buildPaths()
