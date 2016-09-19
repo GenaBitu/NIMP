@@ -9,8 +9,8 @@ NodeEditor::NodeEditor() : ActionWidgetContainer{}
     {
        nodes.push_back(new NodeGraphics{this, *it});
     }
-    /*for(std::vector<NodeGraphics*>::iterator it{nodes.begin()}; it != nodes.end(); it++)
+    for(std::vector<NodeGraphics*>::iterator it{nodes.begin()}; it != nodes.end(); it++)
     {
         (*it)->buildPaths();
-    }*/
+    }
 }

@@ -1,5 +1,7 @@
 #include "WidgetActions/States/ActionState.hpp"
 
+#include "WidgetActions/ActionWidget.hpp"
+
 ActionState::ActionState(ActionWidget* widget) : palette{new std::map<std::string, std::tuple<std::string, std::string>>{}}, widget{widget}, mask{new QRegion{}}, origin{new QPoint{}} {}
 
 ActionState::ActionState(ActionState* other) : palette{other->palette}, widget{other->widget}, mask{other->mask}, origin{other->origin} {}

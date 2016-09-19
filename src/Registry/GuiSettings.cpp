@@ -11,6 +11,7 @@ Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}
     palette["NodeConnectorBackground"] = Qt::yellow;
     palette["NodeConnectorText"] = Qt::black;
     palette["NodePath"] = Qt::black;
+    palette["NodePathActive"] = Qt::red;
     dimensions["NodeMargin"] = 10;
     dimensions["NodeCornerRadius"] = 10;
     dimensions["NodeBorderWidth"] = 2;
@@ -19,5 +20,6 @@ Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}
     dimensions["NodeConnectorDiameter"] = 20;
     dimensions["NodeConnectorSpacing"] = 10;
     dimensions["NodePathWidth"] = 1;
+    dimensions["NodePathClickableWidth"] = 20;
     dimensions["NodePathSharpness"] = 75;
 }

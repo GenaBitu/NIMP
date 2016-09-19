@@ -5,7 +5,7 @@
 class NodeConnectorRight;
 class NodeConnectorLeft;
 
-class NodePath : public QWidget
+class NodePath : public Selectable
 {
 public:
     NodePath(NodeEditor* parent, NodeConnectorRight* left, NodeConnectorLeft* right);

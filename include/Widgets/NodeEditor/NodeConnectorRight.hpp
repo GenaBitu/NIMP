@@ -9,10 +9,10 @@ class NodeConnectorLeft;
 class NodeConnectorRight : public QWidget
 {
 public:
+    NodePath* path;
     NodeConnectorRight(NodeGraphics* parent, NodeOutput* output, int y);
 protected:
     friend NodeConnectorLeft;
     NodeOutput* output;
-    NodePath* path;
     virtual void paintEvent(QPaintEvent*);
 };
