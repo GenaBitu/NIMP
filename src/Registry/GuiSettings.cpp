@@ -18,6 +18,7 @@ Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}
     dimensions["NodeHeaderHeight"] = 30;
     dimensions["NodeHeaderSeparatorHeight"] = 2;
     dimensions["NodeConnectorDiameter"] = 20;
+    dimensions["NodeConnectorBorder"] = 1;
     dimensions["NodeConnectorSpacing"] = 10;
     dimensions["NodePathWidth"] = 1;
     dimensions["NodePathClickableWidth"] = 20;
