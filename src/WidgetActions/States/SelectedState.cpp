@@ -27,7 +27,7 @@ void SelectedState::mousePressEvent(QMouseEvent* event)
 
 void SelectedState::mouseMoveEvent(QMouseEvent* event)
 {
-    if((event->globalPos() - widget->pos() - *origin).manhattanLength() > 10)
+    if(((event->globalPos() - widget->pos() - *origin).manhattanLength() > 10) and *origin != QPoint{})
     {
         widget->changeState(ActionWidget::States::DRAGGED);
     }

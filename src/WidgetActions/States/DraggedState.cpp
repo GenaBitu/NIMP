@@ -20,5 +20,6 @@ void DraggedState::mouseMoveEvent(QMouseEvent* event)
 void DraggedState::mouseReleaseEvent(QMouseEvent* event)
 {
     widget->move(event->globalPos() - *origin);
+    *origin = QPoint{};
     widget->changeState(ActionWidget::States::SELECTED);
 }
