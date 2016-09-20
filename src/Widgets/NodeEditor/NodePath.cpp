@@ -8,6 +8,7 @@ NodeEditor::NodePath::NodePath(NodeEditor* parent, NodeConnectorRight* left, Nod
     (*state->palette)["path"] = std::make_tuple("NodePath", "NodePathActive");
     left->path = this;
     right->path = this;
+    lower();
 }
 
 void NodeEditor::NodePath::paintEvent(QPaintEvent*)
