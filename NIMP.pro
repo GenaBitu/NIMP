@@ -14,13 +14,9 @@ CONFIG += c++11
 
 QMAKE_CXXFLAGS += -std=c++11 -Wnon-virtual-dtor -Winit-self -Wredundant-decls -Wcast-align -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Wmain -std=c++11 -Wfatal-errors -Wextra -Wall
 
-INCLUDEPATH += \
-    include \
-    BlendSplitter/include
+INCLUDEPATH += include
 
-DEPENDPATH += BlendSplitter/include
-
-LIBS += -L$$PWD/BlendSplitter/lib -lBlendSplitter
+LIBS += -lBlendSplitter
 
 resource_files.path = $$OUT_PWD
 resource_files.files = $$PWD/resources/tex2D.bmp
