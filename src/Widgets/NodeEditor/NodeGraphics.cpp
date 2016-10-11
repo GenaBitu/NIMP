@@ -29,7 +29,7 @@ void NodeEditor::NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
 
 void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
 {
-    updateConnections();
+    //updateConnections();
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
     QPainterPath border{};
@@ -52,6 +52,7 @@ void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
 void NodeEditor::NodeGraphics::updateConnections()
 {
     inputs.clear();
+    outputs.clear();
     int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
     for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
     {
