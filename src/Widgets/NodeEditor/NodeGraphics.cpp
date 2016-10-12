@@ -79,11 +79,11 @@ void NodeEditor::NodeGraphics::updateConnections()
             (*it)->connection->update();
         }
     }
-    /*for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+    for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
     {
-        if((*it)->path != nullptr)
+        for(std::vector<NodePath*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); jt++)
         {
-            (*it)->path->update();
+            (*jt)->update();
         }
-    }*/
+    }
 }
