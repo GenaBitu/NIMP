@@ -4,15 +4,15 @@
 
 class NodeGraphics;
 class NodePath;
-class NodeConnectorLeft;
+class NodeInputGraphics;
 
-class NodeConnectorRight : public QWidget
+class NodeOutputGraphics : public QWidget
 {
 public:
     NodePath* path;
-    NodeConnectorRight(NodeGraphics* parent, NodeOutput* output, int y);
+    NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y);
 protected:
-    friend NodeConnectorLeft;
+    friend NodeInputGraphics;
     NodeOutput* output;
     virtual void paintEvent(QPaintEvent*);
 };

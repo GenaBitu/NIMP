@@ -3,20 +3,20 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "Registry.hpp"
 
-NodeEditor::NodeConnectorLeft::NodeConnectorLeft(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), path{}, input{input}
+NodeEditor::NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), path{}, input{input}
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
 }
 
-void NodeEditor::NodeConnectorLeft::buildPath()
+void NodeEditor::NodeInputGraphics::buildPath()
 {
     NodeOutput* nodeOutput{input->connection};
-    NodeConnectorRight* outputConnector;
+    NodeOutputGraphics* outputConnector;
     NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
     for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
     {
-        for(std::vector<NodeConnectorRight*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)
+        for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)
         {
             if((*jt)->output == nodeOutput)
             {
@@ -27,7 +27,7 @@ void NodeEditor::NodeConnectorLeft::buildPath()
     editor->paths.push_back(new NodePath{editor, outputConnector, this});
 }
 
-void NodeEditor::NodeConnectorLeft::paintEvent(QPaintEvent*)
+void NodeEditor::NodeInputGraphics::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);

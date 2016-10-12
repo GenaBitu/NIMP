@@ -12,8 +12,8 @@ class NodeOutput;
 
 class NodeEditor : public ActionWidgetContainer
 {
-    #include "Widgets/NodeEditor/NodeConnectorLeft.hpp"
-    #include "Widgets/NodeEditor/NodeConnectorRight.hpp"
+    #include "Widgets/NodeEditor/NodeInputGraphics.hpp"
+    #include "Widgets/NodeEditor/NodeOutputGraphics.hpp"
     #include "Widgets/NodeEditor/NodeGraphics.hpp"
     #include "Widgets/NodeEditor/NodePath.hpp"
     Q_OBJECT

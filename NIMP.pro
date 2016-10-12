@@ -37,7 +37,6 @@ HEADERS  += \
     include/Widgets/NodeEditor.hpp \
     include/NodeSystem/RowSelector.hpp \
     src/NodeSystem/RowSelector.tpp \
-    include/Widgets/NodeEditor/NodeConnectorLeft.hpp \
     include/NodeSystem/NodeIO.hpp \
     include/Nodes.hpp \
     include/NodeSystem.hpp \
@@ -54,7 +53,6 @@ HEADERS  += \
     include/NodeSystem/NodeOutputTypes/NodeOutputInt.hpp \
     include/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp \
     include/Widgets.hpp \
-    include/Widgets/NodeEditor/NodeConnectorRight.hpp \
     include/Registry.hpp \
     include/Registry/GuiSettings.hpp \
     include/Registry/ExtrinsicRegistry.hpp \
@@ -70,7 +68,9 @@ HEADERS  += \
     include/WidgetActions/States.hpp \
     include/WidgetActions/ActionWidgetContainer.hpp \
     include/WidgetActions/States/DraggedState.hpp \
-    include/WidgetActions/Draggable.hpp
+    include/WidgetActions/Draggable.hpp \
+    include/Widgets/NodeEditor/NodeInputGraphics.hpp \
+    include/Widgets/NodeEditor/NodeOutputGraphics.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -83,7 +83,6 @@ SOURCES += \
     src/NodeSystem/NodeOutput.cpp \
     src/Widgets/Canvas.cpp \
     src/Widgets/NodeEditor.cpp \
-    src/Widgets/NodeEditor/NodeConnectorLeft.cpp \
     src/NodeSystem/NodeIO.cpp \
     src/NodeSystem/NodeDataTypes/NodeDataImage.cpp \
     src/NodeSystem/NodeDataTypes/NodeDataInt.cpp \
@@ -94,7 +93,6 @@ SOURCES += \
     src/NodeSystem/NodeOutputTypes/NodeOutputImage.cpp \
     src/NodeSystem/NodeOutputTypes/NodeOutputInt.cpp \
     src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp \
-    src/Widgets/NodeEditor/NodeConnectorRight.cpp \
     src/Registry.cpp \
     src/Registry/GuiSettings.cpp \
     src/Registry/ExtrinsicRegistry.cpp \
@@ -108,7 +106,9 @@ SOURCES += \
     src/WidgetActions/Selectable.cpp \
     src/WidgetActions/ActionWidgetContainer.cpp \
     src/WidgetActions/States/DraggedState.cpp \
-    src/WidgetActions/Draggable.cpp
+    src/WidgetActions/Draggable.cpp \
+    src/Widgets/NodeEditor/NodeInputGraphics.cpp \
+    src/Widgets/NodeEditor/NodeOutputGraphics.cpp
 
 RESOURCES += \
     images.qrc

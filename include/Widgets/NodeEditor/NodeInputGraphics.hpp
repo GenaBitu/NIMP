@@ -5,11 +5,11 @@
 class NodeGraphics;
 class NodePath;
 
-class NodeConnectorLeft : public QWidget
+class NodeInputGraphics : public QWidget
 {
 public:
     NodePath* path;
-    NodeConnectorLeft(NodeGraphics* parent, NodeInput* input, int y);
+    NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y);
     void buildPath();
 protected:
     NodeInput* input;

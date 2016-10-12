@@ -14,7 +14,7 @@ NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggab
 
 void NodeEditor::NodeGraphics::buildPaths()
 {
-    for(std::vector<NodeConnectorLeft*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
+    for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
     {
         (*it)->buildPath();
     }
@@ -57,13 +57,13 @@ void NodeEditor::NodeGraphics::updateConnections()
     for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
     {
         height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
-        outputs.push_back(new NodeConnectorRight{this, *it, height});
+        outputs.push_back(new NodeOutputGraphics{this, *it, height});
         height += outputs.back()->height();
     }
     for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); it++)
     {
         height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
-        inputs.push_back(new NodeConnectorLeft{this, *it, height});
+        inputs.push_back(new NodeInputGraphics{this, *it, height});
         height += inputs.back()->height();
     }
     height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"];
@@ -72,14 +72,14 @@ void NodeEditor::NodeGraphics::updateConnections()
 
 void NodeEditor::NodeGraphics::repaintConnections()
 {
-    for(std::vector<NodeConnectorLeft*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
+    for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
     {
         if((*it)->path != nullptr)
         {
             (*it)->path->update();
         }
     }
-    for(std::vector<NodeConnectorRight*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+    for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
     {
         if((*it)->path != nullptr)
         {

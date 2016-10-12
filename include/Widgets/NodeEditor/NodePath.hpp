@@ -2,15 +2,15 @@
 
 #include "Global.hpp"
 
-class NodeConnectorRight;
-class NodeConnectorLeft;
+class NodeOutputGraphics;
+class NodeInputGraphics;
 
 class NodePath : public Selectable
 {
 public:
-    NodePath(NodeEditor* parent, NodeConnectorRight* left, NodeConnectorLeft* right);
+    NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right);
 protected:
-    NodeConnectorRight* left;
-    NodeConnectorLeft* right;
+    NodeOutputGraphics* left;
+    NodeInputGraphics* right;
     virtual void paintEvent(QPaintEvent*);
 };

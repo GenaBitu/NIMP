@@ -3,13 +3,13 @@
 #include "NodeSystem/NodeOutput.hpp"
 #include "Registry.hpp"
 
-NodeEditor::NodeConnectorRight::NodeConnectorRight(NodeGraphics* parent, NodeOutput* output, int y) : QWidget(parent), path{}, output{output}
+NodeEditor::NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y) : QWidget(parent), path{}, output{output}
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
 }
 
-void NodeEditor::NodeConnectorRight::paintEvent(QPaintEvent*)
+void NodeEditor::NodeOutputGraphics::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);

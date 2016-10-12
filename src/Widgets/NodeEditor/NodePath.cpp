@@ -3,7 +3,7 @@
 #include "Registry.hpp"
 #include "WidgetActions/States/ActionState.hpp"
 
-NodeEditor::NodePath::NodePath(NodeEditor* parent, NodeConnectorRight* left, NodeConnectorLeft* right) : Selectable(parent), left{left}, right{right}
+NodeEditor::NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}
 {
     (*state->palette)["path"] = std::make_tuple("NodePath", "NodePathActive");
     left->path = this;
