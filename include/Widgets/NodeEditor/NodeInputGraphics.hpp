@@ -8,7 +8,7 @@ class NodePath;
 class NodeInputGraphics : public QWidget
 {
 public:
-    NodePath* path;
+    NodePath* connection;
     NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y);
     void buildPath();
 protected:

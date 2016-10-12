@@ -17,6 +17,6 @@ protected:
     std::vector<NodeOutputGraphics*> outputs;
     virtual void mouseReleaseEvent(QMouseEvent* event);
     virtual void paintEvent(QPaintEvent*);
+    void rebuildConnections();
     void updateConnections();
-    void repaintConnections();
 };

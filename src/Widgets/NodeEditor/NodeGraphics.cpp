@@ -7,7 +7,7 @@
 NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), node{node}
 {
     resize(200, height());
-    updateConnections();
+    rebuildConnections();
     move(node->x, node->y);
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
 }
@@ -29,7 +29,7 @@ void NodeEditor::NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
 
 void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
 {
-    //updateConnections();
+    //rebuildConnections();
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
     QPainterPath border{};
@@ -46,10 +46,10 @@ void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
     painter.drawLine(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"], width() - Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] - 1, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"]);
     painter.setPen(textPen);
     painter.drawText(2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] - 8, QString::fromStdString(node->nodeName()));
-    repaintConnections();
+    updateConnections();
 }
 
-void NodeEditor::NodeGraphics::updateConnections()
+void NodeEditor::NodeGraphics::rebuildConnections()
 {
     inputs.clear();
     outputs.clear();
@@ -70,20 +70,20 @@ void NodeEditor::NodeGraphics::updateConnections()
     resize(width(), height);
 }
 
-void NodeEditor::NodeGraphics::repaintConnections()
+void NodeEditor::NodeGraphics::updateConnections()
 {
     for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
     {
-        if((*it)->path != nullptr)
+        if((*it)->connection != nullptr)
         {
-            (*it)->path->update();
+            (*it)->connection->update();
         }
     }
-    for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+    /*for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
     {
         if((*it)->path != nullptr)
         {
             (*it)->path->update();
         }
-    }
+    }*/
 }

@@ -9,7 +9,7 @@ class NodeInputGraphics;
 class NodeOutputGraphics : public QWidget
 {
 public:
-    NodePath* path;
+    std::vector<NodePath*> connections;
     NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y);
 protected:
     friend NodeInputGraphics;
