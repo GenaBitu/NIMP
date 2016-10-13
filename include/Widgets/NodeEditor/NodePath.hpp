@@ -9,8 +9,8 @@ class NodePath : public Selectable
 {
 public:
     NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right);
-protected:
     NodeOutputGraphics* left;
     NodeInputGraphics* right;
+protected:
     virtual void paintEvent(QPaintEvent*);
 };

@@ -11,6 +11,6 @@ NodeEditor::NodeEditor() : ActionWidgetContainer{}
     }
     for(std::vector<NodeGraphics*>::iterator it{nodes.begin()}; it != nodes.end(); it++)
     {
-        (*it)->buildPaths();
+        (*it)->rebuildConnections();
     }
 }

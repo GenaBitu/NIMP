@@ -9,22 +9,36 @@ NodeEditor::NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput
     move(0, y);
 }
 
-void NodeEditor::NodeInputGraphics::buildPath()
+void NodeEditor::NodeInputGraphics::connect()
 {
-    NodeOutput* nodeOutput{input->connection};
-    NodeOutputGraphics* outputConnector;
-    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
-    for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
+    if(connection == nullptr)
     {
-        for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)
+        NodeOutput* nodeOutput{input->connection};
+        NodeOutputGraphics* outputConnector;
+        NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
+        for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
         {
-            if((*jt)->output == nodeOutput)
+            for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)
             {
-                outputConnector = *jt;
+                if((*jt)->output == nodeOutput)
+                {
+                    outputConnector = *jt;
+                }
             }
         }
+        editor->paths.push_back(new NodePath{editor, outputConnector, this});
     }
-    editor->paths.push_back(new NodePath{editor, outputConnector, this});
+}
+
+void NodeEditor::NodeInputGraphics::disconnect()
+{
+    if(connection != nullptr)
+    {
+        std::vector<NodePath*> vec{connection->left->connections};
+        vec.erase(std::remove(vec.begin(), vec.end(), connection), vec.end());
+        delete connection;
+        connection = nullptr;
+    }
 }
 
 void NodeEditor::NodeInputGraphics::paintEvent(QPaintEvent*)

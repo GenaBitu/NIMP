@@ -7,18 +7,18 @@
 NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), node{node}
 {
     resize(200, height());
-    rebuildConnections();
+    //rebuildConnections();
     move(node->x, node->y);
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
 }
 
-void NodeEditor::NodeGraphics::buildPaths()
+/*void NodeEditor::NodeGraphics::buildPaths()
 {
     for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
     {
         (*it)->buildPath();
     }
-}
+}*/
 
 void NodeEditor::NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
 {

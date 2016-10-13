@@ -11,6 +11,8 @@ class NodeOutputGraphics : public QWidget
 public:
     std::vector<NodePath*> connections;
     NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y);
+    void connect();
+    void disconnect();
 protected:
     friend NodeInputGraphics;
     NodeOutput* output;

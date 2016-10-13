@@ -9,6 +9,39 @@ NodeEditor::NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOut
     move(0, y);
 }
 
+void NodeEditor::NodeOutputGraphics::connect()
+{
+    if(connections.empty())
+    {
+        NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
+        for(std::vector<NodeInput*>::iterator it{output->connections.begin()}; it != output->connections.end(); it++)
+        {
+            NodeInputGraphics* inputConnector;
+            for(std::vector<NodeGraphics*>::iterator jt{editor->nodes.begin()}; jt != editor->nodes.end(); jt++)
+            {
+                for(std::vector<NodeInputGraphics*>::iterator kt{(*jt)->inputs.begin()}; kt != (*jt)->inputs.end(); kt++)
+                {
+                    if((*kt)->input == (*it))
+                    {
+                        inputConnector = *kt;
+                    }
+                }
+            }
+            editor->paths.push_back(new NodePath{editor, this, inputConnector});
+        }
+    }
+}
+
+void NodeEditor::NodeOutputGraphics::disconnect()
+{
+    for(std::vector<NodePath*>::iterator it{connections.begin()}; it != connections.end(); it++)
+    {
+        (*it)->right->connection = nullptr;
+        delete *it;
+    }
+    connections.clear();
+}
+
 void NodeEditor::NodeOutputGraphics::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
