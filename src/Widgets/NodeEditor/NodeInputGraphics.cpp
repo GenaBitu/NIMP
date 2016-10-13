@@ -14,7 +14,7 @@ void NodeEditor::NodeInputGraphics::connect()
     if(connection == nullptr)
     {
         NodeOutput* nodeOutput{input->connection};
-        NodeOutputGraphics* outputConnector;
+        NodeOutputGraphics* outputConnector{nullptr};
         NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
         for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
         {
@@ -26,7 +26,10 @@ void NodeEditor::NodeInputGraphics::connect()
                 }
             }
         }
-        editor->paths.push_back(new NodePath{editor, outputConnector, this});
+        if(outputConnector != nullptr)
+        {
+            editor->paths.push_back(new NodePath{editor, outputConnector, this});
+        }
     }
 }
 

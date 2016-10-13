@@ -11,7 +11,6 @@ public:
     std::vector<NodeInputGraphics*> inputs;
     std::vector<NodeOutputGraphics*> outputs;
     NodeGraphics(NodeEditor* parent, Node* node);
-    //void buildPaths();
     void rebuildConnections();
 protected:
     Node* node;

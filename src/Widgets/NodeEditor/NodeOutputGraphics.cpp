@@ -16,7 +16,7 @@ void NodeEditor::NodeOutputGraphics::connect()
         NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
         for(std::vector<NodeInput*>::iterator it{output->connections.begin()}; it != output->connections.end(); it++)
         {
-            NodeInputGraphics* inputConnector;
+            NodeInputGraphics* inputConnector{nullptr};
             for(std::vector<NodeGraphics*>::iterator jt{editor->nodes.begin()}; jt != editor->nodes.end(); jt++)
             {
                 for(std::vector<NodeInputGraphics*>::iterator kt{(*jt)->inputs.begin()}; kt != (*jt)->inputs.end(); kt++)
@@ -27,7 +27,10 @@ void NodeEditor::NodeOutputGraphics::connect()
                     }
                 }
             }
-            editor->paths.push_back(new NodePath{editor, this, inputConnector});
+            if(inputConnector != nullptr)
+            {
+                editor->paths.push_back(new NodePath{editor, this, inputConnector});
+            }
         }
     }
 }

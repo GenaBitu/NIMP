@@ -7,18 +7,9 @@
 NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), node{node}
 {
     resize(200, height());
-    //rebuildConnections();
     move(node->x, node->y);
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
 }
-
-/*void NodeEditor::NodeGraphics::buildPaths()
-{
-    for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
-    {
-        (*it)->buildPath();
-    }
-}*/
 
 void NodeEditor::NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
 {
@@ -51,20 +42,34 @@ void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
 
 void NodeEditor::NodeGraphics::rebuildConnections()
 {
+    int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
+    for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
+    {
+        (*it)->disconnect();
+        delete (*it);
+    }
+    for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+    {
+        (*it)->disconnect();
+        delete (*it);
+    }
     inputs.clear();
     outputs.clear();
-    int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
-    for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
-    {
-        height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
-        outputs.push_back(new NodeOutputGraphics{this, *it, height});
-        height += outputs.back()->height();
-    }
     for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); it++)
     {
         height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
-        inputs.push_back(new NodeInputGraphics{this, *it, height});
+        NodeInputGraphics* newItem{new NodeInputGraphics{this, *it, height}};
+        inputs.push_back(newItem);
+        newItem->connect();
         height += inputs.back()->height();
+    }
+    for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
+    {
+        height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
+        NodeOutputGraphics* newItem{new NodeOutputGraphics{this, *it, height}};
+        outputs.push_back(newItem);
+        newItem->connect();
+        height += outputs.back()->height();
     }
     height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"];
     resize(width(), height);
