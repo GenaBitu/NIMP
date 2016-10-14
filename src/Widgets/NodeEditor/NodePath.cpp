@@ -13,7 +13,7 @@ NodeEditor::NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, Nod
 
 void NodeEditor::NodePath::reposition()
 {
-    resize(parentWidget()->size());
+    resize(10000, 10000);
     QPainterPath path{};
     double yOffset{0.5 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]};
     double lX{static_cast<double>(left->parentWidget()->x() + left->x() + left->width())};
