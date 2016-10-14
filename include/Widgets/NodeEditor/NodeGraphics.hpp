@@ -15,6 +15,7 @@ public:
 protected:
     Node* node;
     virtual void mouseReleaseEvent(QMouseEvent* event);
+    virtual void moveEvent(QMoveEvent*);
     virtual void paintEvent(QPaintEvent*);
     void updateConnections();
 };

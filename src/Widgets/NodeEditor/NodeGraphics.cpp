@@ -18,15 +18,21 @@ void NodeEditor::NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
     node->y = y();
 }
 
+void NodeEditor::NodeGraphics::moveEvent(QMoveEvent*)
+{
+    QPainterPath border{};
+    border.addRoundedRect(QRectF(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, width() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], height() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"]), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
+    state->changeMask(&border);
+    updateConnections();
+}
+
 void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
 {
-    //rebuildConnections();
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
     QPainterPath border{};
     QPainterPath separator{};
     border.addRoundedRect(QRectF(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, width() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], height() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"]), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
-    state->changeMask(&border);
     QPen borderPen{state->getColour("border"), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"]};
     QPen separatorPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeHeaderSeparator"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderSeparatorHeight"]};
     QPen textPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeHeaderText"]};
@@ -37,7 +43,6 @@ void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
     painter.drawLine(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"], width() - Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] - 1, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"]);
     painter.setPen(textPen);
     painter.drawText(2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] - 8, QString::fromStdString(node->nodeName()));
-    updateConnections();
 }
 
 void NodeEditor::NodeGraphics::rebuildConnections()
@@ -81,14 +86,14 @@ void NodeEditor::NodeGraphics::updateConnections()
     {
         if((*it)->connection != nullptr)
         {
-            (*it)->connection->update();
+            (*it)->connection->reposition();
         }
     }
     for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
     {
         for(std::vector<NodePath*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); jt++)
         {
-            (*jt)->update();
+            (*jt)->reposition();
         }
     }
 }

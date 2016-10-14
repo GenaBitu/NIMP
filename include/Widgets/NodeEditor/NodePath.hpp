@@ -8,9 +8,10 @@ class NodeInputGraphics;
 class NodePath : public Selectable
 {
 public:
-    NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right);
     NodeOutputGraphics* left;
     NodeInputGraphics* right;
+    NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right);
+    void reposition();
 protected:
     virtual void paintEvent(QPaintEvent*);
 };
