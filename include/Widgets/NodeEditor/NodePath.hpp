@@ -13,5 +13,6 @@ public:
     NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right);
     void reposition();
 protected:
+    QPainterPath* path;
     virtual void paintEvent(QPaintEvent*);
 };
