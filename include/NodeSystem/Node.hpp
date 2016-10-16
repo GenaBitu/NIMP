@@ -10,14 +10,18 @@ class Node : public QObject
 {
     Q_OBJECT
 public:
-    int x, y;
     std::vector<NodeInput*> inputs;
     std::vector<NodeOutput*> outputs;
     std::vector<std::function<NodeData*(const std::vector<NodeInput*>* const)> > relations;
     Node(int x = 0, int y = 0);
     static void connect(Node* from, int numOutput, Node* to, int numInput);
     virtual std::string nodeName() = 0;
+    QPoint getPos() const;
+    void setPos(QPoint pos);
+    void setPos(int x, int y);
     virtual ~Node();
 signals:
     void moved();
+private:
+    QPoint pos;
 };

@@ -8,29 +8,28 @@
 NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), node{node}
 {
     resize(200, height());
-    move(node->x, node->y);
+    move(node->getPos());
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
     connect(node, &Node::moved, this, &NodeGraphics::reposition);
 }
 
 void NodeGraphics::reposition()
 {
-    QPainterPath border{};
-    border.addRoundedRect(QRectF(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, width() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], height() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"]), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
-    state->changeMask(&border);
-    updateConnections();
+    move(node->getPos());
 }
 
 void NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
 {
     Draggable::mouseReleaseEvent(event);
-    node->x = x();
-    node->y = y();
+    node->setPos(pos());
 }
 
 void NodeGraphics::moveEvent(QMoveEvent*)
 {
-    reposition();
+    QPainterPath border{};
+    border.addRoundedRect(QRectF(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, width() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], height() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"]), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
+    state->changeMask(&border);
+    updateConnections();
 }
 
 void NodeGraphics::paintEvent(QPaintEvent*)
