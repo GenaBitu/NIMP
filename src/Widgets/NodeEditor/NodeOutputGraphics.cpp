@@ -1,15 +1,16 @@
-#include "Widgets/NodeEditor.hpp"
+#include "Widgets/NodeEditor/NodeOutputGraphics.hpp"
 
 #include "NodeSystem/NodeOutput.hpp"
 #include "Registry.hpp"
+#include "Widgets/NodeEditor.hpp"
 
-NodeEditor::NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y) : QWidget(parent), connections{}, output{output}
+NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y) : QWidget(parent), connections{}, output{output}
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
 }
 
-void NodeEditor::NodeOutputGraphics::connect()
+void NodeOutputGraphics::connect()
 {
     if(connections.empty())
     {
@@ -35,7 +36,7 @@ void NodeEditor::NodeOutputGraphics::connect()
     }
 }
 
-void NodeEditor::NodeOutputGraphics::disconnect()
+void NodeOutputGraphics::disconnect()
 {
     for(std::vector<NodePath*>::iterator it{connections.begin()}; it != connections.end(); it++)
     {
@@ -45,7 +46,7 @@ void NodeEditor::NodeOutputGraphics::disconnect()
     connections.clear();
 }
 
-void NodeEditor::NodeOutputGraphics::paintEvent(QPaintEvent*)
+void NodeOutputGraphics::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);

@@ -2,6 +2,10 @@
 
 #include "Global.hpp"
 
+#include "WidgetActions/Draggable.hpp"
+
+class Node;
+class NodeEditor;
 class NodeInputGraphics;
 class NodeOutputGraphics;
 

@@ -2,6 +2,9 @@
 
 #include "Global.hpp"
 
+#include "WidgetActions/Selectable.hpp"
+
+class NodeEditor;
 class NodeOutputGraphics;
 class NodeInputGraphics;
 

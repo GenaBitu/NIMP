@@ -1,15 +1,17 @@
-#include "Widgets/NodeEditor.hpp"
+#include "Widgets/NodeEditor/NodeInputGraphics.hpp"
 
+#include "NodeSystem/NodeOutput.hpp"
 #include "NodeSystem/NodeInput.hpp"
 #include "Registry.hpp"
+#include "Widgets/NodeEditor.hpp"
 
-NodeEditor::NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), connection{}, input{input}
+NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), connection{}, input{input}
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
 }
 
-void NodeEditor::NodeInputGraphics::connect()
+void NodeInputGraphics::connect()
 {
     if(connection == nullptr)
     {
@@ -33,7 +35,7 @@ void NodeEditor::NodeInputGraphics::connect()
     }
 }
 
-void NodeEditor::NodeInputGraphics::disconnect()
+void NodeInputGraphics::disconnect()
 {
     if(connection != nullptr)
     {
@@ -44,7 +46,7 @@ void NodeEditor::NodeInputGraphics::disconnect()
     }
 }
 
-void NodeEditor::NodeInputGraphics::paintEvent(QPaintEvent*)
+void NodeInputGraphics::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);

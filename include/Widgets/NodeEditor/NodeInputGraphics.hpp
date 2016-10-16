@@ -2,6 +2,7 @@
 
 #include "Global.hpp"
 
+class NodeInput;
 class NodeGraphics;
 class NodeOutputGraphics;
 class NodePath;

@@ -2,8 +2,9 @@
 
 #include "Global.hpp"
 
-class NodeGraphics;
+class NodeOutput;
 class NodePath;
+class NodeGraphics;
 class NodeInputGraphics;
 
 class NodeOutputGraphics : public QWidget

@@ -1,6 +1,5 @@
 #include "Widgets/NodeEditor.hpp"
 
-#include "Nodes/CanvasNode.hpp"
 #include "Registry.hpp"
 
 NodeEditor::NodeEditor() : ActionWidgetContainer{}

@@ -1,9 +1,10 @@
-#include "Widgets/NodeEditor.hpp"
+#include "Widgets/NodeEditor/NodePath.hpp"
 
 #include "Registry.hpp"
 #include "WidgetActions/States/ActionState.hpp"
+#include "Widgets/NodeEditor.hpp"
 
-NodeEditor::NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}
+NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}
 {
     (*state->palette)["path"] = std::make_tuple("NodePath", "NodePathActive");
     left->connections.push_back(this);
@@ -11,7 +12,7 @@ NodeEditor::NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, Nod
     lower();
 }
 
-void NodeEditor::NodePath::reposition()
+void NodePath::reposition()
 {
     resize(10000, 10000);
     double yOffset{0.5 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]};
@@ -30,7 +31,7 @@ void NodeEditor::NodePath::reposition()
     update();
 }
 
-void NodeEditor::NodePath::paintEvent(QPaintEvent*)
+void NodePath::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);

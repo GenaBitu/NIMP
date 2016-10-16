@@ -1,24 +1,25 @@
-#include "Widgets/NodeEditor.hpp"
+#include "Widgets/NodeEditor/NodeGraphics.hpp"
 
 #include "NodeSystem/Node.hpp"
 #include "Registry.hpp"
 #include "WidgetActions/States/ActionState.hpp"
+#include "Widgets/NodeEditor.hpp"
 
-NodeEditor::NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), node{node}
+NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), node{node}
 {
     resize(200, height());
     move(node->x, node->y);
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
 }
 
-void NodeEditor::NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
+void NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
 {
     Draggable::mouseReleaseEvent(event);
     node->x = x();
     node->y = y();
 }
 
-void NodeEditor::NodeGraphics::moveEvent(QMoveEvent*)
+void NodeGraphics::moveEvent(QMoveEvent*)
 {
     QPainterPath border{};
     border.addRoundedRect(QRectF(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, width() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], height() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"]), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
@@ -26,7 +27,7 @@ void NodeEditor::NodeGraphics::moveEvent(QMoveEvent*)
     updateConnections();
 }
 
-void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
+void NodeGraphics::paintEvent(QPaintEvent*)
 {
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
@@ -45,7 +46,7 @@ void NodeEditor::NodeGraphics::paintEvent(QPaintEvent*)
     painter.drawText(2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] - 8, QString::fromStdString(node->nodeName()));
 }
 
-void NodeEditor::NodeGraphics::rebuildConnections()
+void NodeGraphics::rebuildConnections()
 {
     int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
     for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
@@ -80,7 +81,7 @@ void NodeEditor::NodeGraphics::rebuildConnections()
     resize(width(), height);
 }
 
-void NodeEditor::NodeGraphics::updateConnections()
+void NodeGraphics::updateConnections()
 {
     for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
     {
