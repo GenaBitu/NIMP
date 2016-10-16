@@ -9,6 +9,7 @@ class NodePath;
 
 class NodeInputGraphics : public QWidget
 {
+    Q_OBJECT
 public:
     NodePath* connection;
     NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y);

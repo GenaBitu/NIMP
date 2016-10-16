@@ -10,6 +10,7 @@ class NodeInputGraphics;
 
 class NodePath : public Selectable
 {
+    Q_OBJECT
 public:
     NodeOutputGraphics* left;
     NodeInputGraphics* right;

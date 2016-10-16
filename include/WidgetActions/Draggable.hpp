@@ -6,6 +6,7 @@
 
 class Draggable : public ActionWidget
 {
+    Q_OBJECT
 protected:
     Draggable(ActionWidgetContainer* parent = nullptr);
     virtual void mousePressEvent(QMouseEvent* event);

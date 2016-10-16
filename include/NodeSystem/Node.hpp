@@ -6,8 +6,9 @@ class NodeData;
 class NodeInput;
 class NodeOutput;
 
-class Node
+class Node : public QObject
 {
+    Q_OBJECT
 public:
     int x, y;
     std::vector<NodeInput*> inputs;
@@ -17,4 +18,6 @@ public:
     static void connect(Node* from, int numOutput, Node* to, int numInput);
     virtual std::string nodeName() = 0;
     virtual ~Node();
+signals:
+    void moved();
 };
