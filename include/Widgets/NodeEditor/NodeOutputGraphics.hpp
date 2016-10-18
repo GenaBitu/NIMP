@@ -18,5 +18,6 @@ public:
 protected:
     friend NodeInputGraphics;
     NodeOutput* output;
+    virtual void mousePressEvent(QMouseEvent*);
     virtual void paintEvent(QPaintEvent*);
 };
