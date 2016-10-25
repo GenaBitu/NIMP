@@ -6,11 +6,6 @@
 
 Selectable::Selectable(ActionWidgetContainer* parent) : ActionWidget(parent) {}
 
-void Selectable::mousePressEvent(QMouseEvent* event)
-{
-    state->mousePressEvent(event);
-}
-
 void Selectable::changeState(States state)
 {
     ActionState* oldState{this->state};
@@ -36,4 +31,9 @@ void Selectable::changeState(States state)
     default:
         break;
     }
+}
+
+void Selectable::mousePressEvent(QMouseEvent* event)
+{
+    state->mousePressEvent(event);
 }

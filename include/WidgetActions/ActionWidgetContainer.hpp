@@ -3,13 +3,17 @@
 #include "Global.hpp"
 
 class ActionWidget;
+class Draggable;
+class Selectable;
 
 class ActionWidgetContainer : public QWidget
 {
     Q_OBJECT
-public:
-    virtual void select(ActionWidget* widget);
 protected:
-    ActionWidgetContainer(QWidget* parent = nullptr);
     ActionWidget* selected;
+    ActionWidgetContainer(QWidget* parent = nullptr);
+private:
+    friend Draggable;
+    friend Selectable;
+    virtual void select(ActionWidget* widget);
 };

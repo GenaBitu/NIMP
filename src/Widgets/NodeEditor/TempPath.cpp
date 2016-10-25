@@ -6,7 +6,7 @@
 TempPath::TempPath(NodeEditor* parent, NodeInputGraphics* right) : QWidget{parent}, left{nullptr}, right{right}, path{}
 {
     grabMouse();
-    parent->select(nullptr);
+    //parent->select(nullptr);
     raise();
     //lower();
 }
@@ -14,7 +14,7 @@ TempPath::TempPath(NodeEditor* parent, NodeInputGraphics* right) : QWidget{paren
 TempPath::TempPath(NodeEditor* parent, NodeOutputGraphics* left) : QWidget{parent}, left{left}, right{nullptr}, path{}
 {
     grabMouse();
-    parent->select(nullptr);
+    //parent->select(nullptr);
     raise();
     //lower();
 }

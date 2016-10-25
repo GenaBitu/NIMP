@@ -7,21 +7,6 @@
 
 Draggable::Draggable(ActionWidgetContainer* parent) : ActionWidget{parent} {}
 
-void Draggable::mousePressEvent(QMouseEvent* event)
-{
-    state->mousePressEvent(event);
-}
-
-void Draggable::mouseMoveEvent(QMouseEvent* event)
-{
-    state->mouseMoveEvent(event);
-}
-
-void Draggable::mouseReleaseEvent(QMouseEvent* event)
-{
-    state->mouseReleaseEvent(event);
-}
-
 void Draggable::changeState(States state)
 {
     ActionState* oldState{this->state};
@@ -52,4 +37,19 @@ void Draggable::changeState(States state)
     default:
         break;
     }
+}
+
+void Draggable::mousePressEvent(QMouseEvent* event)
+{
+    state->mousePressEvent(event);
+}
+
+void Draggable::mouseMoveEvent(QMouseEvent* event)
+{
+    state->mouseMoveEvent(event);
+}
+
+void Draggable::mouseReleaseEvent(QMouseEvent* event)
+{
+    state->mouseReleaseEvent(event);
 }

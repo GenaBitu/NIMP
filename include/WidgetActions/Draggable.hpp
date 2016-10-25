@@ -9,9 +9,8 @@ class Draggable : public ActionWidget
     Q_OBJECT
 protected:
     Draggable(ActionWidgetContainer* parent = nullptr);
+    virtual void changeState(States state);
     virtual void mousePressEvent(QMouseEvent* event);
     virtual void mouseMoveEvent(QMouseEvent* event);
     virtual void mouseReleaseEvent(QMouseEvent* event);
-private:
-    virtual void changeState(States state);
 };

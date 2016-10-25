@@ -9,7 +9,6 @@ class Selectable : public ActionWidget
     Q_OBJECT
 protected:
     Selectable(ActionWidgetContainer* parent = nullptr);
-    virtual void mousePressEvent(QMouseEvent* event);
-private:
     virtual void changeState(States state);
+    virtual void mousePressEvent(QMouseEvent* event);
 };
