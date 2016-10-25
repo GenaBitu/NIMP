@@ -2,11 +2,13 @@
 
 #include "Global.hpp"
 
+#include "WidgetActions/Selectable.hpp"
+
 class NodeEditor;
 class NodeOutputGraphics;
 class NodeInputGraphics;
 
-class TempPath : public QWidget
+class TempPath : public Selectable
 {
     Q_OBJECT
 public:

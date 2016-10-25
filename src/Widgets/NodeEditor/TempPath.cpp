@@ -3,25 +3,24 @@
 #include "Registry.hpp"
 #include "Widgets/NodeEditor.hpp"
 
-TempPath::TempPath(NodeEditor* parent, NodeInputGraphics* right) : QWidget{parent}, left{nullptr}, right{right}, path{}
+TempPath::TempPath(NodeEditor* parent, NodeInputGraphics* right) : Selectable{parent}, left{nullptr}, right{right}, path{}
 {
+    show();
     grabMouse();
-    //parent->select(nullptr);
-    raise();
-    //lower();
+    changeState(States::SELECTED);
+    lower();
 }
 
-TempPath::TempPath(NodeEditor* parent, NodeOutputGraphics* left) : QWidget{parent}, left{left}, right{nullptr}, path{}
+TempPath::TempPath(NodeEditor* parent, NodeOutputGraphics* left) : Selectable{parent}, left{left}, right{nullptr}, path{}
 {
+    show();
     grabMouse();
-    //parent->select(nullptr);
-    raise();
-    //lower();
+    changeState(States::SELECTED);
+    lower();
 }
 
 void TempPath::mouseMoveEvent(QMouseEvent* event)
 {
-    qDebug() << "MOVE" << endl;
     resize(10000, 10000);
     double yOffset{0.5 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]};
     double lX, lY, rX, rY;
@@ -32,10 +31,8 @@ void TempPath::mouseMoveEvent(QMouseEvent* event)
     }
     else
     {
-        //lX = event->x();
-        //lY = event->y();
-        lX = 10;
-        lY = 10;
+        lX = event->x();
+        lY = event->y();
     }
     if(right != nullptr)
     {
@@ -50,22 +47,23 @@ void TempPath::mouseMoveEvent(QMouseEvent* event)
     path = new QPainterPath{};
     path->moveTo(lX, lY);
     path->cubicTo(lX + Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"], lY, rX - Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"], rY, rX, rY);
-    repaint();
+    update();
 }
 
 void TempPath::mouseReleaseEvent(QMouseEvent*)
 {
-    qDebug() << "RELEASE" << endl;
     releaseMouse();
-    //delete this;
+    delete this;
 }
 
 void TempPath::paintEvent(QPaintEvent*)
 {
-    qDebug() << "PAINT" << endl;
-    QPainter painter{this};
-    painter.setRenderHint(QPainter::Antialiasing);
-    QPen pen{Registry::getRegistry()->extrinsic->GUI->palette["NodePathActive"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathWidth"]};
-    painter.setPen(pen);
-    painter.drawPath(*path);
+    if(path != nullptr)
+    {
+        QPainter painter{this};
+        painter.setRenderHint(QPainter::Antialiasing);
+        QPen pen{Registry::getRegistry()->extrinsic->GUI->palette["NodePathActive"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathWidth"]};
+        painter.setPen(pen);
+        painter.drawPath(*path);
+    }
 }

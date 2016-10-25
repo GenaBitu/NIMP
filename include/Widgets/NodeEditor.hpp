@@ -14,7 +14,6 @@ class NodeEditor : public ActionWidgetContainer
 {
     Q_OBJECT
 public:
-    TempPath* temp;
     NodeEditor();
 protected:
     friend NodeInputGraphics;

@@ -49,7 +49,7 @@ void NodeOutputGraphics::disconnect()
 void NodeOutputGraphics::mousePressEvent(QMouseEvent*)
 {
     NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
-    editor->temp = new TempPath{editor, this};
+    new TempPath{editor, this};
 }
 
 void NodeOutputGraphics::paintEvent(QPaintEvent*)
