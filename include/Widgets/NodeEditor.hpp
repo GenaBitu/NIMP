@@ -4,6 +4,7 @@
 
 #include "Widgets/NodeEditor/NodeGraphics.hpp"
 #include "Widgets/NodeEditor/NodeInputGraphics.hpp"
+#include "Widgets/NodeEditor/NodeIOConnector.hpp"
 #include "Widgets/NodeEditor/NodeOutputGraphics.hpp"
 #include "Widgets/NodeEditor/NodePath.hpp"
 

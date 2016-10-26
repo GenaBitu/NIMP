@@ -4,6 +4,7 @@
 
 class NodeInput;
 class NodeGraphics;
+class NodeIOConnector;
 class NodeOutputGraphics;
 class NodePath;
 
@@ -18,6 +19,7 @@ public:
 protected:
     friend NodeOutputGraphics;
     NodeInput* input;
+    NodeIOConnector* connector;
     virtual void mousePressEvent(QMouseEvent*);
     virtual void paintEvent(QPaintEvent*);
 };

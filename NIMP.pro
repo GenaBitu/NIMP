@@ -71,7 +71,8 @@ HEADERS  += \
     include/WidgetActions/Draggable.hpp \
     include/Widgets/NodeEditor/NodeInputGraphics.hpp \
     include/Widgets/NodeEditor/NodeOutputGraphics.hpp \
-    include/Widgets/NodeEditor/TempPath.hpp
+    include/Widgets/NodeEditor/TempPath.hpp \
+    include/Widgets/NodeEditor/NodeIOConnector.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -110,7 +111,8 @@ SOURCES += \
     src/WidgetActions/Draggable.cpp \
     src/Widgets/NodeEditor/NodeInputGraphics.cpp \
     src/Widgets/NodeEditor/NodeOutputGraphics.cpp \
-    src/Widgets/NodeEditor/TempPath.cpp
+    src/Widgets/NodeEditor/TempPath.cpp \
+    src/Widgets/NodeEditor/NodeIOConnector.cpp
 
 RESOURCES += \
     images.qrc

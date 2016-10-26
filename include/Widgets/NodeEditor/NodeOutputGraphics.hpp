@@ -6,6 +6,7 @@ class NodeOutput;
 class NodePath;
 class NodeGraphics;
 class NodeInputGraphics;
+class NodeIOConnector;
 
 class NodeOutputGraphics : public QWidget
 {
@@ -18,6 +19,7 @@ public:
 protected:
     friend NodeInputGraphics;
     NodeOutput* output;
+    NodeIOConnector* connector;
     virtual void mousePressEvent(QMouseEvent*);
     virtual void paintEvent(QPaintEvent*);
 };
