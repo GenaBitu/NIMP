@@ -3,6 +3,7 @@
 #include "NodeSystem/NodeOutput.hpp"
 #include "Registry.hpp"
 #include "Widgets/NodeEditor.hpp"
+#include "Widgets/NodeEditor/TempPath.hpp"
 
 NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y) : QWidget(parent), connections{}, output{output}
 {

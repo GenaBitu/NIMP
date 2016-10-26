@@ -4,6 +4,7 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "Registry.hpp"
 #include "Widgets/NodeEditor.hpp"
+#include "Widgets/NodeEditor/TempPath.hpp"
 
 NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), connection{}, input{input}
 {
