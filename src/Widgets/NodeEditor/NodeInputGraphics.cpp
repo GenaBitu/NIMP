@@ -4,7 +4,6 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "Registry.hpp"
 #include "Widgets/NodeEditor.hpp"
-#include "Widgets/NodeEditor/TempPath.hpp"
 
 NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), connection{}, input{input}, connector{new NodeIOConnector{this}}
 {
@@ -45,12 +44,6 @@ void NodeInputGraphics::disconnect()
         delete connection;
         connection = nullptr;
     }
-}
-
-void NodeInputGraphics::mousePressEvent(QMouseEvent*)
-{
-    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
-    new TempPath{editor, this};
 }
 
 void NodeInputGraphics::paintEvent(QPaintEvent*)

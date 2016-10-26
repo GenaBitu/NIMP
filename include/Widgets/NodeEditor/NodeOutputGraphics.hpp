@@ -20,6 +20,5 @@ protected:
     friend NodeInputGraphics;
     NodeOutput* output;
     NodeIOConnector* connector;
-    virtual void mousePressEvent(QMouseEvent*);
     virtual void paintEvent(QPaintEvent*);
 };

@@ -7,6 +7,7 @@
 #include "Widgets/NodeEditor/NodeIOConnector.hpp"
 #include "Widgets/NodeEditor/NodeOutputGraphics.hpp"
 #include "Widgets/NodeEditor/NodePath.hpp"
+#include "Widgets/NodeEditor/TempPath.hpp"
 
 #include "WidgetActions/ActionWidgetContainer.hpp"
 

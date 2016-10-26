@@ -3,7 +3,6 @@
 #include "NodeSystem/NodeOutput.hpp"
 #include "Registry.hpp"
 #include "Widgets/NodeEditor.hpp"
-#include "Widgets/NodeEditor/TempPath.hpp"
 
 NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y) : QWidget(parent), connections{}, output{output}, connector{new NodeIOConnector{this, parentWidget()->width() - Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]}}
 {
@@ -45,12 +44,6 @@ void NodeOutputGraphics::disconnect()
         delete *it;
     }
     connections.clear();
-}
-
-void NodeOutputGraphics::mousePressEvent(QMouseEvent*)
-{
-    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
-    new TempPath{editor, this};
 }
 
 void NodeOutputGraphics::paintEvent(QPaintEvent*)

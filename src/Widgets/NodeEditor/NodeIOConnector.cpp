@@ -1,8 +1,7 @@
 #include "Widgets/NodeEditor/NodeIOConnector.hpp"
 
 #include "Registry.hpp"
-#include "Widgets/NodeEditor/NodeInputGraphics.hpp"
-#include "Widgets/NodeEditor/NodeOutputGraphics.hpp"
+#include "Widgets/NodeEditor.hpp"
 
 NodeIOConnector::NodeIOConnector(NodeInputGraphics* parent, float x, float y) : QWidget(parent)
 {
@@ -12,6 +11,21 @@ NodeIOConnector::NodeIOConnector(NodeInputGraphics* parent, float x, float y) : 
 NodeIOConnector::NodeIOConnector(NodeOutputGraphics* parent, float x, float y) : QWidget(parent)
 {
     init(x, y);
+}
+
+void NodeIOConnector::mousePressEvent(QMouseEvent*)
+{
+    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget()->parentWidget())};
+    NodeInputGraphics* input{dynamic_cast<NodeInputGraphics*>(parentWidget())};
+    if(input != nullptr)
+    {
+        new TempPath{editor, input};
+    }
+    NodeOutputGraphics* output{dynamic_cast<NodeOutputGraphics*>(parentWidget())};
+    if(output != nullptr)
+    {
+        new TempPath{editor, output};
+    }
 }
 
 void NodeIOConnector::paintEvent(QPaintEvent*)
@@ -29,4 +43,5 @@ void NodeIOConnector::paintEvent(QPaintEvent*)
 void NodeIOConnector::init(float x, float y)
 {
     move(x, y);
+    resize(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
 }
