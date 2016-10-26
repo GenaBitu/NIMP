@@ -3,8 +3,6 @@
 #include "Global.hpp"
 
 class ActionWidget;
-class Draggable;
-class Selectable;
 
 class ActionWidgetContainer : public QWidget
 {
@@ -13,7 +11,7 @@ protected:
     ActionWidget* selected;
     ActionWidgetContainer(QWidget* parent = nullptr);
 private:
-    friend Draggable;
-    friend Selectable;
+    friend ActionWidget;
     virtual void select(ActionWidget* widget);
+    virtual void deselect(ActionWidget* widget);
 };

@@ -12,3 +12,11 @@ void ActionWidgetContainer::select(ActionWidget* widget)
     }
     selected = widget;
 }
+
+void ActionWidgetContainer::deselect(ActionWidget* widget)
+{
+    if(selected == widget)
+    {
+        selected = nullptr;
+    }
+}

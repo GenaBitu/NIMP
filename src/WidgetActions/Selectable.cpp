@@ -20,12 +20,13 @@ void Selectable::changeState(States state)
         this->state = new DefaultState{oldState};
         update();
         delete oldState;
+        deselect();
         break;
     case States::SELECTED:
         this->state = new SelectedState{oldState};
         update();
         delete oldState;
-        container->select(this);
+        select();
         break;
     case States::DRAGGED:
     default:
