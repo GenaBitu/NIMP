@@ -20,7 +20,7 @@ int main(int argc, char** argv)
     BMPinput* input{new BMPinput{10, 300}};
     Registry::getRegistry()->intrinsic->nodes.push_back(canvas);
     Registry::getRegistry()->intrinsic->nodes.push_back(input);
-    Node::connect(input, 0, canvas, 0);
+    //Node::connect(input, 0, canvas, 0);
 
     WidgetRegistry::getRegistry()->addItem();
     WidgetRegistry::getRegistry()->addItem("Type1", []()->QWidget* {return new QLabel{"Type 1 Label"};}, [](SwitchingBar* bar, QWidget*)->void {

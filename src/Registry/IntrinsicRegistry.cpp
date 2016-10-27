@@ -1,6 +1,3 @@
 #include "include/Registry.hpp"
 
-Registry::IntrinsicRegistry::IntrinsicRegistry()
-{
-
-}
+Registry::IntrinsicRegistry::IntrinsicRegistry() :nodes{} {}

@@ -50,9 +50,43 @@ void TempPath::mouseMoveEvent(QMouseEvent* event)
     update();
 }
 
-void TempPath::mouseReleaseEvent(QMouseEvent*)
+void TempPath::mouseReleaseEvent(QMouseEvent* event)
 {
     releaseMouse();
+    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+    for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
+    {
+        if(left == nullptr)
+        {
+            for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)
+            {
+                if((*jt)->connector->mask().contains((*jt)->connector->mapFromGlobal(event->globalPos())))
+                {
+                    left = *jt;
+                    break;
+                }
+            }
+        }
+        else if(right == nullptr)
+        {
+            for(std::vector<NodeInputGraphics*>::iterator jt{(*it)->inputs.begin()}; jt != (*it)->inputs.end(); jt++)
+            {
+                if((*jt)->connector->mask().contains((*jt)->connector->mapFromGlobal(event->globalPos())))
+                {
+                    right = *jt;
+                    break;
+                }
+            }
+        }
+        else
+        {
+            break;
+        }
+    }
+    if(left != nullptr and right != nullptr)
+    {
+        NodeGraphics::connect(left, right);
+    }
     delete this;
 }
 

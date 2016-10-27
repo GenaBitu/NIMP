@@ -7,6 +7,7 @@ class NodePath;
 class NodeGraphics;
 class NodeInputGraphics;
 class NodeIOConnector;
+class TempPath;
 
 class NodeOutputGraphics : public QWidget
 {
@@ -17,7 +18,9 @@ public:
     void connect();
     void disconnect();
 protected:
+    friend NodeGraphics;
     friend NodeInputGraphics;
+    friend TempPath;
     NodeOutput* output;
     NodeIOConnector* connector;
     virtual void paintEvent(QPaintEvent*);

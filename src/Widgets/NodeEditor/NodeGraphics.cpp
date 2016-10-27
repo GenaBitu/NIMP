@@ -10,7 +10,7 @@ NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), 
     resize(200, height());
     move(node->getPos());
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
-    connect(node, &Node::moved, this, &NodeGraphics::reposition);
+    QWidget::connect(node, &Node::moved, this, &NodeGraphics::reposition);
 }
 
 void NodeGraphics::reposition()
@@ -84,6 +84,15 @@ void NodeGraphics::rebuildConnections()
     }
     height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"];
     resize(width(), height);
+}
+
+void NodeGraphics::connect(NodeOutputGraphics* left, NodeInputGraphics* right)
+{
+    Node::connect(left->output, right->input);
+    left->disconnect();
+    right->disconnect();
+    left->connect();
+    right->connect();
 }
 
 void NodeGraphics::updateConnections()

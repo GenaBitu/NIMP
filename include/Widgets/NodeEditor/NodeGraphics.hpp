@@ -17,6 +17,7 @@ public:
     std::vector<NodeOutputGraphics*> outputs;
     NodeGraphics(NodeEditor* parent, Node* node);
     void rebuildConnections();
+    static void connect(NodeOutputGraphics* left, NodeInputGraphics* right);
 protected slots:
     void reposition();
 protected:

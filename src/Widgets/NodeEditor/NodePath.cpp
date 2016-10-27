@@ -4,11 +4,13 @@
 #include "WidgetActions/States/ActionState.hpp"
 #include "Widgets/NodeEditor.hpp"
 
-NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}
+NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}, path{}
 {
     (*state->palette)["path"] = std::make_tuple("NodePath", "NodePathActive");
     left->connections.push_back(this);
     right->connection = this;
+    reposition();
+    show();
     lower();
 }
 
@@ -33,9 +35,12 @@ void NodePath::reposition()
 
 void NodePath::paintEvent(QPaintEvent*)
 {
-    QPainter painter{this};
-    painter.setRenderHint(QPainter::Antialiasing);
-    QPen pen{state->getColour("path"), Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathWidth"]};
-    painter.setPen(pen);
-    painter.drawPath(*path);
+    if(path != nullptr)
+    {
+        QPainter painter{this};
+        painter.setRenderHint(QPainter::Antialiasing);
+        QPen pen{state->getColour("path"), Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathWidth"]};
+        painter.setPen(pen);
+        painter.drawPath(*path);
+    }
 }

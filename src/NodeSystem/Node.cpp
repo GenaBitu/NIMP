@@ -7,18 +7,26 @@ Node::Node(int x, int y) : pos{QPoint{x, y}} {}
 
 void Node::connect(Node* from, int numOutput, Node* to, int numInput)
 {
-    from->outputs[numOutput]->connections.push_back(to->inputs[numInput]);
-    to->inputs[numInput]->connection = from->outputs[numOutput];
+    connect(from->outputs[numOutput], to->inputs[numInput]);
 }
+
+void Node::connect(NodeOutput* from, NodeInput* to)
+{
+    from->connections.push_back(to);
+    to->connection = from;
+}
+
 QPoint Node::getPos() const
 {
     return pos;
 }
+
 void Node::setPos(QPoint pos)
 {
     this->pos = pos;
     emit moved();
 }
+
 void Node::setPos(int x, int y)
 {
     pos = QPoint{x, y};

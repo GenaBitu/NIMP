@@ -44,4 +44,7 @@ void NodeIOConnector::init(float x, float y)
 {
     move(x, y);
     resize(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
+    QPainterPath path{};
+    path.addEllipse(-1, -1, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"] + 1, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"] + 1);
+    setMask(path.toFillPolygon().toPolygon());
 }

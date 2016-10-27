@@ -20,5 +20,5 @@ protected:
     QPainterPath* path;
     virtual void mouseMoveEvent(QMouseEvent* event);
     virtual void mouseReleaseEvent(QMouseEvent*);
-    virtual void paintEvent(QPaintEvent*);
+    virtual void paintEvent(QPaintEvent* event);
 };
