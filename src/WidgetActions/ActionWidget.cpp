@@ -14,7 +14,10 @@ void ActionWidget::select()
 void ActionWidget::deselect()
 {
     ActionWidgetContainer* container{dynamic_cast<ActionWidgetContainer*>(parentWidget())};
-    container->deselect(this);
+    if(container != nullptr)
+    {
+        container->deselect(this);
+    }
 }
 
 ActionWidget::~ActionWidget()
