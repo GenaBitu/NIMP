@@ -3,7 +3,7 @@
 int main(int argc, char** argv)
 {
     QSurfaceFormat format;
-    format.setVersion(3, 0);
+    format.setVersion(2, 1);
     format.setProfile(QSurfaceFormat::CoreProfile);
     QSurfaceFormat::setDefaultFormat(format);
     new QApplication{argc, argv};
