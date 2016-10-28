@@ -3,7 +3,7 @@
 #include "NodeSystem/NodeOutputTypes/NodeOutputImage.hpp"
 #include "NodeSystem/RowSelector.hpp"
 
-BMPinput::BMPinput(int x, int y) : Node(x, y)
+BMPinput::BMPinput(std::string filename, int x, int y) : Node(x, y), filename{filename}
 {
     outputs.push_back(new NodeOutputImage{this, "Image"});
     relations.push_back(std::bind(&BMPinput::loadBMP, this, std::placeholders::_1));
@@ -16,7 +16,7 @@ std::string BMPinput::nodeName()
 
 NodeDataImage* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
 {
-    std::string fileName{"tex2D.bmp"};
+    std::string fileName{filename};
     std::ifstream file{fileName, std::ifstream::binary};
     if(!file.is_open())
     {
