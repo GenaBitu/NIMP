@@ -2,6 +2,17 @@
 
 #include "NodeSystem/Node.hpp"
 
+const std::unordered_set<NodeInput*>& NodeOutput::getConnections()
+{
+    return connections;
+}
+
+void NodeOutput::setConnection(NodeInput* connection)
+{
+    connections.insert(connection);
+    emit reconnected();
+}
+
 NodeOutput::NodeOutput(Node* parent, std::string name) : NodeIO{parent, name}, connections{} {}
 
 NodeData* NodeOutput::getData()

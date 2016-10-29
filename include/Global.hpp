@@ -2,6 +2,7 @@
 
 #include <fstream> // DEBUG
 #include <functional>
+#include <unordered_set>
 
 #include <glm/common.hpp>
 

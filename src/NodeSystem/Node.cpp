@@ -12,8 +12,8 @@ void Node::connect(Node* from, int numOutput, Node* to, int numInput)
 
 void Node::connect(NodeOutput* from, NodeInput* to)
 {
-    from->connections.push_back(to);
-    to->connection = from;
+    from->setConnection(to);
+    to->setConnection(from);
 }
 
 QPoint Node::getPos() const

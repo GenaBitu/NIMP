@@ -9,4 +9,15 @@ NodeData* NodeInput::getData()
     return connection->getData();
 }
 
+const NodeOutput* NodeInput::getConnection() const
+{
+    return connection;
+}
+
+void NodeInput::setConnection(NodeOutput* connection)
+{
+    this->connection = connection;
+    emit reconnected();
+}
+
 NodeInput::~NodeInput() {}

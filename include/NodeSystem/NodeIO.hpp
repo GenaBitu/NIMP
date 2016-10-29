@@ -5,8 +5,9 @@
 class Node;
 class NodeData;
 
-class NodeIO
+class NodeIO : public QObject
 {
+    Q_OBJECT
 public:
     std::string name;
 protected:

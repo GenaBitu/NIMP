@@ -15,7 +15,7 @@ void NodeInputGraphics::connect()
 {
     if(connection == nullptr)
     {
-        NodeOutput* nodeOutput{input->connection};
+        const NodeOutput* nodeOutput{input->getConnection()};
         NodeOutputGraphics* outputConnector{nullptr};
         NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
         for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)

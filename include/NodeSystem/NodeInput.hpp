@@ -8,10 +8,16 @@ class NodeOutput;
 
 class NodeInput : public NodeIO
 {
+    Q_OBJECT
 public:
     virtual NodeData* getData();
-    NodeOutput* connection;
+    const NodeOutput* getConnection() const;
+    void setConnection(NodeOutput* connection);
+signals:
+    void reconnected();
 protected:
     NodeInput(Node* parent, std::string name);
     virtual ~NodeInput();
+private:
+    NodeOutput* connection;
 };
