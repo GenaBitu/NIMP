@@ -3,7 +3,7 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "NodeSystem/NodeOutput.hpp"
 
-Node::Node(int x, int y) : pos{QPoint{x, y}} {}
+Node::Node(int x, int y) : inputs{}, outputs{}, relations{}, pos{QPoint{x, y}} {}
 
 void Node::connect(Node* from, int numOutput, Node* to, int numInput)
 {

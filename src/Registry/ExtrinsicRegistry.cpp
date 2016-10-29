@@ -1,6 +1,3 @@
 #include "include/Registry.hpp"
 
-Registry::ExtrinsicRegistry::ExtrinsicRegistry() : GUI{new GuiSettings{}}
-{
-
-}
+Registry::ExtrinsicRegistry::ExtrinsicRegistry() : window{}, splitter{}, GUI{new GuiSettings{}} {}

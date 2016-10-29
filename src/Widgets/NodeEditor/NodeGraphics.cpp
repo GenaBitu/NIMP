@@ -5,7 +5,7 @@
 #include "WidgetActions/States/ActionState.hpp"
 #include "Widgets/NodeEditor.hpp"
 
-NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), node{node}
+NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), inputs{}, outputs{}, node{node}
 {
     resize(200, height());
     move(node->getPos());
