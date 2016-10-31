@@ -17,13 +17,13 @@ void Selectable::changeState(States state)
     switch(state)
     {
     case States::DEFAULT:
-        this->state = new DefaultState{oldState};
+        this->state = new DefaultState{*oldState};
         update();
         delete oldState;
         deselect();
         break;
     case States::SELECTED:
-        this->state = new SelectedState{oldState};
+        this->state = new SelectedState{*oldState};
         update();
         delete oldState;
         select();

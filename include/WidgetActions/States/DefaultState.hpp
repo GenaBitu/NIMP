@@ -8,7 +8,6 @@ class DefaultState : public ActionState
 {
 public:
     DefaultState(ActionWidget* widget);
-    DefaultState(ActionState* other);
-    virtual QColor getColour(std::string colour);
+    DefaultState(const ActionState& other);
     virtual void mousePressEvent(QMouseEvent* event);
 };

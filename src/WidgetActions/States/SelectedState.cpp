@@ -5,7 +5,7 @@
 
 SelectedState::SelectedState(ActionWidget* widget) : ActionState{widget} {}
 
-SelectedState::SelectedState(ActionState* other) : ActionState{other} {}
+SelectedState::SelectedState(const ActionState& other) : ActionState{other} {}
 
 QColor SelectedState::getColour(std::string colour)
 {

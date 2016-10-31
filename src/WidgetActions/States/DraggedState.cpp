@@ -5,7 +5,7 @@
 
 DraggedState::DraggedState(ActionWidget* widget) : ActionState{widget} {}
 
-DraggedState::DraggedState(ActionState* other) : ActionState{other} {}
+DraggedState::DraggedState(const ActionState& other) : ActionState{other} {}
 
 QColor DraggedState::getColour(std::string colour)
 {

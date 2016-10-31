@@ -4,7 +4,7 @@
 
 NodeDataMonochrome::NodeDataMonochrome(int width, int height) : width{width}, height{height}, data{new MonochromePixel[width * height]} {}
 
-NodeDataMonochrome::NodeDataMonochrome(const NodeDataMonochrome& other) : width{other.width}, height{other.height}, data{width * height != 0 ? new MonochromePixel[width * height] : nullptr}
+NodeDataMonochrome::NodeDataMonochrome(const NodeDataMonochrome& other) : width{other.width}, height{other.height}, data{width * height ? new MonochromePixel[width * height] : nullptr}
 {
     std::copy(other.data, other.data + (width * height), data);
 }

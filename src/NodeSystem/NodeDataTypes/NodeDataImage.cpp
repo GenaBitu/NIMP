@@ -4,7 +4,7 @@
 
 NodeDataImage::NodeDataImage(int width, int height) : width{width}, height{height}, data{new ImagePixel[width * height]} {}
 
-NodeDataImage::NodeDataImage(const NodeDataImage& other) : width{other.width}, height{other.height}, data{width * height != 0 ? new ImagePixel[width * height] : nullptr}
+NodeDataImage::NodeDataImage(const NodeDataImage& other) : width{other.width}, height{other.height}, data{width * height ? new ImagePixel[width * height] : nullptr}
 {
     std::copy(other.data, other.data + (width * height), data);
 }

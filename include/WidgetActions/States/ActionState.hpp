@@ -9,8 +9,11 @@ class ActionState
 public:
     std::map<std::string, std::tuple<std::string, std::string>>* palette;
     ActionState(ActionWidget* widget);
-    ActionState(ActionState* other);
-    virtual QColor getColour(std::string colour) = 0;
+    ActionState(const ActionState& other);
+    ActionState(ActionState&& other);
+    ActionState& operator=(ActionState other);
+    friend void swap(ActionState& first, ActionState& second);
+    virtual QColor getColour(std::string colour);
     virtual void changeMask(QRegion* region);
     virtual void changeMask(QPainterPath* path);
     virtual void mousePressEvent(QMouseEvent*);
@@ -21,4 +24,6 @@ protected:
     ActionWidget* widget;
     QRegion* mask;
     QPoint* origin;
+private:
+    ActionState();
 };

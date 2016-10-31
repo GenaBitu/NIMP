@@ -8,7 +8,7 @@ class SelectedState : public ActionState
 {
 public:
     SelectedState(ActionWidget* widget);
-    SelectedState(ActionState* other);
+    SelectedState(const ActionState& other);
     virtual QColor getColour(std::string colour);
     virtual void mousePressEvent(QMouseEvent* event);
     virtual void mouseMoveEvent(QMouseEvent* event);

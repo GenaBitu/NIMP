@@ -6,12 +6,7 @@
 
 DefaultState::DefaultState(ActionWidget* widget) : ActionState{widget} {}
 
-DefaultState::DefaultState(ActionState *other) : ActionState{other} {}
-
-QColor DefaultState::getColour(std::string colour)
-{
-    return Registry::getRegistry()->extrinsic->GUI->palette[std::get<0>((*palette)[colour])];
-}
+DefaultState::DefaultState(const ActionState& other) : ActionState{other} {}
 
 void DefaultState::mousePressEvent(QMouseEvent* event)
 {
