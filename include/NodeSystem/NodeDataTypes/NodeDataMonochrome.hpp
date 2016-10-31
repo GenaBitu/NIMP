@@ -22,12 +22,17 @@ class NodeDataMonochrome : public NodeData
 {
 public:
     int width, height;
-    NodeDataMonochrome() = delete;
     NodeDataMonochrome(int width, int height);
+    NodeDataMonochrome(const NodeDataMonochrome& other);
+    NodeDataMonochrome(NodeDataMonochrome&& other);
+    NodeDataMonochrome& operator=(NodeDataMonochrome other);
+    friend void swap(NodeDataMonochrome& first, NodeDataMonochrome& second);
     RowSelector<NodeDataMonochrome, MonochromePixel> operator[](int index);
     const void* rawData();
     ~NodeDataMonochrome();
 protected:
     friend RowSelector<NodeDataMonochrome, MonochromePixel>;
     MonochromePixel* data;
+private:
+    NodeDataMonochrome();
 };
