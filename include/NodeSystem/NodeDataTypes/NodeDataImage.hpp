@@ -24,12 +24,17 @@ class NodeDataImage : public NodeData
 {
 public:
     int width, height;
-    NodeDataImage() = delete;
     NodeDataImage(int width, int height);
+    NodeDataImage(const NodeDataImage& other);
+    NodeDataImage(NodeDataImage&& other);
+    NodeDataImage& operator=(NodeDataImage other);
+    friend void swap(NodeDataImage& first, NodeDataImage& second);
     RowSelector<NodeDataImage, ImagePixel> operator[](int index);
     const void* rawData();
     ~NodeDataImage();
 protected:
     friend RowSelector<NodeDataImage, ImagePixel>;
     ImagePixel* data;
+private:
+    NodeDataImage();
 };
