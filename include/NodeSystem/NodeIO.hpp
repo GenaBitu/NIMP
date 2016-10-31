@@ -8,6 +8,7 @@ class NodeData;
 class NodeIO : public QObject
 {
     Q_OBJECT
+    Q_DISABLE_COPY(NodeIO)
 public:
     std::string name;
 protected:

@@ -7,6 +7,7 @@ class ActionWidget;
 class ActionWidgetContainer : public QWidget
 {
     Q_OBJECT
+    Q_DISABLE_COPY(ActionWidgetContainer)
 protected:
     ActionWidget* selected;
     ActionWidgetContainer(QWidget* parent = nullptr);

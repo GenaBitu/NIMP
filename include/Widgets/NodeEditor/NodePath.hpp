@@ -11,6 +11,7 @@ class NodeInputGraphics;
 class NodePath : public Selectable
 {
     Q_OBJECT
+    Q_DISABLE_COPY(NodePath)
 public:
     NodeOutputGraphics* left;
     NodeInputGraphics* right;

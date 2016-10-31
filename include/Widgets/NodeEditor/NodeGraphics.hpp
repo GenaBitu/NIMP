@@ -12,6 +12,7 @@ class NodeOutputGraphics;
 class NodeGraphics : public Draggable
 {
     Q_OBJECT
+    Q_DISABLE_COPY(NodeGraphics)
 public:
     std::vector<NodeInputGraphics*> inputs;
     std::vector<NodeOutputGraphics*> outputs;

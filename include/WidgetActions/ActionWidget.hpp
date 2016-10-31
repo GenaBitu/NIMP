@@ -8,6 +8,7 @@ class ActionWidgetContainer;
 class ActionWidget : public QWidget
 {
     Q_OBJECT
+    Q_DISABLE_COPY(ActionWidget)
 public:
     enum class States{DEFAULT, SELECTED, DRAGGED};
     ActionWidget(ActionWidgetContainer* parent = nullptr);

@@ -9,6 +9,7 @@ class NodeOutput;
 class NodeInput : public NodeIO
 {
     Q_OBJECT
+    Q_DISABLE_COPY(NodeInput)
 public:
     virtual NodeData* getData();
     const NodeOutput* getConnection() const;

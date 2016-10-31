@@ -11,6 +11,7 @@ class NodeInputGraphics;
 class TempPath : public Selectable
 {
     Q_OBJECT
+    Q_DISABLE_COPY(TempPath)
 public:
     NodeOutputGraphics* left;
     NodeInputGraphics* right;

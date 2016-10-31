@@ -12,6 +12,7 @@ class TempPath;
 class NodeInputGraphics : public QWidget
 {
     Q_OBJECT
+    Q_DISABLE_COPY(NodeInputGraphics)
 public:
     NodePath* connection;
     NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y);
