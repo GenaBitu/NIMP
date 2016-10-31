@@ -13,6 +13,7 @@ public:
     virtual NodeData* getData();
     const NodeOutput* getConnection() const;
     void setConnection(NodeOutput* connection);
+    void removeConnection();
 signals:
     void reconnected();
 protected:

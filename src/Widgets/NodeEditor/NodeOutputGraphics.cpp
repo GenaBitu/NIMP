@@ -8,6 +8,7 @@ NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output,
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
+    QObject::connect(output, &NodeOutput::reconnected, this, &NodeOutputGraphics::reconnect);
 }
 
 void NodeOutputGraphics::connect()
@@ -40,10 +41,20 @@ void NodeOutputGraphics::disconnect()
 {
     for(std::vector<NodePath*>::iterator it{connections.begin()}; it != connections.end(); it++)
     {
-        (*it)->right->connection = nullptr;
+        if((*it)->right->connection == (*it))
+        {
+            (*it)->right->connection = nullptr;
+        }
         delete *it;
+        connections.erase(it);
     }
     connections.clear();
+}
+
+void NodeOutputGraphics::reconnect()
+{
+    disconnect();
+    connect();
 }
 
 void NodeOutputGraphics::paintEvent(QPaintEvent*)

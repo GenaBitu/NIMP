@@ -17,6 +17,8 @@ public:
     NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y);
     void connect();
     void disconnect();
+public slots:
+    void reconnect();
 protected:
     friend NodeGraphics;
     friend NodeOutputGraphics;

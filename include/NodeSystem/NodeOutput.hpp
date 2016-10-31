@@ -12,6 +12,7 @@ Q_OBJECT
 public:
     const std::unordered_set<NodeInput*>& getConnections();
     void setConnection(NodeInput* connection);
+    void removeConnection(NodeInput* connection);
 signals:
     void reconnected();
 protected:

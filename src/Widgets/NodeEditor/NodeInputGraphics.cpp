@@ -9,6 +9,7 @@ NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
+    QObject::connect(input, &NodeInput::reconnected, this, &NodeInputGraphics::reconnect);
 }
 
 void NodeInputGraphics::connect()
@@ -44,6 +45,12 @@ void NodeInputGraphics::disconnect()
         delete connection;
         connection = nullptr;
     }
+}
+
+void NodeInputGraphics::reconnect()
+{
+    disconnect();
+    connect();
 }
 
 void NodeInputGraphics::paintEvent(QPaintEvent*)

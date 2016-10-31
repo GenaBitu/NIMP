@@ -13,6 +13,12 @@ void NodeOutput::setConnection(NodeInput* connection)
     emit reconnected();
 }
 
+void NodeOutput::removeConnection(NodeInput* connection)
+{
+    connections.erase(connection);
+    emit reconnected();
+}
+
 NodeOutput::NodeOutput(Node* parent, std::string name) : NodeIO{parent, name}, connections{} {}
 
 NodeData* NodeOutput::getData()

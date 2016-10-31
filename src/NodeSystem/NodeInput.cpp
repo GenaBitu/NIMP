@@ -16,7 +16,17 @@ const NodeOutput* NodeInput::getConnection() const
 
 void NodeInput::setConnection(NodeOutput* connection)
 {
+    if(this->connection != nullptr)
+    {
+        this->connection->removeConnection(this);
+    }
     this->connection = connection;
+    emit reconnected();
+}
+
+void NodeInput::removeConnection()
+{
+    connection = nullptr;
     emit reconnected();
 }
 
