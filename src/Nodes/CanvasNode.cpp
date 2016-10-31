@@ -3,9 +3,10 @@
 #include "Texture.hpp"
 #include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
 
-CanvasNode::CanvasNode(int x, int y) : Node(x, y)
+CanvasNode::CanvasNode(int x, int y) : Node(x, y), signalMapper{new QSignalMapper{this}}
 {
     inputs.push_back(new NodeInputImage{this, "Image"});
+    QObject::connect(inputs[0], &NodeInput::reconnected, signalMapper, static_cast<void (QSignalMapper::*)()>(&QSignalMapper::map));
 }
 
 std::string CanvasNode::nodeName()

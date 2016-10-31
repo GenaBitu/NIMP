@@ -14,6 +14,7 @@
 #include <QOpenGLFunctions>
 #include <QPainter>
 #include <QMouseEvent>
+#include <QSignalMapper>
 
 #include <BlendSplitter.hpp>
 

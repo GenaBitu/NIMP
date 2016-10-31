@@ -31,6 +31,7 @@ class NodeDataImage;
 
 class BMPinput : public Node
 {
+    Q_OBJECT
 public:
     BMPinput(std::string filename, int x = 0, int y = 0);
     virtual std::string nodeName();
