@@ -19,8 +19,8 @@ INCLUDEPATH += include
 LIBS += -lBlendSplitter
 
 resource_files.path = $$OUT_PWD
-resource_files.files = $$PWD/resources/tex2D.bmp
-resource_files.files = $$PWD/resources/tex2D2.bmp
+resource_files.files = $$PWD/resources/tex2D.bmp \
+    $$PWD/resources/tex2D2.bmp
 
 INSTALLS += resource_files
 
