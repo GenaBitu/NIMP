@@ -38,11 +38,9 @@ void NodeInputGraphics::connect()
 
 void NodeInputGraphics::disconnect()
 {
-    if(connection != nullptr)
-    {
-        delete connection;
-        connection = nullptr;
-    }
+    connection->left->connections.erase(connection);
+    delete connection;
+    connection = nullptr;
 }
 
 void NodeInputGraphics::reconnect()

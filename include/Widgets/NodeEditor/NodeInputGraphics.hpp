@@ -16,8 +16,6 @@ class NodeInputGraphics : public QWidget
 public:
     NodePath* connection;
     NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y);
-    void connect();
-    void disconnect();
 public slots:
     void reconnect();
 protected:
@@ -26,5 +24,7 @@ protected:
     friend TempPath;
     NodeInput* input;
     NodeIOConnector* connector;
+    void connect();
+    void disconnect();
     virtual void paintEvent(QPaintEvent*);
 };

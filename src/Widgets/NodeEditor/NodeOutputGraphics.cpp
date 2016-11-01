@@ -45,8 +45,8 @@ void NodeOutputGraphics::disconnect()
         {
             (*it)->right->connection = nullptr;
         }
-        delete *it;
-        connections.erase(it);
+        delete (*it);
+        it = connections.erase(it);
     }
     connections.clear();
 }

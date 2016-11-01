@@ -16,8 +16,6 @@ class NodeOutputGraphics : public QWidget
 public:
     std::unordered_set<NodePath*> connections;
     NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y);
-    void connect();
-    void disconnect();
 public slots:
     void reconnect();
 protected:
@@ -26,5 +24,7 @@ protected:
     friend TempPath;
     NodeOutput* output;
     NodeIOConnector* connector;
+    void connect();
+    void disconnect();
     virtual void paintEvent(QPaintEvent*);
 };
