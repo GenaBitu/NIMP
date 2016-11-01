@@ -2,7 +2,7 @@
 
 #include "Registry.hpp"
 
-NodeEditor::NodeEditor() : ActionWidgetContainer{}, nodes{}, paths{}
+NodeEditor::NodeEditor() : ActionWidgetContainer{}, nodes{}
 {
     for(std::vector<Node*>::iterator it{Registry::getRegistry()->intrinsic->nodes.begin()}; it != Registry::getRegistry()->intrinsic->nodes.end(); it++)
     {

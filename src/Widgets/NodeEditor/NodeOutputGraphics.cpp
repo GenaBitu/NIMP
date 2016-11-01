@@ -31,7 +31,7 @@ void NodeOutputGraphics::connect()
             }
             if(inputConnector != nullptr)
             {
-                editor->paths.push_back(new NodePath{editor, this, inputConnector});
+                new NodePath{editor, this, inputConnector};
             }
         }
     }

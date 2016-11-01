@@ -21,5 +21,4 @@ protected:
     friend NodeOutputGraphics;
     friend TempPath;
     std::vector<NodeGraphics*> nodes;
-    std::vector<NodePath*> paths;
 };
