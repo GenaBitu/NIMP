@@ -16,6 +16,6 @@ public:
     Texture* getTexture();
 signals:
     void reconnected();
-private:
-    QSignalMapper* signalMapper;
+private slots:
+    void inputsReconnected();
 };

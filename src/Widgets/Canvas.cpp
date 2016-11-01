@@ -4,17 +4,26 @@
 #include "Nodes/CanvasNode.hpp"
 #include "Registry.hpp"
 
-Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, image{} {
+Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, image{}
+{
+    QObject::connect(dynamic_cast<CanvasNode*>(Registry::getRegistry()->intrinsic->nodes[0]), &CanvasNode::reconnected, this, &Canvas::refetch);
+}
+
+void Canvas::refetch()
+{
+    CanvasNode* canvas{dynamic_cast<CanvasNode*>(Registry::getRegistry()->intrinsic->nodes[0])};
+    delete image;
+    image = canvas->getTexture();
+    update();
 }
 
 void Canvas::initializeGL()
 {
     initializeOpenGLFunctions();
     glEnable(GL_TEXTURE_2D);
-    CanvasNode* canvas{dynamic_cast<CanvasNode*>(Registry::getRegistry()->intrinsic->nodes[0])};
-    image = canvas->getTexture();
     //image = new Texture{};
     //image->loadBMP("tex2D.bmp");
+    refetch();
     QColor bg{QWidget::palette().color(QPalette::Background)};
     glClearColor(bg.redF(), bg.greenF(), bg.blueF(), 1.0f);
 }

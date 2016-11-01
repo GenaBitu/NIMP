@@ -10,6 +10,8 @@ class Canvas : public QOpenGLWidget, protected QOpenGLFunctions
     Q_DISABLE_COPY(Canvas);
 public:
     Canvas();
+public slots:
+    void refetch();
 protected:
     GLint width, height, IMGwidth, IMGheight;
     Texture* image;
