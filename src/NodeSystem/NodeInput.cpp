@@ -6,7 +6,7 @@ NodeInput::NodeInput(Node* parent, std::string name) : NodeIO{parent, name}, con
 
 NodeData* NodeInput::getData()
 {
-    return connection->getData();
+    return connection != nullptr ? connection->getData() : nullptr;
 }
 
 const NodeOutput* NodeInput::getConnection() const
