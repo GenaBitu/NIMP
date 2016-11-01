@@ -40,8 +40,6 @@ void NodeInputGraphics::disconnect()
 {
     if(connection != nullptr)
     {
-        std::vector<NodePath*> vec{connection->left->connections};
-        vec.erase(std::remove(vec.begin(), vec.end(), connection), vec.end());
         delete connection;
         connection = nullptr;
     }

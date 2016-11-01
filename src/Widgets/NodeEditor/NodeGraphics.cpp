@@ -102,7 +102,7 @@ void NodeGraphics::updateConnections()
     }
     for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
     {
-        for(std::vector<NodePath*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); jt++)
+        for(std::unordered_set<NodePath*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); jt++)
         {
             (*jt)->reposition();
         }

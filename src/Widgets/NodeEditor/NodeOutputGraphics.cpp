@@ -39,7 +39,7 @@ void NodeOutputGraphics::connect()
 
 void NodeOutputGraphics::disconnect()
 {
-    for(std::vector<NodePath*>::iterator it{connections.begin()}; it != connections.end(); it++)
+    for(std::unordered_set<NodePath*>::iterator it{connections.begin()}; it != connections.end();)
     {
         if((*it)->right->connection == (*it))
         {

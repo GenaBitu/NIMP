@@ -7,7 +7,7 @@
 NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}, path{}
 {
     (*state->palette)["path"] = std::make_tuple("NodePath", "NodePathActive");
-    left->connections.push_back(this);
+    left->connections.insert(this);
     right->connection = this;
     reposition();
     show();

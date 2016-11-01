@@ -14,7 +14,7 @@ class NodeOutputGraphics : public QWidget
     Q_OBJECT
     Q_DISABLE_COPY(NodeOutputGraphics)
 public:
-    std::vector<NodePath*> connections;
+    std::unordered_set<NodePath*> connections;
     NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y);
     void connect();
     void disconnect();
