@@ -13,3 +13,8 @@ NodeEditor::NodeEditor() : ActionWidgetContainer{}, nodes{}
         (*it)->rebuildConnections();
     }
 }
+
+void NodeEditor::mousePressEvent(QMouseEvent* event)
+{
+    new NodePathCutter{this, event->pos()};
+}

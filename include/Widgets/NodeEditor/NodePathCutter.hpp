@@ -9,10 +9,13 @@ class NodeEditor;
 class NodePathCutter : public Selectable
 {
     Q_OBJECT
+    Q_DISABLE_COPY(NodePathCutter)
 public:
     NodePathCutter(NodeEditor* parent, QPoint origin);
 protected:
-    QPoint origin;
+    const QPoint origin;
+    QPainterPath* path;
+    void mouseMoveEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent*);
     void paintEvent(QPaintEvent*);
 };

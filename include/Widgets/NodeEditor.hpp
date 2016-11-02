@@ -22,4 +22,5 @@ protected:
     friend NodeOutputGraphics;
     friend TempPath;
     std::vector<NodeGraphics*> nodes;
+    void mousePressEvent(QMouseEvent* event);
 };
