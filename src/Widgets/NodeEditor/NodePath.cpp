@@ -3,9 +3,11 @@
 #include "Registry.hpp"
 #include "WidgetActions/States/ActionState.hpp"
 #include "Widgets/NodeEditor.hpp"
+#include "NodeSystem/Node.hpp"
 
 NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}, path{}
 {
+    parent->paths.insert(this);
     (*state->palette)["path"] = std::make_tuple("NodePath", "NodePathActive");
     left->connections.insert(this);
     right->connection = this;
@@ -31,6 +33,20 @@ void NodePath::reposition()
     setMask(thick.toFillPolygon().toPolygon());
     state->changeMask(&thick);
     update();
+}
+
+void NodePath::disconnect()
+{
+    Node::disconnect(left->output, right->input);
+}
+
+NodePath::~NodePath()
+{
+    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+    if(editor != nullptr)
+    {
+        editor->paths.erase(this);
+    }
 }
 
 void NodePath::paintEvent(QPaintEvent*)

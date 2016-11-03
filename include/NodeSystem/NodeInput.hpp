@@ -14,7 +14,7 @@ public:
     virtual NodeData* getData();
     const NodeOutput* getConnection() const;
     void setConnection(NodeOutput* connection);
-    void removeConnection();
+    void removeConnection(NodeOutput* connection);
 signals:
     void reconnected();
 protected:

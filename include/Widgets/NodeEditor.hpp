@@ -20,7 +20,10 @@ public:
 protected:
     friend NodeInputGraphics;
     friend NodeOutputGraphics;
+    friend NodePath;
+    friend NodePathCutter;
     friend TempPath;
     std::vector<NodeGraphics*> nodes;
+    std::unordered_set<NodePath*> paths;
     void mousePressEvent(QMouseEvent* event);
 };

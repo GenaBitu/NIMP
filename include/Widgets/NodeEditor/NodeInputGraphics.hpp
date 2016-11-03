@@ -21,6 +21,7 @@ public slots:
 protected:
     friend NodeGraphics;
     friend NodeOutputGraphics;
+    friend NodePath;
     friend TempPath;
     NodeInput* input;
     NodeIOConnector* connector;

@@ -16,6 +16,8 @@ public:
     Node(int x = 0, int y = 0);
     static void connect(Node* from, int numOutput, Node* to, int numInput);
     static void connect(NodeOutput* from, NodeInput* to);
+    static void disconnect(Node* from, int numOutput, Node* to, int numInput);
+    static void disconnect(NodeOutput* from, NodeInput* to);
     virtual std::string nodeName() = 0;
     QPoint getPos() const;
     void setPos(QPoint pos);

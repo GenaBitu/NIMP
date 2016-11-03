@@ -24,10 +24,13 @@ void NodeInput::setConnection(NodeOutput* connection)
     emit reconnected();
 }
 
-void NodeInput::removeConnection()
+void NodeInput::removeConnection(NodeOutput* connection)
 {
-    connection = nullptr;
-    emit reconnected();
+    if(this->connection == connection)
+    {
+        this->connection = nullptr;
+        emit reconnected();
+    }
 }
 
 NodeInput::~NodeInput() {}

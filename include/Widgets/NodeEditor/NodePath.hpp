@@ -7,6 +7,7 @@
 class NodeEditor;
 class NodeOutputGraphics;
 class NodeInputGraphics;
+class NodePathCutter;
 
 class NodePath : public Selectable
 {
@@ -17,7 +18,10 @@ public:
     NodeInputGraphics* right;
     NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right);
     void reposition();
+    void disconnect();
+    ~NodePath();
 protected:
+    friend NodePathCutter;
     QPainterPath* path;
     virtual void paintEvent(QPaintEvent*);
 };

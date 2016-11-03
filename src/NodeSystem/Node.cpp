@@ -16,6 +16,17 @@ void Node::connect(NodeOutput* from, NodeInput* to)
     to->setConnection(from);
 }
 
+void Node::disconnect(Node* from, int numOutput, Node* to, int numInput)
+{
+    disconnect(from->outputs[numOutput], to->inputs[numInput]);
+}
+
+void Node::disconnect(NodeOutput* from, NodeInput* to)
+{
+    from->removeConnection(to);
+    to->removeConnection(from);
+}
+
 QPoint Node::getPos() const
 {
     return pos;
