@@ -7,6 +7,11 @@ DraggedState::DraggedState(ActionWidget* widget) : ActionState{widget} {}
 
 DraggedState::DraggedState(const ActionState& other) : ActionState{other} {}
 
+ActionWidget::States DraggedState::getState()
+{
+    return ActionWidget::States::DRAGGED;
+}
+
 QColor DraggedState::getColour(std::string colour)
 {
     return Registry::getRegistry()->extrinsic->GUI->palette[std::get<1>((*palette)[colour])];

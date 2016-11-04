@@ -5,6 +5,11 @@
 
 ActionWidget::ActionWidget(ActionWidgetContainer* parent) : QWidget(parent), state{new DefaultState{this}} {}
 
+ActionWidget::States ActionWidget::getState()
+{
+    return state->getState();
+}
+
 void ActionWidget::select()
 {
     ActionWidgetContainer* container{dynamic_cast<ActionWidgetContainer*>(parentWidget())};

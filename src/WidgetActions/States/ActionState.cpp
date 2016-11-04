@@ -18,11 +18,11 @@ ActionState::ActionState(ActionState&& other) : ActionState{}
     swap(*this, other);
 }
 
-ActionState& ActionState::operator=(ActionState other)
+/*ActionState& ActionState::operator=(ActionState other)
 {
     swap(*this, other);
     return *this;
-}
+}*/
 
 void swap(ActionState& first, ActionState& second)
 {

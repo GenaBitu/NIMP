@@ -8,6 +8,11 @@ DefaultState::DefaultState(ActionWidget* widget) : ActionState{widget} {}
 
 DefaultState::DefaultState(const ActionState& other) : ActionState{other} {}
 
+ActionWidget::States DefaultState::getState()
+{
+    return ActionWidget::States::DEFAULT;
+}
+
 void DefaultState::mousePressEvent(QMouseEvent* event)
 {
     if((mask->isEmpty() or mask->contains(event->pos())) and (event->button() == Qt::LeftButton))

@@ -12,6 +12,7 @@ class ActionWidget : public QWidget
 public:
     enum class States{DEFAULT, SELECTED, DRAGGED};
     ActionWidget(ActionWidgetContainer* parent = nullptr);
+    virtual States getState();
     virtual void changeState(States state) = 0;
     void select();
     void deselect();

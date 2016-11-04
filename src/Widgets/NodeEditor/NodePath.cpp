@@ -7,6 +7,7 @@
 
 NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}, path{}
 {
+    setFocusPolicy(Qt::TabFocus);
     parent->paths.insert(this);
     (*state->palette)["path"] = std::make_tuple("NodePath", "NodePathActive");
     left->connections.insert(this);
@@ -46,6 +47,19 @@ NodePath::~NodePath()
     if(editor != nullptr)
     {
         editor->paths.erase(this);
+    }
+}
+
+void NodePath::keyPressEvent(QKeyEvent* event)
+{
+    if(event->key() == Qt::Key_Delete and getState() == ActionWidget::States::SELECTED)
+    {
+        event->accept();
+        disconnect();
+    }
+    else
+    {
+        event->ignore();
     }
 }
 

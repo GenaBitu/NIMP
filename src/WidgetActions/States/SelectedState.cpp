@@ -7,6 +7,11 @@ SelectedState::SelectedState(ActionWidget* widget) : ActionState{widget} {}
 
 SelectedState::SelectedState(const ActionState& other) : ActionState{other} {}
 
+ActionWidget::States SelectedState::getState()
+{
+    return ActionWidget::States::SELECTED;
+}
+
 QColor SelectedState::getColour(std::string colour)
 {
     return Registry::getRegistry()->extrinsic->GUI->palette[std::get<1>((*palette)[colour])];

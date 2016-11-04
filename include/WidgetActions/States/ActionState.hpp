@@ -2,7 +2,7 @@
 
 #include "Global.hpp"
 
-class ActionWidget;
+#include "WidgetActions/ActionWidget.hpp"
 
 class ActionState
 {
@@ -11,7 +11,7 @@ public:
     ActionState(ActionWidget* widget);
     ActionState(const ActionState& other);
     ActionState(ActionState&& other);
-    ActionState& operator=(ActionState other);
+    virtual ActionWidget::States getState() = 0;
     friend void swap(ActionState& first, ActionState& second);
     virtual QColor getColour(std::string colour);
     virtual void changeMask(QRegion* region);
@@ -24,6 +24,7 @@ protected:
     ActionWidget* widget;
     QRegion* mask;
     QPoint* origin;
+    //ActionState& operator=(ActionState other);
 private:
     ActionState();
 };

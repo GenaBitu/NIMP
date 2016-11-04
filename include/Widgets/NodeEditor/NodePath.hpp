@@ -23,5 +23,6 @@ public:
 protected:
     friend NodePathCutter;
     QPainterPath* path;
+    virtual void keyPressEvent(QKeyEvent* event);
     virtual void paintEvent(QPaintEvent*);
 };
