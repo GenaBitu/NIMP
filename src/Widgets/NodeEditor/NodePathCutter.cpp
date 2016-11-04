@@ -21,13 +21,16 @@ void NodePathCutter::mouseMoveEvent(QMouseEvent* event)
 
 void NodePathCutter::mouseReleaseEvent(QMouseEvent*)
 {
-    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
-    for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); it++)
+    if(path != nullptr)
     {
-        if(path->intersects(*(*it)->path))
+        NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+        for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); it++)
         {
-            (*it)->disconnect();
-            break;
+            if(path->intersects(*(*it)->path))
+            {
+                (*it)->disconnect();
+                break;
+            }
         }
     }
     releaseMouse();
