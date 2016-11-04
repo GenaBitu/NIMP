@@ -7,7 +7,7 @@
 
 NodePath::NodePath(NodeEditor* parent, NodeOutputGraphics* left, NodeInputGraphics* right) : Selectable(parent), left{left}, right{right}, path{}
 {
-    setFocusPolicy(Qt::TabFocus);
+    setFocusPolicy(Qt::ClickFocus);
     parent->paths.insert(this);
     (*state->palette)["path"] = std::make_tuple("NodePath", "NodePathActive");
     left->connections.insert(this);
