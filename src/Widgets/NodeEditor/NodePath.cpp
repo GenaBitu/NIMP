@@ -52,7 +52,7 @@ NodePath::~NodePath()
 
 void NodePath::keyPressEvent(QKeyEvent* event)
 {
-    if(event->key() == Qt::Key_Delete and getState() == ActionWidget::States::SELECTED)
+    if(event->key() == Registry::getRegistry()->extrinsic->keys["Delete"] and getState() == ActionWidget::States::SELECTED)
     {
         event->accept();
         disconnect();

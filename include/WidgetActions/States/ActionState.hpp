@@ -11,6 +11,7 @@ public:
     ActionState(ActionWidget* widget);
     ActionState(const ActionState& other);
     ActionState(ActionState&& other);
+    ActionState& operator=(const ActionState& other) = delete;
     virtual ActionWidget::States getState() = 0;
     friend void swap(ActionState& first, ActionState& second);
     virtual QColor getColour(std::string colour);
@@ -24,7 +25,6 @@ protected:
     ActionWidget* widget;
     QRegion* mask;
     QPoint* origin;
-    //ActionState& operator=(ActionState other);
 private:
     ActionState();
 };
