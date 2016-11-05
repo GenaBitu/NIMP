@@ -25,6 +25,10 @@ void NodePath::reposition()
     double lY{left->parentWidget()->y() + left->y() + yOffset};
     double rX{static_cast<double>(right->parentWidget()->x() + right->x())};
     double rY{right->parentWidget()->y() + right->y() + yOffset};
+    if(path != nullptr)
+    {
+        delete path;
+    }
     path = new QPainterPath{};
     path->moveTo(lX, lY);
     path->cubicTo(lX + Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"], lY, rX - Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"], rY, rX, rY);
@@ -48,6 +52,7 @@ NodePath::~NodePath()
     {
         editor->paths.erase(this);
     }
+    delete path;
 }
 
 void NodePath::keyPressEvent(QKeyEvent* event)

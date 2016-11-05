@@ -50,6 +50,11 @@ void ActionState::mouseMoveEvent(QMouseEvent*) {}
 
 void ActionState::mouseReleaseEvent(QMouseEvent*) {}
 
-ActionState::~ActionState() {}
+ActionState::~ActionState()
+{
+    delete palette;
+    delete mask;
+    delete origin;
+}
 
 ActionState::ActionState() : palette{}, widget{}, mask{}, origin{} {}

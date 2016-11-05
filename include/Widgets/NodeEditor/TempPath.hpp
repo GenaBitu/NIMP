@@ -17,6 +17,7 @@ public:
     NodeInputGraphics* right;
     TempPath(NodeEditor* parent, NodeInputGraphics* right);
     TempPath(NodeEditor* parent, NodeOutputGraphics* left);
+    ~TempPath();
 protected:
     QPainterPath* path;
     virtual void mouseMoveEvent(QMouseEvent* event);

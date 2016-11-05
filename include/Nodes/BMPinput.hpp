@@ -35,6 +35,7 @@ class BMPinput : public Node
 public:
     BMPinput(std::string filename, int x = 0, int y = 0);
     virtual std::string nodeName();
+    ~BMPinput();
 private:
     std::string filename;
     NodeDataImage* loadBMP(const std::vector<NodeInput*>* const);

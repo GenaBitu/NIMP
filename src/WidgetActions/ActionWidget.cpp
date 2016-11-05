@@ -28,4 +28,5 @@ void ActionWidget::deselect()
 ActionWidget::~ActionWidget()
 {
     deselect();
+    delete state;
 }

@@ -14,6 +14,15 @@ std::string BMPinput::nodeName()
     return "BMP Input";
 }
 
+BMPinput::~BMPinput()
+{
+    for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end();)
+    {
+        delete (*it);
+        it = outputs.erase(it);
+    }
+}
+
 NodeDataImage* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
 {
     std::string fileName{filename};

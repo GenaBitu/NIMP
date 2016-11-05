@@ -13,6 +13,7 @@ public:
     const std::unordered_set<NodeInput*>& getConnections();
     void setConnection(NodeInput* connection);
     void removeConnection(NodeInput* connection);
+    virtual ~NodeOutput();
 signals:
     void reconnected();
 protected:
@@ -20,7 +21,6 @@ protected:
     friend NodeInput;
     NodeOutput(Node* parent, std::string name);
     virtual NodeData* getData();
-    virtual ~NodeOutput();
 private:
     std::unordered_set<NodeInput*> connections;
 };
