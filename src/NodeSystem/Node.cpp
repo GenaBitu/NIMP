@@ -2,6 +2,7 @@
 
 #include "NodeSystem/NodeInput.hpp"
 #include "NodeSystem/NodeOutput.hpp"
+#include "Registry.hpp"
 
 Node::Node(int x, int y) : inputs{}, outputs{}, relations{}, pos{QPoint{x, y}} {}
 
@@ -44,4 +45,28 @@ void Node::setPos(int x, int y)
     emit moved();
 }
 
-Node::~Node() {}
+Node::~Node()
+{
+    for(std::vector<NodeInput*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
+    {
+        if((*it)->connection != nullptr)
+        {
+            (*it)->connection->connections.erase(*it);
+            emit (*it)->reconnected();
+        }
+    }
+    for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+    {
+        for(std::unordered_set<NodeInput*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); jt++)
+        {
+            if((*jt)->connection == (*it))
+            {
+                (*jt)->connection = nullptr;
+                emit (*jt)->reconnected();
+            }
+        }
+    }
+    std::vector<Node*>& vec = Registry::getRegistry()->intrinsic->nodes;
+    vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
+    emit deleted();
+}

@@ -7,15 +7,35 @@
 
 NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), inputs{}, outputs{}, node{node}
 {
+    setFocusPolicy(Qt::ClickFocus);
     resize(200, height());
     move(node->getPos());
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
     QObject::connect(node, &Node::moved, this, &NodeGraphics::reposition);
+    QObject::connect(node, &Node::deleted, this, &NodeGraphics::destruct);
 }
 
 void NodeGraphics::reposition()
 {
     move(node->getPos());
+}
+
+void NodeGraphics::destruct()
+{
+    delete this;
+}
+
+void NodeGraphics::keyPressEvent(QKeyEvent* event)
+{
+    if(event->key() == Registry::getRegistry()->extrinsic->keys["Delete"] and getState() == ActionWidget::States::SELECTED)
+    {
+        event->accept();
+        deleteNode();
+    }
+    else
+    {
+        event->ignore();
+    }
 }
 
 void NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
@@ -51,21 +71,25 @@ void NodeGraphics::paintEvent(QPaintEvent*)
     painter.drawText(2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] - 8, QString::fromStdString(node->nodeName()));
 }
 
-void NodeGraphics::rebuildConnections()
+void NodeGraphics::removeConnections()
+{
+    for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end();)
+    {
+        (*it)->disconnect();
+        delete (*it);
+        it = inputs.erase(it);
+    }
+    for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end();)
+    {
+        (*it)->disconnect();
+        delete (*it);
+        it = outputs.erase(it);
+    }
+}
+
+void NodeGraphics::addConnections()
 {
     int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
-    for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
-    {
-        (*it)->disconnect();
-        delete (*it);
-    }
-    for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
-    {
-        (*it)->disconnect();
-        delete (*it);
-    }
-    inputs.clear();
-    outputs.clear();
     for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); it++)
     {
         height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
@@ -86,9 +110,20 @@ void NodeGraphics::rebuildConnections()
     resize(width(), height);
 }
 
+void NodeGraphics::rebuildConnections()
+{
+    removeConnections();
+    addConnections();
+}
+
 void NodeGraphics::connect(NodeOutputGraphics* left, NodeInputGraphics* right)
 {
     Node::connect(left->output, right->input);
+}
+
+NodeGraphics::~NodeGraphics()
+{
+    removeConnections();
 }
 
 void NodeGraphics::updateConnections()
@@ -107,4 +142,9 @@ void NodeGraphics::updateConnections()
             (*jt)->reposition();
         }
     }
+}
+
+void NodeGraphics::deleteNode()
+{
+    delete node;
 }

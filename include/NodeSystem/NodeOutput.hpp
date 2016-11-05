@@ -16,6 +16,7 @@ public:
 signals:
     void reconnected();
 protected:
+    friend Node;
     friend NodeInput;
     NodeOutput(Node* parent, std::string name);
     virtual NodeData* getData();

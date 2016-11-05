@@ -25,6 +25,7 @@ public:
     virtual ~Node();
 signals:
     void moved();
+    void deleted();
 private:
     QPoint pos;
 };
