@@ -18,10 +18,7 @@ int main(int argc, char** argv)
 
     CanvasNode* canvas{new CanvasNode{500, 100}};
     BMPinput* input{new BMPinput{"tex2D.bmp", 10, 300}};
-    BMPinput* input2{new BMPinput{"tex2D2.bmp", 10, 100}};
-    Registry::getRegistry()->intrinsic->nodes.push_back(canvas);
-    Registry::getRegistry()->intrinsic->nodes.push_back(input);
-    Registry::getRegistry()->intrinsic->nodes.push_back(input2);
+    new BMPinput{"tex2D2.bmp", 10, 100};
     Node::connect(input, 0, canvas, 0);
 
     WidgetRegistry::getRegistry()->addItem();
