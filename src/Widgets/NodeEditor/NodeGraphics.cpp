@@ -121,11 +121,6 @@ void NodeGraphics::connect(NodeOutputGraphics* left, NodeInputGraphics* right)
     Node::connect(left->output, right->input);
 }
 
-NodeGraphics::~NodeGraphics()
-{
-    removeConnections();
-}
-
 void NodeGraphics::updateConnections()
 {
     for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
@@ -146,5 +141,6 @@ void NodeGraphics::updateConnections()
 
 void NodeGraphics::deleteNode()
 {
+    removeConnections();
     delete node;
 }

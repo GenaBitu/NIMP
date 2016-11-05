@@ -19,7 +19,6 @@ public:
     NodeGraphics(NodeEditor* parent, Node* node);
     void rebuildConnections();
     static void connect(NodeOutputGraphics* left, NodeInputGraphics* right);
-    ~NodeGraphics();
 protected slots:
     void reposition();
     void destruct();
