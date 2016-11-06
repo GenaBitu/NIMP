@@ -56,9 +56,9 @@ Node::~Node()
         {
             (*it)->connection->connections.erase(*it);
             emit (*it)->connection->reconnected();
-            delete (*it);
-            it = inputs.erase(it);
         }
+        delete (*it);
+        it = inputs.erase(it);
     }
     for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end();)
     {
