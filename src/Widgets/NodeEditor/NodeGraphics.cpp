@@ -16,6 +16,45 @@ NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), 
     QObject::connect(node, &Node::deleted, this, &NodeGraphics::destruct);
 }
 
+void NodeGraphics::addConnections()
+{
+    int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
+    for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); it++)
+    {
+        height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
+        NodeInputGraphics* newItem{new NodeInputGraphics{this, *it, height}};
+        inputs.push_back(newItem);
+        newItem->connect();
+        height += inputs.back()->height();
+    }
+    for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
+    {
+        height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
+        NodeOutputGraphics* newItem{new NodeOutputGraphics{this, *it, height}};
+        outputs.push_back(newItem);
+        newItem->connect();
+        height += outputs.back()->height();
+    }
+    height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"];
+    resize(width(), height);
+    reMask();
+}
+
+void NodeGraphics::connect(NodeOutputGraphics* left, NodeInputGraphics* right)
+{
+    Node::connect(left->output, right->input);
+}
+
+NodeGraphics::~NodeGraphics()
+{
+    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+    if(editor != nullptr)
+    {
+        std::vector<NodeGraphics*>& vec{editor->nodes};
+        vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
+    }
+}
+
 void NodeGraphics::reposition()
 {
     move(node->getPos());
@@ -23,7 +62,6 @@ void NodeGraphics::reposition()
 
 void NodeGraphics::destruct()
 {
-    removeConnections();
     delete this;
 }
 
@@ -40,16 +78,16 @@ void NodeGraphics::keyPressEvent(QKeyEvent* event)
     }
 }
 
-void NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
-{
-    Draggable::mouseReleaseEvent(event);
-    node->setPos(pos());
-}
-
 void NodeGraphics::moveEvent(QMoveEvent*)
 {
     reMask();
     updateConnections();
+}
+
+void NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
+{
+    Draggable::mouseReleaseEvent(event);
+    node->setPos(pos());
 }
 
 void NodeGraphics::paintEvent(QPaintEvent*)
@@ -91,51 +129,6 @@ void NodeGraphics::removeConnections()
         (*it)->disconnect();
         delete (*it);
         it = outputs.erase(it);
-    }
-}
-
-void NodeGraphics::addConnections()
-{
-    int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
-    for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); it++)
-    {
-        height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
-        NodeInputGraphics* newItem{new NodeInputGraphics{this, *it, height}};
-        inputs.push_back(newItem);
-        newItem->connect();
-        height += inputs.back()->height();
-    }
-    for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
-    {
-        height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
-        NodeOutputGraphics* newItem{new NodeOutputGraphics{this, *it, height}};
-        outputs.push_back(newItem);
-        newItem->connect();
-        height += outputs.back()->height();
-    }
-    height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"];
-    resize(width(), height);
-    reMask();
-}
-
-void NodeGraphics::rebuildConnections()
-{
-    removeConnections();
-    addConnections();
-}
-
-void NodeGraphics::connect(NodeOutputGraphics* left, NodeInputGraphics* right)
-{
-    Node::connect(left->output, right->input);
-}
-
-NodeGraphics::~NodeGraphics()
-{
-    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
-    if(editor != nullptr)
-    {
-        std::vector<NodeGraphics*>& vec{editor->nodes};
-        vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
     }
 }
 
