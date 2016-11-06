@@ -74,7 +74,10 @@ HEADERS  += \
     include/Widgets/NodeEditor/NodeOutputGraphics.hpp \
     include/Widgets/NodeEditor/TempPath.hpp \
     include/Widgets/NodeEditor/NodeIOConnector.hpp \
-    include/Widgets/NodeEditor/NodePathCutter.hpp
+    include/Widgets/NodeEditor/NodePathCutter.hpp \
+    include/NodeSystem/NodeInterface.hpp \
+    include/NodeSystem/NodeInterfaceTypes.hpp \
+    include/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -115,7 +118,9 @@ SOURCES += \
     src/Widgets/NodeEditor/NodeOutputGraphics.cpp \
     src/Widgets/NodeEditor/TempPath.cpp \
     src/Widgets/NodeEditor/NodeIOConnector.cpp \
-    src/Widgets/NodeEditor/NodePathCutter.cpp
+    src/Widgets/NodeEditor/NodePathCutter.cpp \
+    src/NodeSystem/NodeInterface.cpp \
+    src/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.cpp
 
 RESOURCES += \
     images.qrc
