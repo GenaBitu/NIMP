@@ -4,8 +4,6 @@
 #include "WidgetActions/States/SelectedState.hpp"
 #include "WidgetActions/ActionWidgetContainer.hpp"
 
-Selectable::Selectable(ActionWidgetContainer* parent) : ActionWidget(parent) {}
-
 void Selectable::changeState(States state)
 {
     ActionState* oldState{this->state};
@@ -33,6 +31,8 @@ void Selectable::changeState(States state)
         break;
     }
 }
+
+Selectable::Selectable(ActionWidgetContainer* parent) : ActionWidget(parent) {}
 
 void Selectable::mousePressEvent(QMouseEvent* event)
 {

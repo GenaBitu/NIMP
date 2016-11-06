@@ -5,7 +5,10 @@
 #include "WidgetActions/States/ActionState.hpp"
 #include "Widgets/NodeEditor.hpp"
 
-NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), inputs{}, outputs{}, node{node}
+const int NodeGraphics::headerHeight{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"])};
+const int NodeGraphics::footerHeight{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"])};
+
+NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), inputs{}, outputs{}, interfaces{}, node{node}, interfaceHeight{}, connectionHeight{}
 {
     setFocusPolicy(Qt::ClickFocus);
     resize(200, height());
@@ -16,28 +19,52 @@ NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), 
     QObject::connect(node, &Node::deleted, this, &NodeGraphics::destruct);
 }
 
+void NodeGraphics::addInterfaces()
+{
+    interfaceHeight = 0;
+    for(std::vector<NodeInterface*>::iterator it{node->interfaces.begin()}; it != node->interfaces.end(); it++)
+    {
+        interfaceHeight += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeInterfaceSpacing"];
+        NodeInterfaceGraphics* newItem{new NodeInterfaceGraphics{this, *it, headerHeight + interfaceHeight}};
+        interfaces.push_back(newItem);
+        interfaceHeight += newItem->height();
+    }
+    rebuildConnections();
+}
+
 void NodeGraphics::addConnections()
 {
-    int height{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"] + 0.5)};
+    connectionHeight = 0;
     for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); it++)
     {
-        height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
-        NodeInputGraphics* newItem{new NodeInputGraphics{this, *it, height}};
+        connectionHeight += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
+        NodeInputGraphics* newItem{new NodeInputGraphics{this, *it, headerHeight + interfaceHeight + connectionHeight}};
         inputs.push_back(newItem);
         newItem->connect();
-        height += inputs.back()->height();
+        connectionHeight += newItem->height();
     }
     for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
     {
-        height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
-        NodeOutputGraphics* newItem{new NodeOutputGraphics{this, *it, height}};
+        connectionHeight += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
+        NodeOutputGraphics* newItem{new NodeOutputGraphics{this, *it, headerHeight + interfaceHeight + connectionHeight}};
         outputs.push_back(newItem);
         newItem->connect();
-        height += outputs.back()->height();
+        connectionHeight += newItem->height();
     }
-    height += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"];
-    resize(width(), height);
+    resize(width(), headerHeight + interfaceHeight + connectionHeight + footerHeight);
     reMask();
+}
+
+void NodeGraphics::rebuildInterfaces()
+{
+    removeInterfaces();
+    addInterfaces();
+}
+
+void NodeGraphics::rebuildConnections()
+{
+    removeConnections();
+    addConnections();
 }
 
 void NodeGraphics::connect(NodeOutputGraphics* left, NodeInputGraphics* right)
@@ -116,6 +143,16 @@ void NodeGraphics::reMask()
     state->changeMask(&border);
 }
 
+void NodeGraphics::removeInterfaces()
+{
+    for(std::vector<NodeInterfaceGraphics*>::iterator it{interfaces.begin()}; it != interfaces.end();)
+    {
+        delete (*it);
+        it = interfaces.erase(it);
+    }
+    interfaceHeight = 0;
+}
+
 void NodeGraphics::removeConnections()
 {
     for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end();)
@@ -130,6 +167,7 @@ void NodeGraphics::removeConnections()
         delete (*it);
         it = outputs.erase(it);
     }
+    connectionHeight = 0;
 }
 
 void NodeGraphics::updateConnections()

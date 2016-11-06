@@ -5,8 +5,6 @@
 #include "WidgetActions/States/SelectedState.hpp"
 #include "WidgetActions/ActionWidgetContainer.hpp"
 
-Draggable::Draggable(ActionWidgetContainer* parent) : ActionWidget{parent} {}
-
 void Draggable::changeState(States state)
 {
     ActionState* oldState{this->state};
@@ -39,6 +37,8 @@ void Draggable::changeState(States state)
         break;
     }
 }
+
+Draggable::Draggable(ActionWidgetContainer* parent) : ActionWidget{parent} {}
 
 void Draggable::mousePressEvent(QMouseEvent* event)
 {

@@ -11,7 +11,7 @@ NodeEditor::NodeEditor() : ActionWidgetContainer{}, nodes{}, paths{}
     }
     for(std::vector<NodeGraphics*>::iterator it{nodes.begin()}; it != nodes.end(); it++)
     {
-        (*it)->addConnections();
+        (*it)->addInterfaces();
     }
 }
 
@@ -41,7 +41,7 @@ void NodeEditor::addNode(Node* node)
 {
     NodeGraphics* nodeGraphic{new NodeGraphics{this, node}};
     nodes.push_back(nodeGraphic);
-    nodeGraphic->addConnections();
+    nodeGraphic->addInterfaces();
 }
 
 void NodeEditor::mousePressEvent(QMouseEvent* event)

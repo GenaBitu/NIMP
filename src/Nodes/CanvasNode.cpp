@@ -2,10 +2,12 @@
 
 #include "Texture.hpp"
 #include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
+#include "NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.hpp"
 
 CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 {
     inputs.push_back(new NodeInputImage{this, "Image"});
+    interfaces.push_back(new NodeInterfaceBool{this, "Display?"});
     QObject::connect(inputs[0], &NodeInput::reconnected, this, &CanvasNode::inputsReconnected);
 }
 

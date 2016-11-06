@@ -4,7 +4,7 @@
 #include "NodeSystem/NodeOutput.hpp"
 #include "Registry.hpp"
 
-Node::Node(int x, int y) : inputs{}, outputs{}, relations{}, pos{QPoint{x, y}}
+Node::Node(int x, int y) : inputs{}, outputs{}, interfaces{}, relations{}, pos{QPoint{x, y}}
 {
     Registry::getRegistry()->intrinsic->nodes.push_back(this);
 }

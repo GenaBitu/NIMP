@@ -5,6 +5,7 @@
 class NodeData;
 class NodeInput;
 class NodeOutput;
+class NodeInterface;
 
 class Node : public QObject
 {
@@ -12,6 +13,7 @@ class Node : public QObject
 public:
     std::vector<NodeInput*> inputs;
     std::vector<NodeOutput*> outputs;
+    std::vector<NodeInterface*> interfaces;
     std::vector<std::function<NodeData*(const std::vector<NodeInput*>* const)> > relations;
     Node(int x = 10, int y = 10);
     static void connect(Node* from, int numOutput, Node* to, int numInput);
