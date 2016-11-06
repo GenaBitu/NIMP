@@ -12,6 +12,7 @@ class NodePathCutter : public Selectable
     Q_DISABLE_COPY(NodePathCutter)
 public:
     NodePathCutter(NodeEditor* parent, QPoint origin);
+    ~NodePathCutter();
 protected:
     const QPoint origin;
     QPainterPath* path;

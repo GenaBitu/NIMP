@@ -21,10 +21,7 @@ TempPath::TempPath(NodeEditor* parent, NodeOutputGraphics* left) : Selectable{pa
 
 TempPath::~TempPath()
 {
-    if(path != nullptr)
-    {
-        delete path;
-    }
+    delete path;
 }
 
 void TempPath::mouseMoveEvent(QMouseEvent* event)
@@ -52,10 +49,7 @@ void TempPath::mouseMoveEvent(QMouseEvent* event)
         rX = event->x();
         rY = event->y();
     }
-    if(path != nullptr)
-    {
-        delete path;
-    }
+    delete path;
     path = new QPainterPath{};
     path->moveTo(lX, lY);
     path->cubicTo(lX + Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"], lY, rX - Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"], rY, rX, rY);

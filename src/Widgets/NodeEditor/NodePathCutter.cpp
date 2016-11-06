@@ -10,9 +10,15 @@ NodePathCutter::NodePathCutter(NodeEditor* parent, QPoint origin) : Selectable{p
     changeState(States::SELECTED);
 }
 
+NodePathCutter::~NodePathCutter()
+{
+    delete path;
+}
+
 void NodePathCutter::mouseMoveEvent(QMouseEvent* event)
 {
     resize(10000, 10000);
+    delete path;
     path = new QPainterPath{};
     path->moveTo(origin);
     path->lineTo(event->pos());
