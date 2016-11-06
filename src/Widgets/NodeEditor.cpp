@@ -24,11 +24,16 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
         return;
     }
     QMenu* addNode{new QMenu{"Add node"}};
-    QMenu* addInput{new QMenu{"File input"}};
+    QMenu* addInput{new QMenu{"Input"}};
+    QMenu* addOutput{new QMenu{"Output"}};
     QAction* addBMP{new QAction{"BMP file", editor}};
+    QAction* addCanvas{new QAction{"Canvas", editor}};
     QObject::connect(addBMP, &QAction::triggered, [editor]()->void{editor->addNode(new BMPinput{"tex2D2.bmp"});});
+    QObject::connect(addCanvas, &QAction::triggered, [editor]()->void{editor->addNode(new CanvasNode{});});
     addInput->addAction(addBMP);
+    addOutput->addAction(addCanvas);
     addNode->addMenu(addInput);
+    addNode->addMenu(addOutput);
     bar->addMenu(addNode);
 }
 
