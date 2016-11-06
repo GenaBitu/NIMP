@@ -17,6 +17,9 @@ class NodeEditor : public ActionWidgetContainer
     Q_OBJECT
 public:
     NodeEditor();
+    static void populateBar(SwitchingBar* bar, QWidget* widget);
+public slots:
+    void addNode(Node* node);
 protected:
     friend NodeGraphics;
     friend NodeInputGraphics;

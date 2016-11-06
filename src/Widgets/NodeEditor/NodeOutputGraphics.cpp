@@ -8,6 +8,7 @@ NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output,
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
+    show();
     QObject::connect(output, &NodeOutput::reconnected, this, &NodeOutputGraphics::reconnect);
 }
 

@@ -73,7 +73,7 @@ Node::~Node()
         delete (*it);
         it = outputs.erase(it);
     }
-    std::vector<Node*>& vec = Registry::getRegistry()->intrinsic->nodes;
+    std::vector<Node*>& vec{Registry::getRegistry()->intrinsic->nodes};
     vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
     emit deleted();
 }

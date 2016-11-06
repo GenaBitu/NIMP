@@ -29,6 +29,7 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent* event);
     virtual void moveEvent(QMoveEvent*);
     virtual void paintEvent(QPaintEvent*);
+    void reMask();
     void removeConnections();
     void addConnections();
     void updateConnections();
