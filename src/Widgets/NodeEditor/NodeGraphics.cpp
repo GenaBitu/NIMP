@@ -22,6 +22,7 @@ void NodeGraphics::reposition()
 
 void NodeGraphics::destruct()
 {
+    removeConnections();
     delete this;
 }
 
@@ -151,6 +152,5 @@ void NodeGraphics::updateConnections()
 
 void NodeGraphics::deleteNode()
 {
-    removeConnections();
     delete node;
 }

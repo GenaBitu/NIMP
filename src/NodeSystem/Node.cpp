@@ -50,15 +50,17 @@ void Node::setPos(int x, int y)
 
 Node::~Node()
 {
-    for(std::vector<NodeInput*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
+    for(std::vector<NodeInput*>::iterator it{inputs.begin()}; it != inputs.end();)
     {
         if((*it)->connection != nullptr)
         {
             (*it)->connection->connections.erase(*it);
-            emit (*it)->reconnected();
+            emit (*it)->connection->reconnected();
+            delete (*it);
+            it = inputs.erase(it);
         }
     }
-    for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+    for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end();)
     {
         for(std::unordered_set<NodeInput*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); jt++)
         {
@@ -68,6 +70,8 @@ Node::~Node()
                 emit (*jt)->reconnected();
             }
         }
+        delete (*it);
+        it = outputs.erase(it);
     }
     std::vector<Node*>& vec = Registry::getRegistry()->intrinsic->nodes;
     vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
