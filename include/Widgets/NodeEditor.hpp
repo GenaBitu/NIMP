@@ -18,6 +18,7 @@ class NodeEditor : public ActionWidgetContainer
 public:
     NodeEditor();
 protected:
+    friend NodeGraphics;
     friend NodeInputGraphics;
     friend NodeOutputGraphics;
     friend NodePath;

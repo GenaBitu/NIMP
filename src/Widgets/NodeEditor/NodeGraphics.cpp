@@ -121,6 +121,16 @@ void NodeGraphics::connect(NodeOutputGraphics* left, NodeInputGraphics* right)
     Node::connect(left->output, right->input);
 }
 
+NodeGraphics::~NodeGraphics()
+{
+    NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+    if(editor != nullptr)
+    {
+        std::vector<NodeGraphics*>& vec{editor->nodes};
+        vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
+    }
+}
+
 void NodeGraphics::updateConnections()
 {
     for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
