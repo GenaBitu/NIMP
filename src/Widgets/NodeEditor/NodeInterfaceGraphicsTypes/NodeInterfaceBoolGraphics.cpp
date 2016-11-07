@@ -8,6 +8,7 @@ NodeInterfaceBoolGraphics::NodeInterfaceBoolGraphics(NodeGraphics* parent, NodeI
     checkbox->setStyleSheet("QCheckBox {background-color: " + Registry::getRegistry()->extrinsic->GUI->palette["NodeBackground"].name() + "; outline: 0;}");
     checkbox->installEventFilter(this);
     resize(width(), checkbox->height());
+    show();
     QObject::connect(checkbox, &QCheckBox::stateChanged, this, &NodeInterfaceBoolGraphics::triggered);
     QObject::connect(interface, &NodeInterfaceBool::valueChanged, this, &NodeInterfaceBoolGraphics::valueChanged);
 }

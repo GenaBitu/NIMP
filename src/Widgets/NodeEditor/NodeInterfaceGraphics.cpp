@@ -9,7 +9,6 @@ NodeInterfaceGraphics::NodeInterfaceGraphics(NodeGraphics* parent, int y) : QWid
 {
     resize(parent->width(), height());
     move(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"] , y);
-    show();
 }
 
 NodeInterfaceGraphics* NodeInterfaceGraphics::interfaceFactory(NodeGraphics* parent, NodeInterface* interface, int y)
