@@ -6,3 +6,9 @@ const bool& NodeInterfaceBool::getValue()
 {
     return value;
 }
+
+void NodeInterfaceBool::setValue(bool value)
+{
+    this->value = value;
+    emit valueChanged();
+}

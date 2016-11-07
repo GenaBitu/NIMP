@@ -14,4 +14,8 @@ public:
     NodeInterfaceBoolGraphics(NodeGraphics* parent, NodeInterfaceBool* interface, int y);
 private:
     NodeInterfaceBool* interface;
+    QCheckBox* checkbox;
+private slots:
+    void triggered(int state);
+    void valueChanged();
 };

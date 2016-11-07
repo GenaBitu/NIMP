@@ -4,18 +4,14 @@
 
 class Node;
 
-class NodeInterface
+class NodeInterface : public QObject
 {
+    Q_OBJECT
+    Q_DISABLE_COPY(NodeInterface)
 public:
     std::string name;
 protected:
     const Node* parent;
+    NodeInterface() = delete;
     NodeInterface(Node* parent, std::string name);
-    NodeInterface(const NodeInterface& other);
-    NodeInterface(NodeInterface&& other);
-    NodeInterface& operator=(NodeInterface other);
-    friend void swap(NodeInterface& first, NodeInterface& second);
-    virtual ~NodeInterface();
-private:
-    NodeInterface();
 };
