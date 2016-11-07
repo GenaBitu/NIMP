@@ -2,6 +2,8 @@
 
 #include "Global.hpp"
 
+#include "Widgets/NodeEditor/NodeInterfaceGraphicsTypes.hpp"
+
 #include "Widgets/NodeEditor/NodeGraphics.hpp"
 #include "Widgets/NodeEditor/NodeInputGraphics.hpp"
 #include "Widgets/NodeEditor/NodeInterfaceGraphics.hpp"

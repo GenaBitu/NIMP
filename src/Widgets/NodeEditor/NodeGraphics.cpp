@@ -25,7 +25,7 @@ void NodeGraphics::addInterfaces()
     for(std::vector<NodeInterface*>::iterator it{node->interfaces.begin()}; it != node->interfaces.end(); it++)
     {
         interfaceHeight += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeInterfaceSpacing"];
-        NodeInterfaceGraphics* newItem{new NodeInterfaceGraphics{this, *it, headerHeight + interfaceHeight}};
+        NodeInterfaceGraphics* newItem{NodeInterfaceGraphics::interfaceFactory(this, *it, headerHeight + interfaceHeight)};
         interfaces.push_back(newItem);
         interfaceHeight += newItem->height();
     }

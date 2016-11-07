@@ -78,7 +78,9 @@ HEADERS  += \
     include/NodeSystem/NodeInterface.hpp \
     include/NodeSystem/NodeInterfaceTypes.hpp \
     include/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.hpp \
-    include/Widgets/NodeEditor/NodeInterfaceGraphics.hpp
+    include/Widgets/NodeEditor/NodeInterfaceGraphics.hpp \
+    include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes.hpp \
+    include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceBoolGraphics.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -122,7 +124,8 @@ SOURCES += \
     src/Widgets/NodeEditor/NodePathCutter.cpp \
     src/NodeSystem/NodeInterface.cpp \
     src/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.cpp \
-    src/Widgets/NodeEditor/NodeInterfaceGraphics.cpp
+    src/Widgets/NodeEditor/NodeInterfaceGraphics.cpp \
+    src/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceBoolGraphics.cpp
 
 RESOURCES += \
     images.qrc

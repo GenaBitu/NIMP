@@ -9,7 +9,8 @@ class NodeInterfaceGraphics : public QWidget
 {
     Q_OBJECT
 public:
-    NodeInterfaceGraphics(NodeGraphics* parent, NodeInterface* interface, int y);
+    NodeInterfaceGraphics(NodeGraphics* parent, int y);
+    static NodeInterfaceGraphics* interfaceFactory(NodeGraphics* parent, NodeInterface* interface, int y);
 private:
     bool eventFilter(QObject*, QEvent* event);
 };

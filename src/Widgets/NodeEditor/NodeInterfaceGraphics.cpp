@@ -1,21 +1,28 @@
 #include "Widgets/NodeEditor/NodeInterfaceGraphics.hpp"
 
 #include "Widgets/NodeEditor/NodeGraphics.hpp"
-#include "NodeSystem/NodeInterfaceTypes.hpp"
 #include "Registry.hpp"
+#include "NodeSystem/NodeInterfaceTypes.hpp"
+#include "Widgets/NodeEditor/NodeInterfaceGraphicsTypes.hpp"
 
-NodeInterfaceGraphics::NodeInterfaceGraphics(NodeGraphics* parent, NodeInterface* interface, int y) : QWidget(parent)
+NodeInterfaceGraphics::NodeInterfaceGraphics(NodeGraphics* parent, int y) : QWidget(parent)
 {
     resize(parent->width(), height());
     move(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"] , y);
     show();
+}
+
+NodeInterfaceGraphics* NodeInterfaceGraphics::interfaceFactory(NodeGraphics* parent, NodeInterface* interface, int y)
+{
     NodeInterfaceBool* boolInterface{dynamic_cast<NodeInterfaceBool*>(interface)};
     if(boolInterface != nullptr)
     {
-        QCheckBox* checkbox{new QCheckBox{QString::fromStdString(interface->name), this}};
-        setStyleSheet("QCheckBox {background-color: " + Registry::getRegistry()->extrinsic->GUI->palette["NodeBackground"].name() + "; outline: 0;}");
-        checkbox->installEventFilter(this);
-        resize(width(), checkbox->height());
+        return new NodeInterfaceBoolGraphics{parent, boolInterface, y};
+    }
+    else
+    {
+        // TODO: DIE HORRIBLY IN FLAMES
+        return nullptr;
     }
 }
 
