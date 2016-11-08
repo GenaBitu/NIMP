@@ -15,6 +15,7 @@ NodeInterfaceGraphics* NodeInterfaceGraphics::interfaceFactory(NodeGraphics* par
 {
     NodeInterfaceBool* boolInterface{dynamic_cast<NodeInterfaceBool*>(interface)};
     NodeInterfaceString* stringInterface{dynamic_cast<NodeInterfaceString*>(interface)};
+    NodeInterfaceUniqueString* uniqueStringInterface{dynamic_cast<NodeInterfaceUniqueString*>(interface)};
     if(boolInterface != nullptr)
     {
         return new NodeInterfaceBoolGraphics{parent, boolInterface, y};
@@ -22,6 +23,10 @@ NodeInterfaceGraphics* NodeInterfaceGraphics::interfaceFactory(NodeGraphics* par
     else if(stringInterface != nullptr)
     {
         return new NodeInterfaceStringGraphics{parent, stringInterface, y};
+    }
+    else if(uniqueStringInterface != nullptr)
+    {
+        return new NodeInterfaceUniqueStringGraphics{parent, uniqueStringInterface, y};
     }
     else
     {
