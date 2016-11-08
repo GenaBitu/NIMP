@@ -15,6 +15,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 #include <QCheckBox>
+#include <QLineEdit>
 
 #include <BlendSplitter.hpp>
 

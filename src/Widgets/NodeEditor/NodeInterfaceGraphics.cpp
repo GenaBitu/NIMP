@@ -14,9 +14,14 @@ NodeInterfaceGraphics::NodeInterfaceGraphics(NodeGraphics* parent, int y) : QWid
 NodeInterfaceGraphics* NodeInterfaceGraphics::interfaceFactory(NodeGraphics* parent, NodeInterface* interface, int y)
 {
     NodeInterfaceBool* boolInterface{dynamic_cast<NodeInterfaceBool*>(interface)};
+    NodeInterfaceString* stringInterface{dynamic_cast<NodeInterfaceString*>(interface)};
     if(boolInterface != nullptr)
     {
         return new NodeInterfaceBoolGraphics{parent, boolInterface, y};
+    }
+    else if(stringInterface != nullptr)
+    {
+        return new NodeInterfaceStringGraphics{parent, stringInterface, y};
     }
     else
     {

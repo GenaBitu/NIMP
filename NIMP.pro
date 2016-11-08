@@ -81,7 +81,9 @@ HEADERS  += \
     include/Widgets/NodeEditor/NodeInterfaceGraphics.hpp \
     include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes.hpp \
     include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceBoolGraphics.hpp \
-    include/Registry/RegistryNotifier.hpp
+    include/Registry/RegistryNotifier.hpp \
+    include/NodeSystem/NodeInterfaceTypes/NodeInterfaceString.hpp \
+    include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceStringGraphics.hpp
 
 SOURCES += \
     src/Main.cpp \
@@ -127,7 +129,9 @@ SOURCES += \
     src/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.cpp \
     src/Widgets/NodeEditor/NodeInterfaceGraphics.cpp \
     src/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceBoolGraphics.cpp \
-    src/Registry/RegistryNotifier.cpp
+    src/Registry/RegistryNotifier.cpp \
+    src/NodeSystem/NodeInterfaceTypes/NodeInterfaceString.cpp \
+    src/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceStringGraphics.cpp
 
 RESOURCES += \
     images.qrc
