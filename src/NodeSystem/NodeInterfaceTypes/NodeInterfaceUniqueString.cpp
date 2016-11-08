@@ -32,3 +32,8 @@ void NodeInterfaceUniqueString::setValue(std::string value)
     values[group][this] = value;
     emit valueChanged();
 }
+
+NodeInterfaceUniqueString::~NodeInterfaceUniqueString()
+{
+    values[group].erase(this);
+}

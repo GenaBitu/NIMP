@@ -12,6 +12,7 @@ public:
     NodeInterfaceUniqueString(Node* parent, std::string name, std::string value = "Default", int group = 0);
     const std::string& getValue();
     void setValue(std::string value);
+    ~NodeInterfaceUniqueString();
 signals:
     void valueChanged();
 private:

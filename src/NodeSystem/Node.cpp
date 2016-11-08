@@ -3,6 +3,7 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "NodeSystem/NodeOutput.hpp"
 #include "Registry.hpp"
+#include "NodeSystem/NodeInterface.hpp"
 
 Node::Node(int x, int y) : inputs{}, outputs{}, interfaces{}, relations{}, pos{QPoint{x, y}}
 {
@@ -51,6 +52,11 @@ void Node::setPos(int x, int y)
 
 Node::~Node()
 {
+    for(std::vector<NodeInterface*>::iterator it{interfaces.begin()}; it != interfaces.end();)
+    {
+        delete (*it);
+        it = interfaces.erase(it);
+    }
     for(std::vector<NodeInput*>::iterator it{inputs.begin()}; it != inputs.end();)
     {
         if((*it)->connection != nullptr)
