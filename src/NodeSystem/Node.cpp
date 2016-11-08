@@ -7,6 +7,7 @@
 Node::Node(int x, int y) : inputs{}, outputs{}, interfaces{}, relations{}, pos{QPoint{x, y}}
 {
     Registry::getRegistry()->intrinsic->nodes.push_back(this);
+    emit Registry::getRegistry()->notifier->nodeAdded(this);
 }
 
 void Node::connect(Node* from, int numOutput, Node* to, int numInput)

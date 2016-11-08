@@ -13,6 +13,7 @@ NodeEditor::NodeEditor() : ActionWidgetContainer{}, nodes{}, paths{}
     {
         (*it)->addInterfaces();
     }
+    QObject::connect(Registry::getRegistry()->notifier, &RegistryNotifier::nodeAdded, this, &NodeEditor::addNode, Qt::QueuedConnection);
 }
 
 void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
@@ -28,8 +29,8 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QMenu* addOutput{new QMenu{"Output"}};
     QAction* addBMP{new QAction{"BMP file", editor}};
     QAction* addCanvas{new QAction{"Canvas", editor}};
-    QObject::connect(addBMP, &QAction::triggered, [editor]()->void{editor->addNode(new BMPinput{"tex2D2.bmp"});});
-    QObject::connect(addCanvas, &QAction::triggered, [editor]()->void{editor->addNode(new CanvasNode{});});
+    QObject::connect(addBMP, &QAction::triggered, []()->void{new BMPinput{"tex2D2.bmp"};});
+    QObject::connect(addCanvas, &QAction::triggered, []()->void{new CanvasNode{};});
     addInput->addAction(addBMP);
     addOutput->addAction(addCanvas);
     addNode->addMenu(addInput);
