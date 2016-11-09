@@ -9,11 +9,11 @@ class NodeIOConnector : public QWidget
 {
     Q_OBJECT
 public:
-    NodeIOConnector(NodeInputGraphics* parent, float x = 0, float y = 0);
-    NodeIOConnector(NodeOutputGraphics* parent, float x = 0, float y = 0);
+    NodeIOConnector(NodeInputGraphics* parent, int x = 0, int y = 0);
+    NodeIOConnector(NodeOutputGraphics* parent, int x = 0, int y = 0);
 protected:
-    virtual void mousePressEvent(QMouseEvent*);
-    virtual void paintEvent(QPaintEvent*);
+    virtual void mousePressEvent(QMouseEvent*) override;
+    virtual void paintEvent(QPaintEvent*) override;
 private:
-    void init(float x, float y);
+    void init(int x, int y);
 };

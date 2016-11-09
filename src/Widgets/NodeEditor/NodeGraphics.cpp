@@ -5,8 +5,8 @@
 #include "WidgetActions/States/ActionState.hpp"
 #include "Widgets/NodeEditor.hpp"
 
-const int NodeGraphics::headerHeight{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"])};
-const int NodeGraphics::footerHeight{static_cast<int>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"])};
+const int NodeGraphics::headerHeight{Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"]};
+const int NodeGraphics::footerHeight{Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"]};
 
 NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), inputs{}, outputs{}, interfaces{}, node{node}, interfaceHeight{}, connectionHeight{}
 {
@@ -122,10 +122,9 @@ void NodeGraphics::paintEvent(QPaintEvent*)
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
     QPainterPath border{};
-    QPainterPath separator{};
     border.addRoundedRect(QRectF(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] - 0.5, width() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"], height() - 2 * Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"]), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeCornerRadius"]);
-    QPen borderPen{state->getColour("border"), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"]};
-    QPen separatorPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeHeaderSeparator"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderSeparatorHeight"]};
+    QPen borderPen{state->getColour("border"), static_cast<double>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"])};
+    QPen separatorPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeHeaderSeparator"], static_cast<double>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderSeparatorHeight"])};
     QPen textPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeHeaderText"]};
     painter.setPen(borderPen);
     painter.fillPath(border, Registry::getRegistry()->extrinsic->GUI->palette["NodeBackground"]);

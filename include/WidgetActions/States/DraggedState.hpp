@@ -9,8 +9,8 @@ class DraggedState : public ActionState
 public:
     DraggedState(ActionWidget* widget);
     DraggedState(const ActionState& other);
-    ActionWidget::States getState();
-    virtual QColor getColour(std::string colour);
-    virtual void mouseMoveEvent(QMouseEvent* event);
-    virtual void mouseReleaseEvent(QMouseEvent* event);
+    ActionWidget::States getState() override;
+    virtual QColor getColour(std::string colour) override;
+    virtual void mouseMoveEvent(QMouseEvent* event) override;
+    virtual void mouseReleaseEvent(QMouseEvent* event) override;
 };

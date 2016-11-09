@@ -102,7 +102,7 @@ void TempPath::paintEvent(QPaintEvent*)
     {
         QPainter painter{this};
         painter.setRenderHint(QPainter::Antialiasing);
-        QPen pen{Registry::getRegistry()->extrinsic->GUI->palette["NodePathActive"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathWidth"]};
+        QPen pen{Registry::getRegistry()->extrinsic->GUI->palette["NodePathActive"], static_cast<double>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathWidth"])};
         painter.setPen(pen);
         painter.drawPath(*path);
     }

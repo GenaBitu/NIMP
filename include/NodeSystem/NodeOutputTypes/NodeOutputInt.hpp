@@ -9,5 +9,5 @@ class NodeOutputInt : public NodeOutput
 {
 public:
     NodeOutputInt(Node* parent, std::string name);
-    virtual NodeDataInt* getData();
+    virtual NodeDataInt* getData() override;
 };

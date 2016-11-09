@@ -34,10 +34,10 @@ protected:
     static const int footerHeight;
     int interfaceHeight;
     int connectionHeight;
-    virtual void keyPressEvent(QKeyEvent* event);
-    virtual void moveEvent(QMoveEvent*);
-    virtual void mouseReleaseEvent(QMouseEvent* event);
-    virtual void paintEvent(QPaintEvent*);
+    virtual void keyPressEvent(QKeyEvent* event) override;
+    virtual void moveEvent(QMoveEvent*) override;
+    virtual void mouseReleaseEvent(QMouseEvent* event) override;
+    virtual void paintEvent(QPaintEvent*) override;
     void reMask();
     void removeInterfaces();
     void removeConnections();

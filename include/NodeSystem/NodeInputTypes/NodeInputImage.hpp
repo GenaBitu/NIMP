@@ -9,5 +9,5 @@ class NodeInputImage : public NodeInput
 {
 public:
     NodeInputImage(Node* parent, std::string name);
-    virtual NodeDataImage* getData();
+    virtual NodeDataImage* getData() override;
 };

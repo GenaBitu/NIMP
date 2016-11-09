@@ -20,7 +20,7 @@ protected:
     friend Node;
     friend NodeInput;
     NodeOutput(Node* parent, std::string name);
-    virtual NodeData* getData();
+    virtual NodeData* getData() override;
 private:
     std::unordered_set<NodeInput*> connections;
 };

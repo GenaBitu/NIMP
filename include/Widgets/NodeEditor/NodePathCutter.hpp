@@ -16,7 +16,7 @@ public:
 protected:
     const QPoint origin;
     QPainterPath* path;
-    void mouseMoveEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent*);
-    void paintEvent(QPaintEvent*);
+    void mouseMoveEvent(QMouseEvent* event) override;
+    void mouseReleaseEvent(QMouseEvent*) override;
+    void paintEvent(QPaintEvent*) override;
 };

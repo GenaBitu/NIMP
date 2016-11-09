@@ -6,6 +6,6 @@ class GuiSettings
 {
 public:
     std::map<std::string, QColor> palette;
-    std::map<std::string, float> dimensions;
+    std::map<std::string, int> dimensions;
     GuiSettings();
 };

@@ -9,5 +9,5 @@ class NodeOutputMonochrome : public NodeOutput
 {
 public:
     NodeOutputMonochrome(Node* parent, std::string name);
-    virtual NodeDataMonochrome* getData();
+    virtual NodeDataMonochrome* getData() override;
 };

@@ -27,5 +27,5 @@ protected:
     NodeIOConnector* connector;
     void connect();
     void disconnect();
-    virtual void paintEvent(QPaintEvent*);
+    virtual void paintEvent(QPaintEvent*) override;
 };

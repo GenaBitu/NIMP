@@ -8,8 +8,8 @@ class Selectable : public ActionWidget
 {
     Q_OBJECT
 public:
-    virtual void changeState(States state);
+    virtual void changeState(States state) override;
 protected:
     Selectable(ActionWidgetContainer* parent = nullptr);
-    virtual void mousePressEvent(QMouseEvent* event);
+    virtual void mousePressEvent(QMouseEvent* event) override;
 };

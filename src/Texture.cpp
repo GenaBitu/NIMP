@@ -25,7 +25,8 @@ Texture& Texture::operator=(const Texture& other)
     GLint maxLevel{}, wrapS{}, wrapT{}, magFilter{}, minFilter{};
     glBindTexture(GL_TEXTURE_2D, other.ID);
     glGetTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_MAX_LEVEL, &maxLevel);
-    GLint width[maxLevel + 1], height[maxLevel + 1];
+    GLint* width{new GLint[maxLevel + 1]};
+    GLint* height{new GLint[maxLevel + 1]};
     glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH, &width[0]);
     glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &height[0]);
     glGetTexParameteriv(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, &wrapS);

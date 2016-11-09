@@ -25,7 +25,7 @@ void Canvas::initializeGL()
     //image->loadBMP("tex2D.bmp");
     refetch();
     QColor bg{QWidget::palette().color(QPalette::Background)};
-    glClearColor(bg.redF(), bg.greenF(), bg.blueF(), 1.0f);
+    glClearColor(static_cast<float>(bg.redF()), static_cast<float>(bg.greenF()), static_cast<float>(bg.blueF()), 1.0f);
 }
 
 void Canvas::paintGL()
@@ -41,11 +41,11 @@ void Canvas::paintGL()
             glTexCoord2f(0.0f, 1.0f);
             glVertex2f(50.0f, 50.0f);
             glTexCoord2f(1.0f, 1.0f);
-            glVertex2f(width - 50.0f, 50.0f);
+            glVertex2f(static_cast<float>(width) - 50.0f, 50.0f);
             glTexCoord2f(1.0f, 0.0f);
-            glVertex2f(width - 50.0f, height - 50.0f);
+            glVertex2f(static_cast<float>(width) - 50.0f, static_cast<float>(height) - 50.0f);
             glTexCoord2f(0.0f, 0.0f);
-            glVertex2f(50.0f, height - 50.0f);
+            glVertex2f(50.0f, static_cast<float>(height) - 50.0f);
         glEnd();
     }
     glBindTexture(GL_TEXTURE_2D, 0);
@@ -70,7 +70,7 @@ void Canvas::resizeGL(int w, int h)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     glTranslatef(-1, 1, 0);
-    glScalef(2.0f / width, -2.0f / height, 1);
+    glScalef(2.0f / static_cast<float>(width), -2.0f / static_cast<float>(height), 1);
     glMatrixMode(GL_MODELVIEW);
 }
 

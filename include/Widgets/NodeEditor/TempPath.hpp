@@ -20,7 +20,7 @@ public:
     ~TempPath();
 protected:
     QPainterPath* path;
-    virtual void mouseMoveEvent(QMouseEvent* event);
-    virtual void mouseReleaseEvent(QMouseEvent*);
-    virtual void paintEvent(QPaintEvent*);
+    virtual void mouseMoveEvent(QMouseEvent* event) override;
+    virtual void mouseReleaseEvent(QMouseEvent*) override;
+    virtual void paintEvent(QPaintEvent*) override;
 };

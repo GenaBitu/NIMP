@@ -15,9 +15,9 @@ public slots:
 protected:
     GLint width, height, IMGwidth, IMGheight;
     Texture* image;
-    void initializeGL();
-    void paintGL();
-    void resizeGL(int w, int h);
+    void initializeGL() override;
+    void paintGL() override;
+    void resizeGL(int w, int h) override;
     void renderBGCheckerboard(GLint xMin, GLint yMin, GLint xMax, GLint yMax);
     void renderGrid(GLint xMin, GLint yMin, GLint xMax, GLint yMax);
 };

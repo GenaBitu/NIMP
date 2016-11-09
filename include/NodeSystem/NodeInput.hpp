@@ -11,7 +11,7 @@ class NodeInput : public NodeIO
     Q_OBJECT
     Q_DISABLE_COPY(NodeInput)
 public:
-    virtual NodeData* getData();
+    virtual NodeData* getData() override;
     const NodeOutput* getConnection() const;
     void setConnection(NodeOutput* connection);
     void removeConnection(NodeOutput* connection);

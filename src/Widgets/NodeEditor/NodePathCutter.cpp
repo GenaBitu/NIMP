@@ -49,7 +49,7 @@ void NodePathCutter::paintEvent(QPaintEvent*)
     {
         QPainter painter{this};
         painter.setRenderHint(QPainter::Antialiasing);
-        QPen pen{Registry::getRegistry()->extrinsic->GUI->palette["NodePathCutter"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathCutterWidth"]};
+        QPen pen{Registry::getRegistry()->extrinsic->GUI->palette["NodePathCutter"], static_cast<double>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathCutterWidth"])};
         painter.setPen(pen);
         painter.drawPath(*path);
     }

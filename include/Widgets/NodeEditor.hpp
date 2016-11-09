@@ -32,5 +32,5 @@ protected:
     friend TempPath;
     std::vector<NodeGraphics*> nodes;
     std::unordered_set<NodePath*> paths;
-    void mousePressEvent(QMouseEvent* event);
+    void mousePressEvent(QMouseEvent* event) override;
 };

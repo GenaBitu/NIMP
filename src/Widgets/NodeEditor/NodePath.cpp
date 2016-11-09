@@ -71,7 +71,7 @@ void NodePath::paintEvent(QPaintEvent*)
     {
         QPainter painter{this};
         painter.setRenderHint(QPainter::Antialiasing);
-        QPen pen{state->getColour("path"), Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathWidth"]};
+        QPen pen{state->getColour("path"), static_cast<double>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathWidth"])};
         painter.setPen(pen);
         painter.drawPath(*path);
     }

@@ -12,5 +12,5 @@ public:
     NodeInterfaceGraphics(NodeGraphics* parent, int y);
     static NodeInterfaceGraphics* interfaceFactory(NodeGraphics* parent, NodeInterface* interface, int y);
 private:
-    bool eventFilter(QObject*, QEvent* event);
+    bool eventFilter(QObject*, QEvent* event) override;
 };
