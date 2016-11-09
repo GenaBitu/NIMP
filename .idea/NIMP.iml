@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Debug/CMakeFiles/NIMP.dir/qrc_images.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Debug/CMakeFiles/NIMP.dir/qrc_images.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Debug/NIMP_automoc.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Debug/NIMP_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/MinSizeRel/CMakeFiles/NIMP.dir/qrc_images.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/MinSizeRel/CMakeFiles/NIMP.dir/qrc_images.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/MinSizeRel/NIMP_automoc.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/MinSizeRel/NIMP_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/RelWithDebInfo/CMakeFiles/NIMP.dir/qrc_images.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/RelWithDebInfo/CMakeFiles/NIMP.dir/qrc_images.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/RelWithDebInfo/NIMP_automoc.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/RelWithDebInfo/NIMP_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Release/CMakeFiles/NIMP.dir/qrc_images.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Release/CMakeFiles/NIMP.dir/qrc_images.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Release/NIMP_automoc.cpp">
+      <sourceFolder url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Release/NIMP_automoc.cpp" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/Main.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/ActionWidget.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/Draggable.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/ActionWidgetContainer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/States/DraggedState.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/States/ActionState.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/States/SelectedState.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/States/DefaultState.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/Selectable.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Nodes/BMPinput.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Nodes/CanvasNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Registry.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeIOConnector.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodePathCutter.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeOutputGraphics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceBoolGraphics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceUniqueStringGraphics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceStringGraphics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeInterfaceGraphics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeGraphics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeInputGraphics.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/TempPath.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodePath.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Widgets/Canvas.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Registry/GuiSettings.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Registry/IntrinsicRegistry.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Registry/ExtrinsicRegistry.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Registry/RegistryNotifier.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeData.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeInputTypes/NodeInputInt.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeInputTypes/NodeInputImage.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeInputTypes/NodeInputMonochrome.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeOutputTypes/NodeOutputInt.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeOutputTypes/NodeOutputImage.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeInterfaceTypes/NodeInterfaceString.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/Node.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeDataTypes/NodeDataInt.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeDataTypes/NodeDataImage.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeDataTypes/NodeDataMonochrome.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeIO.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeOutput.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeInput.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/NodeSystem/NodeInterface.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Texture.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/images.qrc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/TempPath.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodePath.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceUniqueStringGraphics.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceStringGraphics.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes/NodeInterfaceBoolGraphics.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeIOConnector.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeOutputGraphics.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodePathCutter.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeInterfaceGraphics.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeGraphics.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeInputGraphics.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor/NodeInterfaceGraphicsTypes.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/Canvas.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets/NodeEditor.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Global.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/States.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/Draggable.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/ActionWidgetContainer.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/Selectable.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/ActionWidget.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/States/ActionState.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/States/SelectedState.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/States/DefaultState.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/States/DraggedState.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Nodes/CanvasNode.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Nodes/BMPinput.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Nodes.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Widgets.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Texture.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Registry.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Registry/ExtrinsicRegistry.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Registry/IntrinsicRegistry.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Registry/GuiSettings.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Registry/RegistryNotifier.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeIO.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInput.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInputTypes/NodeInputMonochrome.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInputTypes/NodeInputInt.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInputTypes/NodeInputImage.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/Node.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeDataTypes.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeDataTypes/NodeDataMonochrome.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeDataTypes/NodeDataInt.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeDataTypes/NodeDataImage.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInterfaceTypes.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInputTypes.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInterfaceTypes/NodeInterfaceString.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeData.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeInterface.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeOutputTypes/NodeOutputInt.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeOutputTypes/NodeOutputImage.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeOutputTypes.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/RowSelector.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/NodeSystem/NodeOutput.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Main.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/6/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" />
+          <root url="file:///usr/local/include" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Release" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Debug" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/RelWithDebInfo" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/MinSizeRel" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file:///usr/include" />
+          <root url="file:///usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/6/include" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/6/include-fixed" />
+          <root url="file:///usr/local/include" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Release" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Debug" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/RelWithDebInfo" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/MinSizeRel" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Release/CMakeFiles/NIMP.dir/qrc_images.cpp" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Release/NIMP_automoc.cpp" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Debug/CMakeFiles/NIMP.dir/qrc_images.cpp" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/Debug/NIMP_automoc.cpp" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/RelWithDebInfo/CMakeFiles/NIMP.dir/qrc_images.cpp" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/RelWithDebInfo/NIMP_automoc.cpp" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/MinSizeRel/CMakeFiles/NIMP.dir/qrc_images.cpp" />
+          <root url="file://$USER_HOME$/.CLion2016.2/system/cmake/generated/NIMP-ae3dfb76/ae3dfb76/MinSizeRel/NIMP_automoc.cpp" />
+        </excluded>
+      </library>
+    </orderEntry>
+  </component>
+</module>
