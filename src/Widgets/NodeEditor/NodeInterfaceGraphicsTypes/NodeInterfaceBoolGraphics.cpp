@@ -6,7 +6,7 @@
 NodeInterfaceBoolGraphics::NodeInterfaceBoolGraphics(NodeGraphics* parent, NodeInterfaceBool* interface, int y) : NodeInterfaceGraphics{parent, y}, interface{interface}, checkbox{new QCheckBox{QString::fromStdString(interface->name), this}}
 {
     valueChanged();
-    checkbox->setStyleSheet("QCheckBox {background-color: " + Registry::getRegistry()->extrinsic->GUI->palette["NodeBackground"].name() + "; outline: 0;}");
+    checkbox->setStyleSheet(QString::fromStdString(Registry::getRegistry()->extrinsic->GUI->stylesheets["NodeInterfaceBoolGraphics"]));
     checkbox->installEventFilter(this);
     resize(width(), checkbox->height());
     show();

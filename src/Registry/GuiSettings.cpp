@@ -1,6 +1,6 @@
 #include "Registry.hpp"
 
-Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}
+Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}, keys{}, stylesheets{}
 {
     palette["NodeBorder"] = Qt::black;
     palette["NodeBorderActive"] = Qt::yellow;
@@ -26,4 +26,7 @@ Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}
     dimensions["NodePathClickableWidth"] = 20;
     dimensions["NodePathSharpness"] = 75;
     dimensions["NodePathCutterWidth"] = 1;
+    keys["Delete"] = Qt::Key_Delete;
+    stylesheets["NodeInterfaceBoolGraphics"] = "QCheckBox {background-color: " + palette["NodeBackground"].name().toStdString() + "; outline: 0;}";
+	stylesheets["NodeInterfaceStringGraphics"] = "";
 }

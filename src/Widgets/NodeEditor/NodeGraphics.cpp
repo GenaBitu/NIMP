@@ -98,7 +98,7 @@ void NodeGraphics::destruct()
 
 void NodeGraphics::keyPressEvent(QKeyEvent* event)
 {
-    if(event->key() == Registry::getRegistry()->extrinsic->keys["Delete"] and getState() == ActionWidget::States::SELECTED)
+    if(event->key() == Registry::getRegistry()->extrinsic->GUI->keys["Delete"] and getState() == ActionWidget::States::SELECTED)
     {
         event->accept();
         deleteNode();

@@ -5,7 +5,7 @@
 
 NodeInterfaceStringGraphics::NodeInterfaceStringGraphics(NodeGraphics* parent, NodeInterfaceString* interface, int y) : NodeInterfaceGraphics{parent, y}, interface{interface}, textbox{new QLineEdit{QString::fromStdString(interface->getValue()), this}}
 {
-    textbox->setStyleSheet("QLineEdit {border-color: red;}");
+    textbox->setStyleSheet(QString::fromStdString(Registry::getRegistry()->extrinsic->GUI->stylesheets["NodeInterfaceStringGraphics"]));
     textbox->installEventFilter(this);
     resize(width(), textbox->height());
     show();
