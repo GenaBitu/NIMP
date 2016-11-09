@@ -30,6 +30,11 @@ void NodePathCutter::mouseReleaseEvent(QMouseEvent*)
     if(path != nullptr)
     {
         NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+        if(editor == nullptr)
+		{
+			// TODO: DIE HORRIBLY IN FLAMES
+			return;
+		}
         for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); it++)
         {
             if(path->intersects(*(*it)->path))

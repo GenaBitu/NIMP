@@ -20,6 +20,11 @@ void NodeInputGraphics::connect()
         const NodeOutput* nodeOutput{input->getConnection()};
         NodeOutputGraphics* outputConnector{nullptr};
         NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
+        if(editor == nullptr)
+        {
+            // TODO: DIE HORRIBLY IN FLAMES
+            return;
+        }
         for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
         {
             for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)

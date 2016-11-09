@@ -43,7 +43,14 @@ bool NodeInterfaceGraphics::eventFilter(QObject*, QEvent* event)
         if(mouseEvent->button() == Qt::LeftButton)
         {
             NodeGraphics* parent{dynamic_cast<NodeGraphics*>(parentWidget())};
-            parent->changeState(ActionWidget::States::SELECTED);
+            if(parent != nullptr)
+			{
+				parent->changeState(ActionWidget::States::SELECTED);
+			}
+			else
+			{
+				// TODO: DIE HORRIBLY IN FLAMES
+			}
         }
     }
     return false;

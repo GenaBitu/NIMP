@@ -17,6 +17,10 @@ void NodeOutputGraphics::connect()
     if(connections.empty())
     {
         NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget())};
+        if(editor == nullptr)
+		{
+			// TODO: DIE HORRIBLY IN FLAMES
+		}
         for(std::unordered_set<NodeInput*>::const_iterator it{output->getConnections().begin()}; it != output->getConnections().end(); it++)
         {
             NodeInputGraphics* inputConnector{nullptr};

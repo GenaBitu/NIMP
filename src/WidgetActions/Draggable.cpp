@@ -11,7 +11,8 @@ void Draggable::changeState(States state)
     ActionWidgetContainer* container{dynamic_cast<ActionWidgetContainer*>(parentWidget())};
     if(container == nullptr)
     {
-        //TODO: DIE HORRIBLY IN FLAMES
+        // TODO: DIE HORRIBLY IN FLAMES
+        return;
     }
     switch(state)
     {

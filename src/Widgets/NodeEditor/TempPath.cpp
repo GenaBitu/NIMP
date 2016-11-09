@@ -60,6 +60,11 @@ void TempPath::mouseReleaseEvent(QMouseEvent* event)
 {
     releaseMouse();
     NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+    if(editor == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+		return;
+	}
     for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
     {
         if(left == nullptr)

@@ -16,6 +16,11 @@ NodeIOConnector::NodeIOConnector(NodeOutputGraphics* parent, int x, int y) : QWi
 void NodeIOConnector::mousePressEvent(QMouseEvent*)
 {
     NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget()->parentWidget()->parentWidget())};
+    if(editor == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+		return;
+	}
     NodeInputGraphics* input{dynamic_cast<NodeInputGraphics*>(parentWidget())};
     if(input != nullptr)
     {

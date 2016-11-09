@@ -80,6 +80,10 @@ NodeGraphics::~NodeGraphics()
         std::vector<NodeGraphics*>& vec{editor->nodes};
         vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
     }
+	else
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+	}
 }
 
 void NodeGraphics::reposition()

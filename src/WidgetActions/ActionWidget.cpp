@@ -13,7 +13,14 @@ ActionWidget::States ActionWidget::getState()
 void ActionWidget::select()
 {
     ActionWidgetContainer* container{dynamic_cast<ActionWidgetContainer*>(parentWidget())};
-    container->select(this);
+    if(container != nullptr)
+    {
+        container->select(this);
+    }
+    else
+    {
+        // TODO: DIE HORRIBLY IN FLAMES
+    }
 }
 
 void ActionWidget::deselect()
@@ -22,6 +29,10 @@ void ActionWidget::deselect()
     if(container != nullptr)
     {
         container->deselect(this);
+    }
+    else
+    {
+        // TODO: DIE HORRIBLY IN FLAMES
     }
 }
 
