@@ -7,7 +7,7 @@ class Texture;
 class Canvas : public QOpenGLWidget, protected QOpenGLFunctions
 {
     Q_OBJECT
-    Q_DISABLE_COPY(Canvas);
+    Q_DISABLE_COPY(Canvas)
 public:
     Canvas();
 public slots:
