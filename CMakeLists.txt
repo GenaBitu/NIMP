@@ -7,7 +7,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-find_library(BlendSplitter PATHS /usr/lib)
+find_library(BlendSplitter NAMES BlendSplitter PATHS /usr/lib)
 
 find_package(OpenGL REQUIRED)
 find_package(Qt5 REQUIRED COMPONENTS Core Widgets OpenGL)
