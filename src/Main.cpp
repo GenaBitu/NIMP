@@ -1,4 +1,4 @@
-#include "include/Main.hpp"
+#include "Main.hpp"
 
 int main(int argc, char** argv)
 {

@@ -1,3 +1,3 @@
-#include "include/Registry.hpp"
+#include "Registry.hpp"
 
 Registry::IntrinsicRegistry::IntrinsicRegistry() :nodes{} {}

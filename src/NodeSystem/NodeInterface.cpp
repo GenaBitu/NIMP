@@ -1,3 +1,3 @@
-#include "include/NodeSystem/NodeInterface.hpp"
+#include "NodeSystem/NodeInterface.hpp"
 
 NodeInterface::NodeInterface(Node* parent, std::string name) : name{name}, parent{parent} {}
