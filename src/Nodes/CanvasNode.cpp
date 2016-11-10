@@ -3,12 +3,18 @@
 #include "Texture.hpp"
 #include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
 #include "NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.hpp"
+#include "Widgets/Canvas.hpp"
+#include "Registry.hpp"
 
 CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 {
     inputs.push_back(new NodeInputImage{this, "Image"});
-    interfaces.push_back(new NodeInterfaceUniqueString{this, "Display?"});
-    QObject::connect(inputs[0], &NodeInput::reconnected, this, &CanvasNode::inputsReconnected);
+	NodeInterfaceUniqueString* interface{new NodeInterfaceUniqueString{this, "Display?"}};
+    interfaces.push_back(interface);
+	Registry::getRegistry()->intrinsic->canvases[this] = interface->getValue();
+	QObject::connect(inputs[0], &NodeInput::reconnected, this, &CanvasNode::inputsReconnected);
+	QObject::connect(interface, &NodeInterfaceUniqueString::valueChanged, this, &CanvasNode::nameChanged);
+	emit Registry::getRegistry()->notifier->canvasesChanged();
 }
 
 std::string CanvasNode::nodeName()
@@ -30,7 +36,24 @@ Texture* CanvasNode::getTexture()
     return nullptr;
 }
 
+CanvasNode::~CanvasNode()
+{
+	Registry::getRegistry()->intrinsic->canvases.erase(this);
+	emit Registry::getRegistry()->notifier->canvasesChanged();
+}
+
 void CanvasNode::inputsReconnected()
 {
-    emit reconnected();
+    emit imageChanged();
+}
+
+void CanvasNode::nameChanged()
+{
+	NodeInterfaceUniqueString* interface{dynamic_cast<NodeInterfaceUniqueString*>(interfaces[0])};
+	if(interface == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+	}
+	Registry::getRegistry()->intrinsic->canvases[this] = interface->getValue();
+	emit Registry::getRegistry()->notifier->canvasesChanged();
 }

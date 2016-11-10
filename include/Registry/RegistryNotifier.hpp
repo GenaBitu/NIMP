@@ -14,4 +14,5 @@ private:
     RegistryNotifier();
 signals:
     void nodeAdded(Node*);
+	void canvasesChanged();
 };

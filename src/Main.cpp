@@ -33,7 +33,7 @@ int main(int argc, char** argv)
         bar->addWidget(lab);
     });
     WidgetRegistry::getRegistry()->addItem(new RegistryItem{"Type2", []()->QWidget* {return new QLabel{"Type 2 Label"};}});
-    WidgetRegistry::getRegistry()->addItem("Canvas", []()->QWidget*{return new Canvas{};});
+    WidgetRegistry::getRegistry()->addItem("Canvas", []()->QWidget*{return new Canvas{};}, &Canvas::populateBar);
     WidgetRegistry::getRegistry()->addItem("Node Editor", []()->QWidget*{return new NodeEditor{};}, &NodeEditor::populateBar);
     WidgetRegistry::getRegistry()->setDefault(4);
 

@@ -14,8 +14,10 @@ public:
     CanvasNode(int x = 0, int y = 0);
     virtual std::string nodeName() override;
     Texture* getTexture();
+	~CanvasNode();
 signals:
-    void reconnected();
+    void imageChanged();
 private slots:
     void inputsReconnected();
+	void nameChanged();
 };

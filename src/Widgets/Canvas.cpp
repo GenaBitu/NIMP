@@ -1,19 +1,40 @@
+#include <include/NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.hpp>
 #include "Widgets/Canvas.hpp"
 
 #include "Texture.hpp"
 #include "Nodes/CanvasNode.hpp"
 #include "Registry.hpp"
 
-Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, image{}
+Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, node{Registry::getRegistry()->intrinsic->canvases.begin()->first}, image{}, nodeSelector{new QComboBox{}}
 {
-    QObject::connect(dynamic_cast<CanvasNode*>(Registry::getRegistry()->intrinsic->nodes[0]), &CanvasNode::reconnected, this, &Canvas::refetch);
+	canvasesChanged();
+	if(node != nullptr)
+	{
+		QObject::connect(node, &CanvasNode::imageChanged, this, &Canvas::refetch);
+	}
+	QObject::connect(nodeSelector, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this, &Canvas::triggered);
+	QObject::connect(Registry::getRegistry()->notifier, &RegistryNotifier::canvasesChanged, this, &Canvas::canvasesChanged);
+}
+
+void Canvas::populateBar(SwitchingBar* bar, QWidget* widget)
+{
+	Canvas* canvas{dynamic_cast<Canvas*>(widget)};
+	if(canvas == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+		return;
+	}
+	bar->addWidget(canvas->nodeSelector);
 }
 
 void Canvas::refetch()
 {
-    CanvasNode* canvas{dynamic_cast<CanvasNode*>(Registry::getRegistry()->intrinsic->nodes[0])};
     delete image;
-    image = canvas->getTexture();
+	image = nullptr;
+	if(node != nullptr)
+	{
+		image = node->getTexture();
+	}
     update();
 }
 
@@ -126,4 +147,40 @@ void Canvas::renderGrid(GLint xMin, GLint yMin, GLint xMax, GLint yMax)
             glVertex2i(xMax, yMin + yOffset + i * gridSize);
         glEnd();
     }
+}
+
+void Canvas::triggered(const QString &text)
+{
+	if(node != nullptr)
+	{
+		QObject::disconnect(node, 0, this, 0);
+	}
+	node = nullptr;
+	std::string name = text.toStdString();
+	for(std::map<CanvasNode*, std::string>::iterator it{Registry::getRegistry()->intrinsic->canvases.begin()}; it != Registry::getRegistry()->intrinsic->canvases.end(); it++)
+	{
+		if(it->second == name)
+		{
+			node = it->first;
+			break;
+		}
+	}
+	if(node != nullptr)
+	{
+		QObject::connect(node, &CanvasNode::imageChanged, this, &Canvas::refetch);
+	}
+	refetch();
+}
+
+void Canvas::canvasesChanged()
+{
+	nodeSelector->clear();
+	for(std::map<CanvasNode*, std::string>::iterator it{Registry::getRegistry()->intrinsic->canvases.begin()}; it != Registry::getRegistry()->intrinsic->canvases.end(); it++)
+	{
+		if(it->first != nullptr)
+		{
+			nodeSelector->insertItem(nodeSelector->count(), QString::fromStdString(it->second));
+		}
+	}
+	nodeSelector->setCurrentText(QString::fromStdString(Registry::getRegistry()->intrinsic->canvases[node]));
 }

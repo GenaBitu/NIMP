@@ -5,6 +5,7 @@
 #include "Registry/RegistryNotifier.hpp"
 
 class Node;
+class CanvasNode;
 
 class Registry
 {
