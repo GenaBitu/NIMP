@@ -7,7 +7,6 @@
 
 Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, node{Registry::getRegistry()->intrinsic->canvases.begin()->first}, image{}, nodeSelector{new QComboBox{}}
 {
-	canvasesChanged();
 	if(node != nullptr)
 	{
 		QObject::connect(node, &CanvasNode::imageChanged, this, &Canvas::refetch);
@@ -47,6 +46,7 @@ void Canvas::initializeGL()
     refetch();
     QColor bg{QWidget::palette().color(QPalette::Background)};
     glClearColor(static_cast<float>(bg.redF()), static_cast<float>(bg.greenF()), static_cast<float>(bg.blueF()), 1.0f);
+	canvasesChanged();
 }
 
 void Canvas::paintGL()
@@ -175,6 +175,10 @@ void Canvas::triggered(const QString &text)
 void Canvas::canvasesChanged()
 {
 	nodeSelector->clear();
+	if(Registry::getRegistry()->intrinsic->canvases.count(node) == 0)
+	{
+		node = nullptr;
+	}
 	for(std::map<CanvasNode*, std::string>::iterator it{Registry::getRegistry()->intrinsic->canvases.begin()}; it != Registry::getRegistry()->intrinsic->canvases.end(); it++)
 	{
 		if(it->first != nullptr)
@@ -182,5 +186,6 @@ void Canvas::canvasesChanged()
 			nodeSelector->insertItem(nodeSelector->count(), QString::fromStdString(it->second));
 		}
 	}
-	nodeSelector->setCurrentText(QString::fromStdString(Registry::getRegistry()->intrinsic->canvases[node]));
+	nodeSelector->setCurrentIndex(nodeSelector->findText(QString::fromStdString(Registry::getRegistry()->intrinsic->canvases[node])));
+	refetch();
 }
