@@ -12,7 +12,7 @@ Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, node{Regist
 	{
 		QObject::connect(node, &CanvasNode::imageChanged, this, &Canvas::refetch);
 	}
-	QObject::connect(nodeSelector, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), this, &Canvas::triggered);
+	QObject::connect(nodeSelector, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::activated), this, &Canvas::triggered);
 	QObject::connect(Registry::getRegistry()->notifier, &RegistryNotifier::canvasesChanged, this, &Canvas::canvasesChanged);
 }
 
