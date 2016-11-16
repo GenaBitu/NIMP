@@ -14,7 +14,7 @@ find_package(Qt5 REQUIRED COMPONENTS Core Widgets OpenGL)
 
 include_directories(include)
 
-set(SOURCE_FILES
+set(HEADER_FILES
     include/Nodes/BMPinput.hpp
     include/Nodes/CanvasNode.hpp
     include/NodeSystem/NodeDataTypes/NodeDataImage.hpp
@@ -74,7 +74,9 @@ set(SOURCE_FILES
     include/Registry.hpp
     include/Texture.hpp
     include/WidgetActions.hpp
-    include/Widgets.hpp
+    include/Widgets.hpp)
+
+set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
     src/Nodes/CanvasNode.cpp
     src/NodeSystem/NodeDataTypes/NodeDataImage.cpp
@@ -127,7 +129,7 @@ set(SOURCE_FILES
 set(RESOURCE_FILES
     images.qrc)
 
-add_executable(NIMP ${SOURCE_FILES} ${RESOURCE_FILES})
+add_executable(NIMP ${HEADER_FILES} ${SOURCE_FILES} ${RESOURCE_FILES})
 
 add_custom_command(
     TARGET NIMP POST_BUILD
