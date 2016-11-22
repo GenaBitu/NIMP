@@ -12,8 +12,8 @@ class RowSelector;
 
 typedef struct
 {
-    ubyte v; // value
-    ubyte a; // alpha
+    float v; // value
+    float a; // alpha
 } MonochromePixel;
 
 #pragma pack(pop)

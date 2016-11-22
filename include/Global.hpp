@@ -19,5 +19,3 @@
 #include <QComboBox>
 
 #include <BlendSplitter.hpp>
-
-typedef unsigned char ubyte;
