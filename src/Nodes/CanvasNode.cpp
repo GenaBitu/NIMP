@@ -29,7 +29,7 @@ Texture* CanvasNode::getTexture()
     {
         Texture* output{new Texture{}};
         glBindTexture(GL_TEXTURE_2D, output->ID);
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, data->width, data->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data->rawData());
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, data->width, data->height, 0, GL_RGBA, GL_FLOAT, data->rawData());
         return output;
     }
     // TODO: DIE HORRIBLY IN FLAMES

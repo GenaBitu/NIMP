@@ -67,10 +67,10 @@ NodeDataImage* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
         for(unsigned int j{0}; j < header.width; j++)
         {
             int offset{static_cast<int>(i * header.height + j)};
-            (*output)[i][j].r = rawData[3 * offset + 2];
-            (*output)[i][j].g = rawData[3 * offset + 1];
-            (*output)[i][j].b = rawData[3 * offset];
-            (*output)[i][j].a = 255;
+            (*output)[i][j].r = static_cast<unsigned char>(rawData[3 * offset + 2]) / 255.0f;
+            (*output)[i][j].g = static_cast<unsigned char>(rawData[3 * offset + 1]) / 255.0f;
+            (*output)[i][j].b = static_cast<unsigned char>(rawData[3 * offset]) / 255.0f;
+            (*output)[i][j].a = 1.0f;
         }
     }
     delete[] rawData;

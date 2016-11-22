@@ -12,10 +12,10 @@ class RowSelector;
 
 typedef struct
 {
-    ubyte r; // red
-    ubyte g; // green
-    ubyte b; // blue
-    ubyte a; // alpha
+    float r; // red
+    float g; // green
+    float b; // blue
+    float a; // alpha
 } ImagePixel;
 
 #pragma pack(pop)
