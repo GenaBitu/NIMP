@@ -75,7 +75,7 @@ set(HEADER_FILES
     include/Texture.hpp
     include/WidgetActions.hpp
     include/Widgets.hpp
-    include/Nodes/KernelConv.hpp)
+    include/Nodes/KernelConvolution.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -126,7 +126,7 @@ set(SOURCE_FILES
     src/Main.cpp
     src/Registry.cpp
     src/Texture.cpp
-    src/Nodes/KernelConv.cpp)
+    src/Nodes/KernelConvolution.cpp)
 
 set(RESOURCE_FILES
     images.qrc)
