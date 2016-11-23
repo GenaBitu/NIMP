@@ -14,7 +14,7 @@ std::string BMPinput::nodeName()
     return "BMP Input";
 }
 
-NodeDataImage* BMPinput::loadBMP(const std::vector<NodeInput*>* const)
+NodeDataImage* BMPinput::loadBMP(const std::vector<NodeInput*>)
 {
     std::string fileName{filename};
     std::ifstream file{fileName, std::ifstream::binary};

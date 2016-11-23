@@ -37,5 +37,5 @@ public:
     virtual std::string nodeName() override;
 private:
     std::string filename;
-    NodeDataImage* loadBMP(const std::vector<NodeInput*>* const);
+    NodeDataImage* loadBMP(const std::vector<NodeInput*>);
 };
