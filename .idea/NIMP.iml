@@ -36,6 +36,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/States/DefaultState.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/WidgetActions/Selectable.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Nodes/BMPinput.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Nodes/KernelConv.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Nodes/CanvasNode.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Registry.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Widgets/NodeEditor/NodeIOConnector.cpp" isTestSource="false" />
@@ -102,6 +103,7 @@
       <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions/States/DraggedState.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/WidgetActions.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/Nodes/CanvasNode.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/include/Nodes/KernelConv.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/Nodes/BMPinput.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/Nodes.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/include/Widgets.hpp" isTestSource="false" />

@@ -74,7 +74,8 @@ set(HEADER_FILES
     include/Registry.hpp
     include/Texture.hpp
     include/WidgetActions.hpp
-    include/Widgets.hpp)
+    include/Widgets.hpp
+    include/Nodes/KernelConv.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -124,7 +125,8 @@ set(SOURCE_FILES
     src/Widgets/NodeEditor.cpp
     src/Main.cpp
     src/Registry.cpp
-    src/Texture.cpp)
+    src/Texture.cpp
+    src/Nodes/KernelConv.cpp)
 
 set(RESOURCE_FILES
     images.qrc)
