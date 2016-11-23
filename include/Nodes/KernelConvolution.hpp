@@ -16,6 +16,6 @@ public:
 private:
 	int kernelSize;
 	float* kernel;
-	NodeDataImage* convolve(const std::vector<NodeInput*>* const);
+	NodeDataImage* convolve(const std::vector<NodeInput*>* const inputs);
 };
 

@@ -15,5 +15,12 @@ std::string KernelConvolution::nodeName()
 	return "Kernel Convolution";
 }
 
-NodeDataImage* KernelConvolution::convolve(const std::vector<NodeInput*>* const)
-{}
+NodeDataImage* KernelConvolution::convolve(const std::vector<NodeInput*>* const inputs)
+{
+	NodeDataImage* input{dynamic_cast<NodeDataImage*>((*inputs)[0]->getData())};
+	if(input == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+		return nullptr;
+	}
+}
