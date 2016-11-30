@@ -53,34 +53,28 @@ void Canvas::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT);
     glLoadIdentity();
-    renderBGCheckerboard((width - IMGwidth) / 2, (height - IMGheight) / 2, (width + IMGwidth) / 2, (height + IMGheight) / 2);
+    GLint xMin{(width - IMGwidth) / 2};
+    GLint yMin{(height - IMGheight) / 2};
+    GLint xMax{(width + IMGwidth) / 2};
+    GLint yMax{(height + IMGheight) / 2};
+    renderBGCheckerboard(xMin, yMin, xMax, yMax);
     if(image != nullptr)
     {
         glBindTexture(GL_TEXTURE_2D, image->ID);
         glBegin(GL_QUADS);
             glColor3ub(255, 255, 255);
             glTexCoord2f(0.0f, 1.0f);
-            glVertex2f(50.0f, 50.0f);
+            glVertex2f(static_cast<GLfloat>(xMin), static_cast<GLfloat>(yMin));
             glTexCoord2f(1.0f, 1.0f);
-            glVertex2f(static_cast<float>(width) - 50.0f, 50.0f);
+            glVertex2f(static_cast<GLfloat>(xMax), static_cast<GLfloat>(yMin));
             glTexCoord2f(1.0f, 0.0f);
-            glVertex2f(static_cast<float>(width) - 50.0f, static_cast<float>(height) - 50.0f);
+            glVertex2f(static_cast<GLfloat>(xMax), static_cast<GLfloat>(yMax));
             glTexCoord2f(0.0f, 0.0f);
-            glVertex2f(50.0f, static_cast<float>(height) - 50.0f);
+            glVertex2f(static_cast<GLfloat>(xMin), static_cast<GLfloat>(yMax));
         glEnd();
     }
     glBindTexture(GL_TEXTURE_2D, 0);
-    glBegin(GL_QUADS);
-        glColor3ub(255, 0, 0);
-        glVertex2f(0.0f, 0.0f);
-        glColor3ub(0, 255, 0);
-        glVertex2f(40.0f, 10.0f);
-        glColor3ub(0, 0, 255);
-        glVertex2f(100.0f, 100.0f);
-        glColor3ub(255, 255, 0);
-        glVertex2f(10.0f, 70.0f);
-    glEnd();
-    renderGrid((width - IMGwidth) / 2, (height - IMGheight) / 2, (width + IMGwidth) / 2, (height + IMGheight) / 2);
+    renderGrid(xMin, yMin, xMax, yMax);
 }
 
 void Canvas::resizeGL(int w, int h)
