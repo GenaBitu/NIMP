@@ -24,18 +24,23 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
         // TODO: DIE HORRIBLY IN FLAMES
         return;
     }
-    QMenu* addNode{new QMenu{"Add node"}};
-    QMenu* addInput{new QMenu{"Input"}};
-    QMenu* addOutput{new QMenu{"Output"}};
-    QAction* addBMP{new QAction{"BMP file", editor}};
-    QAction* addCanvas{new QAction{"Canvas", editor}};
-    QObject::connect(addBMP, &QAction::triggered, []()->void{new BMPinput{"tex2D2.bmp"};});
-    QObject::connect(addCanvas, &QAction::triggered, []()->void{new CanvasNode{};});
-    addInput->addAction(addBMP);
-    addOutput->addAction(addCanvas);
-    addNode->addMenu(addInput);
-    addNode->addMenu(addOutput);
-    bar->addMenu(addNode);
+    QMenu* node{new QMenu{"Add node"}};
+    QMenu* input{new QMenu{"Input"}};
+    QMenu* output{new QMenu{"Output"}};
+    QMenu* effect{new QMenu{"Effect"}};
+    QAction* inputBMP{new QAction{"BMP file", editor}};
+    QAction* outputCanvas{new QAction{"Canvas", editor}};
+    QAction* effectKernel{new QAction{"Kernel convolution", editor}};
+    QObject::connect(inputBMP, &QAction::triggered, []()->void{new BMPinput{"tex2D2.bmp"};});
+    QObject::connect(outputCanvas, &QAction::triggered, []()->void{new CanvasNode{};});
+    QObject::connect(effectKernel, &QAction::triggered, []()->void{new KernelConvolution{};});
+    input->addAction(inputBMP);
+    output->addAction(outputCanvas);
+    effect->addAction(effectKernel);
+    node->addMenu(input);
+    node->addMenu(output);
+    node->addMenu(effect);
+    bar->addMenu(node);
 }
 
 void NodeEditor::addNode(Node* node)

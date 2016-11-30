@@ -9,9 +9,9 @@ public:
     U& operator[](int index);
 private:
     friend T;
-    T* nodeData;
+    T* matrix;
     int row, width;
-    RowSelector(T* nodeData, int row, int width);
+    RowSelector(T* matrix, int row, int width);
 };
 
-#include "../../src/NodeSystem/RowSelector.tpp"
+#include "src/RowSelector.tpp"

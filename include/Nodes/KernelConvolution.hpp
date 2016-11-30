@@ -2,6 +2,8 @@
 
 #include "Global.hpp"
 
+#include "Nodes/KernelConvolution/Kernel.hpp"
+
 #include "NodeSystem/Node.hpp"
 
 class NodeDataImage;
@@ -14,8 +16,7 @@ public:
 	KernelConvolution();
 	virtual std::string nodeName() override;
 private:
-	int kernelSize;
-	float* kernel;
+	Kernel* kernel;
 	NodeDataImage* convolve(const std::vector<NodeInput*> inputs);
 };
 

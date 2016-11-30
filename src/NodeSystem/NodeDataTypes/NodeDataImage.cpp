@@ -1,6 +1,6 @@
 #include "NodeSystem/NodeDataTypes/NodeDataImage.hpp"
 
-#include "NodeSystem/RowSelector.hpp"
+#include "RowSelector.hpp"
 
 NodeDataImage::NodeDataImage(int width, int height) : width{width}, height{height}, data{new ImagePixel[width * height]} {}
 

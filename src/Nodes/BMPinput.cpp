@@ -1,7 +1,7 @@
 #include "Nodes/BMPinput.hpp"
 
 #include "NodeSystem/NodeOutputTypes/NodeOutputImage.hpp"
-#include "NodeSystem/RowSelector.hpp"
+#include "RowSelector.hpp"
 
 BMPinput::BMPinput(std::string filename, int x, int y) : Node(x, y), filename{filename}
 {

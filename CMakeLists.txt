@@ -39,7 +39,7 @@ set(HEADER_FILES
     include/NodeSystem/NodeIO.hpp
     include/NodeSystem/NodeOutput.hpp
     include/NodeSystem/NodeOutputTypes.hpp
-    include/NodeSystem/RowSelector.hpp
+    include/RowSelector.hpp
     include/Registry/ExtrinsicRegistry.hpp
     include/Registry/GuiSettings.hpp
     include/Registry/IntrinsicRegistry.hpp
@@ -75,7 +75,9 @@ set(HEADER_FILES
     include/Texture.hpp
     include/WidgetActions.hpp
     include/Widgets.hpp
-    include/Nodes/KernelConvolution.hpp)
+    include/Nodes/KernelConvolution.hpp
+    include/Matrix.hpp
+    include/Nodes/KernelConvolution/Kernel.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -126,7 +128,8 @@ set(SOURCE_FILES
     src/Main.cpp
     src/Registry.cpp
     src/Texture.cpp
-    src/Nodes/KernelConvolution.cpp)
+    src/Nodes/KernelConvolution.cpp
+    src/Nodes/KernelConvolution/Kernel.cpp)
 
 set(RESOURCE_FILES
     images.qrc)

@@ -8,4 +8,5 @@
 #include "WidgetActions.hpp"
 
 #include "Registry.hpp"
+#include "RowSelector.hpp"
 #include "Texture.hpp"

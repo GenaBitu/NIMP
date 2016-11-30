@@ -3,6 +3,7 @@
 #include <fstream> // DEBUG
 #include <functional>
 #include <unordered_set>
+#include <type_traits>
 
 #include <glm/common.hpp>
 
