@@ -18,11 +18,13 @@ float Kernel::sum()
 void Kernel::normalize()
 {
     float divisor{sum()};
-    for(int i{0}; i < width; i++)
+    if(std::abs(divisor) > 0.001)
     {
-        for(int j{0}; j < height; j++)
+        for(int i{0}; i < width; i++)
         {
-            (*this)[i][j] /= divisor;
+            for (int j{0}; j < height; j++) {
+                (*this)[i][j] /= divisor;
+            }
         }
     }
 }

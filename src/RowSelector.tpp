@@ -8,5 +8,13 @@ RowSelector<T, U>::RowSelector(T* matrix, int row, int width) : matrix{matrix}, 
 template<class T, class U>
 U& RowSelector<T, U>::operator[](int index)
 {
-    return matrix->data[row * width + index];
+    if((index >= 0) and (index < width))
+    {
+        return matrix->data[row * width + index];
+    }
+    else
+    {
+        // TODO: DIE HORRIBLY IN FLAMES
+        return matrix->data[0];
+    }
 }
