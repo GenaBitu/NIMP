@@ -13,7 +13,7 @@ public:
     const int width;
     const int height;
     RowSelector<Matrix<T>, T> operator[](int index);
-private:
+protected:
     friend RowSelector<Matrix<T>, T>;
     T* data;
 };

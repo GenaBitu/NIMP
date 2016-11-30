@@ -8,15 +8,7 @@ KernelConvolution::KernelConvolution() : kernel{new Kernel{3}}
 	inputs.push_back(new NodeInputImage{this, "Image"});
 	outputs.push_back(new NodeOutputImage{this, "Image"});
     relations.push_back(std::bind(&KernelConvolution::convolve, this, std::placeholders::_1));
-	(*kernel)[0][0] = 1;
-	(*kernel)[0][1] = 2;
-	(*kernel)[0][2] = 1;
-	(*kernel)[1][0] = 2;
-	(*kernel)[1][1] = 4;
-	(*kernel)[1][2] = 2;
-	(*kernel)[2][0] = 1;
-	(*kernel)[2][1] = 2;
-	(*kernel)[2][2] = 1;
+	kernel->set({1, 2, 1, 2, 4, 2, 1, 2, 1});
 	kernel->normalize();
 }
 
