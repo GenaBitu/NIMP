@@ -30,13 +30,13 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QMenu* effect{new QMenu{"Effect"}};
     QAction* inputBMP{new QAction{"BMP file", editor}};
     QAction* outputCanvas{new QAction{"Canvas", editor}};
-    QAction* effectKernel{new QAction{"Kernel convolution", editor}};
+    QAction* effectGaussianBlur{new QAction{"Gaussian blur", editor}};
     QObject::connect(inputBMP, &QAction::triggered, []()->void{new BMPinput{"tex2D2.bmp"};});
     QObject::connect(outputCanvas, &QAction::triggered, []()->void{new CanvasNode{};});
-    QObject::connect(effectKernel, &QAction::triggered, []()->void{new KernelConvolution{};});
+    QObject::connect(effectGaussianBlur, &QAction::triggered, []()->void{new GaussianBlur{};});
     input->addAction(inputBMP);
     output->addAction(outputCanvas);
-    effect->addAction(effectKernel);
+    effect->addAction(effectGaussianBlur);
     node->addMenu(input);
     node->addMenu(output);
     node->addMenu(effect);

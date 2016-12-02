@@ -13,10 +13,10 @@ class KernelConvolution : public Node
 	Q_OBJECT
 	Q_DISABLE_COPY(KernelConvolution)
 public:
-	KernelConvolution();
-	virtual std::string nodeName() override;
-private:
+	KernelConvolution(int kernelSize);
+protected:
 	Kernel* kernel;
+private:
 	NodeDataImage* convolve(const std::vector<NodeInput*> inputs);
 };
 

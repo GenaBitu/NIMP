@@ -3,18 +3,11 @@
 #include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
 #include "NodeSystem/NodeOutputTypes/NodeOutputImage.hpp"
 
-KernelConvolution::KernelConvolution() : kernel{new Kernel{3}}
+KernelConvolution::KernelConvolution(int kernelSize) : kernel{new Kernel{kernelSize}}
 {
 	inputs.push_back(new NodeInputImage{this, "Image"});
 	outputs.push_back(new NodeOutputImage{this, "Image"});
     relations.push_back(std::bind(&KernelConvolution::convolve, this, std::placeholders::_1));
-	kernel->set({1, 2, 1, 2, 4, 2, 1, 2, 1});
-	kernel->normalize();
-}
-
-std::string KernelConvolution::nodeName()
-{
-	return "Kernel Convolution";
 }
 
 NodeDataImage* KernelConvolution::convolve(const std::vector<NodeInput*> inputs)
