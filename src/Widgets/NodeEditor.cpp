@@ -32,14 +32,17 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QAction* outputCanvas{new QAction{"Canvas", editor}};
     QAction* effectGaussianBlur{new QAction{"Gaussian blur", editor}};
     QAction* effectSharpen{new QAction{"Sharpen", editor}};
+    QAction* effectUnsharp{new QAction{"Unsharp mask", editor}};
     QObject::connect(inputBMP, &QAction::triggered, []()->void{new BMPinput{"tex2D2.bmp"};});
     QObject::connect(outputCanvas, &QAction::triggered, []()->void{new CanvasNode{};});
     QObject::connect(effectGaussianBlur, &QAction::triggered, []()->void{new GaussianBlur{};});
     QObject::connect(effectSharpen, &QAction::triggered, []()->void{new Sharpen{};});
+    QObject::connect(effectUnsharp, &QAction::triggered, []()->void{new Unsharp{};});
     input->addAction(inputBMP);
     output->addAction(outputCanvas);
     effect->addAction(effectGaussianBlur);
     effect->addAction(effectSharpen);
+    effect->addAction(effectUnsharp);
     node->addMenu(input);
     node->addMenu(output);
     node->addMenu(effect);
