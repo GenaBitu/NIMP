@@ -81,7 +81,8 @@ set(HEADER_FILES
     include/Nodes/GaussianBlur.hpp
     include/Nodes/Sharpen.hpp
     include/Nodes/Unsharp.hpp
-    include/Nodes/EdgeDetect.hpp)
+    include/Nodes/EdgeDetect.hpp
+    include/Nodes/BoxBlur.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -137,7 +138,8 @@ set(SOURCE_FILES
     src/Nodes/GaussianBlur.cpp
     src/Nodes/Sharpen.cpp
     src/Nodes/Unsharp.cpp
-    src/Nodes/EdgeDetect.cpp)
+    src/Nodes/EdgeDetect.cpp
+    src/Nodes/BoxBlur.cpp)
 
 set(RESOURCE_FILES
     images.qrc)

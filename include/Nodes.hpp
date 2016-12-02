@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Nodes/BMPinput.hpp"
+#include "Nodes/BoxBlur.hpp"
 #include "Nodes/CanvasNode.hpp"
 #include "Nodes/EdgeDetect.hpp"
 #include "Nodes/GaussianBlur.hpp"
