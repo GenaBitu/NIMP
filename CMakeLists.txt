@@ -78,7 +78,8 @@ set(HEADER_FILES
     include/Nodes/KernelConvolution.hpp
     include/Matrix.hpp
     include/Nodes/KernelConvolution/Kernel.hpp
-    include/Nodes/GaussianBlur.hpp)
+    include/Nodes/GaussianBlur.hpp
+    include/Nodes/Sharpen.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -131,7 +132,8 @@ set(SOURCE_FILES
     src/Texture.cpp
     src/Nodes/KernelConvolution.cpp
     src/Nodes/KernelConvolution/Kernel.cpp
-    src/Nodes/GaussianBlur.cpp)
+    src/Nodes/GaussianBlur.cpp
+    src/Nodes/Sharpen.cpp)
 
 set(RESOURCE_FILES
     images.qrc)

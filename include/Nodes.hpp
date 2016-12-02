@@ -4,3 +4,4 @@
 #include "Nodes/CanvasNode.hpp"
 #include "Nodes/GaussianBlur.hpp"
 #include "Nodes/KernelConvolution.hpp"
+#include "Nodes/Sharpen.hpp"

@@ -31,12 +31,15 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QAction* inputBMP{new QAction{"BMP file", editor}};
     QAction* outputCanvas{new QAction{"Canvas", editor}};
     QAction* effectGaussianBlur{new QAction{"Gaussian blur", editor}};
+    QAction* effectSharpen{new QAction{"Sharpen", editor}};
     QObject::connect(inputBMP, &QAction::triggered, []()->void{new BMPinput{"tex2D2.bmp"};});
     QObject::connect(outputCanvas, &QAction::triggered, []()->void{new CanvasNode{};});
     QObject::connect(effectGaussianBlur, &QAction::triggered, []()->void{new GaussianBlur{};});
+    QObject::connect(effectSharpen, &QAction::triggered, []()->void{new Sharpen{};});
     input->addAction(inputBMP);
     output->addAction(outputCanvas);
     effect->addAction(effectGaussianBlur);
+    effect->addAction(effectSharpen);
     node->addMenu(input);
     node->addMenu(output);
     node->addMenu(effect);
