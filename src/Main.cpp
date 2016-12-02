@@ -38,6 +38,7 @@ int main(int argc, char** argv)
     WidgetRegistry::getRegistry()->setDefault(4);
 
     Registry::getRegistry()->extrinsic->splitter->addWidget();
+    Registry::getRegistry()->extrinsic->splitter->addWidget(WidgetRegistry::getRegistry()->item(3));
 
     Registry::getRegistry()->extrinsic->window->show();
 
