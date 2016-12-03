@@ -32,7 +32,7 @@ void NodePath::reposition()
     QPainterPathStroker stroker;
     stroker.setWidth(Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathClickableWidth"]);
     QPainterPath thick{stroker.createStroke(*path)};
-    setMask(thick.toFillPolygon().toPolygon());
+    setMask(QPolygonF{thick.boundingRect()}.toPolygon());
     state->changeMask(&thick);
     update();
 }
