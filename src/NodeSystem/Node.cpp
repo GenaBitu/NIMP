@@ -4,8 +4,9 @@
 #include "NodeSystem/NodeOutput.hpp"
 #include "Registry.hpp"
 #include "NodeSystem/NodeInterface.hpp"
+#include "NodeSystem/NodeNotifier.hpp"
 
-Node::Node(int x, int y) : inputs{}, outputs{}, interfaces{}, relations{}, pos{QPoint{x, y}}
+Node::Node(int x, int y) : inputs{}, outputs{}, interfaces{}, relations{}, notifier{new NodeNotifier{}}, pos{QPoint{x, y}}
 {
     Registry::getRegistry()->intrinsic->nodes.push_back(this);
     emit Registry::getRegistry()->notifier->nodeAdded(this);
@@ -41,13 +42,13 @@ QPoint Node::getPos() const
 void Node::setPos(QPoint pos)
 {
     this->pos = pos;
-    emit moved();
+    notifier->moved();
 }
 
 void Node::setPos(int x, int y)
 {
     pos = QPoint{x, y};
-    emit moved();
+    notifier->moved();
 }
 
 Node::~Node()
@@ -82,5 +83,5 @@ Node::~Node()
     }
     std::vector<Node*>& vec{Registry::getRegistry()->intrinsic->nodes};
     vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
-    emit deleted();
+    notifier->deleted();
 }

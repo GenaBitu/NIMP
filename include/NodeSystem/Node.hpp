@@ -6,15 +6,16 @@ class NodeData;
 class NodeInput;
 class NodeOutput;
 class NodeInterface;
+class NodeNotifier;
 
-class Node : public QObject
+class Node
 {
-    Q_OBJECT
 public:
     std::vector<NodeInput*> inputs;
     std::vector<NodeOutput*> outputs;
     std::vector<NodeInterface*> interfaces;
     std::vector<std::function<NodeData*(const std::vector<NodeInput*>)> > relations;
+    const NodeNotifier* const notifier;
     Node(int x = 10, int y = 10);
     static void connect(Node* from, int numOutput, Node* to, int numInput);
     static void connect(NodeOutput* from, NodeInput* to);
@@ -25,9 +26,6 @@ public:
     void setPos(QPoint pos);
     void setPos(int x, int y);
     virtual ~Node();
-signals:
-    void moved();
-    void deleted();
 private:
     QPoint pos;
 };

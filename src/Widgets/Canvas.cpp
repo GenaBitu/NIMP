@@ -1,15 +1,16 @@
-#include <include/NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.hpp>
 #include "Widgets/Canvas.hpp"
 
+#include "NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.hpp"
 #include "Texture.hpp"
 #include "Nodes/CanvasNode.hpp"
 #include "Registry.hpp"
+#include "NodeSystem/NodeNotifier.hpp"
 
 Canvas::Canvas() : width{}, height{}, IMGwidth{500}, IMGheight{500}, node{Registry::getRegistry()->intrinsic->canvases.begin()->first}, image{}, nodeSelector{new QComboBox{}}
 {
 	if(node != nullptr)
 	{
-		QObject::connect(node, &CanvasNode::imageChanged, this, &Canvas::refetch);
+		QObject::connect(node->notifier, &NodeNotifier::QtImageChanged, this, &Canvas::refetch);
 	}
 	QObject::connect(nodeSelector, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::activated), this, &Canvas::triggered);
 	QObject::connect(Registry::getRegistry()->notifier, &RegistryNotifier::canvasesChanged, this, &Canvas::canvasesChanged);
@@ -147,7 +148,7 @@ void Canvas::triggered(const QString &text)
 {
 	if(node != nullptr)
 	{
-		QObject::disconnect(node, 0, this, 0);
+		QObject::disconnect(node->notifier, 0, this, 0);
 	}
 	node = nullptr;
 	std::string name = text.toStdString();
@@ -161,7 +162,7 @@ void Canvas::triggered(const QString &text)
 	}
 	if(node != nullptr)
 	{
-		QObject::connect(node, &CanvasNode::imageChanged, this, &Canvas::refetch);
+		QObject::connect(node->notifier, &NodeNotifier::QtImageChanged, this, &Canvas::refetch);
 	}
 	refetch();
 }

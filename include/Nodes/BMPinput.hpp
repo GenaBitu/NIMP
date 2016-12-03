@@ -31,7 +31,6 @@ class NodeDataImage;
 
 class BMPinput : public Node
 {
-    Q_OBJECT
 public:
     BMPinput(std::string filename, int x = 10, int y = 10);
     virtual std::string nodeName() override;

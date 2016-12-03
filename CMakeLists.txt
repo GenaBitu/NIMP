@@ -82,7 +82,8 @@ set(HEADER_FILES
     include/Nodes/Sharpen.hpp
     include/Nodes/Unsharp.hpp
     include/Nodes/EdgeDetect.hpp
-    include/Nodes/BoxBlur.hpp)
+    include/Nodes/BoxBlur.hpp
+    include/NodeSystem/NodeNotifier.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -139,7 +140,8 @@ set(SOURCE_FILES
     src/Nodes/Sharpen.cpp
     src/Nodes/Unsharp.cpp
     src/Nodes/EdgeDetect.cpp
-    src/Nodes/BoxBlur.cpp)
+    src/Nodes/BoxBlur.cpp
+    src/NodeSystem/NodeNotifier.cpp)
 
 set(RESOURCE_FILES
     images.qrc)

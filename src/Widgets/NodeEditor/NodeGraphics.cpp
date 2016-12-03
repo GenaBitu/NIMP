@@ -1,6 +1,7 @@
 #include "Widgets/NodeEditor/NodeGraphics.hpp"
 
 #include "NodeSystem/Node.hpp"
+#include "NodeSystem/NodeNotifier.hpp"
 #include "Registry.hpp"
 #include "WidgetActions/States/ActionState.hpp"
 #include "Widgets/NodeEditor.hpp"
@@ -15,8 +16,8 @@ NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), 
     move(node->getPos());
     show();
     (*state->palette)["border"] = std::make_tuple("NodeBorder", "NodeBorderActive");
-    QObject::connect(node, &Node::moved, this, &NodeGraphics::reposition);
-    QObject::connect(node, &Node::deleted, this, &NodeGraphics::destruct);
+    QObject::connect(node->notifier, &NodeNotifier::QtMoved, this, &NodeGraphics::reposition);
+    QObject::connect(node->notifier, &NodeNotifier::QtDeleted, this, &NodeGraphics::destruct);
 }
 
 void NodeGraphics::addInterfaces()

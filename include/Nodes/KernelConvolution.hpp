@@ -10,8 +10,6 @@ class NodeDataImage;
 
 class KernelConvolution : public Node
 {
-	Q_OBJECT
-	Q_DISABLE_COPY(KernelConvolution)
 public:
 	KernelConvolution(int kernelSize);
 protected:
