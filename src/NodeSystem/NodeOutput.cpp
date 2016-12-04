@@ -1,6 +1,7 @@
 #include "NodeSystem/NodeOutput.hpp"
 
 #include "NodeSystem/Node.hpp"
+#include "NodeSystem/NodeIONotifier.hpp"
 
 const std::unordered_set<NodeInput*>& NodeOutput::getConnections()
 {
@@ -10,13 +11,13 @@ const std::unordered_set<NodeInput*>& NodeOutput::getConnections()
 void NodeOutput::setConnection(NodeInput* connection)
 {
     connections.insert(connection);
-    emit reconnected();
+    notifier->reconnected();
 }
 
 void NodeOutput::removeConnection(NodeInput* connection)
 {
     connections.erase(connection);
-    emit reconnected();
+    notifier->reconnected();
 }
 
 NodeOutput::~NodeOutput() {}

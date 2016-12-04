@@ -11,6 +11,7 @@
 #include "NodeSystem/NodeInterface.hpp"
 #include "NodeSystem/NodeInterfaceNotifier.hpp"
 #include "NodeSystem/NodeIO.hpp"
+#include "NodeSystem/NodeIONotifier.hpp"
 #include "NodeSystem/NodeNotifier.hpp"
 #include "NodeSystem/NodeOutput.hpp"
 

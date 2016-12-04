@@ -6,6 +6,8 @@
 #include "Widgets/Canvas.hpp"
 #include "Registry.hpp"
 #include "NodeSystem/NodeNotifier.hpp"
+#include "NodeSystem/NodeInterfaceNotifier.hpp"
+#include "NodeSystem/NodeIONotifier.hpp"
 
 CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 {
@@ -13,7 +15,7 @@ CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 	NodeInterfaceUniqueString* interface{new NodeInterfaceUniqueString{this, "Display?"}};
     interfaces.push_back(interface);
 	Registry::getRegistry()->intrinsic->canvases[this] = interface->getValue();
-	QObject::connect(inputs[0], &NodeInput::reconnected, [this]()->void{this->inputsReconnected();});
+	QObject::connect(inputs[0]->notifier, &NodeIONotifier::QtReconnected, [this]()->void{this->inputsReconnected();});
 	QObject::connect(interface->notifier, &NodeInterfaceNotifier::QtValueChanged, [this]()->void{this->nameChanged();});
 	emit Registry::getRegistry()->notifier->canvasesChanged();
 }

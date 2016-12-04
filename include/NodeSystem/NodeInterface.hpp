@@ -2,7 +2,7 @@
 
 #include "Global.hpp"
 
-#include "NodeSystem/NodeInterfaceNotifier.hpp"
+class NodeInterfaceNotifier;
 
 class Node;
 

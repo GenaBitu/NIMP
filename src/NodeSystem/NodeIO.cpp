@@ -1,5 +1,7 @@
 #include "NodeSystem/NodeIO.hpp"
 
-NodeIO::NodeIO(Node* parent, std::string name) : QObject{}, name{name}, parent{parent} {}
+#include "NodeSystem/NodeIONotifier.hpp"
+
+NodeIO::NodeIO(Node* parent, std::string name) : name{name}, notifier{new NodeIONotifier{}}, parent{parent} {}
 
 NodeIO::~NodeIO() {}

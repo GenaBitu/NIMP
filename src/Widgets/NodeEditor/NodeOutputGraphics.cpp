@@ -3,13 +3,14 @@
 #include "NodeSystem/NodeOutput.hpp"
 #include "Registry.hpp"
 #include "Widgets/NodeEditor.hpp"
+#include "NodeSystem/NodeIONotifier.hpp"
 
 NodeOutputGraphics::NodeOutputGraphics(NodeGraphics* parent, NodeOutput* output, int y) : QWidget(parent), connections{}, output{output}, connector{new NodeIOConnector{this, parentWidget()->width() - Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]}}
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
     show();
-    QObject::connect(output, &NodeOutput::reconnected, this, &NodeOutputGraphics::reconnect);
+    QObject::connect(output->notifier, &NodeIONotifier::QtReconnected, this, &NodeOutputGraphics::reconnect);
 }
 
 void NodeOutputGraphics::connect()

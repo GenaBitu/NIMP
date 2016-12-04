@@ -2,6 +2,7 @@
 
 #include "NodeSystem/NodeInterfaceTypes/NodeInterfaceString.hpp"
 #include "Registry.hpp"
+#include "NodeSystem/NodeInterfaceNotifier.hpp"
 
 NodeInterfaceStringGraphics::NodeInterfaceStringGraphics(NodeGraphics* parent, NodeInterfaceString* interface, int y) : NodeInterfaceGraphics{parent, y}, interface{interface}, textbox{new QLineEdit{QString::fromStdString(interface->getValue()), this}}
 {

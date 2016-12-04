@@ -1,5 +1,7 @@
 #include "NodeSystem/NodeInterfaceTypes/NodeInterfaceString.hpp"
 
+#include "NodeSystem/NodeInterfaceNotifier.hpp"
+
 NodeInterfaceString::NodeInterfaceString(Node* parent, std::string name, std::string value) : NodeInterface{parent, name}, value{value} {}
 
 const std::string& NodeInterfaceString::getValue()

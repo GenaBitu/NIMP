@@ -4,13 +4,14 @@
 #include "NodeSystem/NodeInput.hpp"
 #include "Registry.hpp"
 #include "Widgets/NodeEditor.hpp"
+#include "NodeSystem/NodeIONotifier.hpp"
 
 NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), connection{}, input{input}, connector{new NodeIOConnector{this}}
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);
     show();
-    QObject::connect(input, &NodeInput::reconnected, this, &NodeInputGraphics::reconnect);
+    QObject::connect(input->notifier, &NodeIONotifier::QtReconnected, this, &NodeInputGraphics::reconnect);
 }
 
 void NodeInputGraphics::connect()

@@ -1,6 +1,7 @@
 #include "NodeSystem/NodeInput.hpp"
 
 #include "NodeSystem/NodeOutput.hpp"
+#include "NodeSystem/NodeIONotifier.hpp"
 
 NodeInput::NodeInput(Node* parent, std::string name) : NodeIO{parent, name}, connection{} {}
 
@@ -21,7 +22,7 @@ void NodeInput::setConnection(NodeOutput* connection)
         this->connection->removeConnection(this);
     }
     this->connection = connection;
-    emit reconnected();
+    notifier->reconnected();
 }
 
 void NodeInput::removeConnection(NodeOutput* connection)
@@ -29,7 +30,7 @@ void NodeInput::removeConnection(NodeOutput* connection)
     if(this->connection == connection)
     {
         this->connection = nullptr;
-        emit reconnected();
+        notifier->reconnected();
     }
 }
 

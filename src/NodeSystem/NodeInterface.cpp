@@ -1,5 +1,7 @@
 #include "NodeSystem/NodeInterface.hpp"
 
+#include "NodeSystem/NodeInterfaceNotifier.hpp"
+
 NodeInterface::~NodeInterface()
 {
 	delete notifier;

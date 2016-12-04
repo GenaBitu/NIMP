@@ -2,19 +2,19 @@
 
 #include "Global.hpp"
 
+class NodeIONotifier;
 class Node;
 class NodeData;
 
-class NodeIO : public QObject
+class NodeIO
 {
-    Q_OBJECT
-    Q_DISABLE_COPY(NodeIO)
 public:
     std::string name;
+	const NodeIONotifier* const notifier;
 protected:
+	const Node* parent;
     NodeIO() = delete;
     NodeIO(Node* parent, std::string name);
-    const Node* parent;
     virtual NodeData* getData() = 0;
     ~NodeIO();
 };

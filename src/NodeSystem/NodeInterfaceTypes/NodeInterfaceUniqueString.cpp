@@ -1,5 +1,7 @@
 #include "NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.hpp"
 
+#include "NodeSystem/NodeInterfaceNotifier.hpp"
+
 std::map<int, std::map<NodeInterfaceUniqueString*, std::string> > NodeInterfaceUniqueString::values{};
 
 NodeInterfaceUniqueString::NodeInterfaceUniqueString(Node* parent, std::string name, std::string value, int group) : NodeInterface{parent, name}, group{group}

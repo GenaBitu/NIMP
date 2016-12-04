@@ -84,7 +84,8 @@ set(HEADER_FILES
     include/Nodes/EdgeDetect.hpp
     include/Nodes/BoxBlur.hpp
     include/NodeSystem/NodeNotifier.hpp
-    include/NodeSystem/NodeInterfaceNotifier.hpp)
+    include/NodeSystem/NodeInterfaceNotifier.hpp
+    include/NodeSystem/NodeIONotifier.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -143,7 +144,8 @@ set(SOURCE_FILES
     src/Nodes/EdgeDetect.cpp
     src/Nodes/BoxBlur.cpp
     src/NodeSystem/NodeNotifier.cpp
-    src/NodeSystem/NodeInterfaceNotifier.cpp)
+    src/NodeSystem/NodeInterfaceNotifier.cpp
+    src/NodeSystem/NodeIONotifier.cpp)
 
 set(RESOURCE_FILES
     images.qrc)

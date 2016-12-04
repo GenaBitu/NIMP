@@ -5,6 +5,7 @@
 #include "Registry.hpp"
 #include "NodeSystem/NodeInterface.hpp"
 #include "NodeSystem/NodeNotifier.hpp"
+#include "NodeSystem/NodeIONotifier.hpp"
 
 Node::Node(int x, int y) : inputs{}, outputs{}, interfaces{}, relations{}, notifier{new NodeNotifier{}}, pos{QPoint{x, y}}
 {
@@ -74,7 +75,7 @@ Node::~Node()
         if((*it)->connection != nullptr)
         {
             (*it)->connection->connections.erase(*it);
-            emit (*it)->connection->reconnected();
+            (*it)->connection->notifier->reconnected();
         }
         delete (*it);
         it = inputs.erase(it);
@@ -86,7 +87,7 @@ Node::~Node()
             if((*jt)->connection == (*it))
             {
                 (*jt)->connection = nullptr;
-                emit (*jt)->reconnected();
+                (*jt)->notifier->reconnected();
             }
         }
         delete (*it);

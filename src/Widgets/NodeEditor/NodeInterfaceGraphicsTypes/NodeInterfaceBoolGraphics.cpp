@@ -2,6 +2,7 @@
 
 #include "NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.hpp"
 #include "Registry.hpp"
+#include "NodeSystem/NodeInterfaceNotifier.hpp"
 
 NodeInterfaceBoolGraphics::NodeInterfaceBoolGraphics(NodeGraphics* parent, NodeInterfaceBool* interface, int y) : NodeInterfaceGraphics{parent, y}, interface{interface}, checkbox{new QCheckBox{QString::fromStdString(interface->name), this}}
 {
