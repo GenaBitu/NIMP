@@ -10,6 +10,15 @@ NodeData* NodeInput::getData()
     return connection != nullptr ? connection->getData() : nullptr;
 }
 
+bool NodeInput::loopCheck(NodeInput* origin)
+{
+	if(origin == this)
+	{
+		return true;
+	}
+	return connection != nullptr ? connection->loopCheck(origin) : false;
+}
+
 const NodeOutput* NodeInput::getConnection() const
 {
     return connection;

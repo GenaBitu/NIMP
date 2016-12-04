@@ -18,6 +18,7 @@ protected:
     friend NodeInput;
     NodeOutput(Node* parent, std::string name);
     virtual NodeData* getData() override;
+	virtual bool loopCheck(NodeInput* origin) override;
 private:
     std::unordered_set<NodeInput*> connections;
 };

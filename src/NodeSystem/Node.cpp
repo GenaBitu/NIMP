@@ -31,8 +31,11 @@ void Node::connect(Node* from, int numOutput, Node* to, int numInput)
 
 void Node::connect(NodeOutput* from, NodeInput* to)
 {
-    from->setConnection(to);
-    to->setConnection(from);
+	if(!from->loopCheck(to))
+	{
+		from->setConnection(to);
+		to->setConnection(from);
+	}
 }
 
 void Node::disconnect(Node* from, int numOutput, Node* to, int numInput)

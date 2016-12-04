@@ -10,6 +10,7 @@ class NodeInput : public NodeIO
 {
 public:
     virtual NodeData* getData() override;
+	virtual bool loopCheck(NodeInput* origin) override;
     const NodeOutput* getConnection() const;
     void setConnection(NodeOutput* connection);
     void removeConnection(NodeOutput* connection);

@@ -2,6 +2,7 @@
 
 #include "NodeSystem/Node.hpp"
 #include "NodeSystem/NodeIONotifier.hpp"
+#include "NodeSystem/NodeInput.hpp"
 
 const std::unordered_set<NodeInput*>& NodeOutput::getConnections()
 {
@@ -28,4 +29,16 @@ NodeData* NodeOutput::getData()
 {
     long int index{std::distance(parent->outputs.begin(), std::find(parent->outputs.begin(), parent->outputs.end(), this))};
     return parent->relations[index](parent->inputs);
+}
+
+bool NodeOutput::loopCheck(NodeInput* origin)
+{
+	for(std::vector<NodeInput*>::const_iterator it{parent->inputs.begin()}; it != parent->inputs.end(); it++)
+	{
+		if((*it)->loopCheck(origin))
+		{
+			return true;
+		}
+	}
+	return false;
 }
