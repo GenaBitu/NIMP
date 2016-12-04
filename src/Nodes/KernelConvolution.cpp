@@ -10,6 +10,39 @@ KernelConvolution::KernelConvolution(int kernelSize) : kernel{new Kernel{kernelS
     relations.push_back(std::bind(&KernelConvolution::convolve, this, std::placeholders::_1));
 }
 
+KernelConvolution::KernelConvolution(const KernelConvolution& other) : KernelConvolution{other.kernel->getWidth()}
+{
+	kernel = new Kernel{*(other.kernel)};
+}
+
+KernelConvolution::KernelConvolution(KernelConvolution&& other) : KernelConvolution{}
+{
+	swap(*this, other);
+}
+
+KernelConvolution& KernelConvolution::operator=(const KernelConvolution& other)
+{
+	if(this != &other)
+	{
+		delete kernel;
+		kernel = new Kernel{*(other.kernel)};
+	}
+	return *this;
+}
+
+KernelConvolution& KernelConvolution::operator=(KernelConvolution&& other)
+{
+	swap(*this, other);
+	return *this;
+}
+
+void swap(KernelConvolution& first, KernelConvolution& second)
+{
+	using std::swap;
+	swap(static_cast<Node&>(first), static_cast<Node&>(second));
+	swap(first.kernel, second.kernel);
+}
+
 NodeDataImage* KernelConvolution::convolve(const std::vector<NodeInput*> inputs)
 {
 	NodeDataImage* input{dynamic_cast<NodeDataImage*>(inputs[0]->getData())};
@@ -19,7 +52,7 @@ NodeDataImage* KernelConvolution::convolve(const std::vector<NodeInput*> inputs)
 		// TODO: DIE HORRIBLY IN FLAMES
 		return nullptr;
 	}
-	int offset{kernel->width / 2};
+	int offset{kernel->getWidth() / 2};
     for(int i{0}; i < input->width; i++)
 	{
 		for(int j{0}; j < input->height; j++)
@@ -28,9 +61,9 @@ NodeDataImage* KernelConvolution::convolve(const std::vector<NodeInput*> inputs)
 			(*output)[i][j].g = 0;
 			(*output)[i][j].b = 0;
 			(*output)[i][j].a = (*input)[i][j].a;
-			for(int k{0}; k < kernel->width; k++)
+			for(int k{0}; k < kernel->getWidth(); k++)
 			{
-				for(int l{0}; l < kernel->height; l++)
+				for(int l{0}; l < kernel->getHeight(); l++)
 				{
                     int x{i - offset + k};
                     int y{j - offset + l};

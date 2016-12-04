@@ -15,8 +15,11 @@ public:
     std::vector<NodeOutput*> outputs;
     std::vector<NodeInterface*> interfaces;
     std::vector<std::function<NodeData*(const std::vector<NodeInput*>)> > relations;
-    const NodeNotifier* const notifier;
+    const NodeNotifier* notifier;
     Node(int x = 10, int y = 10);
+    Node(const Node& other) = delete;
+    Node& operator=(const Node& other) = delete;
+	friend void swap(Node& first, Node& second);
     static void connect(Node* from, int numOutput, Node* to, int numInput);
     static void connect(NodeOutput* from, NodeInput* to);
     static void disconnect(Node* from, int numOutput, Node* to, int numInput);

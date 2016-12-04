@@ -12,7 +12,7 @@ void Kernel::set(std::initializer_list<float> list)
     int i{0};
     for(std::initializer_list<float>::iterator it{list.begin()}; it != list.end(); it++)
     {
-        if(i >= width * height)
+        if(i >= getWidth() * getHeight())
         {
             break;
         }
@@ -24,9 +24,9 @@ void Kernel::set(std::initializer_list<float> list)
 float Kernel::sum()
 {
     float sum{0};
-    for(int i{0}; i < width; i++)
+    for(int i{0}; i < getWidth(); i++)
     {
-        for(int j{0}; j < height; j++)
+        for(int j{0}; j < getHeight(); j++)
         {
             sum += (*this)[i][j];
         }
@@ -39,9 +39,9 @@ void Kernel::normalize()
     float divisor{sum()};
     if(std::abs(divisor) > 0.001)
     {
-        for(int i{0}; i < width; i++)
+        for(int i{0}; i < getWidth(); i++)
         {
-            for (int j{0}; j < height; j++) {
+            for (int j{0}; j < getHeight(); j++) {
                 (*this)[i][j] /= divisor;
             }
         }

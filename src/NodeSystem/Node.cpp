@@ -12,6 +12,17 @@ Node::Node(int x, int y) : inputs{}, outputs{}, interfaces{}, relations{}, notif
     emit Registry::getRegistry()->notifier->nodeAdded(this);
 }
 
+void swap(Node& first, Node& second)
+{
+	using std::swap;
+	swap(first.inputs, second.inputs);
+	swap(first.outputs, second.outputs);
+	swap(first.interfaces, second.interfaces);
+	swap(first.relations, second.relations);
+	swap(first.notifier, second.notifier);
+	swap(first.pos, second.pos);
+}
+
 void Node::connect(Node* from, int numOutput, Node* to, int numInput)
 {
     connect(from->outputs[numOutput], to->inputs[numInput]);
