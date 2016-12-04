@@ -42,3 +42,11 @@ bool NodeOutput::loopCheck(NodeInput* origin)
 	}
 	return false;
 }
+
+void NodeOutput::invalidateCache()
+{
+	for(std::unordered_set<NodeInput*>::iterator it{connections.begin()}; it != connections.end(); it++)
+	{
+		(*it)->invalidateCache();
+	}
+}

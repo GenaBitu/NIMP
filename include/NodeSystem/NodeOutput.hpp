@@ -19,6 +19,7 @@ protected:
     NodeOutput(Node* parent, std::string name);
     virtual NodeData* getData() override;
 	virtual bool loopCheck(NodeInput* origin) override;
+	virtual void invalidateCache() override;
 private:
     std::unordered_set<NodeInput*> connections;
 };

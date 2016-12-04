@@ -66,6 +66,14 @@ void Node::setPos(int x, int y)
     notifier->moved();
 }
 
+void Node::invalidateCache()
+{
+	for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+	{
+		(*it)->invalidateCache();
+	}
+}
+
 Node::~Node()
 {
     for(std::vector<NodeInterface*>::iterator it{interfaces.begin()}; it != interfaces.end();)

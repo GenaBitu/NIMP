@@ -13,12 +13,13 @@ public:
     std::string name;
 	const NodeIONotifier* const notifier;
 protected:
-	const Node* parent;
+	Node* const parent;
     NodeIO() = delete;
     NodeIO(Node* parent, std::string name);
 	NodeIO(const NodeIO& other) = delete;
 	NodeIO& operator=(const NodeIO& other) = delete;
     virtual NodeData* getData() = 0;
 	virtual bool loopCheck(NodeInput* origin) = 0;
+	virtual void invalidateCache() = 0;
     ~NodeIO();
 };

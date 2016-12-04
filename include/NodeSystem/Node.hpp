@@ -28,6 +28,7 @@ public:
     QPoint getPos() const;
     void setPos(QPoint pos);
     void setPos(int x, int y);
+	virtual void invalidateCache();
     virtual ~Node();
 private:
     QPoint pos;

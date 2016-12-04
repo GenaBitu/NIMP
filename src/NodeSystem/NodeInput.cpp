@@ -1,22 +1,12 @@
 #include "NodeSystem/NodeInput.hpp"
 
+#include "NodeSystem/Node.hpp"
 #include "NodeSystem/NodeOutput.hpp"
 #include "NodeSystem/NodeIONotifier.hpp"
-
-NodeInput::NodeInput(Node* parent, std::string name) : NodeIO{parent, name}, connection{} {}
 
 NodeData* NodeInput::getData()
 {
     return connection != nullptr ? connection->getData() : nullptr;
-}
-
-bool NodeInput::loopCheck(NodeInput* origin)
-{
-	if(origin == this)
-	{
-		return true;
-	}
-	return connection != nullptr ? connection->loopCheck(origin) : false;
 }
 
 const NodeOutput* NodeInput::getConnection() const
@@ -41,6 +31,22 @@ void NodeInput::removeConnection(NodeOutput* connection)
         this->connection = nullptr;
         notifier->reconnected();
     }
+}
+
+NodeInput::NodeInput(Node* parent, std::string name) : NodeIO{parent, name}, connection{} {}
+
+bool NodeInput::loopCheck(NodeInput* origin)
+{
+	if(origin == this)
+	{
+		return true;
+	}
+	return connection != nullptr ? connection->loopCheck(origin) : false;
+}
+
+void NodeInput::invalidateCache()
+{
+	parent->invalidateCache();
 }
 
 NodeInput::~NodeInput() {}
