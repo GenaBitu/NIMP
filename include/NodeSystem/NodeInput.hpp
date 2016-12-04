@@ -16,6 +16,8 @@ public:
 protected:
     friend Node;
     NodeInput(Node* parent, std::string name);
+	NodeInput(const NodeInput& other) = delete;
+	NodeInput& operator=(const NodeInput& other) = delete;
     virtual ~NodeInput();
 private:
     NodeOutput* connection;

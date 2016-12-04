@@ -15,6 +15,8 @@ protected:
 	const Node* parent;
     NodeIO() = delete;
     NodeIO(Node* parent, std::string name);
+	NodeIO(const NodeIO& other) = delete;
+	NodeIO& operator=(const NodeIO& other) = delete;
     virtual NodeData* getData() = 0;
     ~NodeIO();
 };
