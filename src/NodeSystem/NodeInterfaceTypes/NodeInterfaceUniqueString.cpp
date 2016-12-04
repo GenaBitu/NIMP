@@ -30,7 +30,7 @@ void NodeInterfaceUniqueString::setValue(std::string value)
         }
     }
     values[group][this] = value;
-    emit valueChanged();
+    notifier->valueChanged();
 }
 
 NodeInterfaceUniqueString::~NodeInterfaceUniqueString()

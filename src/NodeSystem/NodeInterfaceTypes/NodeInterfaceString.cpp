@@ -10,5 +10,5 @@ const std::string& NodeInterfaceString::getValue()
 void NodeInterfaceString::setValue(std::string value)
 {
     this->value = value;
-    emit valueChanged();
+    notifier->valueChanged();
 }

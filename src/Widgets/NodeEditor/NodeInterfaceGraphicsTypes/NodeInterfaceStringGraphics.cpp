@@ -10,7 +10,7 @@ NodeInterfaceStringGraphics::NodeInterfaceStringGraphics(NodeGraphics* parent, N
     resize(width(), textbox->height());
     show();
     QObject::connect(textbox, &QLineEdit::editingFinished, this, &NodeInterfaceStringGraphics::triggered);
-    QObject::connect(interface, &NodeInterfaceString::valueChanged, this, &NodeInterfaceStringGraphics::valueChanged);
+    QObject::connect(interface->notifier, &NodeInterfaceNotifier::QtValueChanged, this, &NodeInterfaceStringGraphics::valueChanged);
 }
 
 void NodeInterfaceStringGraphics::triggered()

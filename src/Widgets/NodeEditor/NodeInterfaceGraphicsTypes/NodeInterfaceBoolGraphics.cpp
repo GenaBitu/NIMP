@@ -11,7 +11,7 @@ NodeInterfaceBoolGraphics::NodeInterfaceBoolGraphics(NodeGraphics* parent, NodeI
     resize(width(), checkbox->height());
     show();
     QObject::connect(checkbox, &QCheckBox::stateChanged, this, &NodeInterfaceBoolGraphics::triggered);
-    QObject::connect(interface, &NodeInterfaceBool::valueChanged, this, &NodeInterfaceBoolGraphics::valueChanged);
+    QObject::connect(interface->notifier, &NodeInterfaceNotifier::QtValueChanged, this, &NodeInterfaceBoolGraphics::valueChanged);
 }
 
 void NodeInterfaceBoolGraphics::triggered(int state)

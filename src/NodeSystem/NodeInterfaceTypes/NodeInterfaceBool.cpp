@@ -10,5 +10,5 @@ const bool& NodeInterfaceBool::getValue()
 void NodeInterfaceBool::setValue(bool value)
 {
     this->value = value;
-    emit valueChanged();
+	notifier->valueChanged();
 }

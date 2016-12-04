@@ -2,14 +2,16 @@
 
 #include "Global.hpp"
 
+#include "NodeSystem/NodeInterfaceNotifier.hpp"
+
 class Node;
 
-class NodeInterface : public QObject
+class NodeInterface
 {
-    Q_OBJECT
-    Q_DISABLE_COPY(NodeInterface)
 public:
     std::string name;
+	const NodeInterfaceNotifier* const notifier;
+	virtual ~NodeInterface();
 protected:
     const Node* parent;
     NodeInterface() = delete;

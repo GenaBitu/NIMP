@@ -9,6 +9,7 @@
 #include "NodeSystem/NodeData.hpp"
 #include "NodeSystem/NodeInput.hpp"
 #include "NodeSystem/NodeInterface.hpp"
+#include "NodeSystem/NodeInterfaceNotifier.hpp"
 #include "NodeSystem/NodeIO.hpp"
 #include "NodeSystem/NodeNotifier.hpp"
 #include "NodeSystem/NodeOutput.hpp"

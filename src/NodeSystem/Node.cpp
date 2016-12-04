@@ -95,4 +95,5 @@ Node::~Node()
     std::vector<Node*>& vec{Registry::getRegistry()->intrinsic->nodes};
     vec.erase(std::remove(vec.begin(), vec.end(), this), vec.end());
     notifier->deleted();
+    delete notifier;
 }
