@@ -15,7 +15,6 @@ CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 	NodeInterfaceUniqueString* interface{new NodeInterfaceUniqueString{this, "Display?"}};
     interfaces.push_back(interface);
 	Registry::getRegistry()->intrinsic->canvases[this] = interface->getValue();
-	QObject::connect(inputs[0]->notifier, &NodeIONotifier::QtReconnected, [this]()->void{this->inputsReconnected();});
 	QObject::connect(interface->notifier, &NodeInterfaceNotifier::QtValueChanged, [this]()->void{this->nameChanged();});
 	emit Registry::getRegistry()->notifier->canvasesChanged();
 }
@@ -23,6 +22,11 @@ CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 std::string CanvasNode::nodeName()
 {
     return "Canvas";
+}
+
+void CanvasNode::invalidateCache()
+{
+	notifier->imageChanged();
 }
 
 Texture* CanvasNode::getTexture()
@@ -43,11 +47,6 @@ CanvasNode::~CanvasNode()
 {
 	Registry::getRegistry()->intrinsic->canvases.erase(this);
 	emit Registry::getRegistry()->notifier->canvasesChanged();
-}
-
-void CanvasNode::inputsReconnected()
-{
-    notifier->imageChanged();
 }
 
 void CanvasNode::nameChanged()

@@ -46,12 +46,12 @@ void swap(KernelConvolution& first, KernelConvolution& second)
 NodeDataImage* KernelConvolution::convolve(const std::vector<NodeInput*> inputs)
 {
 	NodeDataImage* input{dynamic_cast<NodeDataImage*>(inputs[0]->getData())};
-	NodeDataImage* output{new NodeDataImage{input->width, input->height}};
 	if(input == nullptr)
 	{
 		// TODO: DIE HORRIBLY IN FLAMES
 		return nullptr;
 	}
+	NodeDataImage* output{new NodeDataImage{input->width, input->height}};
 	int offset{kernel->getWidth() / 2};
     for(int i{0}; i < input->width; i++)
 	{

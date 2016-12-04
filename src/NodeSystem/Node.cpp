@@ -35,6 +35,7 @@ void Node::connect(NodeOutput* from, NodeInput* to)
 	{
 		from->setConnection(to);
 		to->setConnection(from);
+		to->invalidateCache();
 	}
 }
 
@@ -47,6 +48,7 @@ void Node::disconnect(NodeOutput* from, NodeInput* to)
 {
     from->removeConnection(to);
     to->removeConnection(from);
+	to->invalidateCache();
 }
 
 QPoint Node::getPos() const
