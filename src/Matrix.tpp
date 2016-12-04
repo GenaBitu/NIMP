@@ -9,10 +9,7 @@ Matrix<T, U>::Matrix(int width, int height) : data{new T[width * height]{0}}, wi
 template<typename T, typename U>
 Matrix<T, U>::Matrix(const Matrix& other) : data{new T[width * height]{}}, width{other.width}, height{other.height}
 {
-	for(int i{0}; i < width * height; i++)
-	{
-		data[i] = other.data[i];
-	}
+	std::copy(other.data, other.data + (width * height), data);
 }
 
 template<typename T, typename U>

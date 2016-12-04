@@ -78,5 +78,6 @@ NodeDataImage* KernelConvolution::convolve(const std::vector<NodeInput*> inputs)
 			}
 		}
 	}
+	delete input;
 	return output;
 }
