@@ -16,4 +16,6 @@ protected:
     const Node* parent;
     NodeInterface() = delete;
     NodeInterface(Node* parent, std::string name);
+	NodeInterface(const NodeInterface& other) = delete;
+	NodeInterface& operator=(const NodeInterface& other) = delete;
 };
