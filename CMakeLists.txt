@@ -85,7 +85,8 @@ set(HEADER_FILES
     include/Nodes/BoxBlur.hpp
     include/NodeSystem/NodeNotifier.hpp
     include/NodeSystem/NodeInterfaceNotifier.hpp
-    include/NodeSystem/NodeIONotifier.hpp)
+    include/NodeSystem/NodeIONotifier.hpp
+    include/Nodes/SeparateRGB.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -145,7 +146,8 @@ set(SOURCE_FILES
     src/Nodes/BoxBlur.cpp
     src/NodeSystem/NodeNotifier.cpp
     src/NodeSystem/NodeInterfaceNotifier.cpp
-    src/NodeSystem/NodeIONotifier.cpp)
+    src/NodeSystem/NodeIONotifier.cpp
+    src/Nodes/SeparateRGB.cpp)
 
 set(RESOURCE_FILES
     images.qrc)

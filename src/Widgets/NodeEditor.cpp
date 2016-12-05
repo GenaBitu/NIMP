@@ -27,9 +27,11 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QMenu* node{new QMenu{"Add node"}};
     QMenu* input{new QMenu{"Input"}};
     QMenu* output{new QMenu{"Output"}};
+    QMenu* transform{new QMenu{"Transform"}};
     QMenu* effect{new QMenu{"Effect"}};
     QAction* inputBMP{new QAction{"BMP file", editor}};
     QAction* outputCanvas{new QAction{"Canvas", editor}};
+    QAction* transformSeparateRGB{new QAction{"Separate RGB", editor}};
     QAction* effectGaussianBlur{new QAction{"Gaussian blur", editor}};
     QAction* effectSharpen{new QAction{"Sharpen", editor}};
     QAction* effectUnsharp{new QAction{"Unsharp mask", editor}};
@@ -37,6 +39,7 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QAction* effectBoxBlur{new QAction{"Box blur", editor}};
     QObject::connect(inputBMP, &QAction::triggered, []()->void{new BMPinput{"tex2D2.bmp"};});
     QObject::connect(outputCanvas, &QAction::triggered, []()->void{new CanvasNode{};});
+	QObject::connect(transformSeparateRGB, &QAction::triggered, []()->void{new SeparateRGB{};});
     QObject::connect(effectGaussianBlur, &QAction::triggered, []()->void{new GaussianBlur{};});
     QObject::connect(effectSharpen, &QAction::triggered, []()->void{new Sharpen{};});
     QObject::connect(effectUnsharp, &QAction::triggered, []()->void{new Unsharp{};});
@@ -44,6 +47,7 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QObject::connect(effectBoxBlur, &QAction::triggered, []()->void{new BoxBlur{};});
     input->addAction(inputBMP);
     output->addAction(outputCanvas);
+	transform->addAction(transformSeparateRGB);
     effect->addAction(effectGaussianBlur);
     effect->addAction(effectSharpen);
     effect->addAction(effectUnsharp);
@@ -51,6 +55,7 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     effect->addAction(effectBoxBlur);
     node->addMenu(input);
     node->addMenu(output);
+    node->addMenu(transform);
     node->addMenu(effect);
     bar->addMenu(node);
 }
