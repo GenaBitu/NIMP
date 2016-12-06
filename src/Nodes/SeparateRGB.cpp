@@ -2,6 +2,7 @@
 
 #include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
 #include "NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp"
+#include "RowSelector.hpp"
 
 SeparateRGB::SeparateRGB()
 {
@@ -21,15 +22,57 @@ std::string SeparateRGB::nodeName()
 
 NodeDataMonochrome* SeparateRGB::separateR(const std::vector<NodeInput*> inputs)
 {
-
+	NodeDataImage* input{dynamic_cast<NodeDataImage*>(inputs[0]->getData())};
+	if(input == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+		return nullptr;
+	}
+	NodeDataMonochrome* output{new NodeDataMonochrome{input->width, input->height}};
+	for(int i{0}; i < input->width; i++)
+	{
+		for(int j{0}; j < input->height; j++)
+		{
+			(*output)[i][j].v = (*input)[i][j].r;
+			(*output)[i][j].a = (*input)[i][j].a;
+		}
+	}
 }
 
 NodeDataMonochrome* SeparateRGB::separateG(const std::vector<NodeInput*> inputs)
 {
-
+	NodeDataImage* input{dynamic_cast<NodeDataImage*>(inputs[0]->getData())};
+	if(input == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+		return nullptr;
+	}
+	NodeDataMonochrome* output{new NodeDataMonochrome{input->width, input->height}};
+	for(int i{0}; i < input->width; i++)
+	{
+		for(int j{0}; j < input->height; j++)
+		{
+			(*output)[i][j].v = (*input)[i][j].g;
+			(*output)[i][j].a = (*input)[i][j].a;
+		}
+	}
 }
 
 NodeDataMonochrome* SeparateRGB::separateB(const std::vector<NodeInput*> inputs)
 {
-
+	NodeDataImage* input{dynamic_cast<NodeDataImage*>(inputs[0]->getData())};
+	if(input == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+		return nullptr;
+	}
+	NodeDataMonochrome* output{new NodeDataMonochrome{input->width, input->height}};
+	for(int i{0}; i < input->width; i++)
+	{
+		for(int j{0}; j < input->height; j++)
+		{
+			(*output)[i][j].v = (*input)[i][j].b;
+			(*output)[i][j].a = (*input)[i][j].a;
+		}
+	}
 }
