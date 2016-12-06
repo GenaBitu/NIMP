@@ -49,10 +49,11 @@ void TempPath::mouseMoveEvent(QMouseEvent* event)
         rX = event->x();
         rY = event->y();
     }
+    double sharpness{std::max(static_cast<double>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"]), 0.4f * (rX - lX))};
     delete path;
     path = new QPainterPath{};
     path->moveTo(lX, lY);
-    path->cubicTo(lX + Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"], lY, rX - Registry::getRegistry()->extrinsic->GUI->dimensions["NodePathSharpness"], rY, rX, rY);
+    path->cubicTo(lX + sharpness, lY, rX - sharpness, rY, rX, rY);
     update();
 }
 

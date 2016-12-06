@@ -24,7 +24,7 @@ Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}, keys{}, styleshe
     dimensions["NodeInterfaceSpacing"] = 10;
     dimensions["NodePathWidth"] = 1;
     dimensions["NodePathClickableWidth"] = 20;
-    dimensions["NodePathSharpness"] = 75;
+    dimensions["NodePathSharpness"] = 30;
     dimensions["NodePathCutterWidth"] = 1;
     keys["Delete"] = Qt::Key_Delete;
     stylesheets["NodeInterfaceBoolGraphics"] = "QCheckBox {background-color: " + palette["NodeBackground"].name().toStdString() + "; outline: 0;}";
