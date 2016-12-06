@@ -87,7 +87,8 @@ set(HEADER_FILES
     include/NodeSystem/NodeInterfaceNotifier.hpp
     include/NodeSystem/NodeIONotifier.hpp
     include/Nodes/SeparateRGB.hpp
-    include/Nodes/MixRGB.hpp)
+    include/Nodes/MixRGB.hpp
+    include/Nodes/InvertMonochrome.hpp)
 
 set(SOURCE_FILES
     src/Nodes/BMPinput.cpp
@@ -149,7 +150,8 @@ set(SOURCE_FILES
     src/NodeSystem/NodeInterfaceNotifier.cpp
     src/NodeSystem/NodeIONotifier.cpp
     src/Nodes/SeparateRGB.cpp
-    src/Nodes/MixRGB.cpp)
+    src/Nodes/MixRGB.cpp
+    src/Nodes/InvertMonochrome.cpp)
 
 set(RESOURCE_FILES
     images.qrc)

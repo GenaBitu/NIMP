@@ -31,7 +31,8 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QMenu* effect{new QMenu{"Effect"}};
     QAction* inputBMP{new QAction{"BMP file", editor}};
     QAction* outputCanvas{new QAction{"Canvas", editor}};
-    QAction* transformSeparateRGB{new QAction{"Separate RGB", editor}};
+    QAction* transformInvertMonochrome{new QAction{"Invert monochromatic", editor}};
+	QAction* transformSeparateRGB{new QAction{"Separate RGB", editor}};
 	QAction* transformMixRGB{new QAction{"Mix RGB", editor}};
     QAction* effectGaussianBlur{new QAction{"Gaussian blur", editor}};
     QAction* effectSharpen{new QAction{"Sharpen", editor}};
@@ -40,7 +41,8 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QAction* effectBoxBlur{new QAction{"Box blur", editor}};
     QObject::connect(inputBMP, &QAction::triggered, []()->void{new BMPinput{"tex2D2.bmp"};});
     QObject::connect(outputCanvas, &QAction::triggered, []()->void{new CanvasNode{};});
-	QObject::connect(transformSeparateRGB, &QAction::triggered, []()->void{new SeparateRGB{};});
+	QObject::connect(transformInvertMonochrome, &QAction::triggered, []()->void{new InvertMonochrome{};});
+    QObject::connect(transformSeparateRGB, &QAction::triggered, []()->void{new SeparateRGB{};});
 	QObject::connect(transformMixRGB, &QAction::triggered, []()->void{new MixRGB{};});
     QObject::connect(effectGaussianBlur, &QAction::triggered, []()->void{new GaussianBlur{};});
     QObject::connect(effectSharpen, &QAction::triggered, []()->void{new Sharpen{};});
@@ -49,7 +51,8 @@ void NodeEditor::populateBar(SwitchingBar* bar, QWidget* widget)
     QObject::connect(effectBoxBlur, &QAction::triggered, []()->void{new BoxBlur{};});
     input->addAction(inputBMP);
     output->addAction(outputCanvas);
-	transform->addAction(transformSeparateRGB);
+	transform->addAction(transformInvertMonochrome);
+    transform->addAction(transformSeparateRGB);
 	transform->addAction(transformMixRGB);
     effect->addAction(effectGaussianBlur);
     effect->addAction(effectSharpen);
