@@ -37,6 +37,7 @@ NodeDataMonochrome* SeparateRGB::separateR(const std::vector<NodeInput*> inputs)
 			(*output)[i][j].a = (*input)[i][j].a;
 		}
 	}
+	return output;
 }
 
 NodeDataMonochrome* SeparateRGB::separateG(const std::vector<NodeInput*> inputs)
@@ -56,6 +57,7 @@ NodeDataMonochrome* SeparateRGB::separateG(const std::vector<NodeInput*> inputs)
 			(*output)[i][j].a = (*input)[i][j].a;
 		}
 	}
+	return output;
 }
 
 NodeDataMonochrome* SeparateRGB::separateB(const std::vector<NodeInput*> inputs)
@@ -75,4 +77,5 @@ NodeDataMonochrome* SeparateRGB::separateB(const std::vector<NodeInput*> inputs)
 			(*output)[i][j].a = (*input)[i][j].a;
 		}
 	}
+	return output;
 }

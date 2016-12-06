@@ -2,14 +2,15 @@
 
 #include "Global.hpp"
 
+class NodeDataMonochrome;
+
 #include "NodeSystem/Node.hpp"
-#include "NodeSystem/NodeDataTypes/NodeDataMonochrome.hpp"
 
 class SeparateRGB : public Node
 {
 public:
 	SeparateRGB();
-	virtual std::string nodeName();
+	virtual std::string nodeName() override;
 private:
 	NodeDataMonochrome* separateR(const std::vector<NodeInput*> inputs);
 	NodeDataMonochrome* separateG(const std::vector<NodeInput*> inputs);
