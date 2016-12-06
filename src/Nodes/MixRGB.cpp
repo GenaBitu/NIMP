@@ -15,7 +15,7 @@ MixRGB::MixRGB()
 
 std::string MixRGB::nodeName()
 {
-	return "Separate RGB";
+	return "Mix RGB";
 }
 
 NodeDataImage* MixRGB::mix(const std::vector<NodeInput*> inputs)
@@ -23,9 +23,12 @@ NodeDataImage* MixRGB::mix(const std::vector<NodeInput*> inputs)
 	NodeDataMonochrome* inputR{dynamic_cast<NodeDataMonochrome*>(inputs[0]->getData())};
 	NodeDataMonochrome* inputG{dynamic_cast<NodeDataMonochrome*>(inputs[1]->getData())};
 	NodeDataMonochrome* inputB{dynamic_cast<NodeDataMonochrome*>(inputs[2]->getData())};
-	if((inputR == nullptr) or (inputR == nullptr) or (inputR == nullptr))
+	if((inputR == nullptr) or (inputG == nullptr) or (inputB == nullptr))
 	{
-		// TODO: DIE HORRIBLY IN FLAMES
+		return nullptr;
+	}
+	if((inputR->width != inputB->width) or (inputR->width != inputG->width) or (inputR->height != inputB->height) or (inputR->height != inputG->height))
+	{
 		return nullptr;
 	}
 	NodeDataImage* output{new NodeDataImage{inputR->width, inputR->height}};
@@ -36,7 +39,7 @@ NodeDataImage* MixRGB::mix(const std::vector<NodeInput*> inputs)
 			(*output)[i][j].r = (*inputR)[i][j].v;
 			(*output)[i][j].g = (*inputG)[i][j].v;
 			(*output)[i][j].b = (*inputB)[i][j].v;
-			(*output)[i][j].a = (*inputR)[i][j].a;
+			(*output)[i][j].a = ((*inputR)[i][j].a + (*inputG)[i][j].a + (*inputB)[i][j].a) / 3;
 		}
 	}
 	return output;
