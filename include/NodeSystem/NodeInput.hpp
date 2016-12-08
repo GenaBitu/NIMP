@@ -16,7 +16,7 @@ public:
 protected:
     friend Node;
 	friend NodeOutput;
-    NodeInput(Node* parent, std::string name);
+    NodeInput(Node* parent, DataType type, std::string name);
 	NodeInput(const NodeInput& other) = delete;
 	NodeInput& operator=(const NodeInput& other) = delete;
 	virtual bool loopCheck(NodeInput* origin) override;

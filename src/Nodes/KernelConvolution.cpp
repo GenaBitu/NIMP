@@ -5,8 +5,8 @@
 
 KernelConvolution::KernelConvolution(int kernelSize) : kernel{new Kernel{kernelSize}}
 {
-	inputs.push_back(new NodeInputImage{this, "Image"});
-	outputs.push_back(new NodeOutputImage{this, "Image"});
+	inputs.push_back(new NodeInputImage{this, NodeIO::DataType::IMAGE, "Image"});
+	outputs.push_back(new NodeOutputImage{this, NodeIO::DataType::IMAGE, "Image"});
     relations.push_back(std::bind(&KernelConvolution::convolve, this, std::placeholders::_1));
 }
 

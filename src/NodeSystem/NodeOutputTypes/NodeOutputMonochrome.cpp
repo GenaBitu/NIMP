@@ -1,3 +1,3 @@
 #include "NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp"
 
-NodeOutputMonochrome::NodeOutputMonochrome(Node* parent, std::string name) : NodeOutput(parent, name) {}
+NodeOutputMonochrome::NodeOutputMonochrome(Node* parent, DataType type, std::string name) : NodeOutput(parent, type, name) {}

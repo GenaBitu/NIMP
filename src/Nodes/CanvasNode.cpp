@@ -11,7 +11,7 @@
 
 CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 {
-    inputs.push_back(new NodeInputImage{this, "Image"});
+    inputs.push_back(new NodeInputImage{this, NodeIO::DataType::IMAGE, "Image"});
 	NodeInterfaceUniqueString* interface{new NodeInterfaceUniqueString{this, "Display?"}};
     interfaces.push_back(interface);
 	Registry::getRegistry()->intrinsic->canvases[this] = interface->getValue();

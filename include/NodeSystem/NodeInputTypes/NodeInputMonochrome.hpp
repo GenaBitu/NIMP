@@ -8,5 +8,5 @@
 class NodeInputMonochrome : public NodeInput
 {
 public:
-    NodeInputMonochrome(Node* parent, std::string name);
+    NodeInputMonochrome(Node* parent, DataType type, std::string name);
 };

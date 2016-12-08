@@ -16,7 +16,7 @@ public:
 protected:
     friend Node;
     friend NodeInput;
-    NodeOutput(Node* parent, std::string name);
+    NodeOutput(Node* parent, DataType type, std::string name);
     virtual NodeData* getData() override;
 	virtual bool loopCheck(NodeInput* origin) override;
 	virtual void invalidateCache() override;

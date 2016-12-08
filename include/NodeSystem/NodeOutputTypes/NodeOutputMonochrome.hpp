@@ -8,5 +8,5 @@
 class NodeOutputMonochrome : public NodeOutput
 {
 public:
-    NodeOutputMonochrome(Node* parent, std::string name);
+    NodeOutputMonochrome(Node* parent, DataType type, std::string name);
 };

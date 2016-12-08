@@ -23,7 +23,7 @@ void NodeOutput::removeConnection(NodeInput* connection)
 
 NodeOutput::~NodeOutput() {}
 
-NodeOutput::NodeOutput(Node* parent, std::string name) : NodeIO{parent, name}, connections{} {}
+NodeOutput::NodeOutput(Node* parent, DataType type, std::string name) : NodeIO{parent, type, name}, connections{} {}
 
 NodeData* NodeOutput::getData()
 {

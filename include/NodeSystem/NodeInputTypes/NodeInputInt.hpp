@@ -8,5 +8,5 @@
 class NodeInputInt : public NodeInput
 {
 public:
-    NodeInputInt(Node* parent, std::string name);
+    NodeInputInt(Node* parent, DataType type, std::string name);
 };

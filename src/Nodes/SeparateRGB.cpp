@@ -6,10 +6,10 @@
 
 SeparateRGB::SeparateRGB()
 {
-	inputs.push_back(new NodeInputImage{this, "Image"});
-	outputs.push_back(new NodeOutputMonochrome{this, "Red"});
-	outputs.push_back(new NodeOutputMonochrome{this, "Green"});
-	outputs.push_back(new NodeOutputMonochrome{this, "Blue"});
+	inputs.push_back(new NodeInputImage{this, NodeIO::DataType::IMAGE, "Image"});
+	outputs.push_back(new NodeOutputMonochrome{this, NodeIO::DataType::MONOCHROME, "Red"});
+	outputs.push_back(new NodeOutputMonochrome{this, NodeIO::DataType::MONOCHROME, "Green"});
+	outputs.push_back(new NodeOutputMonochrome{this, NodeIO::DataType::MONOCHROME, "Blue"});
 	relations.push_back(std::bind(&SeparateRGB::separateR, this, std::placeholders::_1));
 	relations.push_back(std::bind(&SeparateRGB::separateG, this, std::placeholders::_1));
 	relations.push_back(std::bind(&SeparateRGB::separateB, this, std::placeholders::_1));

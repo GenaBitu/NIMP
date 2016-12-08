@@ -6,8 +6,8 @@
 
 InvertMonochrome::InvertMonochrome()
 {
-	inputs.push_back(new NodeInputMonochrome{this, "Image"});
-	outputs.push_back(new NodeOutputMonochrome{this, "Image"});
+	inputs.push_back(new NodeInputMonochrome{this, NodeIO::DataType::MONOCHROME, "Image"});
+	outputs.push_back(new NodeOutputMonochrome{this, NodeIO::DataType::MONOCHROME, "Image"});
 	relations.push_back(std::bind(&InvertMonochrome::invert, this, std::placeholders::_1));
 }
 

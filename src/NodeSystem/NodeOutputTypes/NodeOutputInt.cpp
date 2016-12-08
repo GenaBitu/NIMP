@@ -1,3 +1,3 @@
 #include "NodeSystem/NodeOutputTypes/NodeOutputInt.hpp"
 
-NodeOutputInt::NodeOutputInt(Node* parent, std::string name) : NodeOutput(parent, name) {}
+NodeOutputInt::NodeOutputInt(Node* parent, DataType type, std::string name) : NodeOutput(parent, type, name) {}

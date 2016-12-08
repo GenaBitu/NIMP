@@ -6,10 +6,10 @@
 
 MixRGB::MixRGB()
 {
-	inputs.push_back(new NodeInputMonochrome{this, "Red"});
-	inputs.push_back(new NodeInputMonochrome{this, "Green"});
-	inputs.push_back(new NodeInputMonochrome{this, "Blue"});
-	outputs.push_back(new NodeOutputImage{this, "Image"});
+	inputs.push_back(new NodeInputMonochrome{this, NodeIO::DataType::MONOCHROME, "Red"});
+	inputs.push_back(new NodeInputMonochrome{this, NodeIO::DataType::MONOCHROME, "Green"});
+	inputs.push_back(new NodeInputMonochrome{this, NodeIO::DataType::MONOCHROME, "Blue"});
+	outputs.push_back(new NodeOutputImage{this, NodeIO::DataType::IMAGE, "Image"});
 	relations.push_back(std::bind(&MixRGB::mix, this, std::placeholders::_1));
 }
 

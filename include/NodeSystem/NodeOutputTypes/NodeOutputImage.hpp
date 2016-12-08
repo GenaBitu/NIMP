@@ -8,5 +8,5 @@
 class NodeOutputImage : public NodeOutput
 {
 public:
-    NodeOutputImage(Node* parent, std::string name);
+    NodeOutputImage(Node* parent, DataType type, std::string name);
 };

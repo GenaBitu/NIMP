@@ -33,7 +33,7 @@ void NodeInput::removeConnection(NodeOutput* connection)
     }
 }
 
-NodeInput::NodeInput(Node* parent, std::string name) : NodeIO{parent, name}, connection{} {}
+NodeInput::NodeInput(Node* parent, DataType type, std::string name) : NodeIO{parent, type, name}, connection{} {}
 
 bool NodeInput::loopCheck(NodeInput* origin)
 {

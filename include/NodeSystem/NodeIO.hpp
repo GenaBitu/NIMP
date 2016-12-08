@@ -10,12 +10,14 @@ class NodeInput;
 class NodeIO
 {
 public:
+	enum class DataType{INT, MONOCHROME, IMAGE};
+	const DataType type;
     std::string name;
 	const NodeIONotifier* const notifier;
 protected:
 	Node* const parent;
     NodeIO() = delete;
-    NodeIO(Node* parent, std::string name);
+    NodeIO(Node* parent, DataType type, std::string name);
 	NodeIO(const NodeIO& other) = delete;
 	NodeIO& operator=(const NodeIO& other) = delete;
     virtual NodeData* getData() = 0;

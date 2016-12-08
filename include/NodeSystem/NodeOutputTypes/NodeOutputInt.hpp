@@ -8,5 +8,5 @@
 class NodeOutputInt : public NodeOutput
 {
 public:
-    NodeOutputInt(Node* parent, std::string name);
+    NodeOutputInt(Node* parent, DataType type, std::string name);
 };

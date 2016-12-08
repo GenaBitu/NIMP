@@ -8,5 +8,5 @@
 class NodeInputImage : public NodeInput
 {
 public:
-    NodeInputImage(Node* parent, std::string name);
+    NodeInputImage(Node* parent, DataType type, std::string name);
 };
