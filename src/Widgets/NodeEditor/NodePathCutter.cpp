@@ -40,7 +40,7 @@ void NodePathCutter::mouseReleaseEvent(QMouseEvent*)
             if(path->intersects(*(*it)->path))
             {
                 (*it)->disconnect();
-                break;
+	            it = editor->paths.begin();
             }
         }
     }
