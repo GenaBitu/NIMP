@@ -20,25 +20,17 @@ set(HEADER_FILES
     include/NodeSystem/NodeDataTypes/NodeDataImage.hpp
     include/NodeSystem/NodeDataTypes/NodeDataInt.hpp
     include/NodeSystem/NodeDataTypes/NodeDataMonochrome.hpp
-    include/NodeSystem/NodeInputTypes/NodeInputImage.hpp
-    include/NodeSystem/NodeInputTypes/NodeInputInt.hpp
-    include/NodeSystem/NodeInputTypes/NodeInputMonochrome.hpp
     include/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.hpp
     include/NodeSystem/NodeInterfaceTypes/NodeInterfaceString.hpp
     include/NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.hpp
-    include/NodeSystem/NodeOutputTypes/NodeOutputImage.hpp
-    include/NodeSystem/NodeOutputTypes/NodeOutputInt.hpp
-    include/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp
     include/NodeSystem/Node.hpp
     include/NodeSystem/NodeData.hpp
     include/NodeSystem/NodeDataTypes.hpp
     include/NodeSystem/NodeInput.hpp
-    include/NodeSystem/NodeInputTypes.hpp
     include/NodeSystem/NodeInterface.hpp
     include/NodeSystem/NodeInterfaceTypes.hpp
     include/NodeSystem/NodeIO.hpp
     include/NodeSystem/NodeOutput.hpp
-    include/NodeSystem/NodeOutputTypes.hpp
     include/RowSelector.hpp
     include/Registry/ExtrinsicRegistry.hpp
     include/Registry/GuiSettings.hpp
@@ -96,15 +88,9 @@ set(SOURCE_FILES
     src/NodeSystem/NodeDataTypes/NodeDataImage.cpp
     src/NodeSystem/NodeDataTypes/NodeDataInt.cpp
     src/NodeSystem/NodeDataTypes/NodeDataMonochrome.cpp
-    src/NodeSystem/NodeInputTypes/NodeInputImage.cpp
-    src/NodeSystem/NodeInputTypes/NodeInputInt.cpp
-    src/NodeSystem/NodeInputTypes/NodeInputMonochrome.cpp
     src/NodeSystem/NodeInterfaceTypes/NodeInterfaceBool.cpp
     src/NodeSystem/NodeInterfaceTypes/NodeInterfaceString.cpp
     src/NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.cpp
-    src/NodeSystem/NodeOutputTypes/NodeOutputImage.cpp
-    src/NodeSystem/NodeOutputTypes/NodeOutputInt.cpp
-    src/NodeSystem/NodeOutputTypes/NodeOutputMonochrome.cpp
     src/NodeSystem/Node.cpp
     src/NodeSystem/NodeData.cpp
     src/NodeSystem/NodeInput.cpp

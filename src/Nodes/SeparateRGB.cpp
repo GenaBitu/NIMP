@@ -1,15 +1,17 @@
 #include "Nodes/SeparateRGB.hpp"
 
-#include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
-#include "NodeSystem/NodeOutputTypes/NodeOutputMonochrome.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataMonochrome.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataImage.hpp"
 #include "RowSelector.hpp"
 
 SeparateRGB::SeparateRGB()
 {
-	inputs.push_back(new NodeInputImage{this, NodeIO::DataType::IMAGE, "Image"});
-	outputs.push_back(new NodeOutputMonochrome{this, NodeIO::DataType::MONOCHROME, "Red"});
-	outputs.push_back(new NodeOutputMonochrome{this, NodeIO::DataType::MONOCHROME, "Green"});
-	outputs.push_back(new NodeOutputMonochrome{this, NodeIO::DataType::MONOCHROME, "Blue"});
+	inputs.push_back(new NodeInput{this, NodeIO::DataType::IMAGE, "Image"});
+	outputs.push_back(new NodeOutput{this, NodeIO::DataType::MONOCHROME, "Red"});
+	outputs.push_back(new NodeOutput{this, NodeIO::DataType::MONOCHROME, "Green"});
+	outputs.push_back(new NodeOutput{this, NodeIO::DataType::MONOCHROME, "Blue"});
 	relations.push_back(std::bind(&SeparateRGB::separateR, this, std::placeholders::_1));
 	relations.push_back(std::bind(&SeparateRGB::separateG, this, std::placeholders::_1));
 	relations.push_back(std::bind(&SeparateRGB::separateB, this, std::placeholders::_1));

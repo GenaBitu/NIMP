@@ -1,15 +1,17 @@
 #include "Nodes/MixRGB.hpp"
 
-#include "NodeSystem/NodeInputTypes/NodeInputMonochrome.hpp"
-#include "NodeSystem/NodeOutputTypes/NodeOutputImage.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataMonochrome.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataImage.hpp"
 #include "RowSelector.hpp"
 
 MixRGB::MixRGB()
 {
-	inputs.push_back(new NodeInputMonochrome{this, NodeIO::DataType::MONOCHROME, "Red"});
-	inputs.push_back(new NodeInputMonochrome{this, NodeIO::DataType::MONOCHROME, "Green"});
-	inputs.push_back(new NodeInputMonochrome{this, NodeIO::DataType::MONOCHROME, "Blue"});
-	outputs.push_back(new NodeOutputImage{this, NodeIO::DataType::IMAGE, "Image"});
+	inputs.push_back(new NodeInput{this, NodeIO::DataType::MONOCHROME, "Red"});
+	inputs.push_back(new NodeInput{this, NodeIO::DataType::MONOCHROME, "Green"});
+	inputs.push_back(new NodeInput{this, NodeIO::DataType::MONOCHROME, "Blue"});
+	outputs.push_back(new NodeOutput{this, NodeIO::DataType::IMAGE, "Image"});
 	relations.push_back(std::bind(&MixRGB::mix, this, std::placeholders::_1));
 }
 

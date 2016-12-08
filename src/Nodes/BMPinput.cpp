@@ -1,11 +1,12 @@
 #include "Nodes/BMPinput.hpp"
 
-#include "NodeSystem/NodeOutputTypes/NodeOutputImage.hpp"
+#include "NodeSystem/NodeOutput.hpp"
 #include "RowSelector.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataImage.hpp"
 
 BMPinput::BMPinput(std::string filename, int x, int y) : Node(x, y), filename{filename}
 {
-    outputs.push_back(new NodeOutputImage{this, NodeIO::DataType::IMAGE, "Image"});
+    outputs.push_back(new NodeOutput{this, NodeIO::DataType::IMAGE, "Image"});
     relations.push_back(std::bind(&BMPinput::loadBMP, this, std::placeholders::_1));
 }
 

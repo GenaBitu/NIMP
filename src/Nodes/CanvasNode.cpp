@@ -1,17 +1,17 @@
 #include "Nodes/CanvasNode.hpp"
 
 #include "Texture.hpp"
-#include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
+#include "NodeSystem/NodeInput.hpp"
 #include "NodeSystem/NodeInterfaceTypes/NodeInterfaceUniqueString.hpp"
 #include "Widgets/Canvas.hpp"
 #include "Registry.hpp"
 #include "NodeSystem/NodeNotifier.hpp"
 #include "NodeSystem/NodeInterfaceNotifier.hpp"
-#include "NodeSystem/NodeIONotifier.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataImage.hpp"
 
 CanvasNode::CanvasNode(int x, int y) : Node(x, y)
 {
-    inputs.push_back(new NodeInputImage{this, NodeIO::DataType::IMAGE, "Image"});
+    inputs.push_back(new NodeInput{this, NodeIO::DataType::IMAGE, "Image"});
 	NodeInterfaceUniqueString* interface{new NodeInterfaceUniqueString{this, "Display?"}};
     interfaces.push_back(interface);
 	Registry::getRegistry()->intrinsic->canvases[this] = interface->getValue();

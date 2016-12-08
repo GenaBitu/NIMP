@@ -1,12 +1,13 @@
 #include "Nodes/KernelConvolution.hpp"
 
-#include "NodeSystem/NodeInputTypes/NodeInputImage.hpp"
-#include "NodeSystem/NodeOutputTypes/NodeOutputImage.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
+#include "NodeSystem/NodeDataTypes/NodeDataImage.hpp"
 
 KernelConvolution::KernelConvolution(int kernelSize) : kernel{new Kernel{kernelSize}}
 {
-	inputs.push_back(new NodeInputImage{this, NodeIO::DataType::IMAGE, "Image"});
-	outputs.push_back(new NodeOutputImage{this, NodeIO::DataType::IMAGE, "Image"});
+	inputs.push_back(new NodeInput{this, NodeIO::DataType::IMAGE, "Image"});
+	outputs.push_back(new NodeOutput{this, NodeIO::DataType::IMAGE, "Image"});
     relations.push_back(std::bind(&KernelConvolution::convolve, this, std::placeholders::_1));
 }
 
