@@ -120,3 +120,6 @@ Makefile*
 # QtCtreator CMake
 CMakeLists.txt.user*
 
+CppCheckResults.txt
+DoxygenResults.txt
+
