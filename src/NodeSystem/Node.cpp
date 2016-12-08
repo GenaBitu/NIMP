@@ -31,7 +31,7 @@ void Node::connect(Node* from, int numOutput, Node* to, int numInput)
 
 void Node::connect(NodeOutput* from, NodeInput* to)
 {
-	if(!from->loopCheck(to))
+	if(!from->loopCheck(to) and (from->type == to->type))
 	{
 		from->setConnection(to);
 		to->setConnection(from);
