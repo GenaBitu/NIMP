@@ -12,6 +12,8 @@ class NodeIOConnector : public QWidget
 public:
     NodeIOConnector(NodeInputGraphics* parent, NodeIO* connector, int x = 0, int y = 0);
     NodeIOConnector(NodeOutputGraphics* parent, NodeIO* connector, int x = 0, int y = 0);
+	NodeIOConnector(const NodeIOConnector&) = default;
+	NodeIOConnector& operator=(const NodeIOConnector&) = default;
 protected:
     virtual void mousePressEvent(QMouseEvent*) override;
     virtual void paintEvent(QPaintEvent*) override;

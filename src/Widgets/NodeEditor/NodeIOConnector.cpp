@@ -36,7 +36,7 @@ void NodeIOConnector::mousePressEvent(QMouseEvent*)
 
 void NodeIOConnector::paintEvent(QPaintEvent*)
 {
-    QColor fillColor{Registry::getRegistry()->extrinsic->GUI->palette["NodeConnectorInt"]};
+    QColor fillColor{};
 	switch(connector->type)
 	{
 		case NodeIO::DataType::MONOCHROME:
@@ -45,7 +45,9 @@ void NodeIOConnector::paintEvent(QPaintEvent*)
 		case NodeIO::DataType::IMAGE:
 			fillColor = Registry::getRegistry()->extrinsic->GUI->palette["NodeConnectorImage"];
 			break;
+		case NodeIO::DataType::INT:
 		default:
+			fillColor = Registry::getRegistry()->extrinsic->GUI->palette["NodeConnectorInt"];
 			break;
 	}
     QPainter painter{this};
