@@ -9,5 +9,4 @@ class NodeInputMonochrome : public NodeInput
 {
 public:
     NodeInputMonochrome(Node* parent, std::string name);
-    virtual NodeDataMonochrome* getData() override;
 };
