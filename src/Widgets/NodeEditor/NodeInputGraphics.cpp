@@ -6,7 +6,7 @@
 #include "Widgets/NodeEditor.hpp"
 #include "NodeSystem/NodeIONotifier.hpp"
 
-NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), connection{}, input{input}, connector{new NodeIOConnector{this}}
+NodeInputGraphics::NodeInputGraphics(NodeGraphics* parent, NodeInput* input, int y) : QWidget(parent), connection{}, input{input}, connector{new NodeIOConnector{this, input}}
 {
     resize(parent->width(), Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     move(0, y);

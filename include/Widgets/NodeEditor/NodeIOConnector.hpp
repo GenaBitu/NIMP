@@ -4,16 +4,18 @@
 
 class NodeInputGraphics;
 class NodeOutputGraphics;
+class NodeIO;
 
 class NodeIOConnector : public QWidget
 {
     Q_OBJECT
 public:
-    NodeIOConnector(NodeInputGraphics* parent, int x = 0, int y = 0);
-    NodeIOConnector(NodeOutputGraphics* parent, int x = 0, int y = 0);
+    NodeIOConnector(NodeInputGraphics* parent, NodeIO* connector, int x = 0, int y = 0);
+    NodeIOConnector(NodeOutputGraphics* parent, NodeIO* connector, int x = 0, int y = 0);
 protected:
     virtual void mousePressEvent(QMouseEvent*) override;
     virtual void paintEvent(QPaintEvent*) override;
 private:
     void init(int x, int y);
+	const NodeIO* const connector;
 };

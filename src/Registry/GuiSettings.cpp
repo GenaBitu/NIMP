@@ -8,7 +8,9 @@ Registry::GuiSettings::GuiSettings() : palette{}, dimensions{}, keys{}, styleshe
     palette["NodeHeaderSeparator"] = Qt::darkGray;
     palette["NodeHeaderText"] = Qt::black;
     palette["NodeConnectorBorder"] = Qt::darkGray;
-    palette["NodeConnectorBackground"] = Qt::yellow;
+    palette["NodeConnectorInt"] = Qt::gray;
+    palette["NodeConnectorMonochrome"] = Qt::yellow;
+    palette["NodeConnectorImage"] = QColor{0xff, 0xa0, 0x00};
     palette["NodeConnectorText"] = Qt::black;
     palette["NodePath"] = Qt::black;
     palette["NodePathActive"] = Qt::red;

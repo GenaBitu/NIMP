@@ -1,14 +1,15 @@
+#include <include/NodeSystem/NodeIO.hpp>
 #include "Widgets/NodeEditor/NodeIOConnector.hpp"
 
 #include "Registry.hpp"
 #include "Widgets/NodeEditor.hpp"
 
-NodeIOConnector::NodeIOConnector(NodeInputGraphics* parent, int x, int y) : QWidget(parent)
+NodeIOConnector::NodeIOConnector(NodeInputGraphics* parent, NodeIO* connector, int x, int y) : QWidget(parent), connector{connector}
 {
     init(x, y);
 }
 
-NodeIOConnector::NodeIOConnector(NodeOutputGraphics* parent, int x, int y) : QWidget(parent)
+NodeIOConnector::NodeIOConnector(NodeOutputGraphics* parent, NodeIO* connector, int x, int y) : QWidget(parent), connector{connector}
 {
     init(x, y);
 }
@@ -35,13 +36,25 @@ void NodeIOConnector::mousePressEvent(QMouseEvent*)
 
 void NodeIOConnector::paintEvent(QPaintEvent*)
 {
+    QColor fillColor{Registry::getRegistry()->extrinsic->GUI->palette["NodeConnectorInt"]};
+	switch(connector->type)
+	{
+		case NodeIO::DataType::MONOCHROME:
+			fillColor = Registry::getRegistry()->extrinsic->GUI->palette["NodeConnectorMonochrome"];
+			break;
+		case NodeIO::DataType::IMAGE:
+			fillColor = Registry::getRegistry()->extrinsic->GUI->palette["NodeConnectorImage"];
+			break;
+		default:
+			break;
+	}
     QPainter painter{this};
     painter.setRenderHint(QPainter::Antialiasing);
     QPainterPath border{};
     border.addEllipse(0, 0, Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"], Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorDiameter"]);
     QPen borderPen{Registry::getRegistry()->extrinsic->GUI->palette["NodeConnectorBorder"], static_cast<double>(Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorBorder"])};
     painter.setPen(borderPen);
-    painter.fillPath(border, Registry::getRegistry()->extrinsic->GUI->palette["NodeConnectorBackground"]);
+    painter.fillPath(border, fillColor);
     painter.drawPath(border);
 }
 
