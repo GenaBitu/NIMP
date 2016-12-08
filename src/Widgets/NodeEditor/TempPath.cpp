@@ -95,9 +95,9 @@ void TempPath::mouseReleaseEvent(QMouseEvent* event)
 	{
 		NodeGraphics::connect(leftConnector, right);
 	}
-	else if((right != nullptr) and (rightConnector != nullptr))
+	else if((right != nullptr) and (rightConnector != nullptr) and (right->connection != nullptr))
     {
-	    NodeGraphics::connect(right->connection->left, rightConnector);
+		NodeGraphics::connect(right->connection->left, rightConnector);
     }
     delete this;
 }
