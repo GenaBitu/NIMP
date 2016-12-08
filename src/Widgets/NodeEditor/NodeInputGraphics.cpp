@@ -26,9 +26,9 @@ void NodeInputGraphics::connect()
             // TODO: DIE HORRIBLY IN FLAMES
             return;
         }
-        for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
+        for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); ++it)
         {
-            for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)
+            for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); ++jt)
             {
                 if((*jt)->output == nodeOutput)
                 {

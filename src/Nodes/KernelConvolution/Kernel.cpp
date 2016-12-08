@@ -10,7 +10,7 @@ Kernel::Kernel(int size, std::initializer_list<float> list) : Kernel{size}
 void Kernel::set(std::initializer_list<float> list)
 {
     int i{0};
-    for(std::initializer_list<float>::iterator it{list.begin()}; it != list.end(); it++)
+    for(std::initializer_list<float>::iterator it{list.begin()}; it != list.end(); ++it)
     {
         if(i >= getWidth() * getHeight())
         {

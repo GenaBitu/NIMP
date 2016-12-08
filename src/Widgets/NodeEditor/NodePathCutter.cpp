@@ -35,7 +35,7 @@ void NodePathCutter::mouseReleaseEvent(QMouseEvent*)
 			// TODO: DIE HORRIBLY IN FLAMES
 			return;
 		}
-        for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); it++)
+        for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); ++it)
         {
             if(path->intersects(*(*it)->path))
             {

@@ -23,7 +23,7 @@ NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), 
 void NodeGraphics::addInterfaces()
 {
     interfaceHeight = 0;
-    for(std::vector<NodeInterface*>::iterator it{node->interfaces.begin()}; it != node->interfaces.end(); it++)
+    for(std::vector<NodeInterface*>::iterator it{node->interfaces.begin()}; it != node->interfaces.end(); ++it)
     {
         interfaceHeight += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeInterfaceSpacing"];
         NodeInterfaceGraphics* newItem{NodeInterfaceGraphics::interfaceFactory(this, *it, headerHeight + interfaceHeight)};
@@ -36,7 +36,7 @@ void NodeGraphics::addInterfaces()
 void NodeGraphics::addConnections()
 {
     connectionHeight = 0;
-    for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); it++)
+    for(std::vector<NodeInput*>::iterator it{node->inputs.begin()}; it != node->inputs.end(); ++it)
     {
         connectionHeight += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
         NodeInputGraphics* newItem{new NodeInputGraphics{this, *it, headerHeight + interfaceHeight + connectionHeight}};
@@ -44,7 +44,7 @@ void NodeGraphics::addConnections()
         newItem->connect();
         connectionHeight += newItem->height();
     }
-    for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); it++)
+    for(std::vector<NodeOutput*>::iterator it{node->outputs.begin()}; it != node->outputs.end(); ++it)
     {
         connectionHeight += Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"];
         NodeOutputGraphics* newItem{new NodeOutputGraphics{this, *it, headerHeight + interfaceHeight + connectionHeight}};
@@ -176,16 +176,16 @@ void NodeGraphics::removeConnections()
 
 void NodeGraphics::updateConnections()
 {
-    for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); it++)
+    for(std::vector<NodeInputGraphics*>::iterator it{inputs.begin()}; it != inputs.end(); ++it)
     {
         if((*it)->connection != nullptr)
         {
             (*it)->connection->reposition();
         }
     }
-    for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+    for(std::vector<NodeOutputGraphics*>::iterator it{outputs.begin()}; it != outputs.end(); ++it)
     {
-        for(std::unordered_set<NodePath*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); jt++)
+        for(std::unordered_set<NodePath*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); ++jt)
         {
             (*jt)->reposition();
         }

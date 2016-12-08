@@ -152,7 +152,7 @@ void Canvas::triggered(const QString &text)
 	}
 	node = nullptr;
 	std::string name = text.toStdString();
-	for(std::map<CanvasNode*, std::string>::iterator it{Registry::getRegistry()->intrinsic->canvases.begin()}; it != Registry::getRegistry()->intrinsic->canvases.end(); it++)
+	for(std::map<CanvasNode*, std::string>::iterator it{Registry::getRegistry()->intrinsic->canvases.begin()}; it != Registry::getRegistry()->intrinsic->canvases.end(); ++it)
 	{
 		if(it->second == name)
 		{
@@ -174,7 +174,7 @@ void Canvas::canvasesChanged()
 	{
 		node = nullptr;
 	}
-	for(std::map<CanvasNode*, std::string>::iterator it{Registry::getRegistry()->intrinsic->canvases.begin()}; it != Registry::getRegistry()->intrinsic->canvases.end(); it++)
+	for(std::map<CanvasNode*, std::string>::iterator it{Registry::getRegistry()->intrinsic->canvases.begin()}; it != Registry::getRegistry()->intrinsic->canvases.end(); ++it)
 	{
 		if(it->first != nullptr)
 		{

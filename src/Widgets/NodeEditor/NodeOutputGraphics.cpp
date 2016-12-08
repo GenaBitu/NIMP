@@ -22,12 +22,12 @@ void NodeOutputGraphics::connect()
 		{
 			// TODO: DIE HORRIBLY IN FLAMES
 		}
-        for(std::unordered_set<NodeInput*>::const_iterator it{output->getConnections().begin()}; it != output->getConnections().end(); it++)
+        for(std::unordered_set<NodeInput*>::const_iterator it{output->getConnections().begin()}; it != output->getConnections().end(); ++it)
         {
             NodeInputGraphics* inputConnector{nullptr};
-            for(std::vector<NodeGraphics*>::iterator jt{editor->nodes.begin()}; jt != editor->nodes.end(); jt++)
+            for(std::vector<NodeGraphics*>::iterator jt{editor->nodes.begin()}; jt != editor->nodes.end(); ++jt)
             {
-                for(std::vector<NodeInputGraphics*>::iterator kt{(*jt)->inputs.begin()}; kt != (*jt)->inputs.end(); kt++)
+                for(std::vector<NodeInputGraphics*>::iterator kt{(*jt)->inputs.begin()}; kt != (*jt)->inputs.end(); ++kt)
                 {
                     if((*kt)->input == (*it))
                     {

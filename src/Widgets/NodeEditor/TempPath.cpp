@@ -68,9 +68,9 @@ void TempPath::mouseReleaseEvent(QMouseEvent* event)
 	}
 	NodeOutputGraphics* leftConnector{nullptr};
 	NodeInputGraphics* rightConnector{nullptr};
-    for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); it++)
+    for(std::vector<NodeGraphics*>::iterator it{editor->nodes.begin()}; it != editor->nodes.end(); ++it)
     {
-		for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); jt++)
+		for(std::vector<NodeOutputGraphics*>::iterator jt{(*it)->outputs.begin()}; jt != (*it)->outputs.end(); ++jt)
 		{
 			if((*jt)->connector->mask().contains((*jt)->connector->mapFromGlobal(event->globalPos())))
 			{
@@ -78,7 +78,7 @@ void TempPath::mouseReleaseEvent(QMouseEvent* event)
 				break;
 			}
 		}
-		for(std::vector<NodeInputGraphics*>::iterator jt{(*it)->inputs.begin()}; jt != (*it)->inputs.end(); jt++)
+		for(std::vector<NodeInputGraphics*>::iterator jt{(*it)->inputs.begin()}; jt != (*it)->inputs.end(); ++jt)
 		{
 			if((*jt)->connector->mask().contains((*jt)->connector->mapFromGlobal(event->globalPos())))
 			{

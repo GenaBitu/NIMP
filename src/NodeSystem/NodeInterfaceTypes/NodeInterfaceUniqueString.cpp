@@ -21,7 +21,7 @@ void NodeInterfaceUniqueString::setValue(std::string value)
     while(rewritten)
     {
         rewritten = false;
-        for(std::map<NodeInterfaceUniqueString*, std::string>::iterator it{values[group].begin()}; it != values[group].end(); it++)
+        for(std::map<NodeInterfaceUniqueString*, std::string>::iterator it{values[group].begin()}; it != values[group].end(); ++it)
         {
             if(it->second == value)
             {

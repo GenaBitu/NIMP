@@ -70,7 +70,7 @@ void Node::setPos(int x, int y)
 
 void Node::invalidateCache()
 {
-	for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end(); it++)
+	for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end(); ++it)
 	{
 		(*it)->invalidateCache();
 	}
@@ -95,7 +95,7 @@ Node::~Node()
     }
     for(std::vector<NodeOutput*>::iterator it{outputs.begin()}; it != outputs.end();)
     {
-        for(std::unordered_set<NodeInput*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); jt++)
+        for(std::unordered_set<NodeInput*>::iterator jt{(*it)->connections.begin()}; jt != (*it)->connections.end(); ++jt)
         {
             if((*jt)->connection == (*it))
             {

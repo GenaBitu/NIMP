@@ -33,7 +33,7 @@ NodeData* NodeOutput::getData()
 
 bool NodeOutput::loopCheck(NodeInput* origin)
 {
-	for(std::vector<NodeInput*>::const_iterator it{parent->inputs.begin()}; it != parent->inputs.end(); it++)
+	for(std::vector<NodeInput*>::const_iterator it{parent->inputs.begin()}; it != parent->inputs.end(); ++it)
 	{
 		if((*it)->loopCheck(origin))
 		{
@@ -45,7 +45,7 @@ bool NodeOutput::loopCheck(NodeInput* origin)
 
 void NodeOutput::invalidateCache()
 {
-	for(std::unordered_set<NodeInput*>::iterator it{connections.begin()}; it != connections.end(); it++)
+	for(std::unordered_set<NodeInput*>::iterator it{connections.begin()}; it != connections.end(); ++it)
 	{
 		(*it)->invalidateCache();
 	}
