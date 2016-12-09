@@ -7,7 +7,7 @@ NodePathCutter::NodePathCutter(NodeEditor* parent, QPoint origin) : Selectable{p
 {
     show();
     grabMouse();
-    changeState(States::SELECTED);
+    changeState(State::SELECTED);
 }
 
 NodePathCutter::~NodePathCutter()

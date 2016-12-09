@@ -8,9 +8,9 @@ DefaultState::DefaultState(ActionWidget* widget) : ActionState{widget} {}
 
 DefaultState::DefaultState(const ActionState& other) : ActionState{other} {}
 
-ActionWidget::States DefaultState::getState()
+ActionWidget::State DefaultState::getState()
 {
-    return ActionWidget::States::DEFAULT;
+    return ActionWidget::State::DEFAULT;
 }
 
 void DefaultState::mousePressEvent(QMouseEvent* event)
@@ -20,7 +20,7 @@ void DefaultState::mousePressEvent(QMouseEvent* event)
         event->accept();
         *origin = event->globalPos() - widget->pos();
         widget->raise();
-        widget->changeState(ActionWidget::States::SELECTED);
+        widget->changeState(ActionWidget::State::SELECTED);
     }
     else
     {

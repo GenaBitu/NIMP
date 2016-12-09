@@ -5,24 +5,24 @@
 #include "WidgetActions/States/SelectedState.hpp"
 #include "WidgetActions/ActionWidgetContainer.hpp"
 
-void Draggable::changeState(States state)
+void Draggable::changeState(State state)
 {
     ActionState* oldState{this->state};
     switch(state)
     {
-    case States::DEFAULT:
+    case State::DEFAULT:
         this->state = new DefaultState{*oldState};
         update();
         delete oldState;
         deselect();
         break;
-    case States::SELECTED:
+    case State::SELECTED:
         this->state = new SelectedState{*oldState};
         update();
         delete oldState;
         select();
         break;
-    case States::DRAGGED:
+    case State::DRAGGED:
         this->state = new DraggedState{*oldState};
         update();
         delete oldState;

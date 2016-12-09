@@ -8,7 +8,7 @@ void ActionWidgetContainer::select(ActionWidget* widget)
 {
     if(selected != nullptr and selected != widget)
     {
-        selected->changeState(ActionWidget::States::DEFAULT);
+        selected->changeState(ActionWidget::State::DEFAULT);
     }
     selected = widget;
 }

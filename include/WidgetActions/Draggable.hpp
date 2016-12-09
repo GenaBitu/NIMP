@@ -8,7 +8,7 @@ class Draggable : public ActionWidget
 {
     Q_OBJECT
 public:
-    virtual void changeState(States state) override;
+    virtual void changeState(State state) override;
 protected:
     Draggable(ActionWidgetContainer* parent = nullptr);
     virtual void mousePressEvent(QMouseEvent* event) override;

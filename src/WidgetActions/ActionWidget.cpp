@@ -5,7 +5,7 @@
 
 ActionWidget::ActionWidget(ActionWidgetContainer* parent) : QWidget(parent), state{new DefaultState{this}} {}
 
-ActionWidget::States ActionWidget::getState()
+ActionWidget::State ActionWidget::getState()
 {
     return state->getState();
 }

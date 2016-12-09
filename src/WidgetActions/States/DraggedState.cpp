@@ -7,9 +7,9 @@ DraggedState::DraggedState(ActionWidget* widget) : ActionState{widget} {}
 
 DraggedState::DraggedState(const ActionState& other) : ActionState{other} {}
 
-ActionWidget::States DraggedState::getState()
+ActionWidget::State DraggedState::getState()
 {
-    return ActionWidget::States::DRAGGED;
+    return ActionWidget::State::DRAGGED;
 }
 
 QColor DraggedState::getColour(std::string colour)
@@ -26,5 +26,5 @@ void DraggedState::mouseReleaseEvent(QMouseEvent* event)
 {
     widget->move(event->globalPos() - *origin);
     *origin = QPoint{};
-    widget->changeState(ActionWidget::States::SELECTED);
+    widget->changeState(ActionWidget::State::SELECTED);
 }

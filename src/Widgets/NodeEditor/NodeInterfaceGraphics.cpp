@@ -45,7 +45,7 @@ bool NodeInterfaceGraphics::eventFilter(QObject*, QEvent* event)
             NodeGraphics* parent{dynamic_cast<NodeGraphics*>(parentWidget())};
             if(parent != nullptr)
 			{
-				parent->changeState(ActionWidget::States::SELECTED);
+				parent->changeState(ActionWidget::State::SELECTED);
 			}
 			else
 			{

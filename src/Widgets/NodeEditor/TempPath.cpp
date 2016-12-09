@@ -7,7 +7,7 @@ TempPath::TempPath(NodeEditor* parent, NodeInputGraphics* right) : Selectable{pa
 {
     show();
     grabMouse();
-    changeState(States::SELECTED);
+    changeState(State::SELECTED);
     lower();
 }
 
@@ -15,7 +15,7 @@ TempPath::TempPath(NodeEditor* parent, NodeOutputGraphics* left) : Selectable{pa
 {
     show();
     grabMouse();
-    changeState(States::SELECTED);
+    changeState(State::SELECTED);
     lower();
 }
 

@@ -9,6 +9,6 @@ class DefaultState : public ActionState
 public:
     DefaultState(ActionWidget* widget);
     DefaultState(const ActionState& other);
-    virtual ActionWidget::States getState() override;
+    virtual ActionWidget::State getState() override;
     virtual void mousePressEvent(QMouseEvent* event) override;
 };
