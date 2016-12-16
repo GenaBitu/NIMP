@@ -10,7 +10,7 @@ class ActionWidget : public QWidget
     Q_OBJECT
     Q_DISABLE_COPY(ActionWidget)
 public:
-    enum class State{DEFAULT, SELECTED, DRAGGED};
+    enum class State{DEFAULT, HIGHLIGHTED, SELECTED, DRAGGED};
     ActionWidget(ActionWidgetContainer* parent = nullptr);
     virtual State getState();
     virtual void changeState(State state) = 0;

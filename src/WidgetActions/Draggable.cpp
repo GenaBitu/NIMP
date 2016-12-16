@@ -1,9 +1,9 @@
 #include "WidgetActions/Draggable.hpp"
 
 #include "WidgetActions/States/DefaultState.hpp"
+#include "WidgetActions/States/HighlightedState.hpp"
 #include "WidgetActions/States/DraggedState.hpp"
 #include "WidgetActions/States/SelectedState.hpp"
-#include "WidgetActions/ActionWidgetContainer.hpp"
 
 void Draggable::changeState(State state)
 {
@@ -16,6 +16,12 @@ void Draggable::changeState(State state)
         delete oldState;
         deselect();
         break;
+	case State::HIGHLIGHTED:
+		this->state = new HighlightedState{*oldState};
+		update();
+		delete oldState;
+		deselect();
+		break;
     case State::SELECTED:
         this->state = new SelectedState{*oldState};
         update();
