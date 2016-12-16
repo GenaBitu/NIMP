@@ -15,8 +15,9 @@ public:
     friend void swap(ActionState& first, ActionState& second);
     virtual ActionWidget::State getState() = 0;
     virtual QColor getColour(std::string colour);
-    virtual void changeMask(QRegion* region);
-    virtual void changeMask(QPainterPath* path);
+    void setMask(QRegion* region);
+    void setMask(QPainterPath* path);
+	QRegion* getMask();
     virtual void mousePressEvent(QMouseEvent*);
     virtual void mouseMoveEvent(QMouseEvent*);
     virtual void mouseReleaseEvent(QMouseEvent*);

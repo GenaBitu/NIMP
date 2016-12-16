@@ -32,16 +32,21 @@ QColor ActionState::getColour(std::string colour)
     return Registry::getRegistry()->extrinsic->GUI->palette[std::get<0>((*palette)[colour])];
 }
 
-void ActionState::changeMask(QRegion* region)
+void ActionState::setMask(QRegion* region)
 {
     delete mask;
     mask = new QRegion{*region};
 }
 
-void ActionState::changeMask(QPainterPath* path)
+void ActionState::setMask(QPainterPath* path)
 {
     delete mask;
     mask = new QRegion{path->toFillPolygon().toPolygon()};
+}
+
+QRegion* ActionState::getMask()
+{
+	return new QRegion{*mask};
 }
 
 void ActionState::mousePressEvent(QMouseEvent*) {}
