@@ -5,6 +5,7 @@
 #include "WidgetActions/Selectable.hpp"
 
 class NodeEditor;
+class NodeGraphics;
 class NodeOutputGraphics;
 class NodeInputGraphics;
 class NodePathCutter;
@@ -21,6 +22,7 @@ public:
     void disconnect();
     ~NodePath();
 protected:
+	friend NodeGraphics;
     friend NodePathCutter;
     QPainterPath* path;
     virtual void keyPressEvent(QKeyEvent* event) override;

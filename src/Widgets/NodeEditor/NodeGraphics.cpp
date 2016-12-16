@@ -1,6 +1,8 @@
 #include "Widgets/NodeEditor/NodeGraphics.hpp"
 
 #include "NodeSystem/Node.hpp"
+#include "NodeSystem/NodeInput.hpp"
+#include "NodeSystem/NodeOutput.hpp"
 #include "NodeSystem/NodeNotifier.hpp"
 #include "Registry.hpp"
 #include "WidgetActions/States/ActionState.hpp"
@@ -120,6 +122,37 @@ void NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
 {
     Draggable::mouseReleaseEvent(event);
     node->setPos(pos());
+	NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+	if(editor == nullptr)
+	{
+		// TODO: DIE HORRIBLY IN FLAMES
+		return;
+	}
+	NodePath* insertedInto{nullptr};
+	for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); ++it)
+	{
+		QPainterPath path{};
+		path.setFillRule(Qt::WindingFill);
+		QRegion* mask{state->getMask()};
+		mask->translate(pos());
+		path.addRegion(*mask);
+		if((*it)->path->intersects(path))
+		{
+			insertedInto = *it;
+			break;
+		}
+	}
+	if(insertedInto != nullptr and inputs.size() > 0 and outputs.size() > 0)
+	{
+		if((insertedInto->left->output->type == inputs[0]->input->type) and (insertedInto->right->input->type == outputs[0]->output->type))
+		{
+			NodeOutput* left{insertedInto->left->output};
+			NodeInput* right{insertedInto->right->input};
+			Node::disconnect(left, right);
+			Node::connect(left, inputs[0]->input);
+			Node::connect(outputs[0]->output, right);
+		}
+	}
 }
 
 void NodeGraphics::paintEvent(QPaintEvent*)
