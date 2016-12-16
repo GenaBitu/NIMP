@@ -11,7 +11,7 @@
 const int NodeGraphics::headerHeight{Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeBorderWidth"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeHeaderHeight"]};
 const int NodeGraphics::footerHeight{Registry::getRegistry()->extrinsic->GUI->dimensions["NodeMargin"] + Registry::getRegistry()->extrinsic->GUI->dimensions["NodeConnectorSpacing"]};
 
-NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), inputs{}, outputs{}, interfaces{}, node{node}, interfaceHeight{}, connectionHeight{}
+NodeGraphics::NodeGraphics(NodeEditor* parent, Node* node) : Draggable(parent), inputs{}, outputs{}, interfaces{}, node{node}, interfaceHeight{}, connectionHeight{}, insertHighlight{}
 {
     setFocusPolicy(Qt::ClickFocus);
     resize(200, height());
@@ -118,39 +118,67 @@ void NodeGraphics::moveEvent(QMoveEvent*)
     updateConnections();
 }
 
+void NodeGraphics::mouseMoveEvent(QMouseEvent* event)
+{
+	Draggable::mouseMoveEvent(event);
+	if(inputs.size() > 0 and outputs.size() > 0 and inputs[0]->connection == nullptr and outputs[0]->connections.empty())
+	{
+		if(insertHighlight != nullptr)
+		{
+			insertHighlight->changeState(ActionWidget::State::DEFAULT);
+		}
+		NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+		if(editor == nullptr)
+		{
+			// TODO: DIE HORRIBLY IN FLAMES
+			return;
+		}
+		for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); ++it)
+		{
+			QPainterPath path{};
+			path.setFillRule(Qt::WindingFill);
+			QRegion* mask{state->getMask()};
+			mask->translate(pos());
+			path.addRegion(*mask);
+			if(((*it)->path->intersects(path)) and ((*it)->left->output->type == inputs[0]->input->type) and ((*it)->right->input->type == outputs[0]->output->type))
+			{
+				(*it)->changeState(ActionWidget::State::HIGHLIGHTED);
+				insertHighlight = *it;
+				break;
+			}
+		}
+	}
+}
+
 void NodeGraphics::mouseReleaseEvent(QMouseEvent* event)
 {
     Draggable::mouseReleaseEvent(event);
     node->setPos(pos());
-	NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
-	if(editor == nullptr)
+	insertHighlight = nullptr;
+	if(inputs.size() > 0 and outputs.size() > 0 and inputs[0]->connection == nullptr and outputs[0]->connections.empty())
 	{
-		// TODO: DIE HORRIBLY IN FLAMES
-		return;
-	}
-	NodePath* insertedInto{nullptr};
-	for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); ++it)
-	{
-		QPainterPath path{};
-		path.setFillRule(Qt::WindingFill);
-		QRegion* mask{state->getMask()};
-		mask->translate(pos());
-		path.addRegion(*mask);
-		if((*it)->path->intersects(path))
+		NodeEditor* editor{dynamic_cast<NodeEditor*>(parentWidget())};
+		if(editor == nullptr)
 		{
-			insertedInto = *it;
-			break;
+			// TODO: DIE HORRIBLY IN FLAMES
+			return;
 		}
-	}
-	if(insertedInto != nullptr and inputs.size() > 0 and outputs.size() > 0)
-	{
-		if((insertedInto->left->output->type == inputs[0]->input->type) and (insertedInto->right->input->type == outputs[0]->output->type))
+		for(std::unordered_set<NodePath*>::iterator it{editor->paths.begin()}; it != editor->paths.end(); ++it)
 		{
-			NodeOutput* left{insertedInto->left->output};
-			NodeInput* right{insertedInto->right->input};
-			Node::disconnect(left, right);
-			Node::connect(left, inputs[0]->input);
-			Node::connect(outputs[0]->output, right);
+			QPainterPath path{};
+			path.setFillRule(Qt::WindingFill);
+			QRegion* mask{state->getMask()};
+			mask->translate(pos());
+			path.addRegion(*mask);
+			if(((*it)->path->intersects(path)) and ((*it)->left->output->type == inputs[0]->input->type) and ((*it)->right->input->type == outputs[0]->output->type))
+			{
+				NodeOutput* left{(*it)->left->output};
+				NodeInput* right{(*it)->right->input};
+				Node::disconnect(left, right);
+				Node::connect(left, inputs[0]->input);
+				Node::connect(outputs[0]->output, right);
+				break;
+			}
 		}
 	}
 }

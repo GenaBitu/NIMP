@@ -9,6 +9,7 @@ class NodeEditor;
 class NodeInputGraphics;
 class NodeOutputGraphics;
 class NodeInterfaceGraphics;
+class NodePath;
 
 class NodeGraphics : public Draggable
 {
@@ -34,8 +35,10 @@ protected:
     static const int footerHeight;
     int interfaceHeight;
     int connectionHeight;
+	NodePath* insertHighlight;
     virtual void keyPressEvent(QKeyEvent* event) override;
     virtual void moveEvent(QMoveEvent*) override;
+	virtual void mouseMoveEvent(QMouseEvent* event) override;
     virtual void mouseReleaseEvent(QMouseEvent* event) override;
     virtual void paintEvent(QPaintEvent*) override;
     void reMask();
